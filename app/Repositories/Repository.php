@@ -32,6 +32,8 @@ abstract class Repository {
 	public function one($alias){
 	   return  $this->model->where('slug', $alias)->first();
     }
+
+
 }
 
 ?>

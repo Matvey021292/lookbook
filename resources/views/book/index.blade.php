@@ -6,12 +6,18 @@
 @section('slider')
 {!! $sliders !!}
 @endsection
+@section('search_content')
+    {!! $search !!}
+@endsection
 @section('home')
-{{--    {!! $home !!}--}}
+{{--    {!! $book !!}--}}
 @endsection
 @section('book')
 {!! $books !!}
 @endsection
 @section('bar')
 {!! $rightBar !!}
+@endsection
+@section('recently_view')
+    {!! $books_view !!}
 @endsection

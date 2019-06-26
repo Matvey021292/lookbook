@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
-use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 
 use Config;
@@ -19,6 +18,7 @@ class BooksController extends SiteController
         $this->a_rep = $a_rep;
         $this->bar = 'right';
         $this->template = env('THEME').'.books';
+
     }
 
     public function index()
@@ -26,7 +26,6 @@ class BooksController extends SiteController
         $books = $this->getBooks();
         $content = view(env('THEME').'.books_content')->with('books', $books)->render();
         $this->vars = array_add($this->vars,'content', $content);
-
         return $this->renderOutput();
     }
 
@@ -36,8 +35,9 @@ class BooksController extends SiteController
             return false;
         }
         $books->transform(function($item, $key){
-            $item->desc->book_img = str_replace('https://librusec.pro/static/img/', Config::get('settings.slider_path'), $item->desc->book_img);
+            $item->desc->book_img = env('THEME') . $item->desc->book_img;
             $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
+
             return $item;
         });
         return $books;
@@ -49,6 +49,10 @@ class BooksController extends SiteController
             return false;
         }
         return $authors;
+    }
+
+    public function getRating(){
+        echo 1;
     }
 
 

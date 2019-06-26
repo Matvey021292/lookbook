@@ -1,8 +1,8 @@
 <?php
 return [
-	'slider_path' => 'http://parser.com/author_image/',
-	'home_port_count' => 5,
-    'authors_show_count' => 7,
-    'pagination' => 18
+//	'slider_path' => asset(env('THEME')) .'/author_image/',
+	'home_port_count' => 14,
+    'authors_show_count' => 8,
+    'pagination' => 24
 ];
 ?>

@@ -15,34 +15,47 @@
 //     return view('welcome');
 // });
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('admin/routes','HomeController@admin')->middleware('admin');
-Route::resource('/','IndexController',
-	[
-		'only' => ['index'],
-		'names' => [
-			'index' => 'home'
-		]
-	]
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+Route::resource('/', 'IndexController',
+    [
+        'only' => ['index'],
+        'names' => [
+            'index' => 'home'
+        ]
+    ]
 );
 
-Route::resource('book','BookController',[
+Route::resource('book', 'BookController', [
     'parameters' => [
         'book' => 'alias'
     ]
 ]);
 
-//Route::resource('book/{book_alias?}','BookController',[
-//    'parameters' => [
-//        'book' => 'alias'
-//    ]
-//]);
 
-
-Route::resource('books','BooksController',[
+Route::resource('books', 'BooksController', [
     'parameters' => [
         'books' => 'alias'
     ]
 ]);
+
+
+Route::resource('authors', 'AuthorsController', [
+    'parameters' => [
+        'authors' => 'alias'
+    ]
+]);
+
+Route::resource('author', 'AuthorController', [
+    'parameters' => [
+        'author' => 'alias'
+    ]
+]);
+Route::resource('search', 'SearchController', [
+
+]);
+
+Route::post('/search', 'SearchController@searchIndex')->name('search');
+Route::get('/search', 'SearchController@search');

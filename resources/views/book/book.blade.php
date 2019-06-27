@@ -1,14 +1,6 @@
 @if($books)
     <div class="col-md-12">
-        <div class="row wpb_row inner row-fluid">
-            <div class="wpb_column column_container col-sm-12">
-                <div class="column-inner">
-                    <div class="wpb_wrapper">
-                        <h2 class="mb-0 ">Новинки</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h5 class="mb-0">Новинки</h5>
         <hr>
         <div class="book_container__lg grid-2">
             <div class="row cms-grid">

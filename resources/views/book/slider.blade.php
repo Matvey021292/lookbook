@@ -10,8 +10,7 @@
                 {!! $slider->book !!}
             </a>
             <div class="wrap-info">
-                <p class="product-author" style="color:black;">
-                Автор: <a href="{{ route('author.show', ['alias'=> $slider->author->slug]) }}">{{ $slider->author->title }}</a> </p>
+                <p class="product-author" style="color:black;"><a href="{{ route('author.show', ['alias'=> $slider->author->slug]) }}">{{ $slider->author->title }}</a> </p>
                 <div class="excerpt-product" style="color:black;">
                {{ $slider->desc->book_desc }}
                 </div>

@@ -27,8 +27,9 @@ class BookController extends SiteController
         $book->desc->book_img = asset(env('THEME') . $book->desc->book_img);
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
         $this->vars = array_add($this->vars, 'content', $content);
-        $book_session = array_merge($book->getAttributes(), $book->desc->getAttributes());
+        $book_session = array_merge($book->desc->getAttributes(),$book->getAttributes());
         $recently_viewed = session()->get('book.recently_viewed');
+
         if (!isset($recently_viewed)) {
             session()->push('book.recently_viewed', $book_session);
         } else {
@@ -36,12 +37,14 @@ class BookController extends SiteController
             foreach ($recently_viewed as $key => $recently){
                 if($recently['id'] == $book->id){
                     $bool = true;
+                    break;
                 }
             }
             if(!$bool){
                 session()->push('book.recently_viewed', $book_session);
             }
         }
+
         return $this->renderOutput();
     }
 

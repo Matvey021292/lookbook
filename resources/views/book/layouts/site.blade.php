@@ -150,15 +150,15 @@
                     </div>
                 </div>
             </div>
-            <div id="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            Copyright © 2018 <a href="http://cmssuperheroes.com">CMSSuperheroes. </a>All Right Reserved
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--            <div id="footer-bottom">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-xs-12">--}}
+{{--                            Copyright © 2018 <a href="http://cmssuperheroes.com">CMSSuperheroes. </a>All Right Reserved--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
         </footer>
     </div>

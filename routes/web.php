@@ -27,6 +27,7 @@ Route::resource('/', 'IndexController',
         ]
     ]
 );
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('book', 'BookController', [
     'parameters' => [
@@ -57,5 +58,11 @@ Route::resource('search', 'SearchController', [
 
 ]);
 
+Route::resource('profile', 'ProfileController', [
+
+]);
+
+
 Route::post('/search', 'SearchController@searchIndex')->name('search');
 Route::get('/search', 'SearchController@search');
+

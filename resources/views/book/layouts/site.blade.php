@@ -16,6 +16,7 @@
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/jquery-migrate.min.js'></script>
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/jquery.validate.js'></script>
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script> var $ = jQuery;</script>
 </head>
 
@@ -28,35 +29,28 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 top-left-3">
-                                <a class="go_to_login_link" href="/login">Вход / Регистрация</a>
+                                @guest
+                                <a class="go_to_login_link" href="/login"><i class="fas fa-door-open mr-2"></i>Вход / Регистрация</a>
+                                    @else
+                                    <a class="go_to_login_link" href="{{ route('logout') }}"><i class="fas fa-door-closed mr-2"></i>
+                                        {{ __('Выход') }}
+                                    </a>
+                                    @endif
                             </div>
                             <div class="col-sm-12 col-md-6 top-right-3">
-                                <div class="wrap-book-shelf clearfix">
-                                    <img src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/themes/book-junky/assets/images/icon-1.png"
-                                         alt="icon 1">
-                                    <div class="content">
-                                        <a href="http://demo.cmssuperheroes.com/themeforest/bookjunky/?page_id=432&book-shelf"
-                                           alt="My Account">
-                                            <h5>Bookshelf</h5>
-
-                                        </a>
-                                        <span class="aj-count">
-                                            Books                                </span>
+                                @guest
+                                    <div class="wrap-your-basket clearfix">
+                                        <div class="content">
+                                            <h5>  <a href="/login"> <i class="fas fa-user-astronaut mr-2 "></i>Личный кабинет </a> </h5>
+                                        </div>
                                     </div>
-                                </div>
+                                @else
                                 <div class="wrap-your-basket clearfix">
-                                    <img src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/themes/book-junky/assets/images/icon-2.png"
-                                         alt="icon 2">
                                     <div class="content">
-                                        <h5>
-                                            <a href="http://demo.cmssuperheroes.com/themeforest/bookjunky/?page_id=393">
-
-                                                Your Basket </a>
-                                        </h5>
-                                        <span>
-                                            0.00                            </span>
+                                        <h5>  <a href="/profile"><i class="fas fa-user-astronaut mr-2 "></i> Личный кабинет, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a> </h5>
                                     </div>
                                 </div>
+                                    @endif
                             </div>
                         </div>
 
@@ -129,7 +123,7 @@
                     @yield('search_content')
                     @yield('categories')
                     @yield('bar')
-
+                    @yield('profile')
                 </div>
             </div>
         </div>
@@ -231,7 +225,15 @@
             url: '{{URL::to('search')}}',
             data: {'search': $value},
             success: function (data) {
-                $('.search_result').addClass('active').html(data);
+                if(data.length){
+                    $('.search_result').addClass('active').html(data);
+                }else{
+                    $('.search_result').addClass('active').html('<li><span>Ничего не найдено</span></li>');
+                }
+
+            },
+            error:function(data){
+                console.log('error');
             }
         });
     })

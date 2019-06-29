@@ -42,9 +42,6 @@ class SiteController extends Controller
         $books_view = view(env('THEME') . '.recently_view')->with('books_view', $books_view)->render();
         $this->vars = array_add($this->vars, 'books_view', $books_view);
 
-//        echo "<pre>";
-//        print_r($books_viewed);
-//        echo "</pre>";
 
         if ($this->contentRightBar) {
             $rightBar = view(env('THEME') . '.rightBar')->with('content_rightBar', $this->contentRightBar)->render();

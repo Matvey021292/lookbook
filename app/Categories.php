@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    public $table = "categoty";
+    public $table = "category";
 
     public function author(){
         return $this->belongsTo('App\Author','author_id','id');

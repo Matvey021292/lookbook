@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\BookRelationship;
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends SiteController
 {
@@ -20,6 +22,21 @@ class ProfileController extends SiteController
         $books = 12;
         $content = view(env('THEME').'.profile_content')->with('books', $books)->render();
         $this->vars = array_add($this->vars,'content', $content);
+
+
+
+//        $user_id = Auth::user()->id;
+//
+//        $sessions = session()->get('book.recently_viewed');
+//        if($sessions){
+//            foreach ($sessions as $session){
+//                $relationship = new BookRelationship();
+//                $relationship->author_id =  $user_id;
+//                $relationship->book_id = $session['id'];
+//
+//                $relationship->save();
+//            }
+//        };
         return $this->renderOutput();
     }
 }

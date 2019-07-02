@@ -3,12 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Book;
 
 class Rating extends Model
 {
-    public $table = 'rating';
+    public $table = 'ratings';
 
-    public function book(){
-        return $this->belongsTo('App\Book','id','book_id');
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
     }
 }

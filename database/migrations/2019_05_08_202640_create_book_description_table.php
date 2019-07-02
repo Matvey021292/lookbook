@@ -17,7 +17,8 @@ class CreateBookDescriptionTable extends Migration
             $table->increments('id');
             $table->text('book_desc');
             $table->string('book_img');
-            
+            $table->string('size');
+
         });
     }
 

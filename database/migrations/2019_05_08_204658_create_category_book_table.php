@@ -13,7 +13,7 @@ class CreateCategoryBookTable extends Migration
      */
     public function up()
     {
-        Schema::create('categoty_book', function (Blueprint $table) {
+        Schema::create('category_book', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category');
             $table->string('slug');

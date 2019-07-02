@@ -15,9 +15,10 @@ class CreateBookFormatTable extends Migration
     {
         Schema::create('book_format', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fomat');
+            $table->string('format');
             $table->string('link');
-          
+
+
         });
     }
 

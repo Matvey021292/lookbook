@@ -17,6 +17,7 @@
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/jquery.validate.js'></script>
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script> var $ = jQuery;</script>
 </head>
 

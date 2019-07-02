@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeRatingTable extends Migration
+class CreateBookContent extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class ChangeRatingTable extends Migration
      */
     public function up()
     {
-        Schema::table('rating', function (Blueprint $table) {
-            $table->integer('book_id');
-            $table->foreign('book_id')->references('id')->on('book');
+        Schema::create('book_content', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('format_id');
+            $table->string('content');
         });
     }
 
@@ -26,8 +27,6 @@ class ChangeRatingTable extends Migration
      */
     public function down()
     {
-        Schema::table('rating', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('book_content');
     }
 }

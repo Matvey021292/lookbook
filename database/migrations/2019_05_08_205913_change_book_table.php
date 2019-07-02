@@ -17,8 +17,8 @@ class ChangeBookTable extends Migration
             //
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('author');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categoty');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('category');
         });
     }
 

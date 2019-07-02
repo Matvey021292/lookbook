@@ -53,7 +53,9 @@ class IndexController extends SiteController
         }
 
         $authors->transform(function ($item, $key) {
-            $item->desc->image = asset(env('THEME')) . $item->desc->image;
+            if($item->desc){
+                $item->desc->image = asset(env('THEME')) . $item->desc->image;
+            }
             return $item;
         });
         return $authors;
@@ -66,7 +68,8 @@ class IndexController extends SiteController
             return false;
         }
         $books->transform(function ($item, $key) {
-            $item->desc->book_img = asset(env('THEME')) . $item->desc->book_img;
+//            $item->desc->book_img = asset(env('THEME')) . str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
+            $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
             $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
             return $item;
         });

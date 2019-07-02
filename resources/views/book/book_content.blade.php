@@ -32,7 +32,158 @@
             </div>
         </div>
     </div>
+    <style type="text/css">
+        @-webkit-keyframes wobble {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            20% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+            40% {
+                -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+            60% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+            }
+            80% {
+                -webkit-transform: scale(0.96);
+                transform: scale(0.96);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        @keyframes wobble {
+            0% {
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            20% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+            40% {
+                -webkit-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+            60% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+            }
+            80% {
+                -webkit-transform: scale(0.96);
+                transform: scale(0.96);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        .star-rating {
+            border: 0;
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 2em;
+            text-align: center;
+            width: 5em;
+        }
+        .disabled-form{
+            position: relative;
+            display: inline-block;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            color: rgb(128, 128, 128);
+            cursor: pointer;
+        }
+        .star-rating :checked ~ label {
+            color: rgb(255, 212, 59);
+            webkit-animation: wobble 0.8s ease-out;
+            animation: wobble 0.8s ease-out;
+        }
+        .star-rating :hover ~ label {
+            color: rgb(250, 176, 5);
+        }
+        .error_message{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 0.3s linear;
 
+        }
+        .error_message.show{
+            -webkit-text-fill-color: transparent;
+            animation: hue 60s infinite linear;
+        }
+        @keyframes hue {
+            from {
+                filter: hue-rotate(0deg);
+            }
+            to {
+                filter: hue-rotate(-360deg);
+            }
+        }
+    </style>
+    <div class="stars">
+        <form action="{{route('postStar', $book->id)}}"  id="addStar" method="POST" >
+            <code>{{ csrf_field() }}
+                <div class="star-rating">
+                    @for($i = 0; $i<=5; $i++)
+                        @if($i <= $book->averageRating)
+                            <input  type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                            <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                        @else
+                            <input  type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                            <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                        @endif
+                    @endfor
+                </div>
+            </code>
+            <div class="error_message"></div>
+            <input type="hidden" name="book_id" value="{{$book->id}}">
+        </form>
+    </div>
+    <script type="text/javascript">
+        $('input[name="star"]').click(function () {
+            $val = $(this).val();
+            $this = $(this);
+            $form = $(this).parents('form');
+            if($form.hasClass('disabled-form')){
+                $('.error_message').html('Вы уже проголосовали');
+                return false;
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                method: "POST",
+                url: $form.attr('action'),
+                data: {'star': $val, 'id': $('input[name="book_id"]').val() },
+                success: function (e) {
+                },
+                error: function (e) {
+                }
+            })
+        })
+    </script>
     <div class="wrap-single-product post-180 product type-product status-publish has-post-thumbnail product_cat-romance product_cat-thriller product_tag-nightshade first instock taxable shipping-taxable purchasable product-type-simple">
         <div class="container">
             <div class="row">

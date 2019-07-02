@@ -13,7 +13,7 @@ class ChangeCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::table('categoty', function (Blueprint $table) {
+        Schema::table('category', function (Blueprint $table) {
             //
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('author');

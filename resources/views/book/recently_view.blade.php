@@ -15,7 +15,7 @@
                                                 <a href="{{ route('book.show', ['alias' => $book['slug']]) }}">
                                                     <img  src="{{ $book['book_img'] }}"
                                                          class="attachment-shop_catalog_image_size size-shop_catalog_image_size wp-post-image"
-                                                         alt="{ $book['book'] }}"> </a>
+                                                         alt="{{ $book['book'] }}"> </a>
                                             </div>
                                             <div class="content-popuplar">
                                                 <a class="popular-title"

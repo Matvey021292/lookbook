@@ -3,13 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 //use Spatie\Searchable\Searchable;
 //use Spatie\Searchable\SearchResult;
+use App\Rating;
+
 
 use App\BookDescription;
 
 class Book extends Model
 {
+    use Rateable;
+
     public $table = "book";
     protected $fillable = ['name'];
 
@@ -18,6 +23,10 @@ class Book extends Model
         return $this->belongsTo('App\BookDescription', 'id', 'book_id');
     }
 
+    public function rating()
+    {
+        return $this->hasMany('App\Rating','rateable_id','id');
+    }
     public function author()
     {
         return $this->belongsTo('App\Author', 'author_id', 'id');
@@ -33,8 +42,8 @@ class Book extends Model
         return $this->hasMany('App\Format', 'book_id', 'id');
     }
 
-    public function rating(){
-        return $this->hasOne('App\Rating','book_id','id');
-    }
+    // public function rating(){
+    //     return $this->hasOne('App\Rating','book_id','id');
+    // }
 
 }

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rating extends Model
 {
-    public $table = 'rating';
+    public $table = 'ratings';
 
-    public function book(){
-        return $this->belongsTo('App\Book','id','book_id');
-    }
+    // public function book(){
+    //     return $this->belongsTo('App\Book','id','book_id');
+    // }
 }

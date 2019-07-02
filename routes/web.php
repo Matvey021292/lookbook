@@ -62,6 +62,9 @@ Route::resource('profile', 'ProfileController', [
 
 ]);
 
+Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
+
+
 
 Route::post('/search', 'SearchController@searchIndex')->name('search');
 Route::get('/search', 'SearchController@search');

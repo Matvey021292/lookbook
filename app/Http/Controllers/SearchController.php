@@ -6,6 +6,7 @@ use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
 use Illuminate\Http\Request;
 use DB;
+use Config;
 class SearchController extends SiteController
 {
     public function __construct( BookRepository $b_rep, AuthorsRepository $a_rep){
@@ -30,7 +31,7 @@ class SearchController extends SiteController
                 $output .= '<ul>';
                 foreach ($products as $key => $product) {
                     $slug = route('book.show', ['alias' => $product->slug]);
-                    $image = asset(env('THEME')) . $product->book_img;
+                    $image = str_replace('https://flibusta.is/',Config::get('settings.path_image'), $product->book_img);
                     $book_ = '<span class="d-flex flex-column"><span>'.$product->book .'</span><small class="text-xs">'.$product->name.'</small></span>';
 
                     $output .= '<li data-id="' . $product->id . '"><a class="d-flex" href="' . $slug . '"><img src="' . $image . '" alt="">' .$book_ .'</a></li>';

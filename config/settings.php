@@ -4,6 +4,7 @@ return [
 	'home_port_count' => 14,
     'authors_show_count' => 8,
     'pagination' => 24,
-    'path_image' => 'http://parser/author_image/'
+    'path_image' => 'http://parser/author_image/',
+    'image_url'  => 'http://parser/'
 ];
 ?>

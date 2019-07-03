@@ -23,8 +23,9 @@ class BookController extends SiteController
     public function show($alias = false, Book $product)
     {
         $book = $this->b_rep->one($alias);
-        $book->author->desc->image = asset(env('THEME') . $book->author->desc->image);
-        $book->desc->book_img = asset(env('THEME') . $book->desc->book_img);
+        $book->author->desc->image = Config::get('settings.image_url') . $book->author->desc->image;
+//        $book->desc->book_img = asset(env('THEME') . $book->desc->book_img);
+        $book->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'),$book->desc->book_img);
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         $book_session = array_merge($book->desc->getAttributes(),$book->getAttributes());

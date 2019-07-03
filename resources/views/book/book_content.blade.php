@@ -32,122 +32,12 @@
             </div>
         </div>
     </div>
-    <style type="text/css">
-        @-webkit-keyframes wobble {
-            0% {
-                -webkit-transform: scale(0.8);
-                transform: scale(0.8);
-            }
-            20% {
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
-            40% {
-                -webkit-transform: scale(0.9);
-                transform: scale(0.9);
-            }
-            60% {
-                -webkit-transform: scale(1.05);
-                transform: scale(1.05);
-            }
-            80% {
-                -webkit-transform: scale(0.96);
-                transform: scale(0.96);
-            }
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-        @keyframes wobble {
-            0% {
-                -webkit-transform: scale(0.8);
-                transform: scale(0.8);
-            }
-            20% {
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
-            40% {
-                -webkit-transform: scale(0.9);
-                transform: scale(0.9);
-            }
-            60% {
-                -webkit-transform: scale(1.05);
-                transform: scale(1.05);
-            }
-            80% {
-                -webkit-transform: scale(0.96);
-                transform: scale(0.96);
-            }
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-        .star-rating {
-            border: 0;
-            display: flex;
-            flex-direction: row-reverse;
-            font-size: 2em;
-            text-align: center;
-            width: 5em;
-        }
-        .disabled-form{
-            position: relative;
-            display: inline-block;
-        }
-        .star-rating input {
-            display: none;
-        }
-        .star-rating label {
-            color: rgb(128, 128, 128);
-            cursor: pointer;
-        }
-        .star-rating :checked ~ label {
-            color: rgb(255, 212, 59);
-            webkit-animation: wobble 0.8s ease-out;
-            animation: wobble 0.8s ease-out;
-        }
-        .star-rating :hover ~ label {
-            color: rgb(250, 176, 5);
-        }
-        .error_message{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 200px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%) scale(0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            border-radius: 50%;
-            transition: all 0.3s linear;
-
-        }
-        .error_message.show{
-            -webkit-text-fill-color: transparent;
-            animation: hue 60s infinite linear;
-        }
-        @keyframes hue {
-            from {
-                filter: hue-rotate(0deg);
-            }
-            to {
-                filter: hue-rotate(-360deg);
-            }
-        }
-    </style>
     <div class="stars">
         <form action="{{route('postStar', $book->id)}}"  id="addStar" method="POST" >
             <code>{{ csrf_field() }}
                 <div class="star-rating">
-                    @for($i = 0; $i<=5; $i++)
-                        @if($i <= $book->averageRating)
+                    @for($i = 5; $i>=1; $i--)
+                        @if($i >= (int)$book->averageRating)
                             <input  type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
                             <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
                         @else

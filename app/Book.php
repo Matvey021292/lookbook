@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
-use App\Rating;
+
 
 
 class Book extends Model
@@ -12,7 +12,7 @@ class Book extends Model
     use Rateable;
 
     public $table = "book";
-    protected $fillable = ['name'];
+//    protected $fillable = ['name'];
 
     public function desc()
     {

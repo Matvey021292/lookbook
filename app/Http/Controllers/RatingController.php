@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Book;
 use willvincent\Rateable\Rating;
 use Illuminate\Support\Facades\Auth;
+use willvincent\Rateable\Rateable;
 
 class RatingController extends Controller
 {
@@ -14,7 +15,7 @@ class RatingController extends Controller
         // $rating->rating = 5;
         // $rating->user_id = \Auth::id();
         // $post->ratings()->save($rating);
-//        $book = Book::find($request->input('id'));
+        $book = Book::find($request->input('id'));
         $rating = new Rating;
         $rating->user_id = Auth::id();
         $rating->rating = $request->input('star');

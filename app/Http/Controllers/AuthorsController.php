@@ -20,9 +20,11 @@ class AuthorsController extends SiteController
     public function index(){
         $authors = $this->getAuthor();
         $authors->transform(function($item, $key){
-            $item->desc->image =  asset(env('THEME')) . $item->desc->image;
+            $item->desc->image =  Config::get('settings.image_url') . $item->desc->image;
             return $item;
+
         });
+
         $content = view(env('THEME').'.authors_content')->with('authors', $authors)->render();
         $this->vars = array_add($this->vars,'content', $content);
 

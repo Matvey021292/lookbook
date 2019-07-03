@@ -54,7 +54,7 @@ class IndexController extends SiteController
 
         $authors->transform(function ($item, $key) {
             if($item->desc){
-                $item->desc->image = asset(env('THEME')) . $item->desc->image;
+                $item->desc->image = Config::get('settings.image_url') . $item->desc->image;
             }
             return $item;
         });
@@ -85,7 +85,7 @@ class IndexController extends SiteController
 
         $sliders->transform(function ($item, $key) {
             $item->color_bg = array_shift($this->color_arrs);
-            $item->desc->book_img = asset(env('THEME')) . $item->desc->book_img;
+            $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
             $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
             $item->book = str_limit(strip_tags($item->book), $limit = 30, $end = '...');
             return $item;

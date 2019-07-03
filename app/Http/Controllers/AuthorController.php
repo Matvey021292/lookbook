@@ -27,12 +27,11 @@ class AuthorController extends SiteController
         $cat = $this->getCatMenu($cat);
 
 
-
-        $author->desc->image = asset(env('THEME')) . $author->desc->image;
+        $author->desc->image = Config::get('settings.image_url') . $author->desc->image;
 
         $author->book->transform(function($item, $key){
 
-            $item->desc->book_img =  asset(env('THEME')) . $item->desc->book_img;
+            $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'), $item->desc->book_img);
             return $item;
         });
         $books_c = $author->book;
@@ -50,10 +49,10 @@ class AuthorController extends SiteController
         $mBuilder = Menu::make('author_menu', function($m) use ($menu){
             foreach($menu as $item){
                 if($item->parent_id == 0){
-                    $m->add($item->caregory,$item->slug)->id($item->id);
+                    $m->add($item->category,$item->slug)->id($item->id);
                 }else{
                     if ($m->find($item->parent_id)) {
-                        $m->find($item->parent_id)->add($item->caregory,$item->slug)->id($item->id);
+                        $m->find($item->parent_id)->add($item->category,$item->slug)->id($item->id);
                     }
                 }
             }

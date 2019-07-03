@@ -3331,7 +3331,7 @@ pre {
 }
 
 .grid-2 .product-title, .grid-4 .product-title {
-    font-size: 14px;
+    font-size: 13px;
     color: #0f120b;
 
 }
@@ -3342,9 +3342,11 @@ pre {
 
 .grid-2 .product-author, .grid-4 .product-author {
     color: rgba(15, 18, 11, 0.48);
-    /*!*font-family: "averta-semibold";*/
-
-    font-size: 14px;
+    font-weight: 300;
+    display: block;
+    /*margin-bottom: 4px !important;*/
+    /*margin-top: 3px;*/
+    font-size: 12px;
 }
 
 .grid-2 .cms-grid-media, .grid-4 .cms-grid-media {
@@ -11180,4 +11182,123 @@ h1 { font-size: 1.5em; margin: 10px; }
     background: -moz-linear-gradient(#6b4dcc, #523bc9);
     background: linear-gradient(#6b4dcc , #523bc9);
     opacity: 1;
+}
+
+
+@-webkit-keyframes wobble {
+    0% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    20% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    40% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    60% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    80% {
+        -webkit-transform: scale(0.96);
+        transform: scale(0.96);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes wobble {
+    0% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    20% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    40% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    60% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    80% {
+        -webkit-transform: scale(0.96);
+        transform: scale(0.96);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.star-rating {
+    border: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2em;
+    text-align: center;
+    width: 5em;
+    justify-content: flex-end;
+}
+.disabled-form{
+    position: relative;
+    display: inline-block;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+.star-rating :checked ~ label {
+    color: rgb(255, 212, 59);
+    webkit-animation: wobble 0.8s ease-out;
+    animation: wobble 0.8s ease-out;
+}
+.star-rating :hover ~ label {
+    color: rgb(250, 176, 5);
+}
+.error_message{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 0.3s linear;
+
+}
+.error_message.show{
+    -webkit-text-fill-color: transparent;
+    animation: hue 60s infinite linear;
+}
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(-360deg);
+    }
+}
+
+.star-rating-icon .fa-star{
+    color: #ccc;
+    font-size: 12px;
+}
+.fa-star.active{
+    color: #ffcc00;
 }

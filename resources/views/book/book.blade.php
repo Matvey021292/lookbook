@@ -13,6 +13,17 @@
                                      class="attachment-shop_catalog size-shop_catalog wp-post-image"
                                      alt="{{ $book->book }}" /></a>
                         </div>
+                        <div class="stars mb-1">
+                            <div class="star-rating-icon">
+                                @for($i = 1; $i<=5; $i++)
+                                    @if($i <= (int) $book->averageRating)
+                                        <i class="fas fa-star active"></i>
+                                    @else
+                                        <i class="fas fa-star"></i>
+                                    @endif
+                                @endfor
+                            </div>
+                        </div>
                         <div class="info-product">
                             <a class="product-title"
                                href="{{ route('book.show', ['alias'=> $book->slug]) }}">

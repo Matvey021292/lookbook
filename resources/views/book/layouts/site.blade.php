@@ -125,6 +125,7 @@
                     @yield('categories')
                     @yield('bar')
                     @yield('profile')
+                    @yield('category_book')
                 </div>
             </div>
         </div>
@@ -158,7 +159,7 @@
         </footer>
     </div>
 </div>
-<link rel='stylesheet' id='font-awesome-css' href='{{ asset(env("THEME")) }}/css/all.min.css' type='text/css'
+<link rel='stylesheet' id='font-awesome-css' href='{{ asset(env("THEME")) }}/css/all.min.css' type='text/css'>
 <script type='text/javascript'
         src='http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js'></script>
 <script type='text/javascript'

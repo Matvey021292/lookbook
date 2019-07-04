@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use Menu;
 
 
-
 class SiteController extends Controller
 {
     protected $template;
@@ -20,6 +19,7 @@ class SiteController extends Controller
     protected $b_rep;
     protected $a_rep;
     protected $cs_rep;
+    protected $c_rep;
     protected $s_search;
     protected $contentRightBar = false;
 
@@ -48,7 +48,6 @@ class SiteController extends Controller
             $this->vars = array_add($this->vars, 'rightBar', $rightBar);
         }
         return view($this->template)->with($this->vars);
-
     }
 
     protected function getMenu()

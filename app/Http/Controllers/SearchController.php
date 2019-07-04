@@ -33,7 +33,6 @@ class SearchController extends SiteController
                     $slug = route('book.show', ['alias' => $product->slug]);
                     $image = str_replace('https://flibusta.is/',Config::get('settings.path_image'), $product->book_img);
                     $book_ = '<span class="d-flex flex-column"><span>'.$product->book .'</span><small class="text-xs">'.$product->name.'</small></span>';
-
                     $output .= '<li data-id="' . $product->id . '"><a class="d-flex" href="' . $slug . '"><img src="' . $image . '" alt="">' .$book_ .'</a></li>';
                 }
                 $output .= '</ul>';
@@ -45,7 +44,7 @@ class SearchController extends SiteController
                 $output .= '<ul>';
                 foreach ($authors as $key => $product) {
                     $slug = route('author.show', ['alias' => $product->slug]);
-                    $image = asset(env('THEME')) . $product->image;
+                    $image = Config::get('settings.image_url'). $product->image;
                     $output .= '<li data-id="' . $product->id . '"><a href="' . $slug . '"><img src="' . $image . '" alt="">' . $product->title . '</a></li>';
                 }
                 $output .= '</ul>';
@@ -61,11 +60,11 @@ class SearchController extends SiteController
         $booksItems = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->where('book', 'LIKE', '%' . $query . "%")->get();
         $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.id_author')->where('title', 'LIKE', '%' . $query . "%")->get();
         $booksItems->transform(function ($item,$key){
-            $item->book_img = env('THEME').$item->book_img;
+            $item->book_img  = str_replace('https://flibusta.is/',Config::get('settings.path_image'), $item->book_img);
             return $item;
         });
         $authors->transform(function($item, $key){
-            $item->image = env('THEME'). $item->image;
+            $item->image = Config::get('settings.image_url') . $item->image;
             return $item;
         });
         $content = view(env('THEME') . '.search_content')->with('authors', $authors)->with('booksItems',$booksItems)->render();

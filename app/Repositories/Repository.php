@@ -8,6 +8,10 @@ abstract class Repository {
 
 	protected $model = false;
 
+	public function getMaxLimit(){
+        $builder = $this->model->select();
+        return $builder->get();
+    }
 	public function get($select = '*', $take = false, $rand = false, $pagination = false , $desc = false){
 
 	    if(!$desc){

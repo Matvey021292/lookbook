@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CategoryBookRepository;
 use Illuminate\Http\Request;
 use App\Repositories\SlidersRepository;
 use App\Repositories\BookRepository;
@@ -13,12 +14,13 @@ class IndexController extends SiteController
 {
     public $color_arrs = ['#ededa6', '#5a5b99', '#24655e', '#191f12', '#5a5b99', '#24655e', '#ededa6', '#191f12'];
 
-    public function __construct(SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep)
+    public function __construct(SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryBookRepository $c_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->s_rep = $s_rep;
         $this->b_rep = $b_rep;
         $this->a_rep = $a_rep;
+        $this->c_rep = $c_rep;
         $this->bar = 'right';
         $this->template = env('THEME') . '.index';
     }
@@ -30,11 +32,12 @@ class IndexController extends SiteController
      */
     public function index()
     {
+        $categories = $this->getCategory();
+        $category = view(env('THEME') . '.category_book')->with('categories', $categories)->render();
+        $this->vars = array_add($this->vars, 'category', $category);
         $booksItems = $this->getBook();
         $books = view(env('THEME') . '.book')->with('books', $booksItems)->render();
         $this->vars = array_add($this->vars, 'books', $books);
-
-
         $slidersItems = $this->getSliders();
         $sliders = view(env('THEME') . '.slider')->with('sliders', $slidersItems)->render();
         $this->vars = array_add($this->vars, 'sliders', $sliders);
@@ -43,6 +46,13 @@ class IndexController extends SiteController
         $this->contentRightBar = view(env('THEME') . '.indexBar')->with('authors', $authors)->with('books', $books)->render();
 
         return $this->renderOutput();
+    }
+
+    public function getCategory(){
+        $category = $this->c_rep->getMaxLimit();
+        if (!$category->isEmpty()) {
+            return $category;
+        }
     }
 
     public function getAuthor()

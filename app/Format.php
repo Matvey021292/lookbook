@@ -14,4 +14,7 @@ class Format extends Model
     public function slider(){
         return $this->belongsTo('App\Book','id','book_id');
     }
+    public function getContent(){
+        return $this->hasOne('App\BookContent', 'format_id', 'id');
+    }
 }

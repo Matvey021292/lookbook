@@ -17,6 +17,9 @@ class ChangeUserRelationshipTable extends Migration
             //
             $table->integer('book_id')->unsigned();
             $table->foreign('book_id')->references('id')->on('book');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('category_book');
+
         });
     }
 

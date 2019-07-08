@@ -39,5 +39,12 @@ class Book extends Model
         return $this->hasMany('App\Format', 'book_id', 'id');
     }
 
+    public function getContent(){
+        return $this->hasOne('App\BookContent', 'book_id', 'id');
+    }
+    public function getBookRelationship(){
+        return $this->belongsToMany('App\BookRelationship');
+    }
+
 
 }

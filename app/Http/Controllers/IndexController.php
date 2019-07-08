@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\BookContentRepository;
 use App\Repositories\CategoryBookRepository;
 use Illuminate\Http\Request;
 use App\Repositories\SlidersRepository;
@@ -14,13 +15,14 @@ class IndexController extends SiteController
 {
     public $color_arrs = ['#ededa6', '#5a5b99', '#24655e', '#191f12', '#5a5b99', '#24655e', '#ededa6', '#191f12'];
 
-    public function __construct(SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryBookRepository $c_rep)
+    public function __construct(SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryBookRepository $c_rep, BookContentRepository $cb_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->s_rep = $s_rep;
         $this->b_rep = $b_rep;
         $this->a_rep = $a_rep;
         $this->c_rep = $c_rep;
+        $this->cb_rep = $cb_rep;
         $this->bar = 'right';
         $this->template = env('THEME') . '.index';
     }

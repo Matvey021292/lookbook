@@ -33,15 +33,15 @@
         </div>
     </div>
     <div class="stars">
-        <form action="{{route('postStar', $book->id)}}"  id="addStar" method="POST" >
+        <form action="{{route('postStar', $book->id)}}" id="addStar" method="POST">
             <code>{{ csrf_field() }}
                 <div class="star-rating">
                     @for($i = 5; $i>=1; $i--)
                         @if($i >= (int)$book->averageRating)
-                            <input  type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                            <input type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
                             <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
                         @else
-                            <input  type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                            <input type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
                             <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
                         @endif
                     @endfor
@@ -56,7 +56,7 @@
             $val = $(this).val();
             $this = $(this);
             $form = $(this).parents('form');
-            if($form.hasClass('disabled-form')){
+            if ($form.hasClass('disabled-form')) {
                 $('.error_message').html('Вы уже проголосовали');
                 return false;
             }
@@ -66,7 +66,7 @@
                 },
                 method: "POST",
                 url: $form.attr('action'),
-                data: {'star': $val, 'id': $('input[name="book_id"]').val() },
+                data: {'star': $val, 'id': $('input[name="book_id"]').val()},
                 success: function (e) {
                 },
                 error: function (e) {
@@ -91,10 +91,17 @@
                             @if($book->format)
                                 <ul>
                                     @foreach($book->format as $format)
-                                        <li>
-                                            <span class="info-single-title">Скачать в формате <strong>{{ $format->fomat }}</strong>:</span>
-                                            <span><a href="{{ $format->link }}">скачать</a></span>
-                                        </li>
+                                        @if($format->slug != 'more')
+                                            <li>
+                                                <span class="info-single-title">Скачать в формате <strong>{{ $format->fomat }}</strong>:</span>
+                                                <span><a href="{{ $format->link }}">скачать</a></span>
+                                            </li>
+                                        @else
+                                            <li>
+
+                                                <span><a href="{{ route('content.show', ['alias' => $format->id]) }}">Читать</a></span>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             @endif

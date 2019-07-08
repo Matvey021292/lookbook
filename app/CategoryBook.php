@@ -9,6 +9,7 @@ class CategoryBook extends Model
     public $table = 'category_book';
 
     public function getBookRelationship(){
-        return $this->hasMany('App\BookRelationship','category_id', 'id');
+        return $this->belongsToMany('App\Book','book_relationship','category_id','book_id');
     }
+    
 }

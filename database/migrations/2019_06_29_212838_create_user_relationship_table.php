@@ -15,7 +15,7 @@ class CreateUserRelationshipTable extends Migration
     {
         Schema::create('book_relationship', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('category_id');
+
 
         });
     }

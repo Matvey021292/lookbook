@@ -4,37 +4,47 @@ namespace App\Repositories;
 
 use Config;
 
-abstract class Repository {
+abstract class Repository
+{
 
-	protected $model = false;
+    protected $model = false;
 
-	public function getMaxLimit(){
+    public function getMaxLimit()
+    {
         $builder = $this->model->select();
         return $builder->get();
     }
-	public function get($select = '*', $take = false, $rand = false, $pagination = false , $desc = false){
 
-	    if(!$desc){
+    public function get($select = '*', $take = false, $rand = false, $pagination = false, $desc = false)
+    {
+
+        if (!$desc) {
             $builder = $this->model->select($select);
-	    }else{
+        } else {
             $builder = $this->model->select($select)->orderBy('id', 'DESC');
         }
-		if($take){
-            if($rand){
+        if ($take) {
+            if ($rand) {
                 $builder->inRandomOrder()->take($take);
-            }else{
+            } else {
                 $builder->take($take);
             }
-		}
-
-		if($pagination){
-		    return $builder->paginate(Config::get('settings.pagination'));
         }
-		return $builder->get();
-	}
 
-	public function one($alias){
-	   return  $this->model->where('slug', $alias)->first();
+        if ($pagination) {
+            return $builder->paginate(Config::get('settings.pagination'));
+        }
+        return $builder->get();
+    }
+
+    public function one($alias)
+    {
+        return $this->model->where('slug', $alias)->first();
+    }
+
+    public function find_from_id($id)
+    {
+        return $this->model->where('id', $id)->first();
     }
 
 

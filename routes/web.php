@@ -55,6 +55,12 @@ Route::resource('category', 'CategoryBookController', [
     ]
 ]);
 
+Route::resource('content', 'ContentBook', [
+    'parameters' => [
+        'content' => 'alias'
+    ]
+]);
+
 Route::resource('author', 'AuthorController', [
     'parameters' => [
         'author' => 'alias'

@@ -1,48 +1,42 @@
 @if($authors)
-    <div class="container">
-        <div class="row">
-            <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class="vc_column-inner vc_custom_1504607702805">
-                    <div class="wpb_wrapper">
-                        <div class="heading-2">
-                            <div class="wrap-heading">
-                                <h2 class="heading">Авторы</h2>
+<div class="billetContainerNoOverflow">
+    <div class="billetContainerWrapper">
+        <h1 class="heading">Авторы</h1>
+        <div class="ContentCarousel__wrapper">
+            <div  class="swiper-container swiper-container-horizontal swiper-container-free-mode">
+                <div class="swiper-wrapper-row" style="transform: translate3d(0px, 0px, 0px);">
+                    @foreach($authors as $author)
+                    <div class="VerticalBookCard__tinyBook  jest-verticalbookcard">
+                        <div class="VerticalBookCard__bookCover">
+                            <div class="BookCover__book BookCover__-premium jest-book-cover" style="width:124px;height:196px">
+                                <a href="{{ route('author.show', ['alias'=> $author->slug]) }}">
+                                    <img style="object-fit:cover" width="124" height="196" src="{!! $author->desc->image !!}" alt="{!! $author->title !!}" class="BookCover__bookImage" srcset="https://i4.mybook.io/c/248x392/book_covers/95/53/955358f4-f529-40fe-b261-0676e3a1965c.jpg 2x">
+                                </a>
                             </div>
                         </div>
-                        <div class="vc_empty_space" style="height: 10px">
-                            <span class="vc_empty_space_inner"></span>
-                        </div>
-                        <div class="cms-grid-wraper grid-2-min cs-saler grid-2 extend-space">
-                            <div class="row">
-                                @foreach($authors as $author)
-                                    <div class="mb-4 col-md-3 col-sm-6 col-xs-12 ">
-                                        <div class="d-flex">
-                                            <div class="cms-grid-media">
-                                                <a href="{{ route('author.show', ['alias' => $author->slug]) }}">
-                                                    @if($author->desc && $author->desc->image)
-                                                        <img src="{{ $author->desc->image}}"
-                                                             class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                                                             alt="{{ $author->title }}">
-                                                    @endif
-                                                </a>
-                                            </div>
-                                            <div class="info-product pl-2">
-                                                <a class="product-title"
-                                                   href="{{ route('author.show', ['alias' => $author->slug]) }}">{{ $author->title }}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <hr>
-                            <div class="row justify-content-center mt-5">
-                                {{ $authors->links() }}
-                            </div>
+                        <div class="VerticalBookCard__bookInfo">
+                            <a class="VerticalBookCard__bookName" href="{{ route('author.show', ['alias'=> $author->slug]) }}">
+                                <div>
+                                    <span width="0">
+                                        <span>
+                                            <span>{!! $author->title !!}</span>
+                                        </span>
+                                        <span style="position:fixed;visibility:hidden;top:0;left:0">
+                                            <span>…</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </a>
                         </div>
                     </div>
+                    @endforeach
+                </div>
+                <div class="ContextPagination__contextPagination">
+                    {{ $authors->links() }}
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endif
 

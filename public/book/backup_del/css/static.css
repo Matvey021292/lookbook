@@ -2326,8 +2326,6 @@ pre {
     max-width: 175px;
     overflow: hidden;
     border-radius: 6px;
-    float: right;
-    margin-bottom: -75px;
 }
 
 @media screen and (max-width: 1700px) {

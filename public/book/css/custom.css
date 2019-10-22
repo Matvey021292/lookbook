@@ -1,0 +1,24 @@
+.menu-item-has-children {
+    position: relative;
+}
+.standar-dropdown.sub-menu{
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    z-index:22;
+    display: none;
+}
+
+.menu-item-has-children:hover .standar-dropdown.sub-menu{
+    display: block;
+}
+
+.swiper-wrapper-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.swiper-wrapper-row .VerticalBookCard__tinyBook{
+    margin: 0 5px;
+}

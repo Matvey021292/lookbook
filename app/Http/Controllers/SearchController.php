@@ -16,42 +16,25 @@ class SearchController extends SiteController
         $this->template = env('THEME').'.search';
     }
 
-    public function index()
-    {
-        return view('search.search');
-    }
+    // public function index()
+    // {
+    //     // return view('search.search');
+    // }
 
     public function search(Request $request)
     {
-        if ($request->ajax()) {
-            $output = "";
-            $products = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->join('author_inform', 'book.author_id', '=', 'author_inform.id_author')->where('book', 'LIKE', '%' . $request->search . "%")->limit(5)->get();
-            if (count($products)) {
-                $output .= '<h5 >Книги ('. count($products).')</h5>';
-                $output .= '<ul>';
-                foreach ($products as $key => $product) {
-                    $slug = route('book.show', ['alias' => $product->slug]);
-                    $image = str_replace('https://flibusta.is/',Config::get('settings.path_image'), $product->book_img);
-                    $book_ = '<span class="d-flex flex-column"><span>'.$product->book .'</span><small class="text-xs">'.$product->name.'</small></span>';
-                    $output .= '<li data-id="' . $product->id . '"><a class="d-flex" href="' . $slug . '"><img src="' . $image . '" alt="">' .$book_ .'</a></li>';
-                }
-                $output .= '</ul>';
-
-            }
+            $output = array();
             $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.id_author')->where('title', 'LIKE', '%' . $request->search . "%")->limit(5)->get();
             if (count($authors)) {
-                $output .= '<h5 >Авторы ('. count($authors) .')</h5>';
-                $output .= '<ul>';
-                foreach ($authors as $key => $product) {
-                    $slug = route('author.show', ['alias' => $product->slug]);
-                    $image = Config::get('settings.image_url'). $product->image;
-                    $output .= '<li data-id="' . $product->id . '"><a href="' . $slug . '"><img src="' . $image . '" alt="">' . $product->title . '</a></li>';
-                }
-                $output .= '</ul>';
-
+                $output['author'] = $authors;
             }
-            return Response($output);
-        }
+            // $products = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->join('author_inform', 'book.author_id', '=', 'author_inform.id_author')->where('book', 'LIKE', '%' . $request->search . "%")->limit(5)->get();
+            // if (count($products)) {
+            //     $output['book'] = $products;
+            // }
+            
+            echo json_encode($output);
+            // return Response($output);
     }
 
     public function searchIndex(Request $request)

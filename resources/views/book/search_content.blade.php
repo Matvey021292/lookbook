@@ -1,3 +1,4 @@
+ыфтсоытсо
 @if(!empty($booksItems))
     <div class="container">
         <div class="wpb_column vc_column_container vc_col-sm-12">

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/vendor.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/rebook.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
     <div id="app" class="appContainer">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+          
             <div class="Footer__bottomContent">
                 <div class="Footer__content">
                     <div class="Footer__extraResourcesContainer">

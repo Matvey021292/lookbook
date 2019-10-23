@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
-use Illuminate\Http\Request;
-use App\Repositories\MenusRepository;
 use App\Http\Controllers\Controller;
+use App\Repositories\MenusRepository;
 use Menu;
-
 
 class SiteController extends Controller
 {
@@ -22,7 +19,6 @@ class SiteController extends Controller
     protected $c_rep;
     protected $s_search;
     protected $contentRightBar = false;
-
 
     public function __construct(MenusRepository $m_rep)
     {
@@ -41,7 +37,6 @@ class SiteController extends Controller
         $books_view = session()->get('book.recently_viewed');
         $books_view = view(env('THEME') . '.recently_view')->with('books_view', $books_view)->render();
         $this->vars = array_add($this->vars, 'books_view', $books_view);
-
 
         if ($this->contentRightBar) {
             $rightBar = view(env('THEME') . '.rightBar')->with('content_rightBar', $this->contentRightBar)->render();

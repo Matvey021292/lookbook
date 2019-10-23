@@ -22,3 +22,29 @@
 .swiper-wrapper-row .VerticalBookCard__tinyBook{
     margin: 0 5px;
 }
+
+.VerticalBookCard__rating i{
+    font-size: 10px;
+}
+
+.VerticalBookCard__tinyBook:last-child{
+    margin-right: 0;
+}
+
+.appContainer{
+    height: auto;
+}
+
+.swiper-wrapper{
+    flex-wrap: wrap;
+}
+
+.VerticalBookCard__bookInfo{
+    height: auto;
+    min-height: 96px;
+    overflow: hidden;
+}
+
+.swiper-slide{
+    flex:1 1 1%;
+}

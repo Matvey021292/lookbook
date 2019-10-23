@@ -12,10 +12,3 @@
 @section('categories')
     {!! $books_c !!}
 @endsection
-
-{{--@section('book')--}}
-{{--    {!! $books !!}--}}
-{{--@endsection--}}
-{{--@section('bar')--}}
-{{--    {!! $rightBar !!}--}}
-{{--@endsection--}}

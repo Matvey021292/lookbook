@@ -37,6 +37,12 @@ abstract class Repository
         return $builder->get();
     }
 
+    public function getByTitle($select = '*', $query)
+    {
+        $builder = $this->model->select($select)->orderBy('id', 'DESC');
+        return $builder->where('book', 'LIKE', '%' . $query . "%")->get();
+    }
+
     public function one($alias)
     {
         return $this->model->where('slug', $alias)->first();
@@ -47,7 +53,4 @@ abstract class Repository
         return $this->model->where('id', $id)->first();
     }
 
-
 }
-
-?>

@@ -10,9 +10,10 @@
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.theme.min.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/vendor.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/rebook.css'>
+    <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/css/autoComplete.min.css">
+    
     
 </head>
 <body>
@@ -26,10 +27,12 @@
                             <div class="SearchLine__search">
                                 <div class="SearchLine__searchContent">
                                     <div class="SearchLine__darkInputWrapper">
-                                        <input id="autoComplete" 
-                                        tabindex="1" type="text"
-                                        class="SearchLine__darkInput jest-search-input" 
-                                        >
+                                    <form action="/qsearch" method='GET'>
+                                                <input name="query" value="{{ old('query') }}"id="autoComplete" 
+                                                tabindex="1" type="text"
+                                                class="SearchLine__darkInput jest-search-input" 
+                                                >
+                                        </form>
                                         {{-- <span class="SearchLine__darkInputPlaceholder">Книга или автор</span></div> --}}
                                     </div>
                                 </div>
@@ -198,73 +201,15 @@
                 </div>
             </div>
         </div>
+        <script>
+            
+            var ajax_login_object = {
+                "search_url": '{{URL::to('search')}}',
+            };
+        </script>
         <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
         <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
         <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
-        <script>
-            new autoComplete({
-                data: {                              // Data src [Array, Function, Async] | (REQUIRED)
-                    src: async () => {
-                        // API key token
-                        // const token = "this_is_the_API_token_number";
-                        // User search query
-                        const query = document.querySelector("#autoComplete").value;
-                        // Fetch External Data Source
-                        // const source = await fetch(`https://www.food2fork.com/api/search?key=${token}&q=${query}`);
-                        const source = await fetch(`{{URL::to('search')}}?search=${query}`);
-                        // Format data into JSON
-                        const data = await source.json();
-                        // Return Fetched data
-                        return data.recipes;
-                    },
-                    key: ["title"],
-                    cache: false
-                },
-                query: {                               // Query Interceptor               | (Optional)
-                    manipulate: (query) => {
-                        return query.replace("pizza", "burger");
-                    }
-                },
-                sort: (a, b) => {                    // Sort rendered results ascendingly | (Optional)
-                    if (a.match < b.match) return -1;
-                    if (a.match > b.match) return 1;
-                    return 0;
-                },
-                placeHolder: "Food & Drinks...",     // Place Holder text                 | (Optional)
-                selector: "#autoComplete",           // Input field selector              | (Optional)
-                threshold: 3,                        // Min. Chars length to start Engine | (Optional)
-                debounce: 300,                       // Post duration for engine to start | (Optional)
-                searchEngine: "strict",              // Search Engine type/mode           | (Optional)
-                resultsList: {                       // Rendered results list object      | (Optional)
-                    render: true,
-                    container: source => {
-                        const resultsListID = "food_List";
-                        return resultsListID;
-                    },
-                    destination: document.querySelector("#autoComplete"),
-                    position: "afterend",
-                    element: "ul"
-                },
-                maxResults: 5,                         // Max. number of rendered results | (Optional)
-                highlight: true,                       // Highlight matching results      | (Optional)
-                resultItem: {                          // Rendered result item            | (Optional)
-                    content: (data, source) => {
-                        source.innerHTML = data.match;
-                    },
-                    element: "li"
-                },
-                noResults: () => {                     // Action script on noResults      | (Optional)
-                    const result = document.createElement("li");
-                    result.setAttribute("class", "no_result");
-                    result.setAttribute("tabindex", "1");
-                    result.innerHTML = "No Results";
-                    document.querySelector("#autoComplete_results_list").appendChild(result);
-                },
-                onSelection: feedback => {             // Action script onSelection event | (Optional)
-                    console.log(feedback.selection.value.image_url);
-                }
-            });
-        </script>
     </body>
     
     </html>

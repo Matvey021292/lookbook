@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -23,58 +23,60 @@ Route::resource('/', 'IndexController',
     [
         'only' => ['index'],
         'names' => [
-            'index' => 'home'
-        ]
+            'index' => 'home',
+        ],
     ]
 );
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('book', 'BookController', [
     'parameters' => [
-        'book' => 'alias'
-    ]
+        'book' => 'alias',
+    ],
 ]);
-
 
 Route::resource('books', 'BooksController', [
     'parameters' => [
-        'books' => 'alias'
-    ]
+        'books' => 'alias',
+    ],
 ]);
-
 
 Route::resource('authors', 'AuthorsController', [
     'parameters' => [
-        'authors' => 'alias'
-    ]
+        'authors' => 'alias',
+    ],
 ]);
 
 Route::resource('category', 'CategoryBookController', [
     'parameters' => [
-        'category' => 'alias'
-    ]
+        'category' => 'alias',
+    ],
 ]);
 
 Route::resource('content', 'ContentBook', [
     'parameters' => [
-        'content' => 'alias'
-    ]
+        'content' => 'alias',
+    ],
 ]);
 
 Route::resource('author', 'AuthorController', [
     'parameters' => [
-        'author' => 'alias'
-    ]
+        'author' => 'alias',
+    ],
 ]);
-// Route::resource('search', 'SearchController', [
 
+// Route::resource('searchSimple', 'SearchController@searchIndex', [
+//     'parameters' => [
+//     ],
 // ]);
 
 Route::resource('profile', 'ProfileController', [
 
 ]);
+
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
 
-// Route::get('/search', 'SearchController@searchIndex')->name('search');
-Route::get('/search', 'SearchController@search');
+// Route::get('searchSimple', 'SearchController@searchIndex')->name('search');
+Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 
+Route::get('/search', 'SearchController@search');

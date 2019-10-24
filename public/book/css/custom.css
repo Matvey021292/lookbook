@@ -48,3 +48,35 @@
 .swiper-slide{
     flex:1 1 1%;
 }
+
+#autoComplete_list{
+    /* pointer-events: none; */
+}
+
+/* .autoComplete_result{
+    padding: 0px;
+}
+
+.autoComplete_result a{
+    padding: .6rem;
+    display: block;
+} */
+
+.Header__menuWrapper{
+    flex-wrap: wrap;
+}
+
+.Header__search{
+    order: unset;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.Header__menu{
+    position: static;
+    height: auto;
+}
+.SearchLine__search{
+    width: auto;
+}

@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\BookContentRepository;
-use App\Repositories\CategoryBookRepository;
-use Illuminate\Http\Request;
-use App\Repositories\SlidersRepository;
-use App\Repositories\BookRepository;
 use App\Repositories\AuthorsRepository;
+use App\Repositories\BookContentRepository;
+use App\Repositories\BookRepository;
+use App\Repositories\CategoryBookRepository;
+use App\Repositories\SlidersRepository;
 use Config;
-use DB;
+use Illuminate\Http\Request;
 
 class IndexController extends SiteController
 {
@@ -50,7 +49,8 @@ class IndexController extends SiteController
         return $this->renderOutput();
     }
 
-    public function getCategory(){
+    public function getCategory()
+    {
         $category = $this->c_rep->getMaxLimit();
         if (!$category->isEmpty()) {
             return $category;
@@ -65,7 +65,7 @@ class IndexController extends SiteController
         }
 
         $authors->transform(function ($item, $key) {
-            if($item->desc){
+            if ($item->desc) {
                 $item->desc->image = Config::get('settings.image_url') . $item->desc->image;
             }
             return $item;
@@ -81,7 +81,7 @@ class IndexController extends SiteController
         }
         $books->transform(function ($item, $key) {
 //            $item->desc->book_img = asset(env('THEME')) . str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
-            $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
+            $item->desc->book_img = str_replace('https://flibusta.is/', Config::get('settings.path_image'), $item->desc->book_img);
             $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
             return $item;
         });
@@ -97,15 +97,15 @@ class IndexController extends SiteController
 
         $sliders->transform(function ($item, $key) {
             $item->color_bg = array_shift($this->color_arrs);
-            $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'),$item->desc->book_img);
-            $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
+            if (isset($item->desc)) {
+                $item->desc->book_img = str_replace('https://flibusta.is/', Config::get('settings.path_image'), $item->desc->book_img);
+                $item->desc->book_desc = str_limit(strip_tags($item->desc->book_desc), $limit = 100, $end = '...');
+            }
             $item->book = str_limit(strip_tags($item->book), $limit = 30, $end = '...');
             return $item;
         });
         return $sliders;
     }
-
-
 
     /**
      * Show the form for creating a new resource.

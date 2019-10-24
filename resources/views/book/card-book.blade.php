@@ -2,11 +2,7 @@
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book  jest-book-cover" style="width:124px;height:196px">
             <a href="{{ route('book.show', ['alias'=> $book->slug]) }}">
-                @if(file_exists($book->desc->book_img))
-                <img width="124" height="196" src="{!! $book->desc->book_img !!}" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="{!! $book->book !!}">
-                @else
-                <img width="124" height="196" src="http://placehold.it/124x196" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="http://placehold.it/124x196">
-                @endif
+                <img width="124" height="196" src="{!! $book->desc->book_img !!}" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="{!! $book->desc->book_img !!}">
             </a>
         </div>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
 use DB;
+use Config;
 use Illuminate\Http\Request;
 
 class SearchController extends SiteController
@@ -16,12 +17,12 @@ class SearchController extends SiteController
         $this->a_rep = $a_rep;
         $this->template = env('THEME') . '.search';
     }
-
+    
     public function index()
     {
         return view('search.search');
     }
-
+    
     public function search(Request $request)
     {
         $output = (object) array();
@@ -35,7 +36,7 @@ class SearchController extends SiteController
                 $output->recipes[] = $author;
             }
         }
-
+        
         $books = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->join('author_inform', 'book.author_id', '=', 'author_inform.id_author')->where('book', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
         if (!empty($books)) {
             foreach ($books as $key => $book) {
@@ -48,32 +49,25 @@ class SearchController extends SiteController
         $output->count = count($books) + count($authors);
         echo json_encode($output);
     }
-
+    
     public function searchIndex(Request $request)
     {
         $query = $request->input('query');
         if (empty($query)) {
             return;
         }
-
-        // $booksItems = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->where('book', 'LIKE', '%' . $query . "%")->get();
-        $booksItems = $this->b_rep->getByTitle('*', $query);
-        dd($booksItems);
-        // $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.id_author')->where('title', 'LIKE', '%' . $query . "%")->get();
-        // $booksItems->transform(function ($item, $key) {
-        //     $item->book_img = str_replace('https://flibusta.is/', Config::get('settings.path_image'), $item->book_img);
-        //     return $item;
-        // });
-        // foreach ($booksItems as $key => $book):
-        //     $book->desc = (object) ['book_img' => str_replace('https://flibusta.is/', Config::get('settings.path_image'), $book->book_img)];
-        // endforeach;
-        // $authors->transform(function ($item, $key) {
-        //     $item->desc->image = Config::get('settings.image_url') . $item->image;
-        //     return $item;
-        // });
+        
+        $booksItems = $this->b_rep->getBookByTitle('*', $query);
+        $authors = $this->a_rep->getAuthorByTitle('*', $query);
+        $authors->transform(function ($item, $key) {
+            if(isset($item->desc->image)){
+                $item->desc->image =  Config::get('settings.image_url') . $item->desc->image;
+            }
+            return $item;
+        });
         $content = view(env('THEME') . '.search_content')->with('authors', $authors)->with('booksItems', $booksItems)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
-
+    
 }

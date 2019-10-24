@@ -37,10 +37,16 @@ abstract class Repository
         return $builder->get();
     }
 
-    public function getByTitle($select = '*', $query)
+    public function getBookByTitle($select = '*', $query)
     {
         $builder = $this->model->select($select)->orderBy('id', 'DESC');
         return $builder->where('book', 'LIKE', '%' . $query . "%")->get();
+    }
+
+    public function getAuthorByTitle($select = '*', $query)
+    {
+        $builder = $this->model->select($select)->orderBy('id', 'DESC');
+        return $builder->where('title', 'LIKE', '%' . $query . "%")->get();
     }
 
     public function one($alias)

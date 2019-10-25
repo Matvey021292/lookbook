@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
-use DB;
 use Config;
+use DB;
 use Illuminate\Http\Request;
 
 class SearchController extends SiteController
@@ -17,12 +17,12 @@ class SearchController extends SiteController
         $this->a_rep = $a_rep;
         $this->template = env('THEME') . '.search';
     }
-    
+
     public function index()
     {
         return view('search.search');
     }
-    
+
     public function search(Request $request)
     {
         $output = (object) array();
@@ -36,7 +36,7 @@ class SearchController extends SiteController
                 $output->recipes[] = $author;
             }
         }
-        
+
         $books = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->join('author_inform', 'book.author_id', '=', 'author_inform.id_author')->where('book', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
         if (!empty($books)) {
             foreach ($books as $key => $book) {
@@ -49,25 +49,33 @@ class SearchController extends SiteController
         $output->count = count($books) + count($authors);
         echo json_encode($output);
     }
-    
+
     public function searchIndex(Request $request)
     {
         $query = $request->input('query');
         if (empty($query)) {
             return;
         }
-        
-        $booksItems = $this->b_rep->getBookByTitle('*', $query);
+        $search = (object) array();
+        $books = $this->b_rep->getBookByTitle('*', $query);
+        if ($books->isNotEmpty()) {
+            $search->books = $books;
+        }
         $authors = $this->a_rep->getAuthorByTitle('*', $query);
-        $authors->transform(function ($item, $key) {
-            if(isset($item->desc->image)){
-                $item->desc->image =  Config::get('settings.image_url') . $item->desc->image;
-            }
-            return $item;
-        });
-        $content = view(env('THEME') . '.search_content')->with('authors', $authors)->with('booksItems', $booksItems)->render();
+        if ($authors->isNotEmpty()) {
+            $search->authors = $authors;
+            $search->authors->transform(function ($item, $key) {
+                if (isset($item->desc->image)) {
+                    $item->desc->image = Config::get('settings.image_url') . $item->desc->image;
+                }
+                return $item;
+            });
+        }
+
+        $content = view(env('THEME') . '.search_content')->with('search', $search)->render();
+        // $content = view(env('THEME') . '.search_content')->with('authors', $authors)->with('booksItems', $booksItems)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
-    
+
 }

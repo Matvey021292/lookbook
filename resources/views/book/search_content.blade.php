@@ -1,5 +1,5 @@
-@if(!empty($booksItems))
-@if(!$booksItems->isEmpty())
+{{-- {{dd($search)}} --}}
+@if(isset($search->books))
 <div class="container">
     <div class="wpb_column vc_column_container vc_col-sm-12">
         <div class="vc_column-inner vc_custom_1504607702805">
@@ -11,7 +11,7 @@
                 <div class="SearchBookList__content">
                     <div class="BookList__bookList">
                         <ul class="BookList__items">
-                            @foreach($booksItems as $book)
+                            @foreach($search->books as $book)
                             @include(env('THEME') . '.card-book-min', ['items'=>$book, 'book' => $book, 'carousel' => true])
                             @endforeach
                         </ul>
@@ -21,14 +21,12 @@
         </div>
     </div>
     @endif
-    @endif
-    @if(isset($authors))
-    @if(!$authors->isEmpty())
+    @if(isset($search->authors))
     <div class="heading-3 ">
         <h2 class="heading">Авторы</h2>
     </div>
     <ul class="AuthorList__authorList">
-        @foreach($authors as $author)
+        @foreach($search->authors as $author)
         <li class="AuthorList__author">
             <a href="{{ route('author.show', ['alias'=> $author->slug]) }}">
                 <div class="billetContainer">
@@ -51,5 +49,5 @@
         </li>
         @endforeach
     </ul>   
-    @endif
+  
     @endif

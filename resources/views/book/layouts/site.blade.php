@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     
 </head>

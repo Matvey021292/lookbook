@@ -80,3 +80,52 @@
 .SearchLine__search{
     width: auto;
 }
+
+.Form__form-btn{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Form__form-btn li{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    border: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2em;
+    text-align: center;
+    width: 5em;
+    justify-content: flex-end;
+}
+.disabled-form{
+    position: relative;
+    display: inline-block;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+
+.Rating__ratingStar .star-rating label {
+    font-size: 25px;
+}
+
+.star-rating :checked ~ label {
+    color: rgb(255, 212, 59);
+    webkit-animation: wobble 0.8s ease-out;
+    animation: wobble 0.8s ease-out;
+}
+.star-rating :hover ~ label {
+    color: rgb(250, 176, 5);
+}
+
+.BookPageHeaderContent__bookUserRating{
+    position: static;
+}

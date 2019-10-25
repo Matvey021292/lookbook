@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Book;
-use willvincent\Rateable\Rating;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use willvincent\Rateable\Rateable;
+use willvincent\Rateable\Rating;
 
 class RatingController extends Controller
 {
-    function postStar(Request $request, Book $book){
+    public function postStar(Request $request, Book $book)
+    {
         // $post = Book::first();
         // $rating = new Rating;
         // $rating->rating = 5;
@@ -20,6 +21,8 @@ class RatingController extends Controller
         $rating->user_id = Auth::id();
         $rating->rating = $request->input('star');
         $book->ratings()->save($rating);
-        return redirect()->back();
+        echo $book->averageRating();
+        // dd(Book::find()->ratings);
+        // return redirect()->back();
     }
 }

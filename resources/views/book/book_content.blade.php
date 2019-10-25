@@ -1,288 +1,230 @@
 @if($book)
-    <div class="page-title-product_2 w-100" style="background-color: #5a5b99;color:white;">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="wrap-thumbnail" style="box-shadow: 0 5px 15px -5px #5a5b99">
-                        <img width="330" height="500"
-                             src="{{ $book->desc->book_img }}"
-                             class="attachment-shop_catalog_image_size size-shop_catalog_image_size wp-post-image"
-                             alt="{{ $book->book }}"></div>
-
-                    <div class="wrap-content">
-                        <div class="author" style="color:white !important;">
-                            @if($book->author->desc && $book->author->desc->image)
-                                <img src="{{ $book->author->desc->image  }}"
-                                     alt="{{ $book->book }}">
-                            @endif
-                            <a class="text-white"
-                               href="{{ route('author.show', ['alias' => $book->author->slug]) }}">{{ $book->author->title }}</a>
-
-                        </div>
-
-                        <h4 style="color:white !important;">{{ $book->book }}</h4>
-                        <div class="wrap-button mb-4 mt-5">
-                            <button class="flex-favorites ml-0" data-id="180">
-                                <span class="ff-icon zmdi zmdi-favorite-outline"></span>
-                                <p class="ff-label" data-counts="aj-count">Добавить в список</p>
-                            </button>
-                        </div>
+<div>
+    <div class="BookPageHeaderContent__cover">
+        <div class="BookPageHeaderContent__coverBackground">
+            <div class="BookPageHeaderContent__coverBackgroundImage">
+                <img width="320" height="120" 
+                src="{{ $book->desc->book_img }}" 
+                alt="{{ $book->book }}" 
+                srcset="{{ $book->desc->book_img }}">
+            </div>
+        </div>
+        <div class="BookPageHeaderContent__coverContent">
+            <div class="BookPageHeaderContent__coverInformation">
+                <h1 class="BookPageHeaderContent__coverTitle">
+                    <span>{{ $book->book }}</span>
+                </h1>
+                <div class="BookAuthor__coverAuthor">
+                    <div class="BookAuthor__authorList">
+                        <span>
+                            <a class="BookAuthor__authorName" 
+                            href="{{ route('author.show', ['alias' => $book->author->slug]) }}">{{ $book->author->title }}</a>
+                        </span>
                     </div>
+                    <a class="BookAuthor__link" href="{{ route('author.show', ['alias' => $book->author->slug]) }}">
+                        <i class="shortArrowWhite"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="BookPageHeaderContent__coverBlockImage">
+                <div class="BookCoverImage__coverImageWrapper">
+                    <img width="256" height="426" 
+                    src="{{ $book->desc->book_img }}" 
+                    alt="{{ $book->book }}" 
+                    class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
+                    srcset="{{ $book->desc->book_img }}">
                 </div>
             </div>
         </div>
     </div>
-    <div class="stars">
-        <form action="{{route('postStar', $book->id)}}" id="addStar" method="POST">
-            <code>{{ csrf_field() }}
-                <div class="star-rating">
-                    @for($i = 5; $i>=1; $i--)
-                        @if($i >= (int)$book->averageRating)
-                            <input type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
-                            <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
-                        @else
-                            <input type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
-                            <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
-                        @endif
-                    @endfor
-                </div>
-            </code>
-            <div class="error_message"></div>
-            <input type="hidden" name="book_id" value="{{$book->id}}">
-        </form>
-    </div>
-    <script type="text/javascript">
-        $('input[name="star"]').click(function () {
-            $val = $(this).val();
-            $this = $(this);
-            $form = $(this).parents('form');
-            if ($form.hasClass('disabled-form')) {
-                $('.error_message').html('Вы уже проголосовали');
-                return false;
-            }
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                method: "POST",
-                url: $form.attr('action'),
-                data: {'star': $val, 'id': $('input[name="book_id"]').val()},
-                success: function (e) {
-                },
-                error: function (e) {
-                }
-            })
-        })
-    </script>
-    <div class="wrap-single-product post-180 product type-product status-publish has-post-thumbnail product_cat-romance product_cat-thriller product_tag-nightshade first instock taxable shipping-taxable purchasable product-type-simple">
-        <div class="container">
-            <div class="row">
-
-                <div class="wrap-single-content col-xs-12 col-sm-8 col-lg-10 mt-5">
-                    <div class="wrap-overview mt-5">
-                        <h3>Описание</h3>
-                        <div class="content">
-                            {!!  $book->desc->book_desc !!}
+    <div class="themeWhite">
+        <div class="BookPageHeaderContent__bookContent">
+            <div class="BookPageHeaderContent__bookInformation">
+                <div class="BookPageHeaderContent__bookInformationRating">
+                    <div class="BookPageHeaderContent__bookRating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                        <meta itemprop="ratingCount" content="1091">
+                        <meta itemprop="ratingValue" content="4.37">
+                        <meta itemprop="bestRating" content="5">
+                        <meta itemprop="worstRating" content="0">
+                        <div class="BookRating__bookRating">
+                            <div class="BookRating__rating">
+                                @if($book->averageRating)
+                                <div class="BookRating__ratingInner" style="width: {{(100/5) * $book->averageRating}}px;"></div>
+                                @endif
+                            </div>
                         </div>
+                        <span class="BookPageHeaderContent__bookRatingCount">
+                            {{number_format((float)$book->averageRating, 2, '.', '')}}
+                        </span>
                     </div>
-                    <div class="wrap-details clearfix">
-                        <div class="detail">
-                            <h6>Скачать книгу</h6>
-                            @if($book->format)
-                                <ul>
-                                    @foreach($book->format as $format)
+                </div>
+            </div>
+        </div>
+        <div class="BookPageHeaderContent__bookContent">
+            <div class="BookPageHeaderContent__booksButtons isForAnonymous">
+                <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
+                    <div class="ButtonsBlock__testBlocks ButtonsBlock__testBlocksTestA">
+                        <div class="ButtonsBlock__registrationForm ButtonsBlock__readBtnUnknownLogin">
+                            <div class="jest-bookpage-auth-form">
+                                <div class="Form__form">
+                                    <ul class="Form__form-btn">
+                                        @foreach($book->format as $format)
                                         @if($format->slug != 'more')
-                                            <li>
-                                                <span class="info-single-title">Скачать в формате <strong>{{ $format->fomat }}</strong>:</span>
-                                                <span><a href="{{ $format->link }}">скачать</a></span>
-                                            </li>
+                                        <li>
+                                            <a class="Button__primaryButton" href="{{ $format->link }}">Скачать в {{$format->fomat}}</a>
+                                        </li>
                                         @else
-                                            <li>
-
-                                                <span><a href="{{ route('content.show', ['alias' => $format->id]) }}">Читать</a></span>
-                                            </li>
+                                        <li>
+                                            <a href="{{ route('content.show', ['alias' => $format->id]) }}">Читать</a>
+                                        </li>
                                         @endif
-                                    @endforeach
-                                </ul>
-                            @endif
-
-                        </div>
-                        <div class="gallery-review">
-                            <h6>PREVIEW</h6>
-
-                            <div class="owl-carousel owl-theme owl-loaded owl-drag" id="gallery-product">
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage"
-                                         style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 444px;">
-                                        <div class="owl-item active" style="width: 133px; margin-right: 15px;"><a
-                                                    data-lightbox="light-box"
-                                                    href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-4.jpg"><img
-                                                        width="230" height="300"
-                                                        src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-4-230x300.jpg"
-                                                        class="attachment-book_junky_230X300 size-book_junky_230X300"
-                                                        alt="" title="post-4" data-caption=""
-                                                        data-src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-4.jpg"
-                                                        data-large_image="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-4.jpg"
-                                                        data-large_image_width="1000" data-large_image_height="800"></a>
-                                        </div>
-                                        <div class="owl-item active" style="width: 133px; margin-right: 15px;"><a
-                                                    data-lightbox="light-box"
-                                                    href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-7.jpg"><img
-                                                        width="230" height="300"
-                                                        src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-7-230x300.jpg"
-                                                        class="attachment-book_junky_230X300 size-book_junky_230X300"
-                                                        alt="" title="post-7" data-caption=""
-                                                        data-src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-7.jpg"
-                                                        data-large_image="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-7.jpg"
-                                                        data-large_image_width="1000" data-large_image_height="800"></a>
-                                        </div>
-                                        <div class="owl-item active" style="width: 133px; margin-right: 15px;"><a
-                                                    data-lightbox="light-box"
-                                                    href="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-6.jpg"><img
-                                                        width="230" height="300"
-                                                        src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-6-230x300.jpg"
-                                                        class="attachment-book_junky_230X300 size-book_junky_230X300"
-                                                        alt="" title="post-6" data-caption=""
-                                                        data-src="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-6.jpg"
-                                                        data-large_image="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-content/uploads/post-6.jpg"
-                                                        data-large_image_width="1000" data-large_image_height="800"></a>
-                                        </div>
-                                    </div>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <div class="owl-nav disabled">
-                                    <div class="owl-prev">Previous</div>
-                                    <div class="owl-next">Next</div>
-                                </div>
-                                <div class="owl-dots disabled"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <h5>Customer Reviews</h5>
-                        <div id="reviews" class="woocommerce-Reviews">
-                            <button class="bj-write-cmt-btn">Write a review</button>
-                            <div id="comments">
-                                <div class="wrap-rating">
-                                    <p>Average customer rating</p>
-                                    <div class="woocommerce">
-                                        <div class="woocommerce-product-rating">
-                <span class="star-rating ">
-                    <span style="width:0%"></span>
-                </span><span class="bj-rating-counts" style="color:;">0 Ratings</span></div>
-                                    </div>
-                                </div>
-
-
-                                <div id="review_form_wrapper" class="bj-comment-form">
-                                    <div id="review_form">
-                                        <div id="respond" class="comment-respond">
-                                            <span id="reply-title" class="comment-reply-title">Be the first to review “Nightshade” <small><a
-                                                            rel="nofollow" id="cancel-comment-reply-link"
-                                                            href="/themeforest/bookjunky/?product=nightshade#respond"
-                                                            style="display:none;">Cancel reply</a></small></span>
-                                            <form action="http://demo.cmssuperheroes.com/themeforest/bookjunky/wp-comments-post.php"
-                                                  method="post" id="commentform" class="comment-form">
-                                                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
-                                                    Required fields are marked <span class="required">*</span></p>
-                                                <p class="comment-form-author"><label for="author">Name <span
-                                                                class="required">*</span></label> <input id="author"
-                                                                                                         name="author"
-                                                                                                         type="text"
-                                                                                                         value=""
-                                                                                                         size="30"
-                                                                                                         aria-required="true"
-                                                                                                         required="">
-                                                </p>
-                                                <p class="comment-form-email"><label for="email">Email <span
-                                                                class="required">*</span></label> <input id="email"
-                                                                                                         name="email"
-                                                                                                         type="email"
-                                                                                                         value=""
-                                                                                                         size="30"
-                                                                                                         aria-required="true"
-                                                                                                         required="">
-                                                </p>
-                                                <div class="comment-form-rating"><label for="rating">Your
-                                                        rating</label>
-                                                    <p class="stars"><span>							<a
-                                                                    class="star-1"
-                                                                    href="#">1</a>							<a
-                                                                    class="star-2" href="#">2</a>							<a
-                                                                    class="star-3" href="#">3</a>							<a
-                                                                    class="star-4" href="#">4</a>							<a
-                                                                    class="star-5" href="#">5</a>						</span>
-                                                    </p><select name="rating" id="rating" aria-required="true"
-                                                                required="" style="display: none;">
-                                                        <option value="">Rate…</option>
-                                                        <option value="5">Perfect</option>
-                                                        <option value="4">Good</option>
-                                                        <option value="3">Average</option>
-                                                        <option value="2">Not that bad</option>
-                                                        <option value="1">Very poor</option>
-                                                    </select></div>
-                                                <p class="comment-form-comment"><label for="comment">Your review
-                                                        <span
-                                                                class="required">*</span></label><textarea
-                                                            id="comment"
-                                                            name="comment"
-                                                            cols="45"
-                                                            rows="8"
-                                                            aria-required="true"
-                                                            required=""></textarea>
-                                                </p>
-                                                <p class="form-submit"><input name="submit" type="submit"
-                                                                              id="submit"
-                                                                              class="submit" value="Submit"> <input
-                                                            type="hidden" name="comment_post_ID" value="180"
-                                                            id="comment_post_ID">
-                                                    <input type="hidden" name="comment_parent" id="comment_parent"
-                                                           value="0">
-                                                </p></form>
-                                        </div><!-- #respond -->
-                                    </div>
-                                </div>
-
-
-                                <p class="woocommerce-noreviews">There are no reviews yet.</p>
-
-                            </div>
-                            <div class="clear"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-lg-2">
-                    <div class="wrap-single-sidebar">
-                        <h4 class="sg-sidebar-title">SHARE THIS BOOK</h4>
+                <div class="BookPageHeaderContent__bookUserRating jest-user-rating">
+                    <div class="Rating__ratingStar">
+                        <div class="stars">
+                            <code>
+                                {{ csrf_field() }}
+                                <div class="star-rating">
+                                    @for($i = 5; $i>=1; $i--)
+                                    @if($i >= (int)$book->averageRating)
+                                    <input onclick="submit(this)" type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                                    <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                                    @else
+                                    <input onclick="submit(this)" type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                                    <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                                    @endif
+                                    @endfor
+                                </div>
+                            </code>
+                            <div class="error_message"></div>
+                            <input type="hidden" name="book_id" value="{{$book->id}}">
+                        </div>
+                    </div>
+                    <div class="BookPageHeaderContent__bookUserRatingText">Оцените книгу</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                        <div class="wrap-share">
-                            <ul class="list-unstyled clearfix">
-                                <li>
-                                    <a class="facebook" title="Share this article to Facebook" target="_blank"
-                                       href="https://www.facebook.com/sharer/sharer.php?u=http://demo.cmssuperheroes.com/themeforest/bookjunky/?product=nightshade&amp;t=Nightshade">
-                                        <i class="zmdi zmdi-facebook"></i>
+<script type="text/javascript">
+    
+    async function submit(e) {
+        let user = {
+            'star': e.value, 
+            'id': document.querySelector('input[name="book_id"]').value
+        };
+        
+        let response = await fetch('{{route('postStar', $book->id)}}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify(user)
+        });
+        
+        
+        let result = await response.json();
+        console.log(result);
+        // console.log(result)
+        
+    }
+    
+</script>
+<div class="themeWhite">
+    <div class="BookDetailView__bookPageContent">
+        <div class="BookDetailAnnotation__annotationBlock">
+            <div class="BookDetailAnnotation__descriptionWrapper">
+                <h2>О книге</h2>
+                {!!  $book->desc->book_desc !!}
+                <div class="BookDetailAnnotation__bookDetailItem">
+                    <h3>Подробная информация</h3></div>
+                    <div class="BookDetailAnnotation__meta">
+                        <div class="BookDetailAnnotation__metaBlock">
+                            <p class="BookDetailAnnotation__metaParagraph">Дата написания: 2018</p>
+                            <p class="BookDetailAnnotation__metaParagraph">Год издания: 2019</p>
+                        </div>
+                        <div class="BookDetailAnnotation__metaBlock">
+                            <p class="BookDetailAnnotation__metaParagraph">Дата поступления: 30 июня 2019</p>
+                            <p class="BookDetailAnnotation__metaParagraph">Объем: 700.6 тыс. знаков</p>
+                        </div>
+                    </div>
+                    <div class="BookGenresThemes__genresThemes isForAnonymous">
+                        <div class="BookGenresThemes__genresThemesSection">
+                            <h3>Жанры</h3>
+                            <ul class="BookGenresThemes__itemList">
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/catalog/zarubezhnaya-literatura/zarubezhnaya-publicistika-2/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">Зарубежная публицистика</div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a class="twitter" title="Share this article to Twitter" target="_blank"
-                                       href="https://twitter.com/home?status=Check out this article:%20Nightshade%20-%20http://demo.cmssuperheroes.com/themeforest/bookjunky/?product=nightshade">
-                                        <i class="zmdi zmdi-twitter"></i>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="email" title="Share this article to GooglePlus" target="_blank"
-                                       href="mailto:?body=http://demo.cmssuperheroes.com/themeforest/bookjunky/?product=nightshade"><i
-                                                class="zmdi zmdi-email"></i>
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/catalog/nauka-obrazovanie/nauchno-populyarnaya-literatura/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">Научно-популярная литература</div>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-
+                        <div class="BookGenresThemes__genresThemesSection">
+                            <h3>Темы</h3>
+                            <ul class="BookGenresThemes__itemList">
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/tags/razvitie-civilizacii/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">развитие цивилизации</div>
+                                    </a>
+                                </li>
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/tags/evolyuciya-chelovechestva/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">эволюция человечества</div>
+                                    </a>
+                                </li>
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/tags/budushee-chelovechestva/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">будущее человечества</div>
+                                    </a>
+                                </li>
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/tags/tehnologii-budushego/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">технологии будущего</div>
+                                    </a>
+                                </li>
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="/tags/nauka-i-religiya/">
+                                        <div class="TagLabel__brown" style="max-width: unset;">наука и религия</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="BookDetailAnnotation__rightHolderContainer">
+                    <div class="BookRightholder__genresThemes isForAnonymous">
+                        <div class="jest-rightholder-tag-link">
+                            <h3>Издатель</h3>
+                            <ul>
+                                <div class="BookRightholder__rightholderTag">
+                                    <li class="">
+                                        <a href="/rightholder/izdatelstvo-sindbad/">
+                                            <div class="TagLabel__withoutBorder BookRightholder__rightholderName" style="max-width: unset;">Издательство «Синдбад»</div>
+                                        </a>
+                                    </li><span class="BookRightholder__rightholderCounter">71&nbsp;книга</span></div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="BookDetailAnnotation__shareLinks">
+                            <div class="SocialShareMenu__menu"><span class="SocialShareMenu__menuToggle SocialShareMenu__theme-yellow jest-share-menu">Поделиться</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@else
-    <h1>Книги не найдено</h1>
-@endif
+        @else
+        <h1>Книги не найдено</h1>
+        @endif

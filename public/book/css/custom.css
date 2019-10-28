@@ -130,3 +130,34 @@
 .Header__menuWrapper{
     padding: 0px;
 }
+
+.BookDetailAnnotation__content{
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.BookDetailAnnotation__descriptionWrapper{
+    flex: 1 1 80%;
+    min-width: 440px;
+}
+
+.BookPageHeaderContent__bookUserRating{
+    flex: 1 1 20%;
+}
+
+.BookPageHeaderContent__bookInformationRating{
+    margin-top: 0px;
+}
+
+.Button__primaryButton.Button__primaryButton_min::first-letter{
+    text-transform: uppercase;
+}
+.Button__primaryButton.Button__primaryButton_min{
+    font-size: 15px;
+    padding: 15px 24px;
+    height: auto;
+    line-height: 1;
+}

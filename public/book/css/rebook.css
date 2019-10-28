@@ -3211,6 +3211,7 @@ li.page-item a,
 
 .Rating__ratingStar {
   position: relative;
+  margin-bottom: 5px;
   display: inline-block;
   white-space: nowrap;
   transition: all .2s ease-in-out;
@@ -3376,10 +3377,15 @@ li.page-item a,
   line-height: 1.2em;
   text-align: left;
   color: #252628;
+  border-radius: 5px;
   margin-right: 8px; }
 
 .BookPageHeaderContent__bookRatingCount {
-  padding-left: 8px; }
+  margin-left: 8px; 
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #fff;
+}
 
 .BookPageHeaderContent__bookUserRating {
   position: relative;
@@ -3388,13 +3394,14 @@ li.page-item a,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 44px;
+  /* margin-top: 44px; */
   padding: 12px;
   border-radius: 12px;
   background: #f6f6f6; }
   @media (max-width: 1136px) {
-    .BookPageHeaderContent__bookUserRating .isForAnonymous {
-      margin-top: 24px; } }
+    /* .BookPageHeaderContent__bookUserRating .isForAnonymous {
+      margin-top: 24px; }  */
+    }
   @media (min-width: 1136px) {
     .BookPageHeaderContent__bookUserRating {
       position: absolute;
@@ -4551,11 +4558,12 @@ li.page-item a,
   padding: 8px 0;
   border-radius: 12px; }
   @media (min-width: 1136px) {
-    .BookDetailAnnotation__annotationBlock {
+    /* .BookDetailAnnotation__annotationBlock {
       display: flex;
       flex-wrap: wrap;
       margin-top: 0px;
-      margin-left: 78px; } }
+      margin-left: 78px; }  */
+    }
 
 .BookDetailAnnotation__genresThemes {
   margin-left: 0; }
@@ -4572,11 +4580,12 @@ li.page-item a,
       .BookDetailAnnotation__descriptionWrapperEmpty {
         height: 16px; } }
   @media (min-width: 1136px) {
-    .BookDetailAnnotation__descriptionWrapper {
+    /* .BookDetailAnnotation__descriptionWrapper {
       width: 586px;
       flex-shrink: 0;
       margin-left: 16px;
-      margin-right: 32px; } }
+      margin-right: 32px; } */
+     }
 
 .BookDetailAnnotation__descriptionWrapperEmptyIsAnonymous {
   height: 16px; }
@@ -4853,8 +4862,8 @@ li.page-item a,
   text-overflow: ellipsis; }
 
 .BookDetailView__bookAnnotationContent, .BookDetailView__bookPageContent {
-  min-width: 320px;
-  max-width: 586px;
+  /* min-width: 320px; */
+  /* max-width: 586px; */
   width: 100%;
   margin: 0 auto;
   padding: 0px 16px 0; }
@@ -4867,8 +4876,9 @@ li.page-item a,
 .BookDetailView__bookPageContent {
   position: relative; }
   @media (min-width: 1136px) {
-    .BookDetailView__bookPageContent {
-      max-width: 748px; } }
+      /* .BookDetailView__bookPageContent {
+        max-width: 748px; }  */
+    }
 
 .BookDetailView__breadcrumbs {
   max-width: 1136px;

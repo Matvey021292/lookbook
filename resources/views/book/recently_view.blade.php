@@ -60,13 +60,6 @@
                             </div>
                         </div>
                         <div class="VerticalBookCard__bookInfo">
-                            <div class="VerticalBookCard__rating">
-                                <div class="BookRating__bookRating">
-                                    <div class="BookRating__rating BookRating__-tiny">
-                                        <div class="BookRating__ratingInner isTiny" style="width:68px"></div>
-                                    </div>
-                                </div>
-                            </div>
                             <a class="VerticalBookCard__bookName" href="{{ route('book.show', ['alias'=> $book['slug']]) }}">
                                 {{ $book['book'] }}
                             </a>

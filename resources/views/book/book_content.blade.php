@@ -90,7 +90,7 @@
                         <div class="stars">
                             <code>
                                 {{ csrf_field() }}
-                                <div class="star-rating">
+                                <div class="star-rating"  @guest onclick="showMessageNotAuth(event, 'Для оценивания книги необходимо зарегистрироваться');" @endif >
                                     @for($i = 5; $i>=1; $i--)
                                     @if($i >= (int)$book->averageRating)
                                     <input onclick="submit(this)" type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
@@ -132,7 +132,7 @@
         
         
         let result = await response.json();
-        console.log(result);
+        alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
         // console.log(result)
         
     }

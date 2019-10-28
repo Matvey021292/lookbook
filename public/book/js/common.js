@@ -56,7 +56,11 @@ new autoComplete({
 	},
 	onSelection: feedback => {
 		document.querySelector("#autoComplete").value = feedback.selection.value.title
-		console.log(feedback.selection.value.slug);
 		window.location = feedback.selection.value.slug;
 	}
 });
+
+function showMessageNotAuth(e, message) {
+	e.preventDefault();
+	alert(message);
+}

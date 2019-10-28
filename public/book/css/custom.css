@@ -39,6 +39,10 @@
     flex-wrap: wrap;
 }
 
+.swiper-wrapper.glide__slides{
+    flex-wrap: nowrap;
+}
+
 .VerticalBookCard__bookInfo{
     height: auto;
     min-height: 96px;
@@ -49,18 +53,6 @@
     flex:1 1 1%;
 }
 
-#autoComplete_list{
-    /* pointer-events: none; */
-}
-
-/* .autoComplete_result{
-    padding: 0px;
-}
-
-.autoComplete_result a{
-    padding: .6rem;
-    display: block;
-} */
 
 .Header__menuWrapper{
     flex-wrap: wrap;
@@ -78,7 +70,7 @@
     height: auto;
 }
 .SearchLine__search{
-    width: auto;
+    /* width: auto; */
 }
 
 .Form__form-btn{
@@ -128,4 +120,13 @@
 
 .BookPageHeaderContent__bookUserRating{
     position: static;
+}
+
+
+.Header__logo{
+    position: static;
+}
+
+.Header__menuWrapper{
+    padding: 0px;
 }

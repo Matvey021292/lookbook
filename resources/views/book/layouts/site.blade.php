@@ -6,11 +6,11 @@
     <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
     <title>{{ env('APP_NAME') }}</title>
+    <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.core.min.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.theme.min.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/vendor.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/rebook.css'>
-    <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,69 +22,40 @@
         <div class="app">
             <header class="Header__header">
                 <div class="Header__container">
-                    <a class="Header__logo" href="/"></a>
                     <div class="Header__menuWrapper">
+                        <div>
+                            <a class="Header__logo" href="/"> Флибуста </a>
+                            <small>Книжное братство</small>
+                        </div>
                         <div class="Header__search">
                             <div class="SearchLine__search">
                                 <div class="SearchLine__searchContent">
                                     <div class="SearchLine__darkInputWrapper">
-                                    <form action="/qsearch" method='GET'>
-                                                <input name="query" value="{{ old('query') }}"id="autoComplete" 
-                                                tabindex="1" type="text"
-                                                class="SearchLine__darkInput jest-search-input" 
-                                                >
+                                        <form action="/qsearch" method='GET'>
+                                            <input name="query" value="{{ old('query') }}"id="autoComplete" 
+                                            tabindex="1" type="text"
+                                            class="SearchLine__darkInput jest-search-input">
+                                            <label for="autoComplete"></label>
                                         </form>
-                                        {{-- <span class="SearchLine__darkInputPlaceholder">Книга или автор</span></div> --}}
                                     </div>
                                 </div>
-                            </div>
-                            <div class="Header__menu">
-                                <ul class="Header__menuList">
-                                    <li class="Header__menuItem"><a class="Header__menuItemLink" href="/dashboard/">Что читать</a></li>
-                                    <li class="Header__menuItem"><a class="Header__menuItemLink" href="/catalog/">Библиотека</a></li>
-                                    <li class="Header__menuItem"><a class="Header__menuItemLink" href="/payments/">Подписка</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="Header__enter">
                             <div class="Header__mobileSearchButton jest-mobile-search-toggle"></div>
                             @guest
-                            <a href="/login" class="Header__link jest-auth-link-hamburger">Войти</a>
-                            @else
-                            <a class="Header__link go_to_login_link" href="{{ route('logout') }}"><i class="fas fa-door-closed mr-2"></i> {{ __('Выход') }} </a>
-                            @endif
+                            <a href="/login" class="Header__link jest-auth-link-hamburger"> Войти &nbsp; |
+                                &nbsp;</a>
+                                <a href="/login" class="Header__link">  Личный кабинет </a>
+                                @else
+                                <a class="Header__link go_to_login_link" href="{{ route('logout') }}">{{ __('Выход') }} </a>&nbsp; |
+                                &nbsp; <a href="/profile" class="Header__link">  Личный кабинет, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                                @endif
+                            </div>
                         </div>
-                        <!-- <div class="col-sm-12 col-md-6 top-right-3">
-                            @guest
-                            <div class="wrap-your-basket clearfix">
-                                <div class="content">
-                                    <h5>  <a href="/login"> <i class="fas fa-user-astronaut mr-2 "></i>Личный кабинет </a> </h5>
-                                </div>
-                            </div>
-                            @else
-                            <div class="wrap-your-basket clearfix">
-                                <div class="content">
-                                    <h5>  <a href="/profile"><i class="fas fa-user-astronaut mr-2 "></i> Личный кабинет, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a> </h5>
-                                </div>
-                            </div>
-                            @endif
-                        </div> -->
                         <div class="HeaderLinks__headerLinks jest-header-links-to-catalog">
-                            <div class="ContentCarousel__wrapper HeaderLinks__carousel">
-                                <div class="swiper-container swiper-container-horizontal swiper-container-free-mode">
-                                    <div class="swiper-wrapper" style="transition-duration: 0ms;">
-                                        <div class="HeaderLinks__linksContainer swiper-slide swiper-slide-active">
-                                            <div class="HeaderLinks__linkContainer"><a class="HeaderLinks__link link" href="/catalog/books/audio/">🎧 Аудиокниги</a></div>
-                                            <div class="HeaderLinks__linkContainer"><a class="HeaderLinks__link link" href="/catalog/books/free/">👌 Бесплатные книги</a></div>
-                                            <div class="HeaderLinks__linkContainer"><a class="HeaderLinks__link link" href="/sets/?rubric=4">🔥 Новинки</a></div>
-                                            <div class="HeaderLinks__linkContainer"><a class="HeaderLinks__link link" href="/sets/?rubric=150">❤️ Топ книг</a></div>
-                                            <div class="HeaderLinks__linkContainer"><a class="HeaderLinks__link link" href="/sets/?rubric=151">🎙 Топ аудиокниг</a></div>
-                                        </div>
-                                    </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                                </div>
-                                <div class="HeaderLinks__list">
-                                    @yield('nav')
-                                </div>
+                            <div class="HeaderLinks__list">
+                                @yield('nav')
                             </div>
                         </div>
                     </header>

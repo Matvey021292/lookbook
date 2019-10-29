@@ -72,14 +72,23 @@
                                         @foreach($book->format as $format)
                                         @if($format->slug != 'more')
                                         <li>
-                                            <a  onclick='downloadFile(event)' data-slug='{{ $format->slug }}' class="Button__primaryButton Button__primaryButton_min" href="{{ $format->link }}">{{$format->format}}</a>
+                                            <a  class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">{{$format->format}}</a>
                                         </li>
                                         @else
                                         <li>
-                                            <a class="Button__primaryButton Button__primaryButton_min" href="{{ route('content.show', ['alias' => $format->id]) }}">Читать</a>
+                                            <a class="Button__primaryButton Button__primaryButton_min" href="{{ route('content.show', ['alias' => $format->id]) }}">Читать онлайн</a>
                                         </li>
                                         @endif
                                         @endforeach
+                                        <li>
+                                            <a  onclick="downloadFile()" data-format='pdf'  class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">PDF</a>
+                                        </li>
+                                        <li>
+                                            <a  onclick="downloadFile()" data-format='ebub' class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">EBUB</a>
+                                        </li>
+                                        <li>
+                                            <a  onclick="downloadFile()" data-format='pdf' class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">MOBI</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

@@ -5,8 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
 
-
-
 class Book extends Model
 {
     use Rateable;
@@ -21,7 +19,7 @@ class Book extends Model
 
     public function rating()
     {
-        return $this->hasMany('App\Rating','rateable_id','id');
+        return $this->hasMany('App\Rating', 'rateable_id', 'id');
     }
 
     public function author()
@@ -39,12 +37,14 @@ class Book extends Model
         return $this->hasMany('App\Format', 'book_id', 'id');
     }
 
-    public function getContent(){
+    public function getContent()
+    {
         return $this->hasOne('App\BookContent', 'book_id', 'id');
     }
-    public function getBookRelationship(){
-        return $this->belongsToMany('App\BookRelationship');
+    public function getBookRelationship()
+    {
+        // return $this->belongsToMany('App\BookRelationship');
+        return $this->belongsToMany('App\CategoryBook', 'book_relationship', 'book_id', 'category_id');
     }
-
 
 }

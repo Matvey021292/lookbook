@@ -6,6 +6,7 @@ use App\Book;
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
 use Config;
+use Illuminate\Http\Request;
 
 class BookController extends SiteController
 {
@@ -22,7 +23,7 @@ class BookController extends SiteController
     {
         $book = $this->b_rep->one($alias);
         $book->author->desc->image = Config::get('settings.image_url') . $book->author->desc->image;
-//        $book->desc->book_img = asset(env('THEME') . $book->desc->book_img);
+        //        $book->desc->book_img = asset(env('THEME') . $book->desc->book_img);
         $book->desc->book_img = str_replace('https://flibusta.is/', Config::get('settings.path_image'), $book->desc->book_img);
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
         $this->vars = array_add($this->vars, 'content', $content);
@@ -45,6 +46,15 @@ class BookController extends SiteController
         }
 
         return $this->renderOutput();
+    }
+
+    public function download(Request $request)
+    {
+        // $file_slug = $request->input('file');
+        // $path = str_replace('https://flibusta.is/', env('THEME') . '/book_arhive/', $file_slug);
+        // File::makeDirectory($path, $mode = 0777, true, true);
+        // // dd('wget ' . $file_slug . ' -P ' . $path . '/');
+        // $file = shell_exec('wget ' . $file_slug . ' -P ' . $path . '/');
     }
 
 }

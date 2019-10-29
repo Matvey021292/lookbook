@@ -73,7 +73,6 @@ class SearchController extends SiteController
         }
 
         $content = view(env('THEME') . '.search_content')->with('search', $search)->render();
-        // $content = view(env('THEME') . '.search_content')->with('authors', $authors)->with('booksItems', $booksItems)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }

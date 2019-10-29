@@ -41,24 +41,24 @@
     <div class="themeWhite">
         <div class="BookPageHeaderContent__bookContent">
             <div class="BookPageHeaderContent__bookInformation">
-                    <div class="BookPageHeaderContent__bookInformationRating">
-                            <div class="BookPageHeaderContent__bookRating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                                <meta itemprop="ratingCount" content="1091">
-                                <meta itemprop="ratingValue" content="4.37">
-                                <meta itemprop="bestRating" content="5">
-                                <meta itemprop="worstRating" content="0">
-                                <div class="BookRating__bookRating">
-                                    <div class="BookRating__rating">
-                                        @if($book->averageRating)
-                                        <div class="BookRating__ratingInner" style="width: {{(100/5) * $book->averageRating}}px;"></div>
-                                        @endif
-                                    </div>
-                                </div>
-                                <span class="BookPageHeaderContent__bookRatingCount">
-                                    {{number_format((float)$book->averageRating, 2, '.', '')}}
-                                </span>
+                <div class="BookPageHeaderContent__bookInformationRating">
+                    <div class="BookPageHeaderContent__bookRating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+                        <meta itemprop="ratingCount" content="1091">
+                        <meta itemprop="ratingValue" content="4.37">
+                        <meta itemprop="bestRating" content="5">
+                        <meta itemprop="worstRating" content="0">
+                        <div class="BookRating__bookRating">
+                            <div class="BookRating__rating">
+                                @if($book->averageRating)
+                                <div class="BookRating__ratingInner" style="width: {{(100/5) * $book->averageRating}}px;"></div>
+                                @endif
                             </div>
                         </div>
+                        <span class="BookPageHeaderContent__bookRatingCount">
+                            {{number_format((float)$book->averageRating, 2, '.', '')}}
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="BookPageHeaderContent__bookContent">
@@ -72,7 +72,7 @@
                                         @foreach($book->format as $format)
                                         @if($format->slug != 'more')
                                         <li>
-                                            <a class="Button__primaryButton Button__primaryButton_min" href="{{ $format->link }}">{{$format->format}}</a>
+                                            <a  onclick='downloadFile(event)' data-slug='{{ $format->slug }}' class="Button__primaryButton Button__primaryButton_min" href="{{ $format->link }}">{{$format->format}}</a>
                                         </li>
                                         @else
                                         <li>
@@ -99,7 +99,7 @@
             'id': document.querySelector('input[name="book_id"]').value
         };
         
-        let response = await fetch('{{route('postStar', $book->id)}}', {
+        let response = await fetch("{{route('postStar', $book->id)}}", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
@@ -114,6 +114,26 @@
         // console.log(result)
         
     }
+    
+    async function downloadFile(e) {
+        e.preventDefault();
+        let data = {
+            'file': e.target.href, 
+            'slug':e.target.getAttribute('data-slug')
+        };
+        let response = await fetch("{{route('downloadFile')}}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify(data)
+        });
+        let result = await response.json();
+        console.log(result);
+        
+    }
+    
     
 </script>
 <div class="themeWhite">
@@ -148,6 +168,22 @@
                     <div class="BookPageHeaderContent__bookUserRatingText">Оцените книгу</div>
                 </div>
             </div>
+            @if(collect($book->getBookRelationship)->isNotEmpty())
+            <div class="BookGenresThemes__genresThemes">
+                <div class="BookGenresThemes__genresThemesSection">
+                    <h3>Жанры</h3>
+                    <ul class="BookGenresThemes__itemList">
+                        @foreach ($book->getBookRelationship as $category)
+                        <li class="BookGenresThemes__listItem">
+                            <a href="{{ route('category.show', ['alias' => $category->slug]) }}">
+                                <div class="TagLabel__brown" style="max-width: unset;">{{$category->category}}</div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </div>

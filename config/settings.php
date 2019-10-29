@@ -6,4 +6,5 @@ return [
     'pagination' => 16,
     'path_image' => 'http://parser/author_image/',
     'image_url' => 'http://parser/',
+    'replace_url' => 'https://flibusta.is',
 ];

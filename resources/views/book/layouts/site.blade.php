@@ -24,8 +24,8 @@
                 <div class="Header__container">
                     <div class="Header__menuWrapper">
                         <div>
-                            <a class="Header__logo" href="/"> Флибуста </a>
-                            <small>Книжное братство</small>
+                            <a class="Header__logo" href="/"> Флибуста <small>Книжное братство</small></a>
+                            
                         </div>
                         <div class="Header__search">
                             <div class="SearchLine__search">

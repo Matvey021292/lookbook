@@ -75,6 +75,7 @@ Route::resource('profile', 'ProfileController', [
 ]);
 
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
+Route::post('/book/download/', 'BookController@download')->name('downloadFile');
 
 // Route::get('searchSimple', 'SearchController@searchIndex')->name('search');
 Route::get('qsearch', 'SearchController@searchIndex')->name('search');

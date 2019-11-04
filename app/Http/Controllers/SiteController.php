@@ -19,15 +19,15 @@ class SiteController extends Controller
     protected $c_rep;
     protected $s_search;
     protected $contentRightBar = false;
-
+    
     public function __construct(MenusRepository $m_rep)
     {
         $this->m_rep = $m_rep;
     }
-
+    
     protected function renderOutput()
     {
-
+        
         $menu = $this->getMenu();
         $nav = view(env('THEME') . '.nav')->with('menu', $menu)->render();
         $this->vars = array_add($this->vars, 'nav', $nav);
@@ -35,16 +35,19 @@ class SiteController extends Controller
         $search = view(env('THEME') . '.search_content')->with('search', $search)->render();
         $this->vars = array_add($this->vars, 'search', $search);
         $books_view = session()->get('book.recently_viewed');
+        if(!empty($books_view)){
+            $books_view = $this->b_rep->find($books_view);
+        };
         $books_view = view(env('THEME') . '.recently_view')->with('books_view', $books_view)->render();
         $this->vars = array_add($this->vars, 'books_view', $books_view);
-
+        
         if ($this->contentRightBar) {
             $rightBar = view(env('THEME') . '.rightBar')->with('content_rightBar', $this->contentRightBar)->render();
             $this->vars = array_add($this->vars, 'rightBar', $rightBar);
         }
         return view($this->template)->with($this->vars);
     }
-
+    
     protected function getMenu()
     {
         $menu = $this->m_rep->get();
@@ -61,5 +64,5 @@ class SiteController extends Controller
         });
         return $mBuilder;
     }
-
+    
 }

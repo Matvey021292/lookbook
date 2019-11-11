@@ -36,7 +36,7 @@ class SiteController extends Controller
         $this->vars = array_add($this->vars, 'search', $search);
         $books_view = session()->get('book.recently_viewed');
         if(!empty($books_view)){
-            $books_view = $this->b_rep->find($books_view);
+            $books_view = $this->b_rep->findFromArrayId($books_view);
         };
         $books_view = view(env('THEME') . '.recently_view')->with('books_view', $books_view)->render();
         $this->vars = array_add($this->vars, 'books_view', $books_view);

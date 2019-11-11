@@ -1,4 +1,4 @@
-<li class="BookList__item BookList__oneColsLayout jest-book-card-item">
+<div class=" glide__slide VerticalBookCard__tinyBook">
     <div class="ContextBookCardLong__book">
         <div class="ContextBookCardLong__bookWrapper">
             <div class="ContextBookCardLong__bookCover">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="ContextBookCardLong__bookDescriptionMobile">
-                {{ strip_tags($book->desc->book_desc) }}
+            {{ strip_tags($book->desc->book_desc) }}
             <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a></div>
         </div>
-    </li>
+    </div>

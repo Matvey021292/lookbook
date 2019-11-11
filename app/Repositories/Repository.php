@@ -59,7 +59,7 @@ abstract class Repository
         return $this->model->where('id', $id)->first();
     }
 
-    public function find($arr){
+    public function findFromArrayId($arr){
         return $this->model->whereIn('id', $arr)->get();
     }
 

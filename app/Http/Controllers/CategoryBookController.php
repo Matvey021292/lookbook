@@ -12,10 +12,11 @@ use Illuminate\Http\Request;
 class CategoryBookController extends SiteController
 {
 
-    public function __construct(CategoryBookRepository $cs_rep)
+    public function __construct(CategoryBookRepository $cs_rep, BookRepository $b_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->cs_rep = $cs_rep;
+        $this->b_rep = $b_rep;
         $this->template = env('THEME') . '.books';
     }
     public function show($alias) {

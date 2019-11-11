@@ -72,8 +72,9 @@
                                 @yield('categories')
                                 @yield('profile')
                                 @yield('category_book')
-                                @yield('books_content')
+                                
                             </div>
+                            @yield('books_content')
                         </div>
                     </div>
                 </div>

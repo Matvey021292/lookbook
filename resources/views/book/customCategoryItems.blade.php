@@ -1,4 +1,3 @@
-<br><br><br>
 @if(!$items->isEmpty())
 @foreach($items as $k => $item)
 <div class="AuthorDetailView__container">
@@ -21,6 +20,7 @@
                 @if($book->category_id == $item->id)
                 @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
                 @else
+                {{-- @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true]) --}}
                 @endif
                 @endforeach
             </div>

@@ -11,14 +11,12 @@
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+
 Route::resource('/', 'IndexController',
     [
         'only' => ['index'],
@@ -27,6 +25,7 @@ Route::resource('/', 'IndexController',
         ],
     ]
 );
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('book', 'BookController', [
@@ -47,6 +46,7 @@ Route::resource('authors', 'AuthorsController', [
     ],
 ]);
 
+
 Route::resource('category', 'CategoryBookController', [
     'parameters' => [
         'category' => 'alias',
@@ -65,19 +65,14 @@ Route::resource('author', 'AuthorController', [
     ],
 ]);
 
-// Route::resource('searchSimple', 'SearchController@searchIndex', [
-//     'parameters' => [
-//     ],
-// ]);
-
 Route::resource('profile', 'ProfileController', [
 
 ]);
 
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
+
 Route::post('/book/download/', 'BookController@download')->name('downloadFile');
 
-// Route::get('searchSimple', 'SearchController@searchIndex')->name('search');
 Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 
 Route::get('/search', 'SearchController@search');

@@ -2732,6 +2732,7 @@ li.page-item a,
   margin-right: 8px;
   color: #ffffff; }
 
+.BookAuthor__authorName a,
 .BookAuthor__authorName {
   font-size: 16px;
   color: #ffffff; }
@@ -5395,6 +5396,7 @@ li.page-item a,
         margin-bottom: 6px; } }
   .ContextBookCardLong__bookRating {
     margin-bottom: 8px; }
+    .ContextBookCardLong__bookAuthor a,
   .ContextBookCardLong__bookAuthor {
     display: block;
     margin-top: 4px;

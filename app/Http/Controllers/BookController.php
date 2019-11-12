@@ -10,18 +10,19 @@ use Illuminate\Http\Request;
 
 class BookController extends SiteController
 {
-    public function __construct(BookRepository $b_rep, AuthorsRepository $a_rep)
+    public function __construct(BookRepository $b_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->b_rep = $b_rep;
-        $this->a_rep = $a_rep;
-        $this->bar = 'right';
+        // $this->bar = 'right';
         $this->template = env('THEME') . '.books';
     }
 
     public function show($alias = false, Book $product)
     {
         $book = $this->b_rep->one($alias);
+        $authors = $book->authors;
+        // dd($authors);
         $book->author->desc->image = Config::get('settings.image_url') . $book->author->desc->image;
         $book->desc->book_img = str_replace('https://flibusta.is/', Config::get('settings.path_image'), $book->desc->book_img);
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();

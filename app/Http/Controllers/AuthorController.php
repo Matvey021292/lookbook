@@ -34,10 +34,10 @@ class AuthorController extends SiteController
             $item->desc->book_img =  str_replace('https://flibusta.is/',Config::get('settings.path_image'), $item->desc->book_img);
             return $item;
         });
-        $books_c = $author->book;
-        $cat = view(env('THEME').'.categories')->with('books_c',$books_c)->with('cat', $cat)->render();
+        $books = $author->book;
+        $cat = view(env('THEME').'.categories')->with('books',$books)->with('cat', $cat)->render();
         $content = view(env('THEME').'.author_content')->with('author', $author)->render();
-        $this->vars = array_add($this->vars,'books_c', $books_c);
+        $this->vars = array_add($this->vars,'books', $books);
         $this->vars = array_add($this->vars,'cat', $cat);
         $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();

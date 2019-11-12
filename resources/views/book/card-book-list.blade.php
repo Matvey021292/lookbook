@@ -29,18 +29,19 @@
                     <div class="ContextBookCardLong__subscriptionContainer">
                         <div class="BtnSubscriptionIcon__premium">
                             <span class="SubscriptionIcon__subscriptionIcon themePremium BtnSubscriptionIcon__svg" 
-                            style="width: 32px; height: 32px;">
-                        </span>
+                            style="width: 32px; height: 32px;"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ContextBookCardLong__bookDescription jest-context-book-card-long">
-                {{ strip_tags($book->desc->book_desc) }}
-                <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a></div>
+                <div class="ContextBookCardLong__bookDescription jest-context-book-card-long">
+                    {{ strip_tags($book->desc->book_desc) }}
+                    <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
+                </div>
             </div>
         </div>
         <div class="ContextBookCardLong__bookDescriptionMobile">
-                {{ strip_tags($book->desc->book_desc) }}
-            <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a></div>
+            {{ strip_tags($book->desc->book_desc) }}
+            <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
         </div>
-    </li>
+    </div>
+</li>

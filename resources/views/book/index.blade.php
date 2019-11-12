@@ -6,9 +6,6 @@
 @section('slider')
 {!! $sliders !!}
 @endsection
-@section('search_content')
-    {!! $search !!}
-@endsection
 @section('home')
 {{--    {!! $book !!}--}}
 @endsection

@@ -13,4 +13,8 @@ class CategoryBook extends Model
         return $this->belongsToMany('App\Book', 'book_relationship', 'category_id', 'book_id');
     }
 
+    public function getCategory(){
+        echo 1;
+    }
+
 }

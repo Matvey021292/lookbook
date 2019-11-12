@@ -1,7 +1,7 @@
 @if($books)
 {{-- <div class="container">
     <div class="row"> --}}
-        <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="wpb_column vc_column_container vc_col-sm-12 single-slider">
             <div class="vc_column-inner vc_custom_1504607702805">
                 <div class="wpb_wrapper">
                    <div class="section">

@@ -10,5 +10,5 @@
     {!! $cat !!}
 @endsection
 @section('categories')
-    {!! $books_c !!}
+    {!! $books !!}
 @endsection

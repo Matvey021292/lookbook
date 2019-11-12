@@ -17,6 +17,10 @@ class Author extends Model
         return $this->hasMany('App\Book','author_id','id');
     }
 
+    public function books(){
+        return $this->belongsToMany('App\Book', 'book_author_relship', 'author_id', 'book_id');
+    }
+
     public function categories(){
         return $this->hasMany('App\Categories','author_id','id');
     }

@@ -41,10 +41,20 @@ class Book extends Model
     {
         return $this->hasOne('App\BookContent', 'book_id', 'id');
     }
+
+    public function translator(){
+        return $this->belongsToMany('App\Author', 'book_translit_relship', 'book_id', 'author_id');
+    }
+
     public function getBookRelationship()
     {
-        // return $this->belongsToMany('App\BookRelationship');
         return $this->belongsToMany('App\CategoryBook', 'book_relationship', 'book_id', 'category_id');
     }
+
+    public function authors(){
+        return $this->belongsToMany('App\Author', 'book_author_relship', 'book_id', 'author_id');
+    }
+
+    
 
 }

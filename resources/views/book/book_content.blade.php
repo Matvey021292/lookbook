@@ -14,17 +14,15 @@
                 <h1 class="BookPageHeaderContent__coverTitle">
                     <span>{{ $book->book }}</span>
                 </h1>
-                
                 <div class="BookAuthor__coverAuthor">
                     <div class="BookAuthor__authorList">
-                        <span>
-                            <a class="BookAuthor__authorName" 
-                            href="{{ route('author.show', ['alias' => $book->author->slug]) }}">{{ $book->author->title }}</a>
-                        </span>
+                        <div class="BookAuthor__authorName">
+                            @include(env('THEME') . '.card-book-authors', ['items'=>$book,'book' => $book])
+                        </div>
+                        <div class="BookAuthor__authorName">
+                           @include(env('THEME') . '.card-book-translate', ['items'=>$book,'book' => $book])
+                        </div>
                     </div>
-                    <a class="BookAuthor__link" href="{{ route('author.show', ['alias' => $book->author->slug]) }}">
-                        <i class="shortArrowWhite"></i>
-                    </a>
                 </div>
             </div>
             <div class="BookPageHeaderContent__coverBlockImage">

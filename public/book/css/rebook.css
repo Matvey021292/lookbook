@@ -2033,7 +2033,11 @@ button.swiper-pagination-bullet {
     overflow: hidden; }
     .UserSettingsAvatar__userImagePreviewContent {
       width: 100%;
+      display: block;
+      background: #2d2d2d;
+      color:#fff;
       height: 100%;
+      font-size: 70px;
       border-radius: inherit; }
     .UserSettingsAvatar__userImagePreviewEmpty {
       width: 100%;
@@ -8884,7 +8888,7 @@ li.page-item a,
   border-radius: 8px;
   font-size: 16px; }
   .BookshelfEditView__input:focus {
-    border: 2px solid #fec41f;
+    border: 1px solid #fec41f;
     color: #393f45;
     outline: none;
     background-color: #ffffff;
@@ -12212,7 +12216,7 @@ li.page-item a,
     outline: none;
     background-color: #ffffff;
     color: #393f45;
-    border: 2px solid #fec41f; }
+    border: 1px solid #fec41f; }
   .SearchLine__darkInput:focus::-webkit-input-placeholder {
     opacity: 0; }
   .SearchLine__darkInput:focus::-moz-placeholder {
@@ -13496,7 +13500,7 @@ input {
   padding: 8px;
   transition: all 0.25s; }
   input:focus {
-    border: 2px solid #fec41f;
+    border: 1px solid #fec41f;
     color: #393f45;
     outline: none;
     background-color: #ffffff;

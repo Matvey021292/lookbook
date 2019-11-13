@@ -37,16 +37,16 @@ abstract class Repository
         return $builder->where('book', 'LIKE', '%' . $query . "%")->get();
     }
     
-    public function getAuthorByTitle($select = '*', $query)
-    {
-        $builder = $this->model->select($select)->orderBy('id', 'DESC');
-        return $builder->where('title', 'LIKE', '%' . $query . "%")->get();
-    }
+        // public function getAuthorByTitle($select = '*', $query)
+        // {
+        //     $builder = $this->model->select($select)->orderBy('id', 'DESC');
+        //     return $builder->where('title', 'LIKE', '%' . $query . "%")->get();
+        // }
     
-    public function find_from_id($id)
-    {
-        return $this->model->where('id', $id)->first();
-    }
+    // public function find_from_id($id)
+    // {
+    //     return $this->model->where('id', $id)->first();
+    // }
     
     public function findFromArrayId($arr){
         return $this->model->whereIn('id', $arr)->get();

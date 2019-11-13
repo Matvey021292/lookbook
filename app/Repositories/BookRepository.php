@@ -10,13 +10,18 @@ class BookRepository extends Repository{
 		$this->model = $books;
 	}
 
-	public function getBooks($rand = false){
-		$books = $this->get('*', Config::get('settings.home_port_count'), $rand);
+	public function getBooks($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
+		$books = $this->get($select, $count, $rand,  $pagination, $desc);
         if ($books->isEmpty()) {
             return false;
 		}
         return $books;
 	}
+
+	public function getBook($alias){
+		return $this->model->where('slug', $alias)->first();
+	}
+
 }
 
 ?>

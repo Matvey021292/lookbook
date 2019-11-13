@@ -11,10 +11,14 @@ class CategoryBookRepository extends Repository{
         $this->model = $category;
     }
 
-    public function getCategory()
+    public function getCategories()
     {
        return $this->model->select()->get();
     }     
+
+    public function getCategory($alias){
+        return $this->model->where('slug', $alias)->first();
+    }
 }
 
 ?>

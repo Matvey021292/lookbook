@@ -7,7 +7,7 @@
     {!! $content !!}
 @endsection
 @section('categories')
-    {!! $cat !!}
+    {!! $categories !!}
 @endsection
 @section('categories')
     {!! $books !!}

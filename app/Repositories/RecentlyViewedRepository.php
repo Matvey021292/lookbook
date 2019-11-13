@@ -17,4 +17,24 @@ class RecentlyViewedRepository extends Repository{
         };
         return $books_view;
     }
+
+    public function addView($id){
+
+        $book_session = $id;
+        $recently_viewed = session()->get('book.recently_viewed');
+        if (!isset($recently_viewed)) {
+            session()->push('book.recently_viewed', $book_session);
+        } else {
+            $bool = false;
+            foreach ($recently_viewed as $key => $recently) {
+                if ($recently == $id) {
+                    $bool = true;
+                    break;
+                }
+            }
+            if (!$bool) {
+                session()->push('book.recently_viewed', $book_session);
+            }
+        }
+    }
 }

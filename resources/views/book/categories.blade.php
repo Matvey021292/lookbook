@@ -1,3 +1,3 @@
-@if($cat)
-@include(env('THEME') . '.customCategoryItems', ['items'=>$cat->roots(),'books' => $books])
+@if($categories)
+@include(env('THEME') . '.customCategoryItems', ['items'=>$categories->roots(),'books' => $books])
 @endif

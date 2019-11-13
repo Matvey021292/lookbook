@@ -3,19 +3,40 @@
 namespace App\Repositories;
 use Config;
 use App\Author;
+use Menu;
 
 class AuthorsRepository extends Repository{
-
+    
     public function __construct(Author $authors){
         $this->model = $authors;
     }
-
-    public function getAuthor(){
-        $authors = $this->get('*', Config::get('settings.authors_show_count'), false, false, 'DESC');
+    
+    public function getAuthors($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
+        $authors = $this->get($select, $count, $rand,  $pagination, $desc);
         if ($authors->isEmpty()) {
             return false;
         }
         return $authors;
+    }
+    
+    public function getCatMenu($menu){
+        $mBuilder = Menu::make('author_menu', function($m) use ($menu){
+            foreach($menu as $item){
+                if($item->parent_id == 0){
+                    $m->add($item->category,$item->slug)->id($item->id);
+                }else{
+                    if ($m->find($item->parent_id)) {
+                        $m->find($item->parent_id)->add($item->category,$item->slug)->id($item->id);
+                    }
+                }
+            }
+        });
+        return $mBuilder;
+    }
+
+    public function getAuthor($alias)
+    {
+        return $this->model->where('slug', $alias)->first();
     }
 }
 

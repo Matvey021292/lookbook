@@ -4,14 +4,8 @@
     {!! $nav !!}
 @endsection
 @section('profile')
-    {!! $content !!}
+    {!! $user !!}
 @endsection
 @section('recently_view')
     {!! $books_view !!}
 @endsection
-{{--@section('book')--}}
-{{--    {!! $books !!}--}}
-{{--@endsection--}}
-{{--@section('bar')--}}
-{{--    {!! $rightBar !!}--}}
-{{--@endsection--}}

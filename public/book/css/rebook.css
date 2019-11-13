@@ -1979,8 +1979,9 @@ button.swiper-pagination-bullet {
 
 .UserSettingsView__userSettingsBlocks {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-items: end;
   max-height: 790px;
   width: 100%; }
@@ -1994,7 +1995,7 @@ button.swiper-pagination-bullet {
 .UserSettingsAvatar__changeAvatar {
   position: relative;
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 24px; }
   .UserSettingsAvatar__changeAvatar:last-child {
     margin-bottom: 0; }
@@ -2111,22 +2112,22 @@ button.swiper-pagination-bullet {
     transition: fill 0.25s; }
 
 .UserSettingsPersonalData__personalSettings {
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 24px; }
   .UserSettingsPersonalData__personalSettings:last-child {
     margin-bottom: 0; }
 
 .UserSettingsPassword__passwordSettings {
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 24px; }
-  .UserSettingsPassword__passwordSettings:last-child {
-    margin-bottom: 0; }
+  /* .UserSettingsPassword__passwordSettings:last-child {
+    margin-bottom: 0; } */
 
 .UserSettingsEmail__emailSettings {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 24px; }
   .UserSettingsEmail__emailSettings:last-child {
     margin-bottom: 0; }

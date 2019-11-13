@@ -31,10 +31,11 @@ class IndexController extends SiteController
      */
     public function index()
     {
-        $book = $this->b_rep->getBooks();
-        $category = $this->c_rep->getCategory();
-        $slider =  $this->b_rep->getBooks(true);
-        $author =  $this->a_rep->getAuthor();
+        $count = Config::get('settings.home_post_count');
+        $book = $this->b_rep->getBooks('*', $count);
+        $category = $this->c_rep->getCategories();
+        $slider =  $this->b_rep->getBooks('*', $count, true);
+        $author =  $this->a_rep->getAuthors('*', $count, true);
         
         $category_temp = view(env('THEME') . '.category_book')->with('categories', $category)->render();
         $slider_temp = view(env('THEME') . '.book')->with('books', $book)->render();

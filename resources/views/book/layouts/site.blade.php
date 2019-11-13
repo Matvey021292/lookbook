@@ -66,13 +66,12 @@
                                 @yield('book')
                                 @yield('authors_content')
                                 @yield('bar')
+                                @yield('profile')
                                 @yield('recently_view')
                                 @yield('home') 
                                 @yield('search_content')
                                 @yield('categories')
-                                @yield('profile')
                                 @yield('category_book')
-                                
                             </div>
                             @yield('books_content')
                         </div>

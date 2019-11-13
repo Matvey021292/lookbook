@@ -20,14 +20,12 @@ class CategoryBookController extends SiteController
         $this->template = env('THEME') . '.books';
     }
     public function show($alias) {
-        $category = $this->cs_rep->one($alias);
+        $category = $this->cs_rep->getCategory($alias);
         $content = $category->getBookRelationship()->paginate(20);
         $content = view(env('THEME') . '.category')->with('content', $content)->with('category', $category)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
 
-    public function getBook($alias){
-
-    }
+   
 }

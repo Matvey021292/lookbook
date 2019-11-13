@@ -43,11 +43,6 @@ abstract class Repository
         return $builder->where('title', 'LIKE', '%' . $query . "%")->get();
     }
     
-    public function one($alias)
-    {
-        return $this->model->where('slug', $alias)->first();
-    }
-    
     public function find_from_id($id)
     {
         return $this->model->where('id', $id)->first();

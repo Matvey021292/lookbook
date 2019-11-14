@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeProfile extends Migration
+class CreateProfile extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class ChangeProfile extends Migration
      */
     public function up()
     {
-        Schema::table('profile', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('profile', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('image')->nullable();
+            $table->string('last_name')->nullable();
         });
     }
 
@@ -26,8 +27,6 @@ class ChangeProfile extends Migration
      */
     public function down()
     {
-        Schema::table('profile', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('profile');
     }
 }

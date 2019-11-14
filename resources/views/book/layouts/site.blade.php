@@ -18,6 +18,15 @@
     
 </head>
 <body>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div id="app" class="appContainer">
         <div class="app">
             <header class="Header__header">
@@ -32,7 +41,7 @@
                                 <div class="SearchLine__searchContent">
                                     <div class="SearchLine__darkInputWrapper">
                                         <form action="/qsearch" method='GET'>
-                                            <input name="query" value="{{ old('query') }}"id="autoComplete" 
+                                            <input autocomplete="off" name="query" value="{{ old('query') }}"id="autoComplete" 
                                             tabindex="1" type="text"
                                             class="SearchLine__darkInput jest-search-input">
                                             <label for="autoComplete"></label>
@@ -41,6 +50,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="Header__enter">
                             <div class="Header__mobileSearchButton jest-mobile-search-toggle"></div>
                             @guest

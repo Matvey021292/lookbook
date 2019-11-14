@@ -71,6 +71,8 @@ Route::resource('profile', 'ProfileController', [
 
 ]);
 
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
 
 Route::post('/book/download/', 'BookController@download')->name('downloadFile');

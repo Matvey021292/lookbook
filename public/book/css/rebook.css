@@ -12165,13 +12165,16 @@ li.page-item a,
   transition: all 0.2s; }
   .SearchLine__darkInput::-webkit-input-placeholder {
     color: #7c7f84;
-    text-align: center; }
+    /* text-align: center;  */
+  }
   .SearchLine__darkInput::-moz-placeholder {
     color: #7c7f84;
-    text-align: center; }
+    /* text-align: center;  */
+  }
   .SearchLine__darkInput:-ms-input-placeholder {
     color: #7c7f84;
-    text-align: center; }
+    /* text-align: center;  */
+  }
   .SearchLine__darkInputPlaceholder {
     position: absolute;
     z-index: 102;

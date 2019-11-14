@@ -171,3 +171,11 @@
     padding: 10px;
     font-size: 18px;
 }
+
+.visible svg path{
+  fill: #fec41f;
+}
+
+.visible .FormTextInput__input{
+    border-color: #fec41f;
+}

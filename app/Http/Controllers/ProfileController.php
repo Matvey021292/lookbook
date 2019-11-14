@@ -11,6 +11,7 @@ use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Profile;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends SiteController
 {
@@ -46,33 +47,36 @@ class ProfileController extends SiteController
                 'required',
                 Rule::unique('users')->ignore($user->id),
             ],
-            'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]);
-            
-    
-            $user->name = $request->input('first_name');
-            $user->email = $request->input('email');
-            
-            $profile = $user->profile;
-            if(!$profile){
-                $profile = new Profile();
-                $profile->user_id = $user->id;
-             }
-            
-
-            if ($request->has('profile_image')) {
-                $image = $request->file('profile_image');
-                $name = Str::slug($request->input('first_name')).'_'.time();
-                $folder = '/uploads/images/';
-                $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-                $this->uploadOne($image, $folder, 'public', $name);
-                $profile->image = $filePath;
-            }
-            dd($profile);
-            $user->save($profile);
-           
-            
-            return redirect()->back()->with(['status' => 'Profile updated successfully.']);
+            'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'password' => [  'min:6']
+            ]
+        );
+        
+        
+        
+        $user->name = $request->input('first_name');
+        $user->email = $request->input('email');
+        $user->password =  Hash::make($request->input('password'));
+        
+        $profile = $user->profile;
+        if(!$profile){
+            $profile = new Profile();
+            $profile->user_id = $user->id;
         }
+        
+        
+        if ($request->has('profile_image')) {
+            $image = $request->file('profile_image');
+            $name = Str::slug($request->input('first_name')).'_'.time();
+            $folder = '/uploads/images/';
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            $this->uploadOne($image, $folder, 'public', $name);
+            $profile->image = $filePath;
+        }
+        $user->save();
+        $user->profile()->save($profile);
+        
+        
+        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
-    
+}

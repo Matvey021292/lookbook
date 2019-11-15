@@ -20,7 +20,7 @@
                             @include(env('THEME') . '.card-book-authors', ['items'=>$book,'book' => $book])
                         </div>
                         <div class="BookAuthor__authorName">
-                           @include(env('THEME') . '.card-book-translate', ['items'=>$book,'book' => $book])
+                            @include(env('THEME') . '.card-book-translate', ['items'=>$book,'book' => $book])
                         </div>
                     </div>
                 </div>
@@ -100,6 +100,9 @@
 
 <script type="text/javascript">
     
+        var book_id = {{ $book->id }}
+    
+    
     async function submit(e) {
         let user = {
             'star': e.value, 
@@ -141,8 +144,32 @@
         
     }
     
+    async function selectedFile(e) {
+        let file = {
+            'book': book_id, 
+        };
+        
+        let response = await fetch("{{route('bookuserlist')}}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify(file)
+        });
+        
+        
+        // let result = await response.json();
+        // alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
+        // console.log(result)
+        
+    }
+    
     
 </script>
+
+<button class="BookStatusChangePopup__buttonFunctional">Добавить книгу в мой список</button>
+
 <div class="themeWhite">
     <div class="BookDetailView__bookPageContent">
         <div class="BookDetailAnnotation__annotationBlock">

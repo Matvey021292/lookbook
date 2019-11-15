@@ -75,6 +75,8 @@ Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile
 
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
 
+Route::post('/profile/bookuserlist', 'ProfileController@addBookToList')->name('bookuserlist');
+
 Route::post('/book/download/', 'BookController@download')->name('downloadFile');
 
 Route::get('qsearch', 'SearchController@searchIndex')->name('search');

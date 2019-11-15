@@ -14,4 +14,8 @@ trait UploadTrait
         $file = $uploadedFile->storeAs($folder, $name.'.'.$uploadedFile->getClientOriginalExtension(), $disk);
         return $file;
     }
+
+    public function deleteOne($file){
+        Storage::disk('public')->delete($file);
+    }
 }

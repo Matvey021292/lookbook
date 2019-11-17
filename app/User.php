@@ -42,4 +42,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile','id', 'id');
     }
 
+    public function books(){
+        return $this->belongsToMany('App\Book', 'selected_books', 'user_id', 'book_id');
+    }
+
 }

@@ -8,4 +8,5 @@ class Profile extends Model
 {
     public $table = 'profile';
     public $timestamps = false;
+
 }

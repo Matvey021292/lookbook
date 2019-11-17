@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Profile;
 use App\Book;
+use App\BookList;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Redirector;
 
@@ -46,7 +47,6 @@ class ProfileController extends SiteController
         
         if(!$this->user::check()) return redirect()->route('login');
         $user = $this->user::user();
-        
         $request->validate([
             'first_name'              =>  'required',
             'email' => [ 'required', $this->rule->unique('users')->ignore($user->id)],
@@ -99,7 +99,17 @@ class ProfileController extends SiteController
             $book_id = $request->input('book');
             $book = Book::find($book_id);
             if(!$book) return;
-            
+            $this->addBook($book_id);
+
+        }
+
+        public function addBook($book_id){
+            $book = new BookList;
+            $book->stage = 1;
+            $book->last_page = 0;
+            $book->book_id = $book_id;
+            $book->user_id = AUTH::id();
+            $book->save();
         }
         
     }

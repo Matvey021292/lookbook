@@ -45,6 +45,7 @@
                     <div class="Form__formRow"><span class="FormTextInput__formTextInput"><label class="FormTextInput__label" for="first_name">Имя</label><span class="FormTextInput__control">
                         <input class="FormTextInput__input jest-userprofile-firstname" id="first_name" name="first_name" type="text" value="{{ $user->name}}"></span></span>
                     </div>
+                    
                     @if(!empty($user->profile->last_name))
                     <div class="Form__formRow"><span class="FormTextInput__formTextInput"><label class="FormTextInput__label" for="last_name">Фамилия </label><span class="FormTextInput__control">
                         <input class="FormTextInput__input jest-userprofile-firstname" id="last_name" name="last_name" type="text" value="{{ $user->profile->last_name}}"></span></span>
@@ -93,4 +94,27 @@
         </div>
     </form>
 </div>
+@if($user->books)
+@if(count($user->books) > 7)
+<div class="ContentCarousel__wrapper glide">
+    <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
+        <div class="swiper-wrapper glide__slides">
+            @foreach($user->books as $book)
+            @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
+            @endforeach
+        </div>
+    </div>
+</div>
+@else
+<div class="ContentCarousel__wrapper ">
+    <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
+        <div class="swiper-wrapper">
+            @foreach($user->books as $book)
+            @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => false])
+            @endforeach
+        </div>
+    </div>
+</div>
+@endif
+@endif
 @endif

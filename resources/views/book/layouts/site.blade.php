@@ -82,6 +82,7 @@
                                 @yield('search_content')
                                 @yield('categories')
                                 @yield('category_book')
+                                @yield('book_content')
                             </div>
                             @yield('books_content')
                         </div>

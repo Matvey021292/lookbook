@@ -15,7 +15,7 @@
                                 <img class="UserSettingsAvatar__userImagePreviewContent" src="{{ $user->profile->image}}" width="80" height="80">
                                 @else
                                 <span class="UserSettingsAvatar__userImagePreviewContent d-block" width="80" height="80">
-                                    {{ strtoupper(substr($user->name, 0,2)) }}
+                                    {{ strtoupper(substr($user->name, 0, 1)) }}
                                 </span>
                                 @endif
                             </div>
@@ -95,26 +95,34 @@
     </form>
 </div>
 @if($user->books)
-@if(count($user->books) > 7)
-<div class="ContentCarousel__wrapper glide">
-    <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
-        <div class="swiper-wrapper glide__slides">
-            @foreach($user->books as $book)
-            @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
-            @endforeach
+<br>
+<div class="billetContainerNoOverflow">
+    <div class="billetContainerWrapper">
+        <div class="LandingContentContainer__title">
+            <div class="title-2">Мои книги</div>
         </div>
     </div>
-</div>
-@else
-<div class="ContentCarousel__wrapper ">
-    <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
-        <div class="swiper-wrapper">
-            @foreach($user->books as $book)
-            @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => false])
-            @endforeach
+    @if(count($user->books) > 7)
+    <div class="ContentCarousel__wrapper glide">
+        <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
+            <div class="swiper-wrapper glide__slides">
+                @foreach($user->books as $book)
+                @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
+                @endforeach
+            </div>
         </div>
     </div>
+    @else
+    <div class="ContentCarousel__wrapper ">
+        <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
+            <div class="swiper-wrapper">
+                @foreach($user->books as $book)
+                @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => false])
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
-@endif
 @endif
 @endif

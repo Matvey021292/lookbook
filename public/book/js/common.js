@@ -29,14 +29,22 @@ glides.forEach(function (e, i) {
 });
 
 
-window.addEventListener('wheel', function (event) {
-    if (event.deltaY < 0) {
-        document.querySelector('.single-slider .arrowRight').click()
-    }
-    else if (event.deltaY > 0) {
-        document.querySelector('.single-slider .arrowLeft').click()
-    }
-});
+if (document.querySelector('.single-slider')) {
+    wheelSlider();
+}
+
+function wheelSlider() {
+    window.addEventListener('wheel', function (event) {
+        if (event.deltaY < 0) {
+            document.querySelector('.single-slider .arrowRight').click()
+        }
+        else if (event.deltaY > 0) {
+            document.querySelector('.single-slider .arrowLeft').click()
+        }
+    });
+}
+
+
 
 new autoComplete({
     data: {
@@ -154,8 +162,64 @@ if (inputElement) {
 }
 
 
-var btn_select = document.querySelector('.BookStatusChangePopup__buttonFunctional');
 
-btn_select.addEventListener('click', function (e) {
-    selectedFile(this);
+
+document.addEventListener('click', function (event) {
+    var e = event.target;
+    var add = 'add_book_my_list';
+    var remove = 'remove_book_my_list';
+    var data = {
+        'book': book_id,
+    };
+    if (e.classList.contains(add)) {
+        requestPostData(route_booklist_add, data)
+            .then(e => console.log(e.message));
+        e.innerText = 'Удалить книгу из моего списка';
+        reverseClassList(e, remove, add);
+
+    } else if (e.classList.contains(remove)) {
+        requestPostData(route_booklist_remove, data)
+            .then(e => console.log(e.message));
+        e.innerText = 'Добавить книгу в мой список';
+        reverseClassList(e, add, remove);
+    }
 })
+
+function reverseClassList(e, classadd, classremove) {
+    e.classList.add(classadd);
+    e.classList.remove(classremove);
+}
+
+
+async function requestPostData(route, data) {
+
+    var meta = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var response = await fetch(route, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'X-CSRF-TOKEN': meta
+        },
+        body: JSON.stringify(data)
+    });
+
+    return await response.json();
+}
+
+async function downloadFile(e) {
+    e.preventDefault();
+    let data = {
+        'file': e.target.href,
+        'slug': e.target.getAttribute('data-slug')
+    };
+    let response = await fetch("{{route('downloadFile')}}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify(data)
+    });
+    let result = await response.json();
+
+}

@@ -79,10 +79,10 @@
                                         @endif
                                         @endforeach
                                         <li>
-                                            <a  onclick="downloadFile()" data-format='pdf'  class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">PDF</a>
+                                        <a  onclick="downloadFile()" data-format='fb2'  class="Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
                                         </li>
                                         <li>
-                                            <a  onclick="downloadFile()" data-format='ebub' class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">EBUB</a>
+                                            <a  onclick="downloadFile()" data-format='ebub' class="Button__primaryButton Button__primaryButton_min" href="{{ $format->link }}">EBUB</a>
                                         </li>
                                         <li>
                                             <a  onclick="downloadFile()" data-format='pdf' class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">MOBI</a>
@@ -100,7 +100,9 @@
 
 <script type="text/javascript">
     
-        var book_id = {{ $book->id }}
+    var book_id = {{ $book->id }};
+    var route_booklist_add = "{{route('bookListAdd')}}";
+    var route_booklist_remove = "{{route('bookListRemove')}}";
     
     
     async function submit(e) {
@@ -121,55 +123,15 @@
         
         let result = await response.json();
         alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
-        // console.log(result)
-        
     }
-    
-    async function downloadFile(e) {
-        e.preventDefault();
-        let data = {
-            'file': e.target.href, 
-            'slug':e.target.getAttribute('data-slug')
-        };
-        let response = await fetch("{{route('downloadFile')}}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify(data)
-        });
-        let result = await response.json();
-        console.log(result);
-        
-    }
-    
-    async function selectedFile(e) {
-        let file = {
-            'book': book_id, 
-        };
-        
-        let response = await fetch("{{route('bookuserlist')}}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify(file)
-        });
-        
-        
-        // let result = await response.json();
-        // alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
-        // console.log(result)
-        
-    }
-    
     
 </script>
 
-<button class="BookStatusChangePopup__buttonFunctional">Добавить книгу в мой список</button>
-
+@if(!$book->booklist)
+<button class="BookStatusChangePopup__buttonFunctional add_book_my_list">Добавить книгу в мой список</button>
+@else
+<button class="BookStatusChangePopup__buttonFunctional remove_book_my_list">Удалить книгу из моего списка</button>
+@endif
 <div class="themeWhite">
     <div class="BookDetailView__bookPageContent">
         <div class="BookDetailAnnotation__annotationBlock">

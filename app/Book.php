@@ -55,6 +55,4 @@ class Book extends Model
         return $this->belongsToMany('App\Author', 'book_author_relship', 'book_id', 'author_id');
     }
 
-    
-
 }

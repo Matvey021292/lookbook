@@ -16,7 +16,7 @@ class IndexController extends SiteController
 
     public function __construct( SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryBookRepository $c_rep, BookContentRepository $cb_rep)
     {
-        parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu), new RecentlyViewedRepository(new \App\Book));
+        parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu), new RecentlyViewedRepository(new \App\Book) );
         $this->s_rep = $s_rep;
         $this->b_rep = $b_rep;
         $this->a_rep = $a_rep;
@@ -38,7 +38,7 @@ class IndexController extends SiteController
         $author =  $this->a_rep->getAuthors('*', $count, true);
         
         $category_temp = view(env('THEME') . '.category_book')->with('categories', $category)->render();
-        $slider_temp = view(env('THEME') . '.book')->with('books', $book)->render();
+        $slider_temp = view(env('THEME') . '.section')->with('books', $book)->render();
         $book_temp = view(env('THEME') . '.slider')->with('sliders', $slider)->render();
 
         $this->vars = array_add($this->vars, 'category', $category_temp);

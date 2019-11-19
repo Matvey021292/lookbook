@@ -4,9 +4,6 @@
         <a href="javascript:void(0)">
             <div class="LandingContentContainer__title">
                 <div class="title-2">Просмотренные книги</div>
-                <div class="LandingContentContainer__link">
-                    <span class="link LandingContentContainer__linkText">Все новинки</span><i class="shortArrow"></i>
-                </div>
             </div>
         </a>
     </div>

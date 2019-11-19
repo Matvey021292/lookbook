@@ -206,20 +206,25 @@ async function requestPostData(route, data) {
     return await response.json();
 }
 
-async function downloadFile(e) {
-    e.preventDefault();
-    let data = {
-        'file': e.target.href,
-        'slug': e.target.getAttribute('data-slug')
-    };
-    let response = await fetch("{{route('downloadFile')}}", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify(data)
-    });
-    let result = await response.json();
+var download_files = document.querySelectorAll('.download_file');
+download_files.forEach(function (el, i) {
+    el.addEventListener('click', function (e) {
+        if (!e.target.dataset.format) return;
+        e.preventDefault();
+        var data = {
+            'file': e.target.href,
+            'format': e.target.dataset.format
+        }
+        requestPostData(download_route, data)
+            .then(e => window.open(e.message))
+    })
+})
 
+
+function showLoader() {
+    document.querySelector('.loader').classList.add('show');
+}
+
+function hideLoader() {
+    document.querySelector('.loader').classList.remove('show');
 }

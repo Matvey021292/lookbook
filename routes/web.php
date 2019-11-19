@@ -34,6 +34,11 @@ Route::resource('book', 'BookController', [
     ],
 ]);
 
+Route::resource('book/{slug}/read', 'ContentBook', [
+    
+]);
+
+
 Route::resource('books', 'BooksController', [
     'parameters' => [
         'books' => 'alias',
@@ -78,7 +83,7 @@ Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
 Route::post('/profile/bookListAdd', 'ProfileController@addBookList')->name('bookListAdd');
 Route::post('/profile/bookListRemove', 'ProfileController@removeBookList')->name('bookListRemove');
 
-Route::post('/book/download/', 'BookController@download')->name('downloadFile');
+Route::post('/book/download', 'BookController@download')->name('downloadFile');
 
 Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 

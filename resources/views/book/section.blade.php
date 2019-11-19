@@ -1,7 +1,7 @@
 @if($books)
 <div class="billetContainerNoOverflow">
     <div class="billetContainerWrapper">
-        <a href="javascript:void(0)">
+        <a href="/books">
             <div class="LandingContentContainer__title">
                 <div class="title-2">Новинки</div>
                 <div class="LandingContentContainer__link">

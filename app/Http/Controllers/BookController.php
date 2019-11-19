@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\BookRepository;
 use App\Repositories\RecentlyViewedRepository;
 use Illuminate\Http\Request;
+use App\Convert;
+
 
 class BookController extends SiteController
 {
@@ -19,11 +21,11 @@ class BookController extends SiteController
         $this->review_reposytory = $review_reposytory;
         $this->template = env('THEME') . '.book';
     }
-
+    
     public function show($alias = false, Book $product)
     {
         
-       
+        
         
         $book = $this->b_rep->getBook($alias);
         if($booklist = $this->getBookList($book->id)){
@@ -38,14 +40,30 @@ class BookController extends SiteController
         
         return $this->renderOutput();
     }
-
+    
     public function getBookList($id){
+        if(!$this->isVerifiedClient()) return;
         $user = Auth::user();
         $user_favorites = DB::table('selected_books')
         ->where('book_id', '=', $id )
         ->where('user_id', '=', $user->id)
         ->first();
         return $user_favorites;
+    }
+    
+    public function isVerifiedClient()
+    {
+        return auth()->user();
+    }
+    
+    public function download(Request $request){
+        $format = $request->input('format');
+        $path_file = $request->input('file');
+        $request_name = str_replace($format, 'fb2.zip', $path_file);
+        if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
+        $convert = new Convert();
+        $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH), $format);
+        return response()->json(['message'=> $path_file ]);
     }
     
 }

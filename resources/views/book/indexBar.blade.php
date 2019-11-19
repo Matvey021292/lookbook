@@ -1,7 +1,7 @@
 @if($authors)
 <div class="billetContainerNoOverflow">
     <div class="billetContainerWrapper">
-        <a href="javascript:void(0)">
+        <a href="/authors">
             <div class="LandingContentContainer__title">
                 <div class="title-2">Авторы</div>
                 <div class="LandingContentContainer__link">

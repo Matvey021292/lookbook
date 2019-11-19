@@ -13,13 +13,11 @@ class ContentBook extends SiteController
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->b_rep = $b_rep;
-        $this->a_rep = $a_rep;
-        $this->cb_rep = $cb_rep;
-        $this->bar = 'right';
         $this->template = env('THEME') . '.books';
     }
-    public function show($id){
-        $content = $this->cb_rep->find_from_id($id);
+    
+    public function index($alias){
+        $content = $this->b_rep->getBook($alias);
         $content = view(env('THEME') . '.content_book')->with('content', $content)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();

@@ -67,26 +67,20 @@
                             <div class="jest-bookpage-auth-form">
                                 <div class="Form__form">
                                     <ul class="Form__form-btn">
+                                        <li>
+                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->slug]) }}/read">Читать</a>
+                                        </li>
                                         @foreach($book->format as $format)
-                                        @if($format->slug != 'more')
                                         <li>
-                                            <a  class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">{{$format->format}}</a>
+                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
                                         </li>
-                                        @else
                                         <li>
-                                            <a class="Button__primaryButton Button__primaryButton_min" href="{{ route('content.show', ['alias' => $format->id]) }}">Читать онлайн</a>
+                                            <a data-format='epub' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.epub', $format->slug)}}"">EBUB</a>
                                         </li>
-                                        @endif
+                                        <li>
+                                            <a data-format='mobi' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.mobi', $format->slug)}}">MOBI</a>
+                                        </li>
                                         @endforeach
-                                        <li>
-                                        <a  onclick="downloadFile()" data-format='fb2'  class="Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
-                                        </li>
-                                        <li>
-                                            <a  onclick="downloadFile()" data-format='ebub' class="Button__primaryButton Button__primaryButton_min" href="{{ $format->link }}">EBUB</a>
-                                        </li>
-                                        <li>
-                                            <a  onclick="downloadFile()" data-format='pdf' class="Button__primaryButton Button__primaryButton_min" href="{{ str_replace('https://flibusta.is/', 'http://parser/author_image/', $format->link) }}/{{ $format->slug }}">MOBI</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,6 +97,7 @@
     var book_id = {{ $book->id }};
     var route_booklist_add = "{{route('bookListAdd')}}";
     var route_booklist_remove = "{{route('bookListRemove')}}";
+    var download_route = "{{route('downloadFile')}}";
     
     
     async function submit(e) {
@@ -127,10 +122,13 @@
     
 </script>
 
+@guest
+@else
 @if(!$book->booklist)
 <button class="BookStatusChangePopup__buttonFunctional add_book_my_list">Добавить книгу в мой список</button>
 @else
 <button class="BookStatusChangePopup__buttonFunctional remove_book_my_list">Удалить книгу из моего списка</button>
+@endif
 @endif
 <div class="themeWhite">
     <div class="BookDetailView__bookPageContent">

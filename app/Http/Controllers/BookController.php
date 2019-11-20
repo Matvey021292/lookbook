@@ -24,10 +24,8 @@ class BookController extends SiteController
     
     public function show($alias = false, Book $product)
     {
-        
-        
-        
         $book = $this->b_rep->getBook($alias);
+        if(empty($book)) return redirect()->back()->withErrors(Config::get('message.book_not_found'));
         if($booklist = $this->getBookList($book->id)){
             $book->booklist = $booklist;
         }
@@ -62,7 +60,7 @@ class BookController extends SiteController
         $request_name = str_replace($format, 'fb2.zip', $path_file);
         if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
         $convert = new Convert();
-        $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH), $format);
+        $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH));
         return response()->json(['message'=> $path_file ]);
     }
     

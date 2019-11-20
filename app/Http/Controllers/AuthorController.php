@@ -6,6 +6,7 @@ use App\Repositories\AuthorsRepository;
 use App\Repositories\CategoriesRepository;
 use Illuminate\Http\Request;
 use Menu;
+use Config;
 
 class AuthorController extends SiteController
 {
@@ -19,6 +20,7 @@ class AuthorController extends SiteController
 
     public function show($alias = false){
         $author = $this->a_rep->getAuthor($alias);
+        if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         $categories = $author->categories;
         $categories = $this->a_rep->getCatMenu($categories);
         $books = $author->book;

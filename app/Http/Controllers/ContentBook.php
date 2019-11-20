@@ -6,6 +6,8 @@ use App\Repositories\AuthorsRepository;
 use App\Repositories\BookContentRepository;
 use App\Repositories\BookRepository;
 use Illuminate\Http\Request;
+use App\BookContent;
+use Config;
 
 class ContentBook extends SiteController
 {
@@ -18,8 +20,18 @@ class ContentBook extends SiteController
     
     public function index($alias){
         $content = $this->b_rep->getBook($alias);
-        $content = view(env('THEME') . '.content_book')->with('content', $content)->render();
+        $file = '/uploads/file/' . $content->format->link . '/' . $content->format->slug;
+        $contents = $this->book_content($file);
+        if(empty($contents)) return redirect()->back()->withErrors(Config::get('message.text_not_found'));
+        $contents = json_decode($contents->content(), true)['content'];
+        $content = view(env('THEME') . '.content_book')->with('content', $contents)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
+
+    public function book_content($path){
+        $content = new BookContent();
+        return $content->get_file_content($path);
+    }
+
 }

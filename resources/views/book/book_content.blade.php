@@ -70,7 +70,7 @@
                                         <li>
                                             <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->slug]) }}/read">Читать</a>
                                         </li>
-                                        @foreach($book->format as $format)
+                                        {{-- @foreach($book->format as $format)
                                         <li>
                                             <a class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
                                         </li>
@@ -80,7 +80,7 @@
                                         <li>
                                             <a data-format='mobi' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.mobi', $format->slug)}}">MOBI</a>
                                         </li>
-                                        @endforeach
+                                        @endforeach --}}
                                     </ul>
                                 </div>
                             </div>

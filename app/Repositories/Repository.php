@@ -52,6 +52,7 @@ abstract class Repository
         return $this->model->whereIn('id', $arr)->get();
     }
     
+    
     // public function transformUrl($arr){
     //     $books->transform(function ($item, $key) {
     //         $item->desc->book_img = str_replace(Config::get('settings.replace_url'), Config::get('settings.path_image'), $item->desc->book_img);

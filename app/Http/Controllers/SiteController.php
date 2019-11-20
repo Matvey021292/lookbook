@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\MenusRepository;
 use App\Repositories\RecentlyViewedRepository;
 use Menu;
+use Config;
 
 class SiteController extends Controller
 {
@@ -49,6 +50,8 @@ class SiteController extends Controller
         return view($this->template)->with($this->vars);
     }
     
-   
+    public function errorRedirect($contents, $message){
+        if(empty($contents)) return redirect()->back()->withErrors(Config::get($message));
+    }
     
 }

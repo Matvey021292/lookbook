@@ -34,7 +34,7 @@ class Book extends Model
 
     public function format()
     {
-        return $this->hasMany('App\Format', 'book_id', 'id');
+        return $this->hasOne('App\Format', 'book_id', 'id');
     }
 
     public function getContent()

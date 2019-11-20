@@ -19,7 +19,7 @@ class Convert extends Model
         return $name;
     }
     
-    public function convert_format($path, $format){
+    public function convert_format($path, $format = ''){
         $file = $this->explode_file($path, $format);
         if(file_exists("{$file}")):
             return $file;

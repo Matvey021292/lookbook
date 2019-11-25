@@ -3,13 +3,12 @@
     <div class="billetContainerWrapper">
         <a href="/books">
             <div class="LandingContentContainer__title">
-                <div class="title-2">Новинки и бестселлеры</div>
+                <div class="title-2">Наиболее подходящие</div>
                 <div class="LandingContentContainer__link">
-                    <span class="link LandingContentContainer__linkText">Все новинки</span><i class="shortArrow"></i>
+                    <span class="link LandingContentContainer__linkText">Все книги</span><i class="shortArrow"></i>
                 </div>
             </div>
         </a>
-        <p>Популярные и начинающие авторы, крупнейшие и нишевые издательства</p>
     </div>
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">

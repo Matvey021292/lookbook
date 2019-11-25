@@ -1,17 +1,4 @@
-var glides = document.querySelectorAll(".glide");
 
-glides.forEach(function (e, i) {
-    if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= 7) {
-        e.querySelector(".glide__arrows").innerHTML = "";
-        return;
-    }
-    new Glide(e, {
-        perView: 7,
-        type: "carousel",
-        startAt: 0
-    }).mount();
-
-});
 
 var glides = document.querySelectorAll(".glides");
 

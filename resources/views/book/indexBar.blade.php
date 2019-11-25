@@ -5,11 +5,10 @@
             <div class="LandingContentContainer__title">
                 <div class="title-2">Авторы</div>
                 <div class="LandingContentContainer__link">
-                    <span class="link LandingContentContainer__linkText">Все новинки</span><i class="shortArrow"></i>
+                    <span class="link LandingContentContainer__linkText">Все авторы</span><i class="shortArrow"></i>
                 </div>
             </div>
         </a>
-        <p>Популярные и начинающие авторы, крупнейшие и нишевые издательства</p>
     </div>
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">

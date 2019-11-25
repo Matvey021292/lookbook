@@ -12665,8 +12665,10 @@ li.page-item a,
   
   background: #f7f7f7; }
 
+
+
 .Header__container {
-  display: flex;
+  
  
   position: relative;
   width: 100%;
@@ -12674,10 +12676,7 @@ li.page-item a,
   margin: 0 auto;
   padding: 0 16px;
   min-height: 98px;
-  flex-direction: row;
-  align-items: start;
-  justify-content: space-between;
-  flex-wrap: wrap;  margin-top: 10px;}
+   margin-top: 10px;}
 
 .Header__logo {
   /* position: absolute; */
@@ -13597,12 +13596,14 @@ small {
     min-width: 320px;
     margin: 0 auto;
     padding: 0 16px; }
-  .article .section {
+   .section {
     max-width: 1136px;
+    background: #f6f8fa;
     width: 100%;
     min-width: 320px;
     margin: 0 auto;
-    padding: 0 16px; }
+    padding: 0 16px;
+   }
     .article .section .sectionHeader {
       padding-top: 28px; }
       @media (max-width: 1023px) {

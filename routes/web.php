@@ -90,6 +90,6 @@ Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 Route::get('/search', 'SearchController@search');
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+// Route::group(['prefix' => 'admin'], function () {
+//     Voyager::routes();
+// });

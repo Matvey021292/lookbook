@@ -13596,14 +13596,7 @@ small {
     min-width: 320px;
     margin: 0 auto;
     padding: 0 16px; }
-   .section {
-    max-width: 1136px;
-    background: #f6f8fa;
-    width: 100%;
-    min-width: 320px;
-    margin: 0 auto;
-    padding: 0 16px;
-   }
+
     .article .section .sectionHeader {
       padding-top: 28px; }
       @media (max-width: 1023px) {

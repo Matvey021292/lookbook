@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="ukr">
+  <head>
+    <meta content="94e3f0f3-4d31-41b3-a27c-1aca15cd0f5e" name="dtb:uid"/>
+    <meta content="2" name="dtb:depth"/>
+    <meta content="calibre (3.39.1)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>Година Бика</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="u4mCbjJRJ7nIvMTFehqLduF" playOrder="1">
+      <navLabel>
+        <text>ПРОЛОГ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_1"/>
+    </navPoint>
+    <navPoint id="uNSUiQK3uILo2GjHHf5uOZ5" playOrder="2">
+      <navLabel>
+        <text>Розділ І МІФ ПРО ПЛАНЕТУ ТОРМАНС</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_2"/>
+    </navPoint>
+    <navPoint id="uLi2NiqR6iX975jLVvNw8V8" playOrder="3">
+      <navLabel>
+        <text>Розділ ІІ ПО КРАЮ БЕЗОДНІ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_3"/>
+    </navPoint>
+    <navPoint id="ujKkaYrm2AJYRjZjsgrNPZD" playOrder="4">
+      <navLabel>
+        <text>Розділ ІІІ НАД ТОРМАНСОМ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_4"/>
+    </navPoint>
+    <navPoint id="uzXQkBZ2kQNzlrA6d3JWiM3" playOrder="5">
+      <navLabel>
+        <text>Розділ IV ВІДГОМІН ІНФЕРНО</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_5"/>
+    </navPoint>
+    <navPoint id="uDAvmOlqLBhMN9uXqYLbWAD" playOrder="6">
+      <navLabel>
+        <text>Розділ V У САДАХ ЦОАМ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_6"/>
+    </navPoint>
+    <navPoint id="uRVznixKAkNZiSCo96InzGE" playOrder="7">
+      <navLabel>
+        <text>Розділ VI ЦІНА РАЮ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_7"/>
+    </navPoint>
+    <navPoint id="umNa85qldZCX6hZyMnknS3B" playOrder="8">
+      <navLabel>
+        <text>Розділ VII ОЧІ ЗЕМЛІ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_8"/>
+    </navPoint>
+    <navPoint id="u9Ct6XnlmEeLux5t2PHFqF7" playOrder="9">
+      <navLabel>
+        <text>Розділ VIII ТРИ ШАРИ СМЕРТІ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_9"/>
+    </navPoint>
+    <navPoint id="uyoODHhLecHjiDisGALrm9A" playOrder="10">
+      <navLabel>
+        <text>Розділ IX СКУТА ВІРА</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_10"/>
+    </navPoint>
+    <navPoint id="uUlW2Y4Yk6EJ9Nj93N3ssT3" playOrder="11">
+      <navLabel>
+        <text>Розділ X СТРІЛА АРІМАНА</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_11"/>
+    </navPoint>
+    <navPoint id="udZbadafaTdkrlaomlIPVvG" playOrder="12">
+      <navLabel>
+        <text>Розділ XI МАСКИ ПІДЗЕМЕЛЛЯ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_12"/>
+    </navPoint>
+    <navPoint id="uMTuMwSHo9vY8QAe5LFOvOD" playOrder="13">
+      <navLabel>
+        <text>Розділ ХІІ КРИШТАЛЕВЕ ВІКНО</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_13"/>
+    </navPoint>
+    <navPoint id="uGDv8eVAp8Kc6kEK42l7krF" playOrder="14">
+      <navLabel>
+        <text>Розділ XIII КОРАБЛЮ — ЗЛІТ!</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_14"/>
+    </navPoint>
+    <navPoint id="uAQQFKcltokE3aECCezJQWH" playOrder="15">
+      <navLabel>
+        <text>ЕПІЛОГ</text>
+      </navLabel>
+      <content src="index.xhtml#calibre_toc_15"/>
+    </navPoint>
+    <navPoint id="uEskksEyHNqroXeq7onBWq9" playOrder="16">
+      <navLabel>
+        <text>1</text>
+      </navLabel>
+      <content src="index.xhtml#fn1"/>
+    </navPoint>
+    <navPoint id="uYmWlhzldanU53MshaobNpD" playOrder="17">
+      <navLabel>
+        <text>2</text>
+      </navLabel>
+      <content src="index.xhtml#fn2"/>
+    </navPoint>
+    <navPoint id="ugRWRmSd2AbIuAd9tt9mZJG" playOrder="18">
+      <navLabel>
+        <text>3</text>
+      </navLabel>
+      <content src="index.xhtml#fn3"/>
+    </navPoint>
+  </navMap>
+</ncx>

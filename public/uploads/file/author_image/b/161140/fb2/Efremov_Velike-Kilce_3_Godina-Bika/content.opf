@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+  <metadata xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dc:publisher>Молодь</dc:publisher>
+    <dc:description>Події науково-фантастичного роману про віддалене майбутнє відбуваються на планеті з олігархічним устроєм. Група землян — людей вищої соціальної формації — прибули на планету Торманс з метою її дослідження та налагодження зв’язків, проте тут вони наразилися на неймовірні труднощі, стали свідками свавілля й жорстокості правлячої верхівки та моральної убогості жителів, характери і спосіб життя яких сформувалися в умовах гніту й тиранії.</dc:description>
+    <dc:language>uk</dc:language>
+    <dc:creator opf:file-as="Неизвестный" opf:role="aut">Іван Єфремов</dc:creator>
+    <meta name="calibre:timestamp" content="2019-11-01T14:15:34.234383+00:00"/>
+    <dc:title>Година Бика</dc:title>
+    <meta name="cover" content="cover"/>
+    <dc:date>1990-11-15T00:00:00+00:00</dc:date>
+    <dc:contributor opf:role="bkp">calibre (3.39.1) [https://calibre-ebook.com]</dc:contributor>
+    <dc:identifier id="uuid_id" opf:scheme="uuid">94e3f0f3-4d31-41b3-a27c-1aca15cd0f5e</dc:identifier>
+    <dc:subject>sf</dc:subject>
+  </metadata>
+  <manifest>
+    <item href="fb2_cover_calibre_mi.jpg" id="cover" media-type="image/jpeg"/>
+    <item href="doc2fb_image_02000001.jpg" id="id2" media-type="image/jpeg"/>
+    <item href="doc2fb_image_03000002.png" id="id28" media-type="image/png"/>
+    <item href="doc2fb_image_03000003.png" id="id7" media-type="image/png"/>
+    <item href="doc2fb_image_03000004.png" id="id17" media-type="image/png"/>
+    <item href="doc2fb_image_03000005.png" id="id1" media-type="image/png"/>
+    <item href="doc2fb_image_03000006.png" id="id24" media-type="image/png"/>
+    <item href="doc2fb_image_03000007.png" id="id13" media-type="image/png"/>
+    <item href="doc2fb_image_03000008.png" id="id31" media-type="image/png"/>
+    <item href="doc2fb_image_03000009.png" id="id19" media-type="image/png"/>
+    <item href="doc2fb_image_0300000A.png" id="id23" media-type="image/png"/>
+    <item href="doc2fb_image_0300000B.png" id="id6" media-type="image/png"/>
+    <item href="doc2fb_image_0300000C.png" id="id10" media-type="image/png"/>
+    <item href="doc2fb_image_0300000D.png" id="id21" media-type="image/png"/>
+    <item href="doc2fb_image_0300000E.png" id="id15" media-type="image/png"/>
+    <item href="doc2fb_image_0300000F.png" id="id18" media-type="image/png"/>
+    <item href="doc2fb_image_03000010.png" id="id3" media-type="image/png"/>
+    <item href="doc2fb_image_03000011.png" id="id20" media-type="image/png"/>
+    <item href="doc2fb_image_03000012.png" id="id29" media-type="image/png"/>
+    <item href="doc2fb_image_03000013.png" id="id16" media-type="image/png"/>
+    <item href="doc2fb_image_03000014.png" id="id30" media-type="image/png"/>
+    <item href="doc2fb_image_03000015.png" id="id5" media-type="image/png"/>
+    <item href="doc2fb_image_03000016.png" id="id8" media-type="image/png"/>
+    <item href="doc2fb_image_03000017.png" id="id26" media-type="image/png"/>
+    <item href="doc2fb_image_03000018.png" id="id12" media-type="image/png"/>
+    <item href="doc2fb_image_03000019.png" id="id25" media-type="image/png"/>
+    <item href="doc2fb_image_0300001A.png" id="id27" media-type="image/png"/>
+    <item href="doc2fb_image_0300001B.png" id="id11" media-type="image/png"/>
+    <item href="doc2fb_image_0300001C.png" id="id9" media-type="image/png"/>
+    <item href="index.xhtml" id="id14" media-type="application/xhtml+xml"/>
+    <item href="page_styles.css" id="page_css" media-type="text/css"/>
+    <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="id14"/>
+  </spine>
+  <guide>
+    <reference href="fb2_cover_calibre_mi.jpg" title="Cover" type="cover"/>
+  </guide>
+</package>

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Zip;
+
 
 class BookContent extends Model
 {
@@ -43,6 +45,14 @@ class BookContent extends Model
             $data[$key] = (string) $package->metadata->children('dc', true)->$key;
         }
         return $data;
+    }
+
+    public function unzip_file($path){
+        $file = substr($path, 0 , strpos($path, '.'));
+        if(is_dir($file)) return $file;
+        $zip = Zip::open($path);
+        $zip->extract($file);
+        return $file;
     }
     
     public function get_file_content($path){

@@ -6,13 +6,13 @@
     <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
     <title>{{ env('APP_NAME') }}</title>
+    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
     <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.core.min.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.theme.min.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/vendor.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/rebook.css'>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
@@ -33,9 +33,9 @@
             <header class="Header__header themeGrey">
                 <div class="billetContainerWrapper">
                     <div class="section-container">
-                        <div class="Header__menuWrapper">
-                            <a class="Header__logo" href="/">Leviafan.com</a>
-                            <div class="Header__search">
+                        <div class="Header__menuWrapper row middle-xs">
+                            <a class="Header__logo col-sm-3 center-xs" href="/">Leviafan.com</a>
+                            <div class="Header__search col-sm-4 pl-0">
                                 <div class="SearchLine__search">
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
@@ -43,22 +43,30 @@
                                                 <input autocomplete="off" name="query" value="{{ old('query') }}"id="autoComplete" 
                                                 tabindex="1" type="text"
                                                 class="SearchLine__darkInput jest-search-input">
-                                                <label for="autoComplete"></label>
+                                                <label for="autoComplete"><i class="fas fa-search"></i></label>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="Header__enter">
+                            <div class="Header__enter col-sm-3 center-xs col-xs-offset-2">
                                 <div class="Header__mobileSearchButton jest-mobile-search-toggle"></div>
                                 @guest
-                                <a href="/login" class="Header__link jest-auth-link-hamburger"> Войти &nbsp; | &nbsp;</a>
-                                <a href="/login" class="Header__link">  Личный кабинет </a>
+                                <a href="/login" class="Header__link jest-auth-link-hamburger">
+                                    <i class="fas fa-sign-in-alt"></i> {{ __('Войти')}} &nbsp; | &nbsp;
+                                </a>
+                                
+                                <a href="/login" class="Header__link"> 
+                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}} 
+                                </a>
                                 @else
-                                <a class="Header__link go_to_login_link" href="{{ route('logout') }}">{{ __('Выход') }} </a>&nbsp; |
-                                &nbsp; 
-                                <a href="/profile" class="Header__link">  Личный кабинет, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</a>
+                                <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
+                                    <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}  &nbsp; | &nbsp; 
+                                </a>
+                              
+                                <a href="/profile" class="Header__link"> 
+                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}}, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                                </a>
                                 @endif
                             </div>
                         </div>

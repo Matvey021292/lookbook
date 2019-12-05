@@ -198,7 +198,19 @@
     font-style: italic;
 }
 
+:root{
+    --color-link:#9eb0c1;
+}
 
+
+body{
+    font-family: 'Raleway';
+    font-weight: 500;
+}
+
+a{
+    color: var(--color-link);
+}
 
 .menu-item-has-children {
     position: relative;
@@ -248,336 +260,322 @@
     overflow: hidden;
 }
 
-/* .swiper-slide{ */
-    /* flex:1 1 1%; */
-    /* } */
-    
-    
-    .Header__menuWrapper{
-        flex-wrap: wrap;
-    }
-    
-    .Header__search{
-        order: unset;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    
-    .Header__menu{
-        position: static;
-        height: auto;
-    }
-    .SearchLine__search{
-        /* width: auto; */
-    }
-    
-    .Form__form-btn{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .Form__form-btn li{
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-    
-    .star-rating {
-        border: 0;
-        display: flex;
-        flex-direction: row-reverse;
-        font-size: 2em;
-        text-align: center;
-        width: 5em;
-        justify-content: flex-end;
-    }
-    .disabled-form{
-        position: relative;
-        display: inline-block;
-    }
-    .star-rating input {
-        display: none;
-    }
-    .star-rating label {
-        color: rgb(128, 128, 128);
-        cursor: pointer;
-    }
-    
-    
-    .Rating__ratingStar .star-rating label {
-        font-size: 25px;
-    }
-    
-    .star-rating :checked ~ label {
-        color: rgb(255, 212, 59);
-        webkit-animation: wobble 0.8s ease-out;
-        animation: wobble 0.8s ease-out;
-    }
-    .star-rating :hover ~ label {
-        color: rgb(250, 176, 5);
-    }
-    
-    .BookPageHeaderContent__bookUserRating{
-        position: static;
-    }
-    
-    
-    .Header__logo{
-        position: static;
-        flex: 1 1 15%;
-    }
-    
-    .Header__menuWrapper{
-        padding: 0px;
-    }
-    
-    .BookDetailAnnotation__content{
-        margin-top: 120px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-    
-    .BookDetailAnnotation__descriptionWrapper{
-        flex: 1 1 80%;
-        min-width: 440px;
-    }
-    
-    .BookPageHeaderContent__bookUserRating{
-        flex: 1 1 20%;
-    }
-    
-    .BookPageHeaderContent__bookInformationRating{
-        margin-top: 0px;
-    }
-    
-    .Button__primaryButton.Button__primaryButton_min::first-letter{
-        text-transform: uppercase;
-    }
-    .Button__primaryButton.Button__primaryButton_min{
-        font-size: 15px;
-        padding: 15px 24px;
-        height: auto;
-        line-height: 1;
-    }
-    
-    .alert{
-        position: fixed;
-        width: 100%;
-        text-align: center;
-        z-index: 9999;
-        background: #fff;
-        padding: 10px;
-        font-size: 18px;
-    }
-    
-    .visible svg path{
-        fill: #fec41f;
-    }
-    
-    .visible .FormTextInput__input{
-        border-color: #fec41f;
-    }
-    
-    .loader{
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: none;
-        z-index: 999;
-        background: rgba(255, 255, 255, 0.7)
-    }
-    
-    .loader.show{
-        display: block;
-    }
-    
-    
-    .appContainer{
-        height: auto;
-        background: linear-gradient(to right, #fff 30%, #41d4d7 0%);
-        padding: 60px 0 0;
-    }
-    
-    .article{
-        background-color: transparent;
-    }
-    
-    .themeGrey{
-        background-color: transparent;
-    }
-    
-    .Header__logo{
-        font-weight: 700;
-        font-size: 20px;
-        font-family: "Raleway";
-    }
-    
-    .section-container{
-        padding: 20px 0;
-    }
-    
-    .d-flex{
-        display: flex;
-        flex-direction: row;
-        align-items: start;
-        justify-content: space-between;
-    }
-    
-    .section{
-        border-radius: 20px;
-        max-width: 1440px;
-        box-shadow: 0px 10px 20px -5px rgba(0,0,0,0.2);
-        background: #fff;
-        width: 100%;
-        min-width: 320px;
-        margin: 0 auto;
-       }
-    
-    .HeaderLinks__headerLinks{
-        width: auto;
-        height: auto;
-        position: sticky;
-        top: 0;
-        left: 0;
-        display: block;
-        flex: 1 1 15%;
-        padding: 16px;
-        padding-left: 0;
-        background: #fff;
-    }
-    
-    .article{
-        flex: 1 1 85%;
-    }
-    
-    .HeaderLinks__linksContainer{
-        flex-direction: column;
-    }
-    
-    .HeaderLinks__linkContainer{
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
-    }
-    
-    .HeaderLinks__linkContainer.active{
-        background: #f1f3f4;
-        border-radius: 0px 50px 50px 0;
-        cursor: none;
-        /* box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.1); */
-    }
-    
-    .HeaderLinks__linkContainer.active a{
-        /* color: #fff; */
-    }
-    
-    .HeaderLinks__linkContainer a:hover{
-        color: #2d2d2d;
-    }
-    
-    .HeaderLinks__link{
-        background: transparent;
-    }
-    
-    .link{
-        color: #2d2d2d;
-    }
-    
-    
-    .VerticalBookCard__bookName{
-        line-height: 1;
-    }
-    
-    .BookCover__bookImage{
-        object-fit: cover;
-    }
-    
-    .glide__arrows{
-        /* opacity: 0; */
-        transition: all 0.3s ease;
-    }
-    
-    .billetContainerNoOverflow:hover .glide__arrows{
-        opacity: 1;
-    }
-    
-    .arrowLeft, .arrowLeftSmall, .arrowRight, .arrowRightSmall{
-        background-image:url(../images/arrow_57df35f6.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: auto;
-        transform: rotate(0deg);
-    }
-    
-    .arrowLeft, .arrowLeftSmall{
-        transform: rotate(180deg);
-    }
-    
-    .LandingContentContainer__link{
-        display: flex;
-        align-items: center;
-    }
-    
-    .billetContainerNoOverflow .VerticalBookCard__tinyBook .VerticalBookCard__rating{
-        margin-bottom: 0;
-    }
-    
-    #autoComplete{
-        border-radius: 50px;
-    }
-    
-    #autoComplete:focus{
-        border-radius: 0.5rem;
-    }
-    
-    .HeaderLinks__link{
-        justify-content: flex-start;
-    }
-    
-    .HeaderLinks__link{
-        padding-left: 30px;
-    }
-    
-    .ContextAuthorCard__authorImage{
-        object-fit: cover;
-    }
-    
-    .glide__arrows{
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    
-    .link:hover{
-        color: rgba(255, 122, 122, 1);
-    }
-    
-    h2, .title-2{
-        padding-bottom: 0px;
-    }
-    
-    
-    .ContentCarousel__wrapper{
-        margin-top: 10px;
-    }
-    
-    .VerticalBookCard__bookInfo{
-        min-height: auto;
-    }
-    
-    body,
-    #autoComplete,
-    .VerticalBookCard__bookName{
-        font-family: 'Raleway';
-        font-weight: 500;
-    }
-    
-    label[for='autoComplete']{
-        opacity: 0.3;
-    }
-    
-  
+
+.Header__menu{
+    position: static;
+    height: auto;
+}
+
+
+.Form__form-btn{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Form__form-btn li{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    border: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2em;
+    text-align: center;
+    width: 5em;
+    justify-content: flex-end;
+}
+.disabled-form{
+    position: relative;
+    display: inline-block;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+
+.Rating__ratingStar .star-rating label {
+    font-size: 25px;
+}
+
+.star-rating :checked ~ label {
+    color: rgb(255, 212, 59);
+    webkit-animation: wobble 0.8s ease-out;
+    animation: wobble 0.8s ease-out;
+}
+.star-rating :hover ~ label {
+    color: rgb(250, 176, 5);
+}
+
+.BookPageHeaderContent__bookUserRating{
+    position: static;
+}
+
+
+.Header__logo{
+    position: static;
+    font-weight: 900;
+    font-size: 35px;
+}
+
+
+.Header__link{
+    font-size: 17px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.Header__link i{
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.BookDetailAnnotation__content{
+    margin-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.BookDetailAnnotation__descriptionWrapper{
+    flex: 1 1 80%;
+    min-width: 440px;
+}
+
+.BookPageHeaderContent__bookUserRating{
+    flex: 1 1 20%;
+}
+
+.BookPageHeaderContent__bookInformationRating{
+    margin-top: 0px;
+}
+
+.Button__primaryButton.Button__primaryButton_min::first-letter{
+    text-transform: uppercase;
+}
+.Button__primaryButton.Button__primaryButton_min{
+    font-size: 15px;
+    padding: 15px 24px;
+    height: auto;
+    line-height: 1;
+}
+
+.alert{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    z-index: 9999;
+    background: #fff;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.visible svg path{
+    fill: #fec41f;
+}
+
+.visible .FormTextInput__input{
+    border-color: #fec41f;
+}
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.7)
+}
+
+.loader.show{
+    display: block;
+}
+
+
+.appContainer{
+    height: auto;
+    background: linear-gradient(to right, #fff 31.5%, #41d4d7 0%);
+    padding: 60px 0 0;
+}
+
+.article{
+    background-color: transparent;
+}
+
+.themeGrey{
+    background-color: transparent;
+}
+
+.section-container{
+    padding: 50px 0;
+}
+
+.d-flex{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.section{
+    border-radius: 30px;
+    max-width: 1440px;
+    box-shadow: 0px 10px 20px -5px rgba(0,0,0,0.2);
+    background: #fff;
+    width: 100%;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.HeaderLinks__headerLinks{
+    width: auto;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: block;
+    flex: 1 1 15%;
+    padding: 16px;
+    padding-left: 0;
+    background: #fff;
+}
+
+.article{
+    flex: 1 1 85%;
+}
+
+.HeaderLinks__linksContainer{
+    flex-direction: column;
+}
+
+.HeaderLinks__linkContainer{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.HeaderLinks__linkContainer.active{
+    background: #f1f3f4;
+    border-radius: 0px 50px 50px 0;
+    cursor: none;
+    /* box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.1); */
+}
+
+.HeaderLinks__linkContainer.active a{
+    /* color: #fff; */
+}
+
+.HeaderLinks__linkContainer a:hover{
+    color: #2d2d2d;
+}
+
+.HeaderLinks__link{
+    background: transparent;
+}
+
+.link{
+    color: #2d2d2d;
+}
+
+
+.VerticalBookCard__bookName{
+    line-height: 1;
+}
+
+.BookCover__bookImage{
+    object-fit: cover;
+}
+
+.glide__arrows{
+    /* opacity: 0; */
+    transition: all 0.3s ease;
+}
+
+.billetContainerNoOverflow:hover .glide__arrows{
+    opacity: 1;
+}
+
+.arrowLeft, .arrowLeftSmall, .arrowRight, .arrowRightSmall{
+    background-image:url(../images/arrow_57df35f6.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    transform: rotate(0deg);
+}
+
+.arrowLeft, .arrowLeftSmall{
+    transform: rotate(180deg);
+}
+
+.LandingContentContainer__link{
+    display: flex;
+    align-items: center;
+}
+
+.billetContainerNoOverflow .VerticalBookCard__tinyBook .VerticalBookCard__rating{
+    margin-bottom: 0;
+}
+
+#autoComplete{
+    border-radius: 50px;
+    height: 44px;
+    background: #f6f8f8;
+    color: var(--color-link);
+}
+
+#autoComplete::placeholder{
+    color: var(--color-link);
+}
+
+label[for='autoComplete']{
+    color: var(--color-link);
+}
+
+#autoComplete:focus{
+    border-radius: 0.5rem;
+}
+
+.HeaderLinks__link{
+    justify-content: flex-start;
+}
+
+.HeaderLinks__link{
+    padding-left: 30px;
+}
+
+.ContextAuthorCard__authorImage{
+    object-fit: cover;
+}
+
+.glide__arrows{
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.link:hover{
+    color: rgba(255, 122, 122, 1);
+}
+
+h2, .title-2{
+    padding-bottom: 0px;
+}
+
+
+.ContentCarousel__wrapper{
+    margin-top: 10px;
+}
+
+.VerticalBookCard__bookInfo{
+    min-height: auto;
+}
+
+

@@ -4,7 +4,7 @@
 }
 
 #autoComplete {
-  padding: 0 2rem 0 3.5rem;
+  padding: 0 2rem 0 4rem;
   height: 46px;
   /* width: 16.5rem; */
   font-size: 1.2rem;
@@ -21,14 +21,14 @@ label[for='autoComplete']{
   position: absolute;
   top: 50%;
   left: 0;
-  width: 20px;
+  width: 50px;
   height: 20px;
-  background-image: url(../images/magnifier.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   z-index: 999;
-  transform: scale(0.95) translate(10px,-50%);
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.95) translate(0px,-50%);
   transition: all 0.3s ease;
   transform-origin: top;
 

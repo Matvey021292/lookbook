@@ -93,6 +93,7 @@
                         @yield('categories')
                         {{-- @yield('category_book') --}}
                         @yield('book_content')
+                        {{-- @yield('content_book') --}}
                     </div>
                     @yield('books_content')
                 </div>

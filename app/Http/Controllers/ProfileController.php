@@ -32,6 +32,7 @@ class ProfileController extends SiteController
         
         if(!$this->user::check()) return redirect()->route('login');
         $user = $this->user::user();
+        
         $user = view(env('THEME').'.profile_content')->with('user', $user)->render();
         $this->vars = array_add($this->vars,'user', $user);
         return $this->renderOutput();

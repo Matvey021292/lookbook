@@ -6,9 +6,6 @@
 @section('slider')
 {!! $sliders !!}
 @endsection
-@section('home')
-{{--    {!! $book !!}--}}
-@endsection
 @section('book')
 {!! $books !!}
 @endsection
@@ -21,3 +18,4 @@
 @section('recently_view')
     {!! $books_view !!}
 @endsection
+

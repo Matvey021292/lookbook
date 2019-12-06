@@ -5,12 +5,12 @@
     <dc:description>Події науково-фантастичного роману про віддалене майбутнє відбуваються на планеті з олігархічним устроєм. Група землян — людей вищої соціальної формації — прибули на планету Торманс з метою її дослідження та налагодження зв’язків, проте тут вони наразилися на неймовірні труднощі, стали свідками свавілля й жорстокості правлячої верхівки та моральної убогості жителів, характери і спосіб життя яких сформувалися в умовах гніту й тиранії.</dc:description>
     <dc:language>uk</dc:language>
     <dc:creator opf:file-as="Неизвестный" opf:role="aut">Іван Єфремов</dc:creator>
-    <meta name="calibre:timestamp" content="2019-11-01T14:15:34.234383+00:00"/>
+    <meta name="calibre:timestamp" content="2019-12-06T09:24:43.314616+00:00"/>
     <dc:title>Година Бика</dc:title>
     <meta name="cover" content="cover"/>
-    <dc:date>1990-11-15T00:00:00+00:00</dc:date>
+    <dc:date>1990-12-15T00:00:00+00:00</dc:date>
     <dc:contributor opf:role="bkp">calibre (3.39.1) [https://calibre-ebook.com]</dc:contributor>
-    <dc:identifier id="uuid_id" opf:scheme="uuid">94e3f0f3-4d31-41b3-a27c-1aca15cd0f5e</dc:identifier>
+    <dc:identifier id="uuid_id" opf:scheme="uuid">c3e42f34-1a46-435a-9c8e-c757ccc70594</dc:identifier>
     <dc:subject>sf</dc:subject>
   </metadata>
   <manifest>
@@ -43,15 +43,53 @@
     <item href="doc2fb_image_0300001A.png" id="id27" media-type="image/png"/>
     <item href="doc2fb_image_0300001B.png" id="id11" media-type="image/png"/>
     <item href="doc2fb_image_0300001C.png" id="id9" media-type="image/png"/>
-    <item href="index.xhtml" id="id14" media-type="application/xhtml+xml"/>
+    <item href="index_split_000.xhtml" id="id1419" media-type="application/xhtml+xml"/>
+    <item href="index_split_001.xhtml" id="id1418" media-type="application/xhtml+xml"/>
+    <item href="index_split_002.xhtml" id="id1417" media-type="application/xhtml+xml"/>
+    <item href="index_split_003.xhtml" id="id1416" media-type="application/xhtml+xml"/>
+    <item href="index_split_004.xhtml" id="id1415" media-type="application/xhtml+xml"/>
+    <item href="index_split_005.xhtml" id="id1414" media-type="application/xhtml+xml"/>
+    <item href="index_split_006.xhtml" id="id1413" media-type="application/xhtml+xml"/>
+    <item href="index_split_007.xhtml" id="id1412" media-type="application/xhtml+xml"/>
+    <item href="index_split_008.xhtml" id="id1411" media-type="application/xhtml+xml"/>
+    <item href="index_split_009.xhtml" id="id1410" media-type="application/xhtml+xml"/>
+    <item href="index_split_010.xhtml" id="id149" media-type="application/xhtml+xml"/>
+    <item href="index_split_011.xhtml" id="id148" media-type="application/xhtml+xml"/>
+    <item href="index_split_012.xhtml" id="id147" media-type="application/xhtml+xml"/>
+    <item href="index_split_013.xhtml" id="id146" media-type="application/xhtml+xml"/>
+    <item href="index_split_014.xhtml" id="id145" media-type="application/xhtml+xml"/>
+    <item href="index_split_015.xhtml" id="id144" media-type="application/xhtml+xml"/>
+    <item href="index_split_016.xhtml" id="id143" media-type="application/xhtml+xml"/>
+    <item href="index_split_017.xhtml" id="id142" media-type="application/xhtml+xml"/>
+    <item href="index_split_018.xhtml" id="id141" media-type="application/xhtml+xml"/>
     <item href="page_styles.css" id="page_css" media-type="text/css"/>
     <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="titlepage.xhtml" id="titlepage" media-type="application/xhtml+xml"/>
     <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
   </manifest>
   <spine toc="ncx">
-    <itemref idref="id14"/>
+    <itemref idref="titlepage"/>
+    <itemref idref="id1419"/>
+    <itemref idref="id1418"/>
+    <itemref idref="id1417"/>
+    <itemref idref="id1416"/>
+    <itemref idref="id1415"/>
+    <itemref idref="id1414"/>
+    <itemref idref="id1413"/>
+    <itemref idref="id1412"/>
+    <itemref idref="id1411"/>
+    <itemref idref="id1410"/>
+    <itemref idref="id149"/>
+    <itemref idref="id148"/>
+    <itemref idref="id147"/>
+    <itemref idref="id146"/>
+    <itemref idref="id145"/>
+    <itemref idref="id144"/>
+    <itemref idref="id143"/>
+    <itemref idref="id142"/>
+    <itemref idref="id141"/>
   </spine>
   <guide>
-    <reference href="fb2_cover_calibre_mi.jpg" title="Cover" type="cover"/>
+    <reference href="titlepage.xhtml" title="Cover" type="cover"/>
   </guide>
 </package>

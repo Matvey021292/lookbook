@@ -15,6 +15,7 @@ class BooksController extends SiteController
         parent::__construct( new \App\Repositories\MenusRepository(new \App\Menu));
         $this->b_rep = $b_rep;
         $this->template = env('THEME').'.books';
+       
 
     }
 

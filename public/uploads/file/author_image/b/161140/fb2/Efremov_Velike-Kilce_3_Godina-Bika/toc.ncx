@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="ukr">
   <head>
-    <meta content="94e3f0f3-4d31-41b3-a27c-1aca15cd0f5e" name="dtb:uid"/>
+    <meta content="c3e42f34-1a46-435a-9c8e-c757ccc70594" name="dtb:uid"/>
     <meta content="2" name="dtb:depth"/>
     <meta content="calibre (3.39.1)" name="dtb:generator"/>
     <meta content="0" name="dtb:totalPageCount"/>
@@ -11,113 +11,113 @@
     <text>Година Бика</text>
   </docTitle>
   <navMap>
-    <navPoint id="u4mCbjJRJ7nIvMTFehqLduF" playOrder="1">
+    <navPoint id="u9ivVYqF6yAqMBWHKKoBhYF" playOrder="1">
       <navLabel>
         <text>ПРОЛОГ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_1"/>
+      <content src="index_split_001.xhtml"/>
     </navPoint>
-    <navPoint id="uNSUiQK3uILo2GjHHf5uOZ5" playOrder="2">
+    <navPoint id="uZCVSXqbxjiUQLzSHXGxH5C" playOrder="2">
       <navLabel>
         <text>Розділ І МІФ ПРО ПЛАНЕТУ ТОРМАНС</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_2"/>
+      <content src="index_split_002.xhtml"/>
     </navPoint>
-    <navPoint id="uLi2NiqR6iX975jLVvNw8V8" playOrder="3">
+    <navPoint id="uBVHKf4VudFFLJsvSmXhB9C" playOrder="3">
       <navLabel>
         <text>Розділ ІІ ПО КРАЮ БЕЗОДНІ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_3"/>
+      <content src="index_split_003.xhtml"/>
     </navPoint>
-    <navPoint id="ujKkaYrm2AJYRjZjsgrNPZD" playOrder="4">
+    <navPoint id="usMUGCxWmjIWQiaTvf4VTYE" playOrder="4">
       <navLabel>
         <text>Розділ ІІІ НАД ТОРМАНСОМ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_4"/>
+      <content src="index_split_004.xhtml"/>
     </navPoint>
-    <navPoint id="uzXQkBZ2kQNzlrA6d3JWiM3" playOrder="5">
+    <navPoint id="uLEGc2hnYoRXUFQLJWka3l5" playOrder="5">
       <navLabel>
         <text>Розділ IV ВІДГОМІН ІНФЕРНО</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_5"/>
+      <content src="index_split_005.xhtml"/>
     </navPoint>
-    <navPoint id="uDAvmOlqLBhMN9uXqYLbWAD" playOrder="6">
+    <navPoint id="uKxanO3tOduTF23mNdRXax2" playOrder="6">
       <navLabel>
         <text>Розділ V У САДАХ ЦОАМ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_6"/>
+      <content src="index_split_006.xhtml"/>
     </navPoint>
-    <navPoint id="uRVznixKAkNZiSCo96InzGE" playOrder="7">
+    <navPoint id="uyHx5sBlN5zC9wteEaWZCK3" playOrder="7">
       <navLabel>
         <text>Розділ VI ЦІНА РАЮ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_7"/>
+      <content src="index_split_007.xhtml"/>
     </navPoint>
-    <navPoint id="umNa85qldZCX6hZyMnknS3B" playOrder="8">
+    <navPoint id="uAyigfzdYsth5GFoJrDO97A" playOrder="8">
       <navLabel>
         <text>Розділ VII ОЧІ ЗЕМЛІ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_8"/>
+      <content src="index_split_008.xhtml"/>
     </navPoint>
-    <navPoint id="u9Ct6XnlmEeLux5t2PHFqF7" playOrder="9">
+    <navPoint id="uYTcgBTTkTbcu7SdhI7vJf7" playOrder="9">
       <navLabel>
         <text>Розділ VIII ТРИ ШАРИ СМЕРТІ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_9"/>
+      <content src="index_split_009.xhtml"/>
     </navPoint>
-    <navPoint id="uyoODHhLecHjiDisGALrm9A" playOrder="10">
+    <navPoint id="uQDOsy6udThKioN8DPCYU7H" playOrder="10">
       <navLabel>
         <text>Розділ IX СКУТА ВІРА</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_10"/>
+      <content src="index_split_010.xhtml"/>
     </navPoint>
-    <navPoint id="uUlW2Y4Yk6EJ9Nj93N3ssT3" playOrder="11">
+    <navPoint id="u6lsECmKQBudNFDTJSpxSM8" playOrder="11">
       <navLabel>
         <text>Розділ X СТРІЛА АРІМАНА</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_11"/>
+      <content src="index_split_011.xhtml"/>
     </navPoint>
-    <navPoint id="udZbadafaTdkrlaomlIPVvG" playOrder="12">
+    <navPoint id="uALTULy7heWLJn8iTUM8CX8" playOrder="12">
       <navLabel>
         <text>Розділ XI МАСКИ ПІДЗЕМЕЛЛЯ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_12"/>
+      <content src="index_split_012.xhtml"/>
     </navPoint>
-    <navPoint id="uMTuMwSHo9vY8QAe5LFOvOD" playOrder="13">
+    <navPoint id="uoIsGTbrJ6TB6CHxcEqfVwG" playOrder="13">
       <navLabel>
         <text>Розділ ХІІ КРИШТАЛЕВЕ ВІКНО</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_13"/>
+      <content src="index_split_013.xhtml"/>
     </navPoint>
-    <navPoint id="uGDv8eVAp8Kc6kEK42l7krF" playOrder="14">
+    <navPoint id="uGHfxE3So9N6MruMwJvGdKE" playOrder="14">
       <navLabel>
         <text>Розділ XIII КОРАБЛЮ — ЗЛІТ!</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_14"/>
+      <content src="index_split_014.xhtml"/>
     </navPoint>
-    <navPoint id="uAQQFKcltokE3aECCezJQWH" playOrder="15">
+    <navPoint id="uu3vHKTji3EkurIe7RwrNcA" playOrder="15">
       <navLabel>
         <text>ЕПІЛОГ</text>
       </navLabel>
-      <content src="index.xhtml#calibre_toc_15"/>
+      <content src="index_split_015.xhtml"/>
     </navPoint>
-    <navPoint id="uEskksEyHNqroXeq7onBWq9" playOrder="16">
+    <navPoint id="uSVsN9zVMUD9uBg5IDKMkL7" playOrder="16">
       <navLabel>
         <text>1</text>
       </navLabel>
-      <content src="index.xhtml#fn1"/>
+      <content src="index_split_016.xhtml"/>
     </navPoint>
-    <navPoint id="uYmWlhzldanU53MshaobNpD" playOrder="17">
+    <navPoint id="ufHbhGZSvZRxao5pAIIPRyA" playOrder="17">
       <navLabel>
         <text>2</text>
       </navLabel>
-      <content src="index.xhtml#fn2"/>
+      <content src="index_split_017.xhtml"/>
     </navPoint>
-    <navPoint id="ugRWRmSd2AbIuAd9tt9mZJG" playOrder="18">
+    <navPoint id="uVTx6SsYCSValyOaimla3w5" playOrder="18">
       <navLabel>
         <text>3</text>
       </navLabel>
-      <content src="index.xhtml#fn3"/>
+      <content src="index_split_018.xhtml"/>
     </navPoint>
   </navMap>
 </ncx>

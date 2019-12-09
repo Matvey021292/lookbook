@@ -1,8 +1,8 @@
  <div class="@if($carousel) glide__slide swiper-slide @endif VerticalBookCard__tinyBook jest-verticalbookcard"  style="width:124px;">
     <div class="VerticalBookCard__bookCover">
-        <div class="BookCover__book  jest-book-cover" style="width:124px;height:196px">
+        <div class="BookCover__book  jest-book-cover" style="width:120px;height:196px">
             <a href="{{ route('book.show', ['alias'=> $book->slug]) }}">
-                <img width="124" height="196" src="{!! $book->desc->book_img !!}" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="{!! $book->desc->book_img !!}">
+                <img width="120" height="196" src="{!! $book->desc->book_img !!}" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="{!! $book->desc->book_img !!}">
             </a>
         </div>
     </div>

@@ -34,9 +34,9 @@ class AuthorsRepository extends Repository{
         return $mBuilder;
     }
 
-    public function getAuthor($alias)
+    public function getAuthor($id)
     {
-        return $this->model->where('slug', $alias)->first();
+        return $this->model->where('id', $id)->first();
     }
 }
 

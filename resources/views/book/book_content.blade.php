@@ -68,7 +68,7 @@
                                 <div class="Form__form">
                                     <ul class="Form__form-btn">
                                         <li>
-                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->slug]) }}/read">Читать</a>
+                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->id]) }}/read">Читать</a>
                                         </li>
                                         {{-- @foreach($book->format as $format)
                                         <li>

@@ -3,7 +3,7 @@
         <div class="ContextBookCardLong__bookWrapper">
             <div class="ContextBookCardLong__bookCover">
                 <div class="BookCover__book BookCover__isAudioBook jest-book-cover" style="width: 112px; height: 180px;">
-                    <a href="{{ route('book.show', ['alias' => $book->slug]) }}">
+                    <a href="{{ route('book.show', ['alias' => $book->id]) }}">
                         <img width="112px" height="180px" src="{{$book->desc->book_img}}" alt="{{ $book->book }}" srcset="{{$book->desc->book_img}}">
                     </a>
                 </div>
@@ -11,7 +11,7 @@
             <div class="ContextBookCardLong__bookDetail">
                 <div class="ContextBookCardLong__bookData">
                     <div class="ContextBookCardLong__bookTitle">
-                        <a href="{{ route('book.show', ['alias' => $book->slug]) }}"> <span>{{ $book->book }}</span></a>
+                        <a href="{{ route('book.show', ['alias' => $book->id]) }}"> <span>{{ $book->book }}</span></a>
                     </div>
                     <div class="ContextBookCardLong__bookAuthor">
                         @include(env('THEME') . '.card-book-authors', ['items'=>$book,'book' => $book])
@@ -27,13 +27,13 @@
                 </div>
                 <div class="ContextBookCardLong__bookDescription jest-context-book-card-long">
                     {{ strip_tags($book->desc->book_desc) }}
-                    <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
+                    <a href="{{ route('book.show', ['alias' => $book->id]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
                 </div>
             </div>
         </div>
         <div class="ContextBookCardLong__bookDescriptionMobile">
             {{ strip_tags($book->desc->book_desc) }}
-            <a href="{{ route('book.show', ['alias' => $book->slug]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
+            <a href="{{ route('book.show', ['alias' => $book->id]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
         </div>
     </div>
 </div>

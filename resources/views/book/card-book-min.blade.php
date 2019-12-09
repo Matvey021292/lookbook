@@ -2,7 +2,7 @@
     <div class="ContextBookCard__book">
         <div class="ContextBookCard__bookCover">
             <div class="BookCover__book jest-book-cover" style="width: 88px; height: 128px;">
-                <a href="{{ route('book.show', ['alias'=> $book->slug]) }}">
+                <a href="{{ route('book.show', ['alias'=> $book->id]) }}">
                     <img width="88" height="128" 
                     src="{!! $book->desc->book_img !!}" 
                     alt="{{$book->book }}" 
@@ -14,11 +14,11 @@
         <div class="ContextBookCard__bookDetail">
             <div class="ContextBookCard__bookData">
                 <div class="ContextBookCard__bookTitle">
-                <a href="{{ route('book.show', ['alias'=> $book->slug]) }}">
+                <a href="{{ route('book.show', ['alias'=> $book->id]) }}">
                         <span>{{$book->book }}</span>
                     </a>
                 </div>
-                <a class="ContextBookCard__bookAuthor" href="{{ route('book.show', ['alias'=> $book->slug]) }}">
+                <a class="ContextBookCard__bookAuthor" href="{{ route('book.show', ['alias'=> $book->id]) }}">
                     <div>
                         <span>{{$book->author->title}}</span>
                     </div>

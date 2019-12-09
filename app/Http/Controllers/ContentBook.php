@@ -21,6 +21,9 @@ class ContentBook extends SiteController
     
     public function index($alias){
         $user = $this->user::user();
+        if(!$this->user::check()){
+            return redirect('/login')->with(['status' => 'Profile updated successfully.']);
+        }
         $book = $this->b_rep->getBook($alias);
         $file = $this->generate_book_slug($book);
         $contents = $this->book_content($file);

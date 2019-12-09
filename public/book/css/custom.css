@@ -454,6 +454,7 @@ a{
 
 .HeaderLinks__linksContainer{
     flex-direction: column;
+    font-size: 18px;
 }
 
 .HeaderLinks__linkContainer{
@@ -474,17 +475,12 @@ a{
     /* color: #fff; */
 }
 
-.HeaderLinks__linkContainer a:hover{
-    color: #2d2d2d;
-}
+
 
 .HeaderLinks__link{
     background: transparent;
 }
 
-.link{
-    color: #2d2d2d;
-}
 
 
 .VerticalBookCard__bookName{

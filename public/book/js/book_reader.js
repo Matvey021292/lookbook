@@ -8685,7 +8685,7 @@
                                 contentType: "application/json"
                             })
                         }
-                        var i, o = "/api/v1";
+                        var i, o = "/api";
                         return i = {
                             post: n
                         },
@@ -8772,7 +8772,7 @@
                                 processData: !1
                             })
                         }
-                        var s, c, l = "/api/v1";
+                        var s, c, l = "/api";
                         return s = {
                             init: n,
                             post: i,
@@ -8881,7 +8881,7 @@
                                 contentType: "application/json; charset=utf-8"
                             })
                         }
-                        var s, c = 15e3, l = "/api/v1";
+                        var s, c = 15e3, l = "/api";
                         return s = {
                             post: n,
                             del: i,
@@ -9227,7 +9227,7 @@
                                 contentType: "application/json"
                             })
                         }
-                        var i, o = "/api/v1";
+                        var i, o = "/api";
                         return i = {
                             post: n
                         },

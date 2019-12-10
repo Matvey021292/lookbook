@@ -63,7 +63,7 @@
                                 <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}  &nbsp; | &nbsp; 
                                 </a>
-                              
+                                
                                 <a href="/profile" class="Header__link"> 
                                     <i class="far fa-address-card"></i> {{__('Личный кабинет')}}, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
                                 </a>
@@ -91,17 +91,18 @@
                         @yield('home') 
                         @yield('search_content')
                         @yield('categories')
-                        {{-- @yield('category_book') --}}
+                        @yield('category_book')
                         @yield('book_content')
-                        {{-- @yield('content_book') --}}
+                        @yield('content_book')
+                        @yield('books_content')
+
                     </div>
-                    @yield('books_content')
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="Footer__bottomContent">
+    {{-- <div class="Footer__bottomContent">
         <div class="Footer__content">
             <div class="Footer__extraResourcesContainer">
                 <div class="Footer__appList"><small class="Footer__footerShortTitle">Скачать приложение</small>
@@ -193,7 +194,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="loader">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="60" height="60" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
@@ -204,27 +205,11 @@
 </div>
 <script>
     
-    var ajax_login_object = {
+    let ajax_login_object = {
         "search_url": '{{URL::to('search')}}',
     };
 </script>
 <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
-<script>
-    var glides = document.querySelectorAll(".glide");
-    
-    glides.forEach(function (e, i) {
-        if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= 7) {
-            e.querySelector(".glide__arrows").innerHTML = "";
-            return;
-        }
-        new Glide(e, {
-            perView: 7,
-            type: "carousel",
-            startAt: 0
-        }).mount();
-        
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
 <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
 </body>

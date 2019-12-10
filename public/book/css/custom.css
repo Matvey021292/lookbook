@@ -200,7 +200,7 @@
 
 :root{
     --color-link:#9eb0c1;
-    --color-link-light: #f1f3f4;
+    --color-link-light: #f9f9f9;
     --color-link-dark:#e1e1e1;
 }
 
@@ -327,6 +327,11 @@ a:hover{
     position: static;
     font-weight: 900;
     font-size: 35px;
+    color: #2d2d2d;
+}
+
+.Header__logo:hover{
+    color: #2d2d2d;
 }
 
 
@@ -408,6 +413,7 @@ a:hover{
 
 .appContainer{
     height: auto;
+    min-height: 70vh;
     background: linear-gradient(to right, #fff 31.5%, #41d4d7 0%);
     padding: 60px 0 0;
 }
@@ -474,17 +480,9 @@ a:hover{
     /* box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.1); */
 }
 
-.HeaderLinks__linkContainer.active a{
-    /* color: #fff; */
-}
-
-
-
 .HeaderLinks__link{
     background: transparent;
 }
-
-
 
 .VerticalBookCard__bookName{
     line-height: 1;
@@ -559,18 +557,6 @@ label[for='autoComplete']{
     object-fit: cover;
 }
 
-.glide__arrows{
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-
-
-h2, .title-2{
-    padding-bottom: 0px;
-}
-
-
 .ContentCarousel__wrapper{
     margin-top: 20px;
 }
@@ -578,7 +564,6 @@ h2, .title-2{
 .VerticalBookCard__bookInfo{
     min-height: auto;
 }
-
 
 .section-title{
     font-size: 26px;
@@ -617,4 +602,37 @@ h2, .title-2{
 .d-flex-center{
     display: flex;
     align-items: center;
+}
+
+.mt-1{
+    margin-top: 10px;
+}
+
+.mb-1{
+    margin-bottom: 10px;
+}
+
+.cart-light-sm{
+    display: inline-block;
+    font-size: 13px;
+    font-family: 'Raleway',sans-serif;
+}
+
+.cart-light-md{
+    display: inline-block;
+    font-size: 15px;
+    font-family: 'Raleway',sans-serif;
+}
+
+.jest-horizontallybookcard{
+    display: flex;
+}
+
+
+.jest-horizontallybookcard .VerticalBookCard__bookInfo{
+    margin-left: 15px;
+}
+
+li.page-item a, .PageButton__pageButton{
+    color: var(--color-link);
 }

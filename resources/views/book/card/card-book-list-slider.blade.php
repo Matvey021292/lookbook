@@ -14,7 +14,7 @@
                         <a href="{{ route('book.show', ['alias' => $book->id]) }}"> <span>{{ $book->book }}</span></a>
                     </div>
                     <div class="ContextBookCardLong__bookAuthor">
-                        @include(env('THEME') . '.card-book-authors', ['items'=>$book,'book' => $book])
+                        @include(env('THEME') . '.card.card-book-authors', ['items'=>$book,'book' => $book])
                     </div>
                 </div>
                 <div class="ContextBookCardLong__bookTools">

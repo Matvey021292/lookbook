@@ -3,3 +3,7 @@
 @section('nav')
 {!! $nav !!}
 @endsection
+
+@section('books_content')
+{!! $content !!}
+@endsection

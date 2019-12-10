@@ -2341,8 +2341,9 @@ li.page-item a,
   li.page-item,
   .PageButton__pageButton .PageButton__button {
     display: inline-block;
-    height: 100%;
     margin: 0 auto;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
     padding: 8px 4px;
     cursor: pointer; }
   li.page-item.active a,

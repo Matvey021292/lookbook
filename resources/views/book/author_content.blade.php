@@ -1,7 +1,6 @@
 @if($author)
 <div class="backgroundContainer themeGrey">
     <section class="AuthorDetailHeader__wrapper">
-          
         <div class="AuthorDetailHeader__blurredImageWrapper">
             <img height="128" src="{{ $author->desc->image }}" alt="{{ $author->title }}" class="AuthorDetailHeader__cover" srcset="{{ $author->desc->image }}">
         </div>

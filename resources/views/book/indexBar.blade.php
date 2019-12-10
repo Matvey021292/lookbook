@@ -1,20 +1,18 @@
 @if($authors)
 <div class="billetContainerNoOverflow">
     <div class="billetContainerWrapper">
-        <a href="/authors">
-            <div class="LandingContentContainer__title">
-                <div class="title-2">Авторы</div>
-                <div class="LandingContentContainer__link">
-                    <span class="link LandingContentContainer__linkText">Все авторы</span><i class="shortArrow"></i>
-                </div>
+        <div class="LandingContentContainer__title d-flex-center">
+            <div class="section-title">Авторы</div>
+            <div class="LandingContentContainer__link">
+                <a href="/authors"><span class="link LandingContentContainer__linkText">посмотеть всех авторов</span><i class="fas fa-angle-right"></i></a>
             </div>
-        </a>
+        </div>
     </div>
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper glide__slides" style="transform: translate3d(0px, 0px, 0px);">
                 @foreach($authors as $author)
-                    @include(env('THEME') . '.card-author', ['items'=>$author, 'author' => $author, 'carousel' => true])
+                @include(env('THEME') . '.card.card-author', ['items'=>$author, 'author' => $author, 'carousel' => true])
                 @endforeach
             </div>
         </div>

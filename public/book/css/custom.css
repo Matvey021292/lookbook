@@ -200,6 +200,8 @@
 
 :root{
     --color-link:#9eb0c1;
+    --color-link-light: #f1f3f4;
+    --color-link-dark:#e1e1e1;
 }
 
 
@@ -210,6 +212,10 @@ body{
 
 a{
     color: var(--color-link);
+}
+
+a:hover{
+    color: #222;
 }
 
 .menu-item-has-children {
@@ -436,24 +442,22 @@ a{
 }
 
 .HeaderLinks__headerLinks{
-    width: auto;
-    height: auto;
     position: sticky;
     top: 0;
     left: 0;
     display: block;
-    flex: 1 1 15%;
-    padding: 16px;
     padding-left: 0;
     background: #fff;
 }
 
-.article{
-    flex: 1 1 85%;
+.row-container{
+   max-width: 100%;
+   margin: auto;
 }
 
 .HeaderLinks__linksContainer{
     flex-direction: column;
+    font-size: 18px;
 }
 
 .HeaderLinks__linkContainer{
@@ -474,17 +478,12 @@ a{
     /* color: #fff; */
 }
 
-.HeaderLinks__linkContainer a:hover{
-    color: #2d2d2d;
-}
+
 
 .HeaderLinks__link{
     background: transparent;
 }
 
-.link{
-    color: #2d2d2d;
-}
 
 
 .VerticalBookCard__bookName{
@@ -525,6 +524,10 @@ a{
     margin-bottom: 0;
 }
 
+.billetContainerNoOverflow{
+    background: var(--color-link-light);
+}
+
 #autoComplete{
     border-radius: 50px;
     height: 44px;
@@ -561,9 +564,7 @@ label[for='autoComplete']{
     transition: all 0.3s ease;
 }
 
-.link:hover{
-    color: rgba(255, 122, 122, 1);
-}
+
 
 h2, .title-2{
     padding-bottom: 0px;
@@ -571,7 +572,7 @@ h2, .title-2{
 
 
 .ContentCarousel__wrapper{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .VerticalBookCard__bookInfo{
@@ -579,3 +580,41 @@ h2, .title-2{
 }
 
 
+.section-title{
+    font-size: 26px;
+    font-weight: bold;
+    color: #2d2d2d;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title:before{
+    content: '';
+    position: absolute;
+    bottom: -0px;
+    height: 80%;
+    width: 106%;
+    transform: translateY(20%);
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.2);
+    display: inline-block;
+    background: var(--color-link-dark);
+    left: -1%;
+    z-index: -1;
+}
+
+.p-0{ 
+    padding: 0;
+}
+
+.pl-0{
+  padding-left: 0;
+}
+
+.pr-0{
+    padding-left: 0;
+  }
+
+.d-flex-center{
+    display: flex;
+    align-items: center;
+}

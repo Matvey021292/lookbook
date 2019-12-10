@@ -12592,21 +12592,7 @@ li.page-item a,
   .isMobile .HeaderUser__link:hover {
     color: #383434; }
 
-.HeaderLinks__headerLinks {
-  display: flex;
-  width: 100%;
-  height: 40px;
-  margin-top: 24px;
-  margin-bottom: 16px; }
-  @media (max-width: 1023px) {
-    .HeaderLinks__headerLinks {
-      margin-top: unset; } }
-  @media (max-width: 767px) {
-    .HeaderLinks__headerLinks {
-      position: relative;
-      left: -16px;
-      height: 40px;
-      margin-top: 0; } }
+
 
 .HeaderLinks__hideEverywhere {
   display: none; }
@@ -13317,11 +13303,6 @@ a {
   color: initial;
   text-decoration: none; }
 
-.link {
-  color: #d93025;
-  cursor: pointer; }
-  .link:hover {
-    color: #e67e21; }
 
 ul,
 ol {
@@ -13530,7 +13511,7 @@ small {
 
 .billetContainerTransparent, .billetContainer, .billetContainerNoOverflow, .billetContainerWarning, .billetContainerHighlight {
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 46px;
   padding: 16px;
   border-radius: 12px;
   overflow: hidden; }
@@ -13539,7 +13520,7 @@ small {
   background: #ffffff; }
 
 .billetContainerNoOverflow {
-  padding: 16px 0px 8px;
+  padding: 20px 8px;
   overflow: visible;
   background: #ffffff; }
 

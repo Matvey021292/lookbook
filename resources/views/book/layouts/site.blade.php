@@ -36,7 +36,7 @@
                         <div class="Header__menuWrapper row middle-xs">
                             <a class="Header__logo col-sm-3 center-xs" href="/">Leviafan.com</a>
                             <div class="Header__search col-sm-4 pl-0">
-                                <div class="SearchLine__search">
+                                <div class="billetContainerWrapper SearchLine__search">
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
                                             <form action="/qsearch" method='GET'>
@@ -74,13 +74,13 @@
                     </div>
                 </div>
             </header>
-            <div class="d-flex">
-                <div class="HeaderLinks__headerLinks jest-header-links-to-catalog">
+            <div class="row row-container">
+                <div class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                     <div class="HeaderLinks__list">
                         @yield('nav')
                     </div>
                 </div>
-                <div class="article">
+                <div class="article col-sm-9">
                     <div class="backgroundContainer themeGrey">
                         @yield('slider')
                         @yield('book')

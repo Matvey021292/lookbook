@@ -21,6 +21,7 @@ class BookRepository extends Repository{
 	public function getBook($alias){
 		return $this->model->where('id', $alias)->first();
 	}
+	
 
 }
 

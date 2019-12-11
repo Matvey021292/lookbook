@@ -9,11 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class StatisticsController extends SiteController
 {
     
-    public $successStatus = 200;
-    
     public function statistics(Request $request){
-        $response_format = $request->input('format') ? $request->input('format') : 'json';
-        dump($response_format);
+        
     }
     
     public function bookmarks(Request $request){
@@ -28,8 +25,6 @@ class StatisticsController extends SiteController
         }
         if(!$bookmarks) return;
         return response()->json($request);
-        
-        
     }
     
 }

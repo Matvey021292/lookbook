@@ -8670,8 +8670,9 @@
                                 type: "POST",
                                 beforeSend: function (e) {
                                     e.setRequestHeader("Accept", "application/json; version=2.5")
+                                    e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
                                 },
-                                url: o + "/auto-bookmarks/?format=json",
+                                url: "/auto-bookmarks/?format=json",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function () {
@@ -9213,7 +9214,11 @@
                             };
                             e.ajax({
                                 type: "POST",
-                                url: o + "/statistics/?format=json",
+                                beforeSend: function (e) {
+                                    e.setRequestHeader("Accept", "application/json; version=2.5")
+                                    e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+                                },
+                                url: "/statistics/?format=json",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function () {

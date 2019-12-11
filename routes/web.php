@@ -91,3 +91,6 @@ Route::post('/book/download', 'BookController@download')->name('downloadFile');
 Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 
 Route::get('/search', 'SearchController@search');
+
+Route::post('/auto-bookmarks', 'StatisticsController@bookmarks');
+Route::post('/statistics', 'StatisticsController@statistics');

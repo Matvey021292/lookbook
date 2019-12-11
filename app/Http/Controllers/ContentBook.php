@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\BookContent;
 use App\Convert;
 use Config;
+use App\Bookmarks;
 
 class ContentBook extends SiteController
 {
@@ -28,7 +29,8 @@ class ContentBook extends SiteController
         $file = $this->generate_book_slug($book);
         $contents = $this->book_content($file);
         $contents = str_replace(public_path(), '', $contents);
-        $content = view(env('THEME') . '.content_book')->with('contents', $contents)->with('book', $book)->with('user', $user)->render();
+        $bookmarks = Bookmarks::where('book_id', $book->id)->where('user_id', $user->id)->first();
+        $content = view(env('THEME') . '.content_book')->with('contents', $contents)->with('book', $book)->with('bookmarks', $bookmarks)->with('user', $user)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }

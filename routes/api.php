@@ -18,6 +18,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/statistics', 'StatisticsController@statistics');
-Route::post('/auto-bookmarks', 'StatisticsController@bookmarks');
-Route::get('/auto-bookmarks', 'StatisticsController@bookmarks')->name('bookmarks');

@@ -92,5 +92,6 @@ Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 
 Route::get('/search', 'SearchController@search');
 
-Route::post('/auto-bookmarks', 'StatisticsController@bookmarks');
-Route::post('/statistics', 'StatisticsController@statistics');
+Route::post('/auto-bookmarks', 'StatisticsController@AutoBookmarks');
+Route::post('/bookmarks', 'StatisticsController@Bookmarks');
+Route::post('/statistics', 'StatisticsController@Statistics');

@@ -8723,9 +8723,9 @@
                                 type: "POST",
                                 beforeSend: function (e) {
                                     e.setRequestHeader("Accept", "application/json; version=2.5"),
-                                        e.setRequestHeader("X-CSRFToken", o.a.get("csrftoken"))
+                                        e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
                                 },
-                                url: l + "/bookmarks/",
+                                url: "/bookmarks/",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function (e) {

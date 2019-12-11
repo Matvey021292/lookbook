@@ -15,7 +15,7 @@
             "xpath": "{{$bookmarks->xpath}}", 
             "time":{{$bookmarks->time}}, 
             "part": "{{$bookmarks->part}}", 
-            "offset": 1, 
+            "offset": @if($bookmarks->offset) {{$bookmarks->offset}} @else 1 @endif,
             "user": {{$bookmarks->user_id}}
         },
         @endif

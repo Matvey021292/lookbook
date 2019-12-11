@@ -8,8 +8,9 @@ use App\Repositories\BookRepository;
 use App\Repositories\CategoryBookRepository;
 use App\Repositories\SlidersRepository;
 use App\Repositories\RecentlyViewedRepository;
-use Config;
 use Illuminate\Http\Request;
+
+use Config;
 
 class IndexController extends SiteController
 {
@@ -33,7 +34,7 @@ class IndexController extends SiteController
     {
         $count = Config::get('settings.home_post_count');
         $book = $this->b_rep->getBooks('*', $count);
-        $category = $this->c_rep->getCategories();
+        $category = $this->c_rep->getCategories('*', $count, true);
         $slider =  $this->b_rep->getBooks('*', $count, true);
         $author =  $this->a_rep->getAuthors('*', $count, true);
         

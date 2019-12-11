@@ -11,9 +11,9 @@ class CategoryBookRepository extends Repository{
         $this->model = $category;
     }
 
-    public function getCategories()
+    public function getCategories($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false)
     {
-       return $this->model->select()->get();
+       return  $this->get($select, $count, $rand,  $pagination, $desc);
     }     
 
     public function getCategory($alias){

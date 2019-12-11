@@ -413,9 +413,9 @@ a:hover{
 
 .appContainer{
     height: auto;
-    min-height: 70vh;
+    min-height: 100vh;
     background: linear-gradient(to right, #fff 31.5%, #41d4d7 0%);
-    padding: 60px 0 0;
+    padding: 60px 0 60px;
 }
 
 .article{
@@ -458,7 +458,7 @@ a:hover{
 
 .row-container{
    max-width: 100%;
-   margin: auto;
+   margin: 0 auto;
    width: 100%;
 }
 
@@ -614,6 +614,20 @@ label[for='autoComplete']{
     margin-bottom: 10px;
 }
 
+.d-inline-flex{
+    max-width:100%;
+    display: inline-flex;
+    align-items: center;
+}
+
+.section-counter{
+    margin-left: 50px;
+    font-size: 24px;
+    transform: translateY(21%);
+    color: var(--color-link);
+    font-family: firasans, sans-serif;
+}
+
 .cart-light-sm{
     display: inline-block;
     font-size: 13px;
@@ -637,4 +651,28 @@ label[for='autoComplete']{
 
 li.page-item a, .PageButton__pageButton{
     color: var(--color-link);
+}
+
+.section-title-sm{
+    color: var(--color-link);
+    font-size: 24px;
+}
+
+aside .billetContainerNoOverflow{
+    background: transparent;
+    overflow-x: auto;
+}
+
+.TagLabel__grey {
+    color: var(--color-link);
+    border-color: #e1e1e1; 
+}
+
+.TagLabel__grey:hover{
+    background: var(--color-link);
+    color: #fff;
+} 
+
+.single-slider .billetContainerNoOverflow{
+    padding: 40px 8px;;
 }

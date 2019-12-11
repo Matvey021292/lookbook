@@ -26,5 +26,6 @@
         </div>
     </div>
     @endif
+    @include(env('THEME') . '.custom.card-custom')
 </div>
 @endif

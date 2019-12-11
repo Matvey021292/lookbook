@@ -3,8 +3,9 @@
     <div class=" billetContainerNoOverflow vc_column-inner">
         <div class="wpb_wrapper">
             <div class="billetContainerWrapper">
-                <div class="LandingContentContainer__title d-flex-center">
-                    <div class="section-title">Последние поступления</div>
+                <div class="d-inline-flex">
+                    <div class="section-title">Все бесплатные книги</div>
+                    <span class="section-counter">[ {{ $books->total() }} ]</span>
                 </div>
             </div>
             <div class="ContentCarousel__wrapper glide" data-slide-count="3">
@@ -15,15 +16,9 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="glide__arrows" data-glide-el="controls">
-                    <div class="ContentCarousel__buttonPrev  glide__arrow glide__arrow--left" data-glide-dir="<">
-                        <span class="arrowLeft"></span>
-                    </div>
-                    <div class="ContentCarousel__buttonNext glide__arrow glide__arrow--right" data-glide-dir=">">
-                        <span class="arrowRight"></span>
-                    </div>
-                </div>
+                @include(env('THEME') . '.custom.card-custom')
             </div>
+          
         </div>
     </div>
     <div class="row center-xs mt-5">

@@ -18,10 +18,12 @@
         </a>
     </div>
     @if($desc)
+    @if($book->desc->book_desc)
     <div class="ContextBookCardLong__bookDescription jest-context-book-card-long">
         {{ str_limit(strip_tags($book->desc->book_desc), 100) }}
-        <a href="{{ route('book.show', ['alias' => $book->id]) }}"><span class="ContextBookCardLong__link">⟩</span></a>
+        <a href="{{ route('book.show', ['alias' => $book->id]) }}"></a>
     </div>
+    @endif
     @endif
 </div>
 </div>

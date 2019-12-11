@@ -76,11 +76,14 @@
                 </div>
             </header>
             <div class="row row-container">
-                <div class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
+                <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                     <div class="HeaderLinks__list">
                         @yield('nav')
                     </div>
-                </div>
+                    <div>
+                        @yield('category_book')
+                    </div>
+                </aside>
                 <div class="article col-sm-9">
                     <div class="backgroundContainer themeGrey">
                         @yield('slider')
@@ -92,7 +95,7 @@
                         @yield('home') 
                         @yield('search_content')
                         @yield('categories')
-                        @yield('category_book')
+                        
                         @yield('book_content')
                         @yield('content_book')
                         @yield('books_content')

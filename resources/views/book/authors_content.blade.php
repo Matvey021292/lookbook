@@ -3,7 +3,7 @@
 <ul class="AuthorList__authorList">
     @foreach($authors as $author)
     <li class="AuthorList__author">
-        <a href="{{ route('author.show', ['alias'=> $author->slug]) }}">
+        <a href="{{ route('author.show', ['alias'=> $author->id]) }}">
             <div class="billetContainer">
                 <div class="ContextAuthorCard__author">
                     <div class="ContextAuthorCard__authorBlock">

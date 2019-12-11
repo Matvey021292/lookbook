@@ -1363,7 +1363,6 @@ button.swiper-pagination-bullet {
   display: inline-block;
   margin: 0 8px 8px 0;
   padding: 0 8px;
-  font-family: firasans, sans-serif;
   font-size: 14px;
   line-height: 1.6em;
   white-space: nowrap;
@@ -1373,9 +1372,7 @@ button.swiper-pagination-bullet {
   border-width: 1px;
   border-style: solid; }
 
-.TagLabel__brown {
-  color: #d93025;
-  border-color: #d93025; }
+
   .TagLabel__brown:hover {
     background-color: #e67e21;
     border-color: #e67e21;
@@ -2332,7 +2329,6 @@ li.page-item a,
   min-width: 24px;
   height: 40px;
   margin: 0 7px;
-  font-family: firasans, sans-serif;
   font-size: 16px;
   line-height: 1.5em;
   text-align: center;
@@ -5428,11 +5424,13 @@ li.page-item a,
       margin: 0; } }
 
 .ContextBookCardLong__bookDescription {
-  font: 14px/1.5 firasans, sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+  margin-top: 5px;
   color: #393f45; }
   @media (max-width: 414px) {
     .ContextBookCardLong__bookDescription {
-      display: none; } }
+      display: none; } } 
   .ContextBookCardLong__bookDescriptionMobile {
     font: 14px/1.5 firasans, sans-serif;
     color: #393f45;
@@ -12159,7 +12157,7 @@ li.page-item a,
   background: #ffffff;
   border: none;
   border: 1px solid #cecece;
-  font-family: firasans, sans-serif;
+  
   font-size: 16px;
   line-height: 1.33em;
   color: #7c7f84;

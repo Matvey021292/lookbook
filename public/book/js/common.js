@@ -5,9 +5,8 @@ let glides = document.querySelectorAll(".glide");
 
 glides.forEach(function (e, i) {
 
-    if (e.querySelector('.loader')) {
-        e.querySelector('.loader').classList.remove('show');
-    }
+    
+    
     let glides_slide = e.getAttribute('data-slide-count') || 7;
     if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= glides_slide) {
         e.querySelector(".glide__arrows").innerHTML = "";
@@ -18,7 +17,12 @@ glides.forEach(function (e, i) {
         type: "carousel",
         startAt: 0
     }).mount();
-
+    
+    if (document.querySelectorAll('.loader')) {
+        document.querySelectorAll('.loader').forEach(function(e, i){
+           e.classList.remove('show')
+        });
+    }
 });
 
 

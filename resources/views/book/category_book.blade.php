@@ -1,11 +1,12 @@
 @if($categories)
 <div class="billetContainerNoOverflow">
     <div class="billetContainerWrapper">
-        <a href="/sets/5843-luchshie-biznes-knigi/">
-            <div class="LandingContentContainer__title">
-                <div class="title-2" data-gtm-vis-first-on-screen-10671871_40="2956">Категории</div>
+        <div class="LandingContentContainer__title">
+            <div class="section-title">Категории</div>
+            <div class="LandingContentContainer__link">
+                <a href="/category" class=" row center-xs middle-xs"> <span class="link LandingContentContainer__linkText">посмотреть все категории</span><i class="fas fa-angle-right"></i></a>
             </div>
-        </a>
+        </div>
         <br>
         @foreach($categories as $category)
         <a class="d-inline-block p-1 pl-0" href="{{ route('category.show', ['alias' => $category->slug]) }}">

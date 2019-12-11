@@ -13258,29 +13258,7 @@ li.page-item a,
   .App__playerContainer .player-wrapper {
     box-shadow: 0 0 182px rgba(0, 0, 0, 0.4) !important; }
 
-@font-face {
-  font-family: 'firasans';
-  src: local("Fira Sans Regular"), local("FiraSans-Regular"), url(Firasansregular_3e90266b.woff) format("woff");
-  font-weight: 400;
-  font-style: normal; }
 
-@font-face {
-  font-family: 'firasans';
-  src: local("Fira Sans SemiBold"), local("FiraSans-SemiBold"), url(Firasanssemibold_013e1c60.woff) format("woff");
-  font-weight: 600;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'firasans';
-  src: local("Fira Sans SemiBold Italic"), local("FiraSans-SemiBoldItalic"), url(Firasanssemibolditalic_2372ffc1.woff) format("woff");
-  font-weight: 600;
-  font-style: italic; }
-
-@font-face {
-  font-family: 'firasans';
-  src: local("Fira Sans Italic"), local("FiraSans-Italic"), url(Firasansitalic_90219f58.woff) format("woff");
-  font-weight: 400;
-  font-style: italic; }
 
 html,
 body {

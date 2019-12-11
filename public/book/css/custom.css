@@ -396,7 +396,7 @@ a:hover{
 }
 
 .loader{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -407,7 +407,7 @@ a:hover{
 }
 
 .loader.show{
-    display: block;
+    display: flex;
 }
 
 
@@ -459,6 +459,7 @@ a:hover{
 .row-container{
    max-width: 100%;
    margin: auto;
+   width: 100%;
 }
 
 .HeaderLinks__linksContainer{
@@ -523,6 +524,7 @@ a:hover{
 }
 
 .billetContainerNoOverflow{
+    position: relative;
     background: var(--color-link-light);
 }
 

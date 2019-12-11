@@ -7,15 +7,12 @@
         </div>
     </div>
     <div class="VerticalBookCard__bookInfo">
-            @include(env('THEME') . '.rating', ['items'=>$book,'book' => $book])
+        @include(env('THEME') . '.rating', ['items'=>$book,'book' => $book])
         <a class="VerticalBookCard__bookName cart-light-sm mt-1" href="{{ route('book.show', ['alias'=> $book->id]) }}">
             <span>{!! $book->book !!}</span>
         </a>
         <div class="VerticalBookCard__bookAuthorWrapper">
-            <a class="VerticalBookCard__bookAuthor" 
-            href="{{ route('author.show', ['alias'=> $book->author->id]) }}">
-                <span>{{ $book->author->title }}</span>
-            </a>
+            <a class="VerticalBookCard__bookAuthor"  href="{{ route('author.show', ['alias'=> $book->author->id]) }}"><span>{{ $book->author->title }}</span> </a>
         </div>
     </div>
 </div>

@@ -17,10 +17,10 @@
                 <div class="BookAuthor__coverAuthor">
                     <div class="BookAuthor__authorList">
                         <div class="BookAuthor__authorName">
-                            @include(env('THEME') . '.card-book-authors', ['items'=>$book,'book' => $book])
+                            @include(env('THEME') . '.card.card-book-authors', ['items'=>$book,'book' => $book])
                         </div>
                         <div class="BookAuthor__authorName">
-                            @include(env('THEME') . '.card-book-translate', ['items'=>$book,'book' => $book])
+                            @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
                         </div>
                     </div>
                 </div>

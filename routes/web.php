@@ -17,6 +17,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
+// Route::get('/api/auto-bookmarks', 'StatisticsController@bookmarks');
+// Route::post('/api/auto-bookmarks', 'StatisticsController@bookmarks');
+
 Route::resource('/', 'IndexController',
     [
         'only' => ['index'],

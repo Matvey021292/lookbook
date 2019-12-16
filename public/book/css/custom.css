@@ -631,6 +631,7 @@ label[for='autoComplete']{
 .cart-light-sm{
     display: inline-block;
     font-size: 13px;
+    color: #858585;
     font-family: 'Raleway',sans-serif;
 }
 

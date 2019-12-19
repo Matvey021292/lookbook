@@ -6970,7 +6970,7 @@ li.page-item a,
   position: relative;
   width: 100%;
   margin-bottom: 16px;
-  background-color: #d6d6d6; }
+}
 
 .AuthorDetailHeader__blurredImageWrapper {
   position: absolute;
@@ -6979,12 +6979,11 @@ li.page-item a,
   overflow: hidden; }
 
 .AuthorDetailHeader__image {
-  height: 128px;
   flex-shrink: 0;
   margin-right: 32px;
   background-color: #abacac;
   border-radius: 8px;
-  overflow: hidden; }
+}
   @media (max-width: 767px) {
     .AuthorDetailHeader__image {
       margin-bottom: 16px; } }
@@ -6992,9 +6991,8 @@ li.page-item a,
 .AuthorDetailHeader__container {
   position: relative;
   max-width: 1136px;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  margin: 0 auto;
   padding: 40px 16px 26px; }
   @media (max-width: 1023px) {
     .AuthorDetailHeader__container {
@@ -7019,7 +7017,10 @@ li.page-item a,
 
 .AuthorDetailHeader__photo {
   display: block;
-  height: 128px; }
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
+}
 
 .AuthorDetailHeader__cover {
   position: absolute;
@@ -13445,6 +13446,10 @@ small {
   padding: 20px 8px;
   overflow: visible;
   background: #ffffff; }
+
+  .billetContainerNoOverflow.AuthorDetailHeader__container{
+    padding: 20px 20px 0;
+  }
 
 .billetContainerWarning {
   background: #fae5e8; }

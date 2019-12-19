@@ -614,18 +614,32 @@ label[for='autoComplete']{
     margin-bottom: 10px;
 }
 
+.ml-0{
+    margin-left: 0px !important;
+}
+
 .d-inline-flex{
     max-width:100%;
     display: inline-flex;
     align-items: center;
 }
 
+.wp-100{
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .section-counter{
+    display: inline-block;
     margin-left: 50px;
     font-size: 24px;
     transform: translateY(21%);
     color: var(--color-link);
     font-family: firasans, sans-serif;
+}
+
+.section-counter-small{
+    font-size: 20px;
 }
 
 .cart-light-sm{

@@ -1,11 +1,23 @@
-@if(!$items->isEmpty())
+@if($items->isEmpty())
+<div class="AuthorDetailView__container AuthorDetailHeader__container billetContainerNoOverflow">
+    <div class="ContentCarousel__wrapper">
+        <div  class="swiper-container swiper-container-horizontal swiper-container-free-mode">
+            <div class="swiper-wrapper" >
+                @foreach($books as $book)
+                @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => false])
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+@else
 @foreach($items as $k => $item)
-<div class="AuthorDetailView__container">
+<div class="AuthorDetailView__container billetContainerNoOverflow">
     <div class="AuthorDetailListTitle__container">
         @if(!$item->hasParent())
-        <h2>{{ $item->title }}</h2>
+        <h2 class="section-title">{{ $item->title }}</h2>
         @elseif($item->hasParent() && $item->hasChildren())
-        <h2>{{ $item->title }}</h2>
+        <h2 class="section-title">{{ $item->title }}</h2>
         @else
         <p class="cursor-p" data-toggle="collapse" data-target="#collapse{{ $item->id }}"
             aria-expanded="true"
@@ -41,16 +53,4 @@
     @endif
 </div>
 @endforeach
-@else
-<div class="AuthorDetailView__container">
-    <div class="ContentCarousel__wrapper">
-        <div  class="swiper-container swiper-container-horizontal swiper-container-free-mode">
-            <div class="swiper-wrapper" >
-                @foreach($books as $book)
-                @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => false])
-                @endforeach
-            </div>
-        </div>
-    </div>
-</div>
 @endif

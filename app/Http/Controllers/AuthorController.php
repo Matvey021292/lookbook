@@ -20,8 +20,11 @@ class AuthorController extends SiteController
 
     public function show($alias = false){
         $author = $this->a_rep->getAuthor($alias);
+        $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         $categories = $author->categories;
+        $product =  $this->cs_rep->get_first_category();
+        $categories->push($product);
         $categories = $this->a_rep->getCatMenu($categories);
         $books = $author->books;
         $categories = view(env('THEME').'.categories')->with('books',$books)->with('categories', $categories)->render();

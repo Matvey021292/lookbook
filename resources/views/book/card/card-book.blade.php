@@ -2,7 +2,9 @@
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book  jest-book-cover" style="width:120px;height:196px">
             <a href="{{ route('book.show', ['alias'=> $book->id]) }}">
+                @if($book->desc)
                 <img width="120" height="196" src="{!! $book->desc->book_img !!}" alt="{!! $book->book !!}" class="BookCover__bookImage" srcset="{!! $book->desc->book_img !!}">
+                @endif
             </a>
         </div>
     </div>

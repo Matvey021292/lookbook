@@ -25,6 +25,7 @@ class BookController extends SiteController
     public function show($alias = false, Book $product)
     {
         $book = $this->b_rep->getBook($alias);
+        
         if(empty($book)) return redirect()->back()->withErrors(Config::get('message.book_not_found'));
         if($booklist = $this->getBookList($book->id)){
             $book->booklist = $booklist;

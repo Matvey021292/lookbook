@@ -89,7 +89,8 @@ new autoComplete({
     onSelection: feedback => {
         document.querySelector("#autoComplete").value =
             feedback.selection.value.title;
-        window.location = '/book/' + feedback.selection.value.book_id;
+            console.log(feedback.selection.value.book_id);
+        // window.location = '/book/' + feedback.selection.value.book_id;
     }
 });
 

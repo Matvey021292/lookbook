@@ -13434,7 +13434,7 @@ small {
 
 .billetContainerTransparent, .billetContainer, .billetContainerNoOverflow, .billetContainerWarning, .billetContainerHighlight {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding: 16px 14px;
   border-radius: 12px;
   overflow: hidden; }

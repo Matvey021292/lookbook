@@ -22,7 +22,7 @@ class BookRepository extends Repository{
 		return $this->model->where('id', $alias)->first();
 	}
 	
-
+	
 }
 
 ?>

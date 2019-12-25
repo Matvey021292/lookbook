@@ -25,4 +25,8 @@ class Author extends Model
         return $this->hasMany('App\Categories','author_id','id');
     }
 
+    public function translate(){
+        return $this->belongsToMany('App\Book', 'book_translit_relship', 'author_id', 'book_id');
+    }
+
 }

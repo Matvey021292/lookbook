@@ -691,3 +691,36 @@ aside .billetContainerNoOverflow{
 .single-slider .billetContainerNoOverflow{
     padding: 40px 8px;;
 }
+div[data-toggle="collapse"]{
+    padding-bottom: 20px !important;    
+}
+
+div[data-toggle="collapse"]>div{
+    height: 205px;
+    overflow: hidden;
+    position: relative;
+}
+
+div[data-toggle="collapse"]>div.open{
+    height: 100%;
+}
+
+.toggle-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #acbbc9;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.13);
+    z-index: 2;
+    background-image: none;
+    cursor: pointer;
+    bottom: 0;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, 50%);
+    
+}

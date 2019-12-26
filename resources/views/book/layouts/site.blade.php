@@ -66,7 +66,6 @@
                                 
                                 <a href="/profile" class="Header__link"> 
                                     <i class="far fa-address-card"></i> {{__('Личный кабинет')}}
-                                    {{-- , {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}} --}}
                                 </a>
                                 @endif
                             </div>

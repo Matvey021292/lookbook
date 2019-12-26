@@ -677,7 +677,6 @@ li.page-item a, .PageButton__pageButton{
 
 aside .billetContainerNoOverflow{
     background: transparent;
-    overflow-x: auto;
 }
 
 .TagLabel__grey {

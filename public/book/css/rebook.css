@@ -2730,16 +2730,17 @@ li.page-item a,
   margin-bottom: 16px; }
   @media (min-width: 1136px) {
     .BookAuthor__coverAuthor {
-      margin-bottom: 24px; } }
+      margin-bottom: 15px; } }
 
 .BookAuthor__authorList {
   margin-right: 8px;
-  color: #ffffff; }
+}
 
 .BookAuthor__authorName a,
 .BookAuthor__authorName {
   font-size: 16px;
-  color: #ffffff; }
+  color: #858585;
+}
 
 .BookAuthor__link {
   font-size: 0; }
@@ -3220,7 +3221,13 @@ li.page-item a,
   display: inline-block;
   white-space: nowrap;
   transition: all .2s ease-in-out;
-  cursor: pointer; }
+  cursor: pointer; 
+  margin-top: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: 0;
+
+}
 
 .Rating__ratingStarHover {
   position: absolute;
@@ -3277,7 +3284,7 @@ li.page-item a,
 .BookPageHeaderContent__coverTitle {
   max-width: 100%;
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   text-align: left;
   color: #ffffff; }
   .BookPageHeaderContent__coverTitle a {
@@ -3390,6 +3397,7 @@ li.page-item a,
   padding: 4px 8px;
   border-radius: 5px;
   background: #fff;
+  font-weight: 400;
 }
 
 .BookPageHeaderContent__bookUserRating {
@@ -3644,11 +3652,10 @@ li.page-item a,
         margin-top: 72px; } }
   @media (min-width: 1136px) {
     .BookPageHeaderContent__booksButtonBlock {
-      max-width: 586px;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-left: 288px; }
+      margin-left: 310px; }
       .isAudioBook .BookPageHeaderContent__booksButtonBlock {
         margin: 0 0 0 288px;
         padding-bottom: 16px; } }
@@ -13328,8 +13335,8 @@ h1,
   @media (min-width: 1023px) {
     h1,
     .title-1 {
-      font-size: 48px;
-      padding-bottom: 16px; } }
+      font-size: 40px;
+      padding-bottom: 10px; } }
 
 input {
   background: #ffffff;

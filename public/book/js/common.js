@@ -88,7 +88,7 @@ new autoComplete({
         document.querySelector("#autoComplete").value =
             feedback.selection.value.title;
         console.log(feedback.selection.value.book_id);
-        // window.location = '/book/' + feedback.selection.value.book_id;
+        window.location = '/book/' + feedback.selection.value.book_id;
     }
 });
 

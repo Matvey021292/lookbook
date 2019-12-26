@@ -445,6 +445,7 @@ a:hover{
     width: 100%;
     min-width: 320px;
     margin: 0 auto;
+    min-height: 85vh;
 }
 
 .HeaderLinks__headerLinks{
@@ -577,7 +578,7 @@ label[for='autoComplete']{
     z-index: 1;
 }
 
-.section-title:before{
+/* .section-title:before{
     content: '';
     position: absolute;
     bottom: -0px;
@@ -589,7 +590,7 @@ label[for='autoComplete']{
     background: var(--color-link-dark);
     left: -1%;
     z-index: -1;
-}
+} */
 
 .p-0{ 
     padding: 0;
@@ -697,7 +698,7 @@ div[data-toggle="collapse"]{
 }
 
 div[data-toggle="collapse"]>div{
-    max-height: 205px;
+    max-height: 150px;
     overflow: hidden;
     position: relative;
 }
@@ -735,4 +736,12 @@ div[data-toggle="collapse"].open .toggle-icon i{
 }
 .HeaderLinks__linkContainer .menu-title{
     margin-left: 16px;
+}
+
+.billetContainerNoOverflow.AuthorDetailHeader__container{
+    font-weight: 400;
+}
+
+.BookPageHeaderContent__coverTitle{
+    color: #2d2d2d;
 }

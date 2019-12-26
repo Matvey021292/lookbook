@@ -12,7 +12,7 @@
         <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper glide__slides">
                 @foreach($books as $book)
-                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
+                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => true])
                 @endforeach
             </div>
         </div>

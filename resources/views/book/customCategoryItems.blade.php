@@ -30,7 +30,7 @@
             <div class="swiper-wrapper glide__slides">
                 @foreach($books as $book)
                 @if($book->category_id == $item->id)
-                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true])
+                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
                 @else
                 {{-- @include(env('THEME') . '.card-book', ['items'=>$book,'book' => $book, 'carousel' => true]) --}}
                 @endif

@@ -17,9 +17,9 @@
     </div>
 </section>
 @if($author->desc && $author->desc->desc_author)
-<div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
+<div data-toggle="collapse" class=" AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
     <h3 class="section-title">Об авторе</h3>
-    <div>
+    <div class="ContentCarousel__wrapper">
         <p class="des-author">{!! $author->desc->desc_author  !!} </p>  
     </div>
     <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 

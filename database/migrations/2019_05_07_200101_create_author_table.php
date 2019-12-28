@@ -14,10 +14,17 @@ class CreateAuthorTable extends Migration
     public function up()
     {
         Schema::create('author', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('link');
-            $table->string('slug')->default('');
+            $table->increments('ID');
+            $table->string('FirstName', 99)->default('')->nullable(false);
+            $table->string('MiddleName', 99)->default('')->nullable(false);
+            $table->string('LastName', 99)->default('')->nullable(false);
+            $table->string('NickName', 33)->default('')->nullable(false);
+            $table->integer('uid')->default(0)->nullable(false);
+            $table->string('Email', 255)->default('')->nullable(false);
+            $table->string('HomePage', 255)->default('')->nullable(false);
+            $table->char('Gender', 1)->default('')->nullable(false);
+            $table->integer('MasterID')->default(0)->nullable(false);
+            $table->string('slug')->default('')->nullable(false);
         });
     }
 

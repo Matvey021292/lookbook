@@ -12,9 +12,9 @@
 @section('bar')
 {!! $rightBar !!}
 @endsection
-@section('category_book')
+{{-- @section('category_book')
     {!! $category !!}
-@endsection
+@endsection --}}
 @section('recently_view')
     {!! $books_view !!}
 @endsection

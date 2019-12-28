@@ -39,7 +39,7 @@ class ContentBook extends SiteController
         $format = 'epub';
         $request_name = str_replace($format, 'fb2.zip', $path);
         if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
-        $convert = new Convert();
+        $convert = new Convert();        
         $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH), $format);
         $content = new BookContent();
         return $content->unzip_file($file);

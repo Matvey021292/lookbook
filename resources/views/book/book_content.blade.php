@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    
+    @if($book->desc->book_desc)
     <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
         <div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
             <div class="BookDetailAnnotation__descriptionWrapper">
@@ -49,14 +49,15 @@
             <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
         </div>
     </div>
+    @endif
     <div class="row">
         <div class="col-md-12">
-            @if(collect($book->getBookRelationship)->isNotEmpty())
+            @if(collect($book->categories)->isNotEmpty())
             <div class="BookGenresThemes__genresThemes">
                 <div class="BookGenresThemes__genresThemesSection">
                     <h3 class="section-title">Жанры</h3>
                     <ul class="BookGenresThemes__itemList">
-                        @foreach ($book->getBookRelationship as $category)
+                        @foreach ($book->categories as $category)
                         <li class="BookGenresThemes__listItem">
                             <a href="{{ route('category.show', ['alias' => $category->slug]) }}">
                                 <div class="TagLabel__brown" style="max-width: unset;">{{$category->category}}</div>
@@ -106,7 +107,7 @@
         </div>
     </div>
     
-    {{-- <div class="themeWhite">
+    <div class="themeWhite">
         <div class="BookPageHeaderContent__bookContent">
             <div class="BookPageHeaderContent__booksButtons isForAnonymous">
                 <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
@@ -118,7 +119,7 @@
                                         <li>
                                             <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->id]) }}/read">Читать</a>
                                         </li>
-                                         @foreach($book->format as $format)
+                                         {{-- @foreach($book->format as $format)
                                             <li>
                                                 <a class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
                                             </li>
@@ -128,7 +129,7 @@
                                             <li>
                                                 <a data-format='mobi' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.mobi', $format->slug)}}">MOBI</a>
                                             </li>
-                                            @endforeach
+                                            @endforeach --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -138,7 +139,7 @@
                 </div>
             </div>
         </div> 
-    </div> --}}
+    </div>
     
     <script type="text/javascript">
         

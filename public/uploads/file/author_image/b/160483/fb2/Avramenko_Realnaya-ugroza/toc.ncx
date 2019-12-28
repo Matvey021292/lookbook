@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="rus">
+  <head>
+    <meta content="9215c108-96f0-448e-8589-9e69c776a8c2" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="calibre (3.39.1)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>Реальная угроза</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="uqgNpOtqdJKv82eSN28Im3A" playOrder="1">
+      <navLabel>
+        <text>Олег Авраменко РЕАЛЬНАЯ УГРОЗА</text>
+      </navLabel>
+      <content src="index_split_001.xhtml"/>
+    </navPoint>
+    <navPoint id="umPY37ErJp5GDUvBJmMolXG" playOrder="2">
+      <navLabel>
+        <text>Глава первая Октавия</text>
+      </navLabel>
+      <content src="index_split_002.xhtml"/>
+      <navPoint id="ueJgUajca8rdl5Zk7XhIvIH" playOrder="3">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_003.xhtml"/>
+      </navPoint>
+      <navPoint id="uLFoAHPWBRF93edkGnqWMC2" playOrder="4">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_004.xhtml"/>
+      </navPoint>
+      <navPoint id="uSnZDGnorLYWyOrL3kRBA7E" playOrder="5">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_005.xhtml"/>
+      </navPoint>
+      <navPoint id="uZFYAzC2qg9k8x44MGAXmPC" playOrder="6">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_006.xhtml"/>
+      </navPoint>
+      <navPoint id="ujQNfcO7KA7IRur3nCS8cE5" playOrder="7">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_007.xhtml"/>
+      </navPoint>
+      <navPoint id="uylD7LtBHJQpUeYknZWhTtB" playOrder="8">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_008.xhtml"/>
+      </navPoint>
+      <navPoint id="u8avqFLcFbRzwIw3MaeiG2G" playOrder="9">
+        <navLabel>
+          <text>7</text>
+        </navLabel>
+        <content src="index_split_009.xhtml"/>
+      </navPoint>
+      <navPoint id="u3womHWZSEOfAmRIDmsdrQC" playOrder="10">
+        <navLabel>
+          <text>8</text>
+        </navLabel>
+        <content src="index_split_010.xhtml"/>
+      </navPoint>
+      <navPoint id="uYso5pGt9v7TKyt7qMMnSY3" playOrder="11">
+        <navLabel>
+          <text>9</text>
+        </navLabel>
+        <content src="index_split_011.xhtml"/>
+      </navPoint>
+      <navPoint id="u7xXwTOYSB5wNBjTssbpon7" playOrder="12">
+        <navLabel>
+          <text>10</text>
+        </navLabel>
+        <content src="index_split_012.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u5ROVSoa6yjmoW3rsWio9ZD" playOrder="13">
+      <navLabel>
+        <text>Глава вторая Экспедиция</text>
+      </navLabel>
+      <content src="index_split_013.xhtml"/>
+      <navPoint id="ucbgK6QOgGJnHX65qSpFH29" playOrder="14">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_014.xhtml"/>
+      </navPoint>
+      <navPoint id="uYwFlhUD8Jji2VHONsNIOaD" playOrder="15">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_015.xhtml"/>
+      </navPoint>
+      <navPoint id="u8bdwcWk4GQ6MdrI378OooA" playOrder="16">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_016.xhtml"/>
+      </navPoint>
+      <navPoint id="uWvZGcd3gXpTTXVabeZWguC" playOrder="17">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_017.xhtml"/>
+      </navPoint>
+      <navPoint id="urGrmgCBnWp8XqEHpVlR4d8" playOrder="18">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_018.xhtml"/>
+      </navPoint>
+      <navPoint id="utJoXertb54tZDUAFmZGpYE" playOrder="19">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_019.xhtml"/>
+      </navPoint>
+      <navPoint id="uuMVF97ABDpEf8a3fCJusF5" playOrder="20">
+        <navLabel>
+          <text>7</text>
+        </navLabel>
+        <content src="index_split_020.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u8Uk5oWqNIpVBNKCT8vf3ME" playOrder="21">
+      <navLabel>
+        <text>Глава третья Ютланд</text>
+      </navLabel>
+      <content src="index_split_021.xhtml"/>
+      <navPoint id="utzsvLu98DYizWeqxVvFaxE" playOrder="22">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_022.xhtml"/>
+      </navPoint>
+      <navPoint id="uFEsyxg2bjFJb9Ov69rfM8B" playOrder="23">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_023.xhtml"/>
+      </navPoint>
+      <navPoint id="uiwbd3KxQGhz76gniKYr98A" playOrder="24">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_024.xhtml"/>
+      </navPoint>
+      <navPoint id="uDO9tDTjXWbsdHr42eNCCM5" playOrder="25">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_025.xhtml"/>
+      </navPoint>
+      <navPoint id="uaao92QoZK8PgSPeUy2LmSD" playOrder="26">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_026.xhtml"/>
+      </navPoint>
+      <navPoint id="uyiHAH4bUGyMFfsysm7BOQF" playOrder="27">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_027.xhtml"/>
+      </navPoint>
+      <navPoint id="uFv92WAWQ4VCu3joSZHHxWD" playOrder="28">
+        <navLabel>
+          <text>7</text>
+        </navLabel>
+        <content src="index_split_028.xhtml"/>
+      </navPoint>
+      <navPoint id="uSticsddR9VHWl5vZYDpjvF" playOrder="29">
+        <navLabel>
+          <text>8</text>
+        </navLabel>
+        <content src="index_split_029.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="ukacM8cBH8sTuJzZAyOspV5" playOrder="30">
+      <navLabel>
+        <text>Глава четвёртая «Орион»</text>
+      </navLabel>
+      <content src="index_split_030.xhtml"/>
+      <navPoint id="ur9NKScwMAn67UMkpXvFtRD" playOrder="31">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_031.xhtml"/>
+      </navPoint>
+      <navPoint id="uDOvpKHFXPaqGscz5zkdNc8" playOrder="32">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_032.xhtml"/>
+      </navPoint>
+      <navPoint id="u6NV2kIFGTPyb9xaOu2cT7C" playOrder="33">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_033.xhtml"/>
+      </navPoint>
+      <navPoint id="u6xraMHkFDxzH3trnrFpz74" playOrder="34">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_034.xhtml"/>
+      </navPoint>
+      <navPoint id="utYEV77lnseWjhQcqUtK5d4" playOrder="35">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_035.xhtml"/>
+      </navPoint>
+      <navPoint id="uWk5PW4qr327I8uPurFCMX9" playOrder="36">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_036.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uYnKrAA286qfXO8i9fOXY72" playOrder="37">
+      <navLabel>
+        <text>Глава пятая Кризис</text>
+      </navLabel>
+      <content src="index_split_037.xhtml"/>
+      <navPoint id="uQL3Q3sMVhXYAOpvQzIrny7" playOrder="38">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_038.xhtml"/>
+      </navPoint>
+      <navPoint id="uKdcJuGNWXgEae3RvPqRuy9" playOrder="39">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_039.xhtml"/>
+      </navPoint>
+      <navPoint id="uYzEDs8MSrWyEWea5EZnSfB" playOrder="40">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_040.xhtml"/>
+      </navPoint>
+      <navPoint id="uafXzdIRczLYdkqJRkGydJH" playOrder="41">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_041.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="ugXvMRG8XDzDHvBqyceH7u2" playOrder="42">
+      <navLabel>
+        <text>Глава шестая Вавилон</text>
+      </navLabel>
+      <content src="index_split_042.xhtml"/>
+      <navPoint id="uiMSuDai2QfkpGNNIRqRVM5" playOrder="43">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_043.xhtml"/>
+      </navPoint>
+      <navPoint id="uWSnT3mgZmXBsxSLqpetXmA" playOrder="44">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_044.xhtml"/>
+      </navPoint>
+      <navPoint id="unEUQkvKT8HMrvdtIhTPGq2" playOrder="45">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_045.xhtml"/>
+      </navPoint>
+      <navPoint id="uojrvYFi8MGVIJpvrgHol79" playOrder="46">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_046.xhtml"/>
+      </navPoint>
+      <navPoint id="uudCkMie4OslSVTKVCodgq6" playOrder="47">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_047.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="umldKvqH2LaeWiletJdNQe9" playOrder="48">
+      <navLabel>
+        <text>Глава седьмая Si vis pacem…[9]</text>
+      </navLabel>
+      <content src="index_split_048.xhtml"/>
+      <navPoint id="uLQMnMiHnHJrlXkwwobXYV7" playOrder="49">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_049.xhtml"/>
+      </navPoint>
+      <navPoint id="u6XuJkrRG7FDgkk5z2Y6FO3" playOrder="50">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_050.xhtml"/>
+      </navPoint>
+      <navPoint id="uDESTStXkdBrmrQHPt8K3HD" playOrder="51">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_051.xhtml"/>
+      </navPoint>
+      <navPoint id="uN2fOKpEDzDQALXwhPDIXSF" playOrder="52">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_052.xhtml"/>
+      </navPoint>
+      <navPoint id="unnuWO8Jkd65HAwDABU2bV5" playOrder="53">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_053.xhtml"/>
+      </navPoint>
+      <navPoint id="ua2WZiEMBxvYlcFDxqK9aoB" playOrder="54">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_054.xhtml"/>
+      </navPoint>
+      <navPoint id="uOWSTmgxkORHJGFDkCsiBS9" playOrder="55">
+        <navLabel>
+          <text>7</text>
+        </navLabel>
+        <content src="index_split_055.xhtml"/>
+      </navPoint>
+      <navPoint id="uO6T7w8PhZWrVYYt9xsweUE" playOrder="56">
+        <navLabel>
+          <text>8</text>
+        </navLabel>
+        <content src="index_split_056.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uDlZKpnFANMGcUUuHdsza2E" playOrder="57">
+      <navLabel>
+        <text>Глава восьмая Перед бурей</text>
+      </navLabel>
+      <content src="index_split_057.xhtml"/>
+      <navPoint id="ufqkC4MiCY5Fp8qx9oGln6E" playOrder="58">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_058.xhtml"/>
+      </navPoint>
+      <navPoint id="uGcZ8X85QXPYNXI3Z5yhBkC" playOrder="59">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_059.xhtml"/>
+      </navPoint>
+      <navPoint id="uX9lUi486XmH48nOBr4DXWA" playOrder="60">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_060.xhtml"/>
+      </navPoint>
+      <navPoint id="uL978tusRntqC2qN3XdkVX5" playOrder="61">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_061.xhtml"/>
+      </navPoint>
+      <navPoint id="ueHmzfVjROwiPe6zxha6J33" playOrder="62">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_062.xhtml"/>
+      </navPoint>
+      <navPoint id="uNO6NS8Ezo6hLqpzWbGuWqE" playOrder="63">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_063.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uJPI7NmOPmLb2zoEhWBKVA9" playOrder="64">
+      <navLabel>
+        <text>Глава девятая Вторжение</text>
+      </navLabel>
+      <content src="index_split_064.xhtml"/>
+      <navPoint id="u4MJH6EpNA2xNnxnF43L8vF" playOrder="65">
+        <navLabel>
+          <text>1</text>
+        </navLabel>
+        <content src="index_split_065.xhtml"/>
+      </navPoint>
+      <navPoint id="uMvlPkuD3fWFIfCC5xEJXtC" playOrder="66">
+        <navLabel>
+          <text>2</text>
+        </navLabel>
+        <content src="index_split_066.xhtml"/>
+      </navPoint>
+      <navPoint id="uj8CbTNfGFhPbRuMhBlXZi7" playOrder="67">
+        <navLabel>
+          <text>3</text>
+        </navLabel>
+        <content src="index_split_067.xhtml"/>
+      </navPoint>
+      <navPoint id="uOwn7N4FUdUZMxoV2wWDDXD" playOrder="68">
+        <navLabel>
+          <text>4</text>
+        </navLabel>
+        <content src="index_split_068.xhtml"/>
+      </navPoint>
+      <navPoint id="urZZcEH3gqntamRC5Kwi8m8" playOrder="69">
+        <navLabel>
+          <text>5</text>
+        </navLabel>
+        <content src="index_split_069.xhtml"/>
+      </navPoint>
+      <navPoint id="ulUyUDmxJkTzrndc7BUPIVG" playOrder="70">
+        <navLabel>
+          <text>6</text>
+        </navLabel>
+        <content src="index_split_070.xhtml"/>
+      </navPoint>
+      <navPoint id="uvMKzlvqEbciKyh87r73dU4" playOrder="71">
+        <navLabel>
+          <text>7</text>
+        </navLabel>
+        <content src="index_split_071.xhtml"/>
+      </navPoint>
+      <navPoint id="u3vYDbpqP6Y6m3qHjzPE5A4" playOrder="72">
+        <navLabel>
+          <text>8</text>
+        </navLabel>
+        <content src="index_split_072.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uikllhepGXJ8iwxxMTp5xQF" playOrder="73">
+      <navLabel>
+        <text>Эпилог Долг чести</text>
+      </navLabel>
+      <content src="index_split_073.xhtml"/>
+    </navPoint>
+    <navPoint id="ukgtU4Jv9elAjf4hGeuYbQG" playOrder="74">
+      <navLabel>
+        <text>Примечания</text>
+      </navLabel>
+      <content src="index_split_074.xhtml"/>
+    </navPoint>
+    <navPoint id="uh6LebdX3BYfd4TAGbIj9s7" playOrder="75">
+      <navLabel>
+        <text>1</text>
+      </navLabel>
+      <content src="index_split_075.xhtml"/>
+    </navPoint>
+    <navPoint id="uLLzQsRpFpAOa6QYBkmjkR4" playOrder="76">
+      <navLabel>
+        <text>2</text>
+      </navLabel>
+      <content src="index_split_076.xhtml"/>
+    </navPoint>
+    <navPoint id="uThADlEniGkhBMDl3UQkwZG" playOrder="77">
+      <navLabel>
+        <text>3</text>
+      </navLabel>
+      <content src="index_split_077.xhtml"/>
+    </navPoint>
+    <navPoint id="uvWVCC56mtIuNN2vwlYYhY4" playOrder="78">
+      <navLabel>
+        <text>4</text>
+      </navLabel>
+      <content src="index_split_078.xhtml"/>
+    </navPoint>
+    <navPoint id="ulaIcYzoQFcVmsKhkjvaQj5" playOrder="79">
+      <navLabel>
+        <text>5</text>
+      </navLabel>
+      <content src="index_split_079.xhtml"/>
+    </navPoint>
+    <navPoint id="uaT8qNO2RrtodjuHROntzoD" playOrder="80">
+      <navLabel>
+        <text>6</text>
+      </navLabel>
+      <content src="index_split_080.xhtml"/>
+    </navPoint>
+    <navPoint id="uGXhzTScafCl3ajTmo2YG94" playOrder="81">
+      <navLabel>
+        <text>7</text>
+      </navLabel>
+      <content src="index_split_081.xhtml"/>
+    </navPoint>
+    <navPoint id="uk78momlAUZDtSkRwXvnvX9" playOrder="82">
+      <navLabel>
+        <text>8</text>
+      </navLabel>
+      <content src="index_split_082.xhtml"/>
+    </navPoint>
+    <navPoint id="ul6jWLjIyLYOkZKj6lYEp99" playOrder="83">
+      <navLabel>
+        <text>9</text>
+      </navLabel>
+      <content src="index_split_083.xhtml"/>
+    </navPoint>
+  </navMap>
+</ncx>

@@ -15,6 +15,7 @@ class CreateBookTranslitRelship extends Migration
     {
         Schema::create('book_translit_relship', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->tinyInteger('Pos')->unsigned()->default(0)->nullable(false);
         });
     }
 

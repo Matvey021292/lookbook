@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookContent extends Migration
+class CreateTableBookCategoryRelship extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateBookContent extends Migration
      */
     public function up()
     {
-        Schema::create('book_content', function (Blueprint $table) {
+        Schema::create('book_category_relship', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('format_id');
-            $table->string('content');
+            $table->integer('Numb')->nullable(false);
+            $table->tinyInteger('Level')->default(0)->nullable(false);
+            $table->tinyInteger('Type')->default(0)->nullable(false);
         });
     }
 
@@ -27,6 +28,6 @@ class CreateBookContent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_content');
+        Schema::dropIfExists('book_category_relship');
     }
 }

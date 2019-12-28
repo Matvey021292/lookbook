@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeBookTranslitRelship extends Migration
+class EditTableBookGenreRelship extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class ChangeBookTranslitRelship extends Migration
      */
     public function up()
     {
-        Schema::table('book_translit_relship', function (Blueprint $table) {
+        Schema::table('book_genre_relship', function (Blueprint $table) {
             $table->integer('book_ID')->unsigned();
             $table->foreign('book_ID')->references('ID')->on('book');
-            $table->integer('author_ID')->unsigned();
-            $table->foreign('author_ID')->references('ID')->on('author');
-           
+            $table->integer('genre_ID')->unsigned();
+            $table->foreign('genre_ID')->references('ID')->on('genre');
         });
     }
 
@@ -29,7 +28,7 @@ class ChangeBookTranslitRelship extends Migration
      */
     public function down()
     {
-        Schema::table('book_translit_relship', function (Blueprint $table) {
+        Schema::table('book_genre_relship', function (Blueprint $table) {
             //
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeCategoryTable extends Migration
+class CrateTableBookGenreRelship extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class ChangeCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::table('category', function (Blueprint $table) {
-            //
-            $table->integer('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('author');
+        Schema::create('book_genre_relship', function (Blueprint $table) {
+            $table->bigIncrements('id');
         });
     }
 
@@ -27,8 +25,6 @@ class ChangeCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::table('categoty', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('book_genre_relship');
     }
 }

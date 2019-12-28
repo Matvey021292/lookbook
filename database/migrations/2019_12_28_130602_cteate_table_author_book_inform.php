@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookFormatTable extends Migration
+class CteateTableAuthorBookInform extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateBookFormatTable extends Migration
      */
     public function up()
     {
-        Schema::create('filename', function (Blueprint $table) {
+        Schema::create('book_inform', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('FileName')->unique();
-
-
+            $table->integer('nid')->unsigned()->default(0)->nullable(false);
+            $table->string('Title',255)->nullable(false);
+            $table->longText('Body')->default(Null);
         });
     }
 
@@ -28,6 +28,6 @@ class CreateBookFormatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_format');
+        Schema::dropIfExists('book_inform');
     }
 }

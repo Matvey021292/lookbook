@@ -33,13 +33,9 @@ class IndexController extends SiteController
     public function index()
     {
         $count = Config::get('settings.home_post_count');
-<<<<<<< HEAD
         $book = $this->b_rep->getBooks('*', $count);
+        
         // $category = $this->c_rep->getCategories();
-=======
-        $book = $this->b_rep->getBooks('*', $count, '', '', true);
-        $category = $this->c_rep->getCategories('*', $count, true);
->>>>>>> master
         $slider =  $this->b_rep->getBooks('*', $count, true);
         $author =  $this->a_rep->getAuthors('*', $count, true);
         

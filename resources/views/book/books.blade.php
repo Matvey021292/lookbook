@@ -3,9 +3,9 @@
 @section('nav')
 {!! $nav !!}
 @endsection
-@section('category_book')
+{{-- @section('category_book')
 {!! $category !!}
-@endsection
+@endsection --}}
 @section('books_content')
 {!! $content !!}
 @endsection

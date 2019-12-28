@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookAuthorRelship extends Migration
+class EditTableAuthorBookInform extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateBookAuthorRelship extends Migration
      */
     public function up()
     {
-        Schema::create('book_author_relship', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->tinyInteger('Pos')->unsigned()->default(0)->nullable(false);
+        Schema::table('book_inform', function (Blueprint $table) {
+           $table->integer('book_ID')->unsigned();
+           $table->foreign('book_ID')->references('ID')->on('book');
         });
     }
 
@@ -26,6 +26,8 @@ class CreateBookAuthorRelship extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_author_relship');
+        Schema::table('book_inform', function (Blueprint $table) {
+            //
+        });
     }
 }

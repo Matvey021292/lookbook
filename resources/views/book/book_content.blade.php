@@ -4,14 +4,13 @@
         <div class="BookPageHeaderContent__coverContent">
             <div class="BookPageHeaderContent__coverInformation">
                 <h1 class="BookPageHeaderContent__coverTitle">
-                    <span>{{ $book->book }}</span>
+                    <span>{{ $book->Title }}</span>
                 </h1>
                 <div class="BookAuthor__coverAuthor">
                     <div class="BookAuthor__authorList">
                         <div class="BookAuthor__authorName">
                             @include(env('THEME') . '.card.card-book-authors', ['items'=>$book,'book' => $book])
                         </div>
-                        
                     </div>
                 </div>
                 <div class="BookPageHeaderContent__bookInformationRating">
@@ -31,11 +30,13 @@
             </div>
             <div class="BookPageHeaderContent__coverBlockImage">
                 <div class="BookCoverImage__coverImageWrapper">
+                    @if($book->picture)
                     <img width="256" height="426" 
-                    src="{{ $book->desc->book_img }}" 
-                    alt="{{ $book->book }}" 
+                    src="{{config('settings.file_path_book')}}{{ $book->picture->File }}" 
+                    alt="{{ $book->Title }}" 
                     class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
-                    srcset="{{ $book->desc->book_img }}">
+                    srcset="{{config('settings.file_path_book')}}{{ $book->picture->File }}">
+                    @endif
                 </div>
             </div>
         </div>
@@ -44,14 +45,16 @@
     <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
         <div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
             <div class="BookDetailAnnotation__descriptionWrapper">
-                <p> {!!  $book->desc->book_desc !!}</p>
+                @if($book->desc)
+                <p> {!!  $book->desc->Body !!}</p>
+                @endif
             </div>
             <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            @if(collect($book->getBookRelationship)->isNotEmpty())
+            @if($book->getBookRelationship)
             <div class="BookGenresThemes__genresThemes">
                 <div class="BookGenresThemes__genresThemesSection">
                     <h3 class="section-title">Жанры</h3>
@@ -99,7 +102,7 @@
                         </div>
                     </code>
                     <div class="error_message"></div>
-                    <input type="hidden" name="book_id" value="{{$book->id}}">
+                    <input type="hidden" name="book_id" value="{{$book->ID}}">
                 </div>
             </div>
             {{-- <div class="BookPageHeaderContent__bookUserRatingText">Оцените книгу</div> --}}
@@ -142,7 +145,7 @@
     
     <script type="text/javascript">
         
-        var book_id = {{ $book->id }};
+        var book_id = {{ $book->ID }};
         var route_booklist_add = "{{route('bookListAdd')}}";
         var route_booklist_remove = "{{route('bookListRemove')}}";
         var download_route = "{{route('downloadFile')}}";
@@ -154,7 +157,7 @@
                 'id': document.querySelector('input[name="book_id"]').value
             };
             
-            let response = await fetch("{{route('postStar', $book->id)}}", {
+            let response = await fetch("{{route('postStar', $book->ID)}}", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',

@@ -14,8 +14,8 @@ class ChangeAutorInformTable extends Migration
     public function up()
     {
         Schema::table('author_inform', function (Blueprint $table) {
-           $table->integer('id_author')->unsigned();
-           $table->foreign('id_author')->references('id')->on('author');
+           $table->integer('author_ID')->unsigned();
+           $table->foreign('author_ID')->references('ID')->on('author');
         });
     }
 

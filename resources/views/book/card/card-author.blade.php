@@ -1,7 +1,7 @@
 <div class="glide__slide VerticalBookCard__tinyBook swiper-slide jest-verticalbookcard">
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book BookCover__isAudioBook jest-book-cover" style="width:124px;height:124px">
-            <a href="{{ route('author.show', ['alias' => $author->id]) }}">
+            <a href="{{ route('author.show', ['alias' => $author->ID]) }}">
                 @if($author->desc && $author->desc->image && file_exists($author->desc->image))
                 <img
                 src="{{$author->desc->image}}"
@@ -18,7 +18,7 @@
     </div>
     <div class="VerticalBookCard__bookInfo mt-1">
         <a class="VerticalBookCard__bookName cart-light-sm" href="{{ route('author.show', ['alias' => $author->id]) }}">
-            <span>{{ $author->title }}</span>
+            <span>{{ $author->FirstName }} {{ $author->LastName }}</span>
         </a>
     </div>
 </div>

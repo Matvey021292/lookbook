@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeTableMenu extends Migration
+class EditTableAuthorPicture extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class ChangeTableMenu extends Migration
      */
     public function up()
     {
-        Schema::table('menu', function (Blueprint $table) {
-            $table->string('icon');
+        Schema::table('author_picture', function (Blueprint $table) {
+            $table->integer('author_ID')->unsigned();
+            $table->foreign('author_ID')->references('ID')->on('author');
         });
     }
 
@@ -25,7 +26,7 @@ class ChangeTableMenu extends Migration
      */
     public function down()
     {
-        Schema::table('menu', function (Blueprint $table) {
+        Schema::table('author_picture', function (Blueprint $table) {
             //
         });
     }

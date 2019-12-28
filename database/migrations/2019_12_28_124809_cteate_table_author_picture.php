@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookmarks extends Migration
+class CteateTableAuthorPicture extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateBookmarks extends Migration
      */
     public function up()
     {
-        Schema::create('bookmarks', function (Blueprint $table) {
+        Schema::create('author_picture', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('book');
-            $table->string('device_name');
-            $table->integer('offset');
-            $table->string('part');
-            $table->integer('time');
-            $table->string('xpath');
-        });
+            $table->integer('nid')->unsigned()->default(0)->nullable(false);
+            $table->string('File', 255)->default('')->nullable(false);       
+         });
     }
 
     /**
@@ -31,6 +27,6 @@ class CreateBookmarks extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookmarks');
+        Schema::dropIfExists('author_picture');
     }
 }

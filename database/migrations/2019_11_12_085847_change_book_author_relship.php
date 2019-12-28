@@ -14,10 +14,10 @@ class ChangeBookAuthorRelship extends Migration
     public function up()
     {
         Schema::table('book_author_relship', function (Blueprint $table) {
-            $table->integer('book_id')->unsigned();
-            $table->foreign('book_id')->references('id')->on('book');
-            $table->integer('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('author');
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('ID')->on('book');
+            $table->integer('author_ID')->unsigned();
+            $table->foreign('author_ID')->references('ID')->on('author');
         });
     }
 

@@ -13,10 +13,9 @@ class ChangeBookFormatTable extends Migration
      */
     public function up()
     {
-        Schema::table('book_format', function (Blueprint $table) {
-            //
-            $table->integer('book_id')->unsigned();
-            $table->foreign('book_id')->references('id')->on('book');
+        Schema::table('filename', function (Blueprint $table) {
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('ID')->on('book');
         });
     }
 

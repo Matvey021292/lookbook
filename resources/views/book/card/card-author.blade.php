@@ -16,8 +16,8 @@
             </a>
         </div>
     </div>
-    <div class="VerticalBookCard__bookInfo">
-        <a class="VerticalBookCard__bookName" href="{{ route('author.show', ['alias' => $author->id]) }}">
+    <div class="VerticalBookCard__bookInfo mt-1">
+        <a class="VerticalBookCard__bookName cart-light-sm" href="{{ route('author.show', ['alias' => $author->id]) }}">
             <span>{{ $author->title }}</span>
         </a>
     </div>

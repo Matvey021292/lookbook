@@ -12,7 +12,7 @@
                     <div class="BookList__bookList">
                         <ul class="BookList__items">
                             @foreach($search->books as $book)
-                            @include(env('THEME') . '.card-book-min', ['items'=>$book, 'book' => $book, 'carousel' => true])
+                            @include(env('THEME') . '.card.card-book-min', ['items'=>$book, 'book' => $book, 'carousel' => true])
                             @endforeach
                         </ul>
                     </div>
@@ -28,7 +28,7 @@
     <ul class="AuthorList__authorList">
         @foreach($search->authors as $author)
         <li class="AuthorList__author">
-            <a href="{{ route('author.show', ['alias'=> $author->slug]) }}">
+            <a href="{{ route('author.show', ['alias'=> $author->id]) }}">
                 <div class="billetContainer">
                     <div class="ContextAuthorCard__author">
                         <div class="ContextAuthorCard__authorBlock">

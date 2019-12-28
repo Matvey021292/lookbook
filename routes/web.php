@@ -17,6 +17,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
+// Route::get('/api/auto-bookmarks', 'StatisticsController@bookmarks');
+// Route::post('/api/auto-bookmarks', 'StatisticsController@bookmarks');
+
 Route::resource('/', 'IndexController',
     [
         'only' => ['index'],
@@ -89,7 +92,6 @@ Route::get('qsearch', 'SearchController@searchIndex')->name('search');
 
 Route::get('/search', 'SearchController@search');
 
-
-// Route::group(['prefix' => 'admin'], function () {
-//     Voyager::routes();
-// });
+Route::post('/auto-bookmarks', 'StatisticsController@AutoBookmarks');
+Route::post('/bookmarks', 'StatisticsController@Bookmarks');
+Route::post('/statistics', 'StatisticsController@Statistics');

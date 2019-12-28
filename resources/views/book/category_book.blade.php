@@ -1,19 +1,24 @@
 @if($categories)
-<div class="billetContainerNoOverflow">
-    <div class="billetContainerWrapper">
-        <a href="/sets/5843-luchshie-biznes-knigi/">
-            <div class="LandingContentContainer__title">
-                <div class="title-2" data-gtm-vis-first-on-screen-10671871_40="2956">Категории</div>
+
+        <div data-toggle='collapse' class="billetContainerNoOverflow">
+            <div>
+                <div class="billetContainerWrapper">
+                    <div class="LandingContentContainer__title">
+                        <div class="section-title-sm">Категории</div>
+                    </div>
+                    <br>
+                    @foreach($categories as $category)
+                    <a class="d-inline-block p-1 pl-0" href="{{ route('category.show', ['alias' => $category->slug]) }}">
+                        <div style="max-width:unset" class="TagLabel__grey">
+                            {{$category->category}}
+                        </div> 
+                    </a>
+                    @endforeach
+                </div>
             </div>
-        </a>
-        <br>
-        @foreach($categories as $category)
-        <a class="d-inline-block p-1 pl-0" href="{{ route('category.show', ['alias' => $category->slug]) }}">
-            <div style="max-width:unset" class="TagLabel__brown">
-                {{$category->category}}
-            </div> 
-        </a>
-        @endforeach
-    </div>
-</div>
+            <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
+        </div>
+       
+   
+
 @endif

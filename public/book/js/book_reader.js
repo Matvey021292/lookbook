@@ -8670,8 +8670,9 @@
                                 type: "POST",
                                 beforeSend: function (e) {
                                     e.setRequestHeader("Accept", "application/json; version=2.5")
+                                    e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
                                 },
-                                url: o + "/auto-bookmarks/?format=json",
+                                url: "/auto-bookmarks/?format=json",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function () {
@@ -8685,7 +8686,7 @@
                                 contentType: "application/json"
                             })
                         }
-                        var i, o = "/api/v1";
+                        var i, o = "/api";
                         return i = {
                             post: n
                         },
@@ -8722,9 +8723,9 @@
                                 type: "POST",
                                 beforeSend: function (e) {
                                     e.setRequestHeader("Accept", "application/json; version=2.5"),
-                                        e.setRequestHeader("X-CSRFToken", o.a.get("csrftoken"))
+                                        e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
                                 },
-                                url: l + "/bookmarks/",
+                                url: "/bookmarks/",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function (e) {
@@ -8772,7 +8773,7 @@
                                 processData: !1
                             })
                         }
-                        var s, c, l = "/api/v1";
+                        var s, c, l = "/api";
                         return s = {
                             init: n,
                             post: i,
@@ -8881,7 +8882,7 @@
                                 contentType: "application/json; charset=utf-8"
                             })
                         }
-                        var s, c = 15e3, l = "/api/v1";
+                        var s, c = 15e3, l = "/api";
                         return s = {
                             post: n,
                             del: i,
@@ -9213,7 +9214,11 @@
                             };
                             e.ajax({
                                 type: "POST",
-                                url: o + "/statistics/?format=json",
+                                beforeSend: function (e) {
+                                    e.setRequestHeader("Accept", "application/json; version=2.5")
+                                    e.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
+                                },
+                                url: "/statistics/?format=json",
                                 data: JSON.stringify(n),
                                 global: !1,
                                 success: function () {
@@ -9227,7 +9232,7 @@
                                 contentType: "application/json"
                             })
                         }
-                        var i, o = "/api/v1";
+                        var i, o = "/api";
                         return i = {
                             post: n
                         },

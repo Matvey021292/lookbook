@@ -9,6 +9,7 @@ use Zip;
 
 class BookContent extends Model
 {
+
     
     public function convert_format($path){
         $file = substr($path, 0 , strpos($path, '.'));
@@ -81,6 +82,7 @@ class BookContent extends Model
         }
         
     }
+    
     
     // get_data_from_resource($path);
     // get_file_content($path);

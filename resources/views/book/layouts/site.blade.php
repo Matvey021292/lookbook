@@ -36,7 +36,7 @@
                         <div class="Header__menuWrapper row middle-xs">
                             <a class="Header__logo col-sm-3 center-xs" href="/">Leviafan.com</a>
                             <div class="Header__search col-sm-4 pl-0">
-                                <div class="SearchLine__search">
+                                <div class="billetContainerWrapper SearchLine__search">
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
                                             <form action="/qsearch" method='GET'>
@@ -63,9 +63,9 @@
                                 <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}  &nbsp; | &nbsp; 
                                 </a>
-                              
+                                
                                 <a href="/profile" class="Header__link"> 
-                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}}, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}}
                                 </a>
                                 @endif
                             </div>
@@ -74,13 +74,16 @@
                     </div>
                 </div>
             </header>
-            <div class="d-flex">
-                <div class="HeaderLinks__headerLinks jest-header-links-to-catalog">
+            <div class="row row-container">
+                <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                     <div class="HeaderLinks__list">
                         @yield('nav')
                     </div>
-                </div>
-                <div class="article">
+                    <div>
+                        @yield('category_book')
+                    </div>
+                </aside>
+                <div class="article col-sm-9">
                     <div class="backgroundContainer themeGrey">
                         @yield('slider')
                         @yield('book')
@@ -91,17 +94,18 @@
                         @yield('home') 
                         @yield('search_content')
                         @yield('categories')
-                        {{-- @yield('category_book') --}}
+                        
                         @yield('book_content')
-                        {{-- @yield('content_book') --}}
+                        @yield('content_book')
+                        @yield('books_content')
+
                     </div>
-                    @yield('books_content')
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="Footer__bottomContent">
+    {{-- <div class="Footer__bottomContent">
         <div class="Footer__content">
             <div class="Footer__extraResourcesContainer">
                 <div class="Footer__appList"><small class="Footer__footerShortTitle">Скачать приложение</small>
@@ -193,38 +197,22 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
-<div class="loader">
+{{-- <div class="loader show">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="60" height="60" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
         <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(329.828 50 50)">
             <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
         </circle>
     </svg>
-</div>
+</div> --}}
 <script>
     
-    var ajax_login_object = {
+    let ajax_login_object = {
         "search_url": '{{URL::to('search')}}',
     };
 </script>
 <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
-<script>
-    var glides = document.querySelectorAll(".glide");
-    
-    glides.forEach(function (e, i) {
-        if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= 7) {
-            e.querySelector(".glide__arrows").innerHTML = "";
-            return;
-        }
-        new Glide(e, {
-            perView: 7,
-            type: "carousel",
-            startAt: 0
-        }).mount();
-        
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
 <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
 </body>

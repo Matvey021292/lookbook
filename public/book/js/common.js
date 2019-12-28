@@ -1,19 +1,28 @@
 
 
-var glides = document.querySelectorAll(".glides");
+let glides = document.querySelectorAll(".glide");
+
 
 glides.forEach(function (e, i) {
-    if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= 7) {
+
+    let glides_slide = e.getAttribute('data-slide-count') || 7;
+    if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= glides_slide) {
         e.querySelector(".glide__arrows").innerHTML = "";
         return;
     }
     new Glide(e, {
-        perView: 3,
+        perView: glides_slide,
         type: "carousel",
         startAt: 0
     }).mount();
 
+    if (document.querySelectorAll('.loader')) {
+        document.querySelectorAll('.loader').forEach(function (e, i) {
+            e.classList.remove('show')
+        });
+    }
 });
+
 
 
 if (document.querySelector('.single-slider')) {
@@ -78,7 +87,8 @@ new autoComplete({
     onSelection: feedback => {
         document.querySelector("#autoComplete").value =
             feedback.selection.value.title;
-        window.location = feedback.selection.value.slug;
+        console.log(feedback.selection.value.book_id);
+        window.location = '/book/' + feedback.selection.value.book_id;
     }
 });
 
@@ -92,7 +102,7 @@ document.addEventListener('click', function () {
 })
 
 
-var password = document.getElementById("new_password")
+let password = document.getElementById("new_password")
     , confirm_password = document.getElementById("confirm_password");
 
 function validatePassword() {
@@ -107,7 +117,7 @@ if (password) {
     confirm_password.onkeyup = validatePassword;
 }
 
-var switcher = document.querySelectorAll('.FormTextInput__passwordVisibilitySwitcher');
+let switcher = document.querySelectorAll('.FormTextInput__passwordVisibilitySwitcher');
 switcher.forEach(function (e, i) {
     e.addEventListener('click', function (e) {
         switchValue(e);
@@ -117,7 +127,7 @@ switcher.forEach(function (e, i) {
 function switchValue(e) {
     e.preventDefault();
 
-    var parent = e.target.closest('.FormTextInput__control');
+    let parent = e.target.closest('.FormTextInput__control');
     parent.classList.toggle('visible');
     parent.querySelector('input').type = 'password';
 
@@ -129,19 +139,19 @@ function switchValue(e) {
 
 function handleChangeFiles(files, img) {
     for (let i = 0; i < files.length; i++) {
-        var file = files[i];
+        let file = files[i];
 
         if (!file.type.startsWith('image/')) { alert('Загрузите изображение'); continue }
 
-        var img = document.querySelector(img);
+        let img = document.querySelector(img);
 
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(img);
         reader.readAsDataURL(file);
     }
 }
 
-var inputElement = document.querySelector('input[name="profile_image"]');
+let inputElement = document.querySelector('input[name="profile_image"]');
 if (inputElement) {
     inputElement.addEventListener("change", function () {
         handleChangeFiles(this.files, '.UserSettingsAvatar__userImagePreviewContent');
@@ -152,10 +162,11 @@ if (inputElement) {
 
 
 document.addEventListener('click', function (event) {
-    var e = event.target;
-    var add = 'add_book_my_list';
-    var remove = 'remove_book_my_list';
-    var data = {
+    if (!document.querySelector('.BookStatusChangePopup__buttonFunctional')) return;
+    let e = event.target;
+    let add = 'add_book_my_list';
+    let remove = 'remove_book_my_list';
+    let data = {
         'book': book_id,
     };
     if (e.classList.contains(add)) {
@@ -180,8 +191,8 @@ function reverseClassList(e, classadd, classremove) {
 
 async function requestPostData(route, data) {
 
-    var meta = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    var response = await fetch(route, {
+    let meta = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let response = await fetch(route, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8',
@@ -193,12 +204,12 @@ async function requestPostData(route, data) {
     return await response.json();
 }
 
-var download_files = document.querySelectorAll('.download_file');
+let download_files = document.querySelectorAll('.download_file');
 download_files.forEach(function (el, i) {
     el.addEventListener('click', function (e) {
         if (!e.target.dataset.format) return;
         e.preventDefault();
-        var data = {
+        let data = {
             'file': e.target.href,
             'format': e.target.dataset.format
         }
@@ -215,3 +226,11 @@ function showLoader() {
 function hideLoader() {
     document.querySelector('.loader').classList.remove('show');
 }
+
+let collapse_btn = document.querySelectorAll('*[data-toggle="collapse"] .toggle-icon');
+
+collapse_btn.forEach(function (e, i) {
+    e.addEventListener('click', function () {
+        e.closest('*[data-toggle="collapse"]').classList.toggle('open');
+    })
+})

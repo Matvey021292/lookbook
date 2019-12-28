@@ -10,6 +10,7 @@ use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Book;
+use App\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Redirector;
 

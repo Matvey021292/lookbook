@@ -27,12 +27,14 @@ class AuthorController extends SiteController
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
 
         $books = $author->books;
-        $categories = $author->categories;
-        $categories = view(env('THEME').'.categories')->with('books',$books)->with('categories', $categories)->render();
+        $category = $author->categories;
+        $categories = view(env('THEME').'.categories')->with('books',$books)->render();
+        $category = view(env('THEME').'.category_book')->with('category', $category);
         $content = view(env('THEME').'.author_content')->with('author', $author)->render();
 
         $this->vars = array_add($this->vars,'content', $content);
         $this->vars = array_add($this->vars,'categories', $categories);
+        $this->vars = array_add($this->vars,'category', $category);
         
         return $this->renderOutput();
     }

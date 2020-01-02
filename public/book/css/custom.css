@@ -745,3 +745,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
 .BookPageHeaderContent__coverTitle{
     color: #2d2d2d;
 }
+
+.wp-post-image{
+    max-width:100%;
+}

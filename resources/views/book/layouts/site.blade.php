@@ -81,6 +81,7 @@
                     </div>
                     <div>
                         @yield('category_book')
+                        @yield('category')
                     </div>
                 </aside>
                 <div class="article col-sm-9">

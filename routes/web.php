@@ -56,7 +56,7 @@ Route::get('/authors', 'AuthorsController@index')->name('authors');
 // ]);
 
 
-Route::resource('category', 'CategoryBookController', [
+Route::resource('category', 'CategoriesController', [
     'parameters' => [
         'category' => 'alias',
     ],

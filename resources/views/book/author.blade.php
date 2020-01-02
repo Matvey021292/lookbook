@@ -12,6 +12,6 @@
 {{-- @section('categories')
     {!! $categories !!}
 @endsection --}}
-@section('categories')
+{{-- @section('categories')
     {!! $books !!}
-@endsection
+@endsection --}}

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\BookRepository;
 use App\Repositories\RecentlyViewedRepository;
-use App\Repositories\CategoryBookRepository;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 use Config;
@@ -12,7 +12,7 @@ use Config;
 class BooksController extends SiteController
 {
 
-    public function __construct( BookRepository $b_rep, CategoryBookRepository $c_rep){
+    public function __construct( BookRepository $b_rep, CategoryRepository $c_rep){
         parent::__construct( new \App\Repositories\MenusRepository(new \App\Menu));
         $this->b_rep = $b_rep;
         $this->c_rep = $c_rep;

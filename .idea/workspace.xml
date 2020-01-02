@@ -2,20 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="728daf6b-d549-4cc6-9591-c7f12a950f49" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lookbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lookbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryBookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryBookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/static.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/static.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/js/carousel_item_active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/carousel_item_active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/authors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/authors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/book.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/customCategoryItems.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/customCategoryItems.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/layouts/site.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/recently_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/recently_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/slider.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Categories.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CategoryBook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/AuthorsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/AuthorsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CategoriesRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/CategoryBookRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_07_200101_create_author_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_07_200101_create_author_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_07_201923_create_autor_inform_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_07_201923_create_autor_inform_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_08_201809_create_book_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_08_201809_create_book_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_08_203357_create_book_format_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_08_203357_create_book_format_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_08_205719_change_autor_inform_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_08_205913_change_book_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_08_210044_change_book_format_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_29_212838_create_user_relationship_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_29_213644_change_user_relationship_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_12_080112_create_book_author_relship.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_12_080112_create_book_author_relship.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_12_085847_change_book_author_relship.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_12_110050_create_book_translit_relship.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_12_110050_create_book_translit_relship.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_12_110155_change_book_translit_relship.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_14_135218_create_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_14_135218_create_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_14_195221_change_profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_15_144942_crete_selected_books.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_15_144942_crete_selected_books.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_15_145721_change_selected_books.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_18_134911_create_book_shelf.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_18_134911_create_book_shelf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_18_145153_change_book_shelf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_20_104856_create_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_20_104856_create_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_124809_cteate_table_author_picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_124809_cteate_table_author_picture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_125033_edit_table_author_picture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_130602_cteate_table_author_book_inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_130602_cteate_table_author_book_inform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_130617_edit_table_author_book_inform.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_131725_cteate_table_book_picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_131725_cteate_table_book_picture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_131736_edit_table_book_picture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_141418_crate_table_genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_141418_crate_table_genre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_142249_crate_table_book_genre_relship.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_142249_crate_table_book_genre_relship.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_142313_edit_table_book_genre_relship.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_144503_create_table_category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_144503_create_table_category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_144939_create_table_book_category_relship.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_144939_create_table_book_category_relship.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_28_145305_edit_table_book_category_relship.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/author.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/author.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/author_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/author_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/book_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/book_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/card/card-author.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/card/card-author.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/card/card-book-horizontally.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/card/card-book-horizontally.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/card/card-book.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/card/card-book.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/categories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/categories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,13 +161,39 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/willvincent/laravel-rateable" />
+      <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/league/event" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-server" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/chumper/zipper" />
+      <path value="$PROJECT_DIR$/vendor/davejamesmiller/laravel-breadcrumbs" />
+      <path value="$PROJECT_DIR$/vendor/laravel/passport" />
+      <path value="$PROJECT_DIR$/vendor/zanysoft/laravel-zip" />
+      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
     </include_path>
   </component>
   <component name="ProjectId" id="1P139VK1iJ4iSHylm1kfCldvrhh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../book" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -132,23 +202,23 @@
       <recent name="$PROJECT_DIR$/app/Repositories" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -169,6 +239,7 @@
       <workItem from="1565027632079" duration="4764000" />
       <workItem from="1567197499005" duration="419000" />
       <workItem from="1570645330048" duration="3321000" />
+      <workItem from="1577650921265" duration="324000" />
     </task>
     <servers />
   </component>
@@ -187,5 +258,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="651" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1577651230441">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="651" y="380" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1577651230441" />
   </component>
 </project>

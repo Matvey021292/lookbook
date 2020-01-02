@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookContentRepository;
 use App\Repositories\BookRepository;
-use App\Repositories\CategoryBookRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\SlidersRepository;
 use App\Repositories\RecentlyViewedRepository;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ use Config;
 class IndexController extends SiteController
 {
 
-    public function __construct( SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryBookRepository $c_rep, BookContentRepository $cb_rep)
+    public function __construct( SlidersRepository $s_rep, BookRepository $b_rep, AuthorsRepository $a_rep, CategoryRepository $c_rep, BookContentRepository $cb_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu), new RecentlyViewedRepository(new \App\Book) );
         $this->s_rep = $s_rep;
@@ -33,12 +33,11 @@ class IndexController extends SiteController
     public function index()
     {
         $count = Config::get('settings.home_post_count');
-        $book = $this->b_rep->getBooks('*', $count);
-        
+        $book = $this->b_rep->getBooks('*', $count, false, false, false, true);
         // $category = $this->c_rep->getCategories();
-        $slider =  $this->b_rep->getBooks('*', $count, true);
+        // $slider =  $this->b_rep->getBooks('*', $count, true);
         $author =  $this->a_rep->getAuthors('*', $count, true);
-        
+        $slider = '';
         // $category_temp = view(env('THEME') . '.category_book')->with('categories', $category)->render();
         $slider_temp = view(env('THEME') . '.section')->with('books', $book)->render();
         $book_temp = view(env('THEME') . '.slider')->with('sliders', $slider)->render();

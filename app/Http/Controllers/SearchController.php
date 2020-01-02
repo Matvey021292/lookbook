@@ -28,24 +28,24 @@ class SearchController extends SiteController
         $output = (object) array();
         $output->count = 0;
         $output->recipes = [];
-        $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.id_author')->where('title', 'LIKE', '%' . $request->search . "%")->limit(7)->get();
+        $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.author_ID')->where('Title', 'LIKE', '%' . $request->search . "%")->limit(7)->get();
         if (!empty($authors)) {
             foreach ($authors as $key => $author) {
                 $author->key = 'author';
-                $author->slug = '/author/' . $author->slug;
+                $author->slug = '/author/' . $author->author_ID;
                 $output->recipes[] = $author;
             }
         }
-
-        $books = DB::table('book')->join('book_description', 'book.id', '=', 'book_description.book_id')->join('author_inform', 'book.author_id', '=', 'author_inform.id_author')->where('book', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
-        if (!empty($books)) {
-            foreach ($books as $key => $book) {
-                $book->key = 'book';
-                $book->title = $book->book;
-                $book->slug = '/book/' . $book->slug;
-                $output->recipes[] = $book;
-            }
-        }
+ $books = array();
+        // $books = DB::table('book')->join('book_inform', 'book.id', '=', 'book_inform.book_ID')->join('author_inform', 'book.author_ID', '=', 'author_inform.author_ID')->where('Title', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
+        // if (!empty($books)) {
+        //     foreach ($books as $key => $book) {
+        //         $book->key = 'book';
+        //         $book->title = $book->book;
+        //         $book->slug = '/book/' . $book->slug;
+        //         $output->recipes[] = $book;
+        //     }
+        // }
         $output->count = count($books) + count($authors);
         echo json_encode($output);
     }

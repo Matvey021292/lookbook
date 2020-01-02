@@ -14,9 +14,11 @@ class CteateTableBookPicture extends Migration
     public function up()
     {
         Schema::create('book_picture', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('nid')->unsigned()->default(0)->nullable(false);
-            $table->string('File', 255)->default('')->nullable(false);       
+            $table->string('File', 255)->default('')->nullable(false);   
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('id')->on('book');    
         });
     }
 

@@ -14,7 +14,7 @@ class CrateTableGenre extends Migration
     public function up()
     {
         Schema::create('genre', function (Blueprint $table) {
-            $table->bigIncrements('ID');
+            $table->increments('id');
             $table->string('Code', 45)->default('')->nullable(false);
             $table->string('Title', 99)->default('')->nullable(false);
             $table->string('Meta', 45)->default('')->nullable(false);

@@ -17,7 +17,9 @@ class CreateMenu extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('path');
-            $table->integer('parent');
+            $table->integer('parent')->default(0);
+            $table->string('image')->default('')->nullable(false);
+            $table->string('icon')->default('')->nullable(false);
         });
     }
 

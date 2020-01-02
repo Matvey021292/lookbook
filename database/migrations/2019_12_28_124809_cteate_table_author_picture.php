@@ -14,9 +14,11 @@ class CteateTableAuthorPicture extends Migration
     public function up()
     {
         Schema::create('author_picture', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('nid')->unsigned()->default(0)->nullable(false);
-            $table->string('File', 255)->default('')->nullable(false);       
+            $table->string('File', 255)->default('')->nullable(false);   
+            $table->integer('author_ID')->unsigned();
+            $table->foreign('author_ID')->references('id')->on('author');    
          });
     }
 

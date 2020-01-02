@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EditTableBookGenreRelship extends Migration
+class CreateAuthotGenre extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class EditTableBookGenreRelship extends Migration
      */
     public function up()
     {
-        Schema::table('book_genre_relship', function (Blueprint $table) {
-            $table->integer('book_ID')->unsigned();
-            $table->foreign('book_ID')->references('ID')->on('book');
+        Schema::create('author_genre_relship', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('author_ID')->unsigned();
+            $table->foreign('author_ID')->references('id')->on('author');
             $table->integer('genre_ID')->unsigned();
-            $table->foreign('genre_ID')->references('ID')->on('genre');
+            $table->foreign('genre_ID')->references('id')->on('genre');
         });
     }
 
@@ -28,8 +29,6 @@ class EditTableBookGenreRelship extends Migration
      */
     public function down()
     {
-        Schema::table('book_genre_relship', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('author_genre_relship');
     }
 }

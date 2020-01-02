@@ -14,7 +14,11 @@ class CrateTableBookGenreRelship extends Migration
     public function up()
     {
         Schema::create('book_genre_relship', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('id')->on('book');
+            $table->integer('genre_ID')->unsigned();
+            $table->foreign('genre_ID')->references('id')->on('genre');
         });
     }
 

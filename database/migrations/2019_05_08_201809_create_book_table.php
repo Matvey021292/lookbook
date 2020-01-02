@@ -14,7 +14,7 @@ class CreateBookTable extends Migration
     public function up()
     {
         Schema::create('book', function (Blueprint $table) {
-            $table->increments('ID');
+            $table->increments('id');
             // $table->timestamps();
             $table->integer('FileSize')->unsigned()->default(0)->nullable(false);
             $table->timestamp('Time')->useCurrent();

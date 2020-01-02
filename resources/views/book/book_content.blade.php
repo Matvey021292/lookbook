@@ -54,7 +54,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            @if($book->getBookRelationship)
+            {{-- @if($book->getBookRelationship)
             <div class="BookGenresThemes__genresThemes">
                 <div class="BookGenresThemes__genresThemesSection">
                     <h3 class="section-title">Жанры</h3>
@@ -69,7 +69,7 @@
                     </ul>
                 </div>
             </div>
-            @endif
+            @endif --}}
             
         </div>
         <div class="col-md-6">
@@ -145,7 +145,7 @@
     
     <script type="text/javascript">
         
-        var book_id = {{ $book->ID }};
+        var book_id = {{ $book->id }};
         var route_booklist_add = "{{route('bookListAdd')}}";
         var route_booklist_remove = "{{route('bookListRemove')}}";
         var download_route = "{{route('downloadFile')}}";
@@ -157,7 +157,7 @@
                 'id': document.querySelector('input[name="book_id"]').value
             };
             
-            let response = await fetch("{{route('postStar', $book->ID)}}", {
+            let response = await fetch("{{route('postStar', $book->id)}}", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',

@@ -19,9 +19,9 @@ class AuthorsRepository extends Repository{
         return $authors;
     }
     
-    public function getCatMenu($menu){
-        $mBuilder = Menu::make('author_menu', function($m) use ($menu){
-            foreach($menu as $item){
+    public function getCatMenu($menu, $books){
+        $mBuilder = Menu::make('author_menu', function($m) use ($menu, $books){
+            foreach($menu as $k => $item){
                 if($item->parent_id == 0){
                     $m->add($item->category,$item->slug)->id($item->id);
                 }else{

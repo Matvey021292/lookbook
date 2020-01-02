@@ -52,7 +52,7 @@ new autoComplete({
             const data = await source.json();
             return data.recipes;
         },
-        key: ["title"],
+        key: ["FirstName", "LastName", "NickName"],
         cache: false
     },
     placeHolder: "Поиск",
@@ -86,9 +86,8 @@ new autoComplete({
     },
     onSelection: feedback => {
         document.querySelector("#autoComplete").value =
-            feedback.selection.value.title;
-        console.log(feedback.selection.value.book_id);
-        window.location = '/book/' + feedback.selection.value.book_id;
+        feedback.selection.value.Title;
+        window.location = feedback.selection.value.slug;
     }
 });
 

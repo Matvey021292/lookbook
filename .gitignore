@@ -2,6 +2,7 @@
 /public/hot
 /public/book/author_image
 /public/storage
+/public/uploads
 /storage/*.key
 /vendor
 .env

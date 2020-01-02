@@ -2,8 +2,8 @@
 <section class="AuthorDetailHeader__wrapper row xs-start wp-100">
     <div class="AuthorDetailHeader__container billetContainerNoOverflow col-md-12">
         <div class="AuthorDetailHeader__image">
-            @if($author->picture->File)
-            <img width="128" height="150" src="{{config('settings.file_path')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{ $author->desc->image }}">
+            @if($author->picture)
+            <img width="128" height="150" src="{{config('settings.file_path')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{config('settings.file_path')}}{{ $author->picture->File }}">
             @else
             <img width="128" height="150" src="{{ asset(env("THEME")) }}/images/190x288.jpg" alt="{{ $author->title }}" class="AuthorDetailHeader__photo" >
             @endif
@@ -16,7 +16,6 @@
         </div>
     </div>
 </section>
-
 @if($author->desc)
 <div data-toggle="collapse" class=" AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
     <h3 class="section-title">Об авторе</h3>

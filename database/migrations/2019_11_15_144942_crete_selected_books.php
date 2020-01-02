@@ -14,10 +14,14 @@ class CreteSelectedBooks extends Migration
     public function up()
     {
         Schema::create('selected_books', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->timestamps();
             $table->enum('stage', ['1', '2', '3']);
             $table->integer('last_page')->nullable();
+            $table->integer('book_id')->unsigned();
+            $table->foreign('book_id')->references('id')->on('book');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

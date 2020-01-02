@@ -14,12 +14,14 @@ class CreateBookShelf extends Migration
     public function up()
     {
         Schema::create('book_shelf', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->timestamps();
             $table->string('name');
             $table->string('desc')->nullable();
             $table->string('image')->nullable();
             $table->enum('visible', [0, 1]);
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -32,7 +32,6 @@ class BookController extends SiteController
         $authors = $book->authors;
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
         $this->vars = array_add($this->vars, 'content', $content);
-        
         $this->review_reposytory->addView($book->id);
         return $this->renderOutput();
     }

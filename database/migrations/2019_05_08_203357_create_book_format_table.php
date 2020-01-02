@@ -16,6 +16,8 @@ class CreateBookFormatTable extends Migration
         Schema::create('filename', function (Blueprint $table) {
             $table->increments('id');
             $table->string('FileName')->unique();
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('id')->on('book');
 
 
         });

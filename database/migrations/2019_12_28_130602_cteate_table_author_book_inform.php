@@ -18,6 +18,8 @@ class CteateTableAuthorBookInform extends Migration
             $table->integer('nid')->unsigned()->default(0)->nullable(false);
             $table->string('Title',255)->nullable(false);
             $table->longText('Body')->default(Null);
+            $table->integer('book_ID')->unsigned();
+           $table->foreign('book_ID')->references('id')->on('book');
         });
     }
 

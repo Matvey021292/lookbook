@@ -14,8 +14,12 @@ class CreateBookAuthorRelship extends Migration
     public function up()
     {
         Schema::create('book_author_relship', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->tinyInteger('Pos')->unsigned()->default(0)->nullable(false);
+            $table->integer('book_ID')->unsigned();
+            $table->foreign('book_ID')->references('id')->on('book');
+            $table->integer('author_ID')->unsigned();
+            $table->foreign('author_ID')->references('id')->on('author');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutorInformTable extends Migration
+class CreateAuthorCategoryRelship extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateAutorInformTable extends Migration
      */
     public function up()
     {
-        Schema::create('author_inform', function (Blueprint $table) {
+        Schema::create('author_category_relship', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('nid')->unsigned()->default(0)->nullable(false);
-            $table->string('Title',255)->nullable(false);
-            $table->longText('Body')->default(Null);
+            $table->integer('Numb')->nullable(false);
+            $table->tinyInteger('Level')->default(0)->nullable(false);
+            $table->tinyInteger('Type')->default(0)->nullable(false);
             $table->integer('author_ID')->unsigned();
             $table->foreign('author_ID')->references('id')->on('author');
-            
+            $table->integer('category_ID')->unsigned();
+            $table->foreign('category_ID')->references('id')->on('category');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateAutorInformTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('author_inform');
+        Schema::dropIfExists('author_category_relship');
     }
 }

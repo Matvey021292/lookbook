@@ -150,8 +150,10 @@
 
 .Button__secondaryButton {
   line-height: 2.6em;
-  color: #d93025;
-  border: 2px solid #d93025; }
+  color: #fff;
+  border: 2px solid #9eb0c1;
+  background: #9eb0c1;
+ }
   .Button__secondaryButton svg {
     fill: currentColor; }
     .Button__secondaryButton svg path {
@@ -159,12 +161,12 @@
       stroke-width: inherit;
       fill: inherit; }
   .Button__secondaryButton:hover {
-    background-color: #e67e21;
-    border-color: #e67e21;
+    background-color: #9eb0c1;
+    border-color: #9eb0c1;
     color: #ffffff; }
   .Button__secondaryButton:active {
-    background-color: #d93025;
-    border-color: #d93025;
+    background-color: #9eb0c1;
+    border-color: #9eb0c1;
     color: #ffffff; }
     .Button__secondaryButton:active svg {
       fill: currentColor; }
@@ -175,14 +177,16 @@
     .Button__secondaryButton[disabled]:hover, .Button__secondaryButton.isDisabled:hover {
       color: #afafaf; }
   .Button__secondaryButton.smallSize {
-    height: 32px;
-    width:auto;
-    padding: 0 40px;
-    font-size: 14px;
+    height: auto;
+    width: auto;
+    padding: 5px 35px;
+    font-size: 17px;
     font-weight: 400;
-    line-height: 2.3em;
+    line-height: 1.6;
     border-width: 1px;
-    border-radius: 8px; }
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.2); */
+  }
 
 .Button__advertButton {
   line-height: 50px;
@@ -1941,10 +1945,11 @@ button.swiper-pagination-bullet {
 .UserSettingsView__billetContainer {
   position: relative;
   margin-bottom: 24px;
-  padding: 16px;
+  /* padding: 16px; */
   border-radius: 12px;
   overflow: hidden;
-  background: #ffffff; }
+  /* background: #ffffff;  */
+}
 
 .UserSettingsView__userSettings {
   display: flex;
@@ -2015,6 +2020,7 @@ button.swiper-pagination-bullet {
     width: calc(100% + 20px);
     height: calc(100% + 20px);
     background: #d2dae5 center center no-repeat;
+    background: #e8f0fe;
     background-size: 100% auto;
     -webkit-filter: blur(24px);
             filter: blur(24px); }
@@ -2025,14 +2031,15 @@ button.swiper-pagination-bullet {
   text-align: center; }
   .UserSettingsAvatar__userImagePreview {
     position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 8px auto;
+    width: 140px;
+    height: 160px;
+    margin: 25px auto 10px;
     border-radius: 8px;
     overflow: hidden; }
     .UserSettingsAvatar__userImagePreviewContent {
       width: 100%;
       display: block;
+      object-fit: cover;
       background: #2d2d2d;
       color:#fff;
       height: 100%;
@@ -2045,7 +2052,7 @@ button.swiper-pagination-bullet {
       background: #bebebe; }
 
 .UserSettingsAvatar__control {
-  margin: 12px 0; }
+  margin: 10px 0 25px; }
 
 .UserSettingsAvatar__description {
   margin: 4px 0; }
@@ -2073,8 +2080,8 @@ button.swiper-pagination-bullet {
 
 .FormTextInput__input {
   width: 100%;
-  height: 40px;
-  padding: 8px;
+  height: 46px;
+  padding:  8px 15px;
   font-size: 16px;
   transition: all 0.25s; }
   .FormTextInput__input.FormTextInput__isInvalid {
@@ -2082,7 +2089,9 @@ button.swiper-pagination-bullet {
 
 .FormTextInput__label {
   display: block;
-  font-size: 14px; }
+  color: #858585;
+  font-weight: 400;
+  font-size: 18px; }
 
 .FormTextInput__note {
   font-size: 12px;
@@ -13340,7 +13349,7 @@ h1,
 
 input {
   background: #ffffff;
-  border: 1px solid #cecece;
+  border: 1px solid #e6e6e6;
   color: #7c7f84;
   border-radius: 8px;
   font-size: 16px;
@@ -13370,7 +13379,7 @@ p,
 
 small {
   color: #7c7f84;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4em; }
 
 .shortArrow, .shortArrowWhite {
@@ -13455,7 +13464,7 @@ small {
   background: #ffffff; }
 
   .billetContainerNoOverflow.AuthorDetailHeader__container{
-    padding: 20px 20px 0;
+    padding: 16px 16px 0;
   }
 
 .billetContainerWarning {

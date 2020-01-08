@@ -749,3 +749,22 @@ div[data-toggle="collapse"].open .toggle-icon i{
 .wp-post-image{
     max-width:100%;
 }
+
+.bg-white{
+    background: #fff;
+    
+}
+
+.br-1{
+    border: 1px solid #e6e6e6;
+}
+
+.w-100{
+    width: 100% !important;
+}
+
+.hr{
+    margin: 10px 0 20px;
+    border:1px solid #eee;
+    border-bottom: 0px;
+}

@@ -13,18 +13,24 @@
                 <div class="billetContainer">
                     <div class="ContextAuthorCard__author">
                         <div class="ContextAuthorCard__authorBlock BookCover__book">
-                            @if( $author->desc)
                             <a href="{{ route('author.show', ['alias'=> $author->id]) }}">
+                                @if( $author->pictue)
                                 <img width="124" height="124" 
-                                src="{!! $author->desc->image !!}" 
-                                alt="{!! $author->title !!}" class="ContextAuthorCard__authorImage" 
-                                srcset="{!! $author->desc->image !!}">
+                                src="{!! config('settings.file_path_author') !!}{!! $author->picture->File !!}" 
+                                alt="{!! $author->FirstName !!} {!! $author->LastName !!}" class="ContextAuthorCard__authorImage" 
+                                srcset="{!! config('settings.file_path_author') !!}{!! $author->picture->File !!}">
+                                @else
+                                <img width="124" height="124" 
+                                src="{!! config('settings.file_path_author') !!}/190x288.jpg" 
+                                alt="{!! $author->FirstName !!} {!! $author->LastName !!}" class="ContextAuthorCard__authorImage" 
+                                srcset="{!! config('settings.file_path_author') !!}/190x288.jpg">
+                                @endif
                             </a>
-                            @endif
+                            
                          </div>
                         <div class="ContextAuthorCard__authorInfo mt-1">
                             <a href="{{ route('author.show', ['alias'=> $author->id]) }}" class="ContextAuthorCard__authorName cart-light-sm">
-                                <span class="link">{!! $author->title !!}</span>
+                                <span class="link">{!! $author->FirstName !!} {!! $author->LastName !!}</span>
                             </a>
                             {{-- <div class="text-right">{{count($author->book)}} книг</div> --}}
                         </div>

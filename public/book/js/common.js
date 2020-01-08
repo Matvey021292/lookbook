@@ -142,10 +142,10 @@ function handleChangeFiles(files, img) {
 
         if (!file.type.startsWith('image/')) { alert('Загрузите изображение'); continue }
 
-        let img = document.querySelector(img);
+        let image = document.querySelector(img);
 
         let reader = new FileReader();
-        reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(img);
+        reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(image);
         reader.readAsDataURL(file);
     }
 }

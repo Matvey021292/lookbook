@@ -52,7 +52,7 @@ new autoComplete({
             const data = await source.json();
             return data.recipes;
         },
-        key: ["FirstName", "LastName", "NickName"],
+        key: ["Title"],
         cache: false
     },
     placeHolder: "Поиск",

@@ -17,12 +17,12 @@ class SearchController extends SiteController
         $this->a_rep = $a_rep;
         $this->template = env('THEME') . '.search';
     }
-
+    
     public function index()
     {
         return view('search.search');
     }
-
+    
     public function search(Request $request)
     {
         $output = (object) array();
@@ -36,20 +36,18 @@ class SearchController extends SiteController
                 $output->recipes[] = $author;
             }
         }
- $books = array();
-        // $books = DB::table('book')->join('book_inform', 'book.id', '=', 'book_inform.book_ID')->join('author_inform', 'book.author_ID', '=', 'author_inform.author_ID')->where('Title', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
-        // if (!empty($books)) {
-        //     foreach ($books as $key => $book) {
-        //         $book->key = 'book';
-        //         $book->title = $book->book;
-        //         $book->slug = '/book/' . $book->slug;
-        //         $output->recipes[] = $book;
-        //     }
-        // }
+        $books = DB::table('book')->join('book_inform', 'book.id', '=', 'book_inform.book_ID')->where('book_inform.Title', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
+        if (!empty($books)) {
+            foreach ($books as $key => $book) {
+                $book->key = 'book';
+                $book->slug = '/book/' . $book->book_ID;
+                $output->recipes[] = $book;
+            }
+        }
         $output->count = count($books) + count($authors);
         echo json_encode($output);
     }
-
+    
     public function searchIndex(Request $request)
     {
         $query = $request->input('query');
@@ -71,10 +69,10 @@ class SearchController extends SiteController
                 return $item;
             });
         }
-
+        
         $content = view(env('THEME') . '.search_content')->with('search', $search)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
-
+    
 }

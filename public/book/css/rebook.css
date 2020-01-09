@@ -2043,6 +2043,9 @@ button.swiper-pagination-bullet {
       background: #2d2d2d;
       color:#fff;
       height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 70px;
       border-radius: inherit; }
     .UserSettingsAvatar__userImagePreviewEmpty {
@@ -2682,13 +2685,16 @@ li.page-item a,
       width: 256px; } }
 
 .BookCoverImage__coverImageText {
-  height: 180px; }
+  height: 180px; 
+}
   @media (min-width: 767px) {
     .BookCoverImage__coverImageText {
       height: 274px; } }
   @media (min-width: 1136px) {
     .BookCoverImage__coverImageText {
-      height: 382px; } }
+      height: 382px;
+      object-fit: cover;
+    } }
 
 .BookCoverImage__coverImageAudio {
   height: 112px; }

@@ -36,6 +36,12 @@
                     alt="{{ $book->Title }}" 
                     class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
                     srcset="{{config('settings.file_path_book')}}{{ $book->picture->File }}">
+                    @else
+                    <img width="256" height="426" 
+                    src="{{config('settings.file_path_book')}}190x288.jpg" 
+                    alt="{{ $book->Title }}" 
+                    class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
+                    srcset="{{config('settings.file_path_book')}}190x288.jpg">
                     @endif
                 </div>
             </div>

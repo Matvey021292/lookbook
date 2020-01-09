@@ -58,12 +58,13 @@ class ProfileController extends SiteController
                 'password' => 'required|min:6|confirmed',
                 'password_confirmation' => 'required|min:6'
                 ]);
+                $user->password =  Hash::make($request->input('password'));
             }
             
             $user->name = $request->input('first_name');
             $user->email = $request->input('email');
             
-            $user->password =  Hash::make($request->input('password'));
+            
             
             $profile = $user->profile;
             

@@ -60,22 +60,38 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            {{-- @if($book->getBookRelationship)
+            @if($book->category)
             <div class="BookGenresThemes__genresThemes">
                 <div class="BookGenresThemes__genresThemesSection">
-                    <h3 class="section-title">Жанры</h3>
+                    <h3 class="section-title">Категория</h3>
                     <ul class="BookGenresThemes__itemList">
-                        @foreach ($book->getBookRelationship as $category)
+                        @foreach ($book->category as $category)
                         <li class="BookGenresThemes__listItem">
-                            <a href="{{ route('category.show', ['alias' => $category->slug]) }}">
-                                <div class="TagLabel__brown" style="max-width: unset;">{{$category->category}}</div>
+                            <a href="{{ route('category.show', ['alias' => $category->id]) }}">
+                                <div class="TagLabel__brown" style="max-width: unset;">{{$category->Title}}</div>
                             </a>
                         </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-            @endif --}}
+            @endif
+            @if($book->genre)
+            <div class="BookGenresThemes__genresThemes">
+                <div class="BookGenresThemes__genresThemesSection">
+                    <h3 class="section-title">Жанр</h3>
+                    <ul class="BookGenresThemes__itemList">
+                        @foreach ($book->genre as $genre)
+                        <li class="BookGenresThemes__listItem">
+                            <a href="{{ route('category.show', ['alias' => $genre->id]) }}">
+                                <div class="TagLabel__brown" style="max-width: unset;">{{$genre->Title}}</div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
             
         </div>
         <div class="col-md-6">
@@ -86,6 +102,13 @@
                         <div class="BookAuthor__authorName">
                             @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
                         </div>
+                        <ul class="text-md">
+                            <li><strong>Год издания:</strong><span>{{$book->Year}}</span></li>
+                            <li><strong>Язык:</strong><span>{{$book->Lang}}</span></li>
+                            <li><strong>Издательство:</strong><span>{{$book->FileAuthor}}</span></li>
+                            <li><strong>Количество страниц:</strong><span>{{$book->Pages}}</span></li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

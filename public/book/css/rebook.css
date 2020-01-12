@@ -4652,7 +4652,8 @@ li.page-item a,
   display: flex;
   margin-top: 14px; }
   .BookDetailAnnotation__metaBlock {
-    width: 50%; }
+  white-space: nowrap;
+  }
   .BookDetailAnnotation__metaParagraph:first-of-type {
     margin-top: 0; }
   @media (max-width: 414px) {

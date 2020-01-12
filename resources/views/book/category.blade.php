@@ -1,17 +1,17 @@
-@if($content)
+@if($books)
 <div class="single-slider">
     <div class=" billetContainerNoOverflow vc_column-inner">
         <div class="wpb_wrapper">
             <div class="billetContainerWrapper">
                 <div class="d-inline-flex">
-                    <div class="section-title">{!! $category->category!!}</div>
-                    <span class="section-counter">[ {{ $content->total() }} ]</span>
+                    <div class="section-title">{!! $category->Title!!}</div>
+                    <span class="section-counter">[ {{ $books->total() }} ]</span>
                 </div>
             </div>
             <div class="ContentCarousel__wrapper glide" data-slide-count="3">
                 <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
                     <div class="swiper-wrapper glide__slides">
-                        @foreach($content as $book)
+                        @foreach($books as $book)
                         @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book,'book' => $book, 'carousel' => true, 'desc' => true])
                         @endforeach
                     </div>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="row center-xs mt-5">
-        {{ $content->links() }}
+        {{ $books->links() }}
     </div>
 </div>
 @else

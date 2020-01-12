@@ -12,7 +12,7 @@ class Category extends Model
         return $this->belongsToMany('App\Book', 'book_category_relship', 'category_ID', 'book_ID')->where('Deleted', '=', 0);
     }
 
-    public function getBookRelationship(){
-        return $this->belongsToMany('App\Book', 'book_category_relship', 'category_ID', 'book_ID')->where('Deleted', '=', 0);
-    }
+    // public function getBookRelationship(){
+    //     return $this->belongsToMany('App\Book', 'book_category_relship', 'category_ID', 'book_ID')->where('Deleted', '=', 0);
+    // }
 }

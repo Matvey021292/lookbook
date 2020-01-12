@@ -34,15 +34,12 @@ class CategoriesController extends SiteController
 
         $count = Config::get('settings.home_post_count');
         
-        $categories = $this->c_rep->getCategories('*', $count, true);
         $category = $this->c_rep->getCategory($alias);
+        $books = $category->book()->paginate(20);
 
-        $content = $category->getBookRelationship()->paginate(20);
-        $category_temp = view(env('THEME') . '.category_book')->with('categories', $categories)->render();
-
-        $content = view(env('THEME') . '.category')->with('content', $content)->with('category', $category)->render();
+        $content = view(env('THEME') . '.category')->with('books', $books)->with('category', $category)->render();
         $this->vars = array_add($this->vars, 'content', $content);
-        $this->vars = array_add($this->vars, 'category', $category_temp);
+
         return $this->renderOutput();
     }
 

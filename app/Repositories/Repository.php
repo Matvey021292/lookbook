@@ -53,6 +53,10 @@ abstract class Repository
     }
     
     
+    public function getDataByField($field, $value, $paginate){
+		return $this->model->where($field, $value)->paginate($paginate);
+    }
+    
     // public function transformUrl($arr){
     //     $books->transform(function ($item, $key) {
     //         $item->desc->book_img = str_replace(Config::get('settings.replace_url'), Config::get('settings.path_image'), $item->desc->book_img);

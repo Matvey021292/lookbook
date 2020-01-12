@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Config;
 use DB;
-use App\Book;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\BookRepository;
 use App\Repositories\RecentlyViewedRepository;
@@ -22,7 +21,7 @@ class BookController extends SiteController
         $this->template = env('THEME') . '.book';
     }
     
-    public function show($alias = false, Book $product)
+    public function show($alias = false)
     {
         $book = $this->b_rep->getBook($alias);
         if(empty($book)) return redirect()->back()->withErrors(Config::get('message.book_not_found'));

@@ -769,3 +769,17 @@ div[data-toggle="collapse"].open .toggle-icon i{
     border:1px solid #eee;
     border-bottom: 0px;
 }
+
+.text-md{
+    font-size: 16px;
+}
+
+.list_style li{
+    line-height: 1.6;
+}
+
+.list_style strong{
+    margin-right: 5px;
+    min-width: 200px;
+    display: inline-block;
+}

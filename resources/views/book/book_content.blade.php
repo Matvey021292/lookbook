@@ -44,10 +44,30 @@
                     srcset="{{config('settings.file_path_book')}}190x288.jpg">
                     @endif
                 </div>
+                <div class="Rating__ratingStar-wrapper  billetContainerNoOverflow center-xs mb-0 ">
+                    <div class="Rating__ratingStar center-xs m-0">
+                        <div class="BookPageHeaderContent__bookUserRatingText mb-1">Оцените книгу</div>
+                        <div class="stars">
+                            {{ csrf_field() }}
+                            <div class="star-rating"  @guest onclick="showMessageNotAuth(event, 'Для оценивания книги необходимо зарегистрироваться');" @endif >
+                                @for($i = 5; $i>=1; $i--)
+                                @if($i >= (int)$book->averageRating)
+                                <input onclick="submit(this)" type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                                <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                                @else
+                                <input onclick="submit(this)" type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
+                                <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
+                                @endif
+                                @endfor
+                            </div>
+                            <div class="error_message"></div>
+                            <input type="hidden" name="book_id" value="{{$book->id}}">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
     <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
         <div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
             <div class="BookDetailAnnotation__descriptionWrapper">
@@ -56,6 +76,34 @@
                 @endif
             </div>
             <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
+        </div>
+        <div class="BookGenresThemes__genresThemes BookDetailAnnotation__meta">
+            <div class="BookGenresThemes__genresThemesSection">
+                <h3 class="section-title">Подробная информация</h3>
+                <div class="ContentCarousel__wrapper BookDetailAnnotation__metaBlock">
+                    @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
+                    @if($book->Year)
+                    <p><strong>Год издания: </strong><span>{{$book->Year}}</span></p>
+                    @endif
+                    @if($book->Lang)
+                    @if($book->Lang == 'ru')
+                    <p><strong>Язык: </strong><span>Русский</span></p>
+                    @endif
+                    @endif
+                    @if($book->FileAuthor)
+                    <p><strong>Издательство: </strong><a href="{{ route('publisher.show', ['alias' => $book->FileAuthor]) }}"><span>{{$book->FileAuthor}}</span></a></p>
+                    @endif
+                    @if($book->Pages)
+                    <p><strong>Количество страниц: </strong><span>{{$book->Pages}}</span></p>
+                    @endif
+                    @if($book->Chars)
+                    <p><strong>Объем: </strong><span>{{$book->Chars}} тыс. знаков</span></p>
+                    @endif
+                    @if($book->Time)
+                    <p><strong>Дата поступления:  </strong><span>{{ date('d.m.Y', strtotime($book->Time)) }}</span></p>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
     <div class="billetContainerNoOverflow bg-white">
@@ -95,61 +143,9 @@
                 @endif
             </div>
             <div class="col-md-12">
-                <div class="BookGenresThemes__genresThemes BookDetailAnnotation__meta">
-                    <div class="BookGenresThemes__genresThemesSection">
-                        <h3 class="section-title">Подробная информация</h3>
-                        <div class="ContentCarousel__wrapper BookDetailAnnotation__metaBlock">
-                            <div class="BookAuthor__authorName">
-                                @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
-                            </div>
-                            @if($book->Year)
-                            <p><strong>Год издания: </strong><span>{{$book->Year}}</span></p>
-                            @endif
-                            @if($book->Lang)
-                            @if($book->Lang == 'ru')
-                            <p><strong>Язык: </strong><span>Русский</span></p>
-                            @endif
-                            @endif
-                            @if($book->FileAuthor)
-                            <p><strong>Издательство: </strong><a href="{{ route('publisher.show', ['alias' => $book->FileAuthor]) }}"><span>{{$book->FileAuthor}}</span></a></p>
-                            @endif
-                            @if($book->Pages)
-                            <p><strong>Количество страниц: </strong><span>{{$book->Pages}}</span></p>
-                            @endif
-                            @if($book->Chars)
-                            <p><strong>Объем: </strong><span>{{$book->Chars}} тыс. знаков</span></p>
-                            @endif
-                            @if($book->Time)
-                            <p><strong>Дата поступления:  </strong><span>{{ date('d F Y', strtotime($book->Time)) }}</span></p>
-                            @endif
-                            {{-- Дата поступления: --}}
-                        </div>
-                    </div>
-                </div>
+                
             </div>
-            <div class="col-md-6 row">
-                <div class="Rating__ratingStar">
-                    <div class="stars">
-                        <code>
-                            {{ csrf_field() }}
-                            <div class="star-rating"  @guest onclick="showMessageNotAuth(event, 'Для оценивания книги необходимо зарегистрироваться');" @endif >
-                                @for($i = 5; $i>=1; $i--)
-                                @if($i >= (int)$book->averageRating)
-                                <input onclick="submit(this)" type="radio" checked id="{{$i}}-stars" name="star" value="{{$i}}"/>
-                                <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
-                                @else
-                                <input onclick="submit(this)" type="radio" id="{{$i}}-stars" name="star" value="{{$i}}"/>
-                                <label for="{{$i}}-stars" class="star"><i class="fas fa-star"></i></label>
-                                @endif
-                                @endfor
-                            </div>
-                        </code>
-                        <div class="error_message"></div>
-                        <input type="hidden" name="book_id" value="{{$book->ID}}">
-                    </div>
-                </div>
-                {{-- <div class="BookPageHeaderContent__bookUserRatingText">Оцените книгу</div> --}}
-            </div>
+            
         </div>
     </div>
     

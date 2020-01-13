@@ -29,7 +29,6 @@ class Book extends Model
     }
 
     public function authors(){
-        
         return $this->belongsToMany('App\Author', 'book_author_relship', 'book_ID', 'author_ID');
        
     }
@@ -38,6 +37,9 @@ class Book extends Model
         return $this->belongsToMany('App\Category', 'book_category_relship', 'book_ID', 'category_ID');
     }
     
+    public function translator(){
+        return $this->belongsToMany('App\Author', 'book_translit_relship', 'book_ID', 'author_ID');
+    }
     // public function author()
     // {
     //     return $this->belongsTo('App\Author', 'author_id', 'id');
@@ -58,9 +60,7 @@ class Book extends Model
     //     return $this->hasOne('App\BookContent', 'book_id', 'id');
     // }
     
-    // public function translator(){
-    //     return $this->belongsToMany('App\Author', 'book_translit_relship', 'book_id', 'author_id');
-    // }
+    
     
     // public function getBookRelationship()
     // {

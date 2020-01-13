@@ -306,7 +306,7 @@ a:hover{
 
 
 .Rating__ratingStar .star-rating label {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .star-rating :checked ~ label {
@@ -621,6 +621,10 @@ label[for='autoComplete']{
     margin-left: 0px !important;
 }
 
+.mb-0{
+    margin-bottom:  0 !important;
+}
+
 .d-inline-flex{
     max-width:100%;
     display: inline-flex;
@@ -694,11 +698,12 @@ aside .billetContainerNoOverflow{
     padding: 40px 8px;;
 }
 div[data-toggle="collapse"]{
-    padding-bottom: 20px !important;    
+    padding-bottom: 20px !important; 
+    margin-bottom: 0 !important;   
 }
 
 div[data-toggle="collapse"]>div{
-    max-height: 150px;
+    max-height: 160px;
     overflow: hidden;
     position: relative;
 }
@@ -782,4 +787,8 @@ div[data-toggle="collapse"].open .toggle-icon i{
     margin-right: 5px;
     min-width: 200px;
     display: inline-block;
+}
+
+.Rating__ratingStar-wrapper{
+    margin-top: 35px;
 }

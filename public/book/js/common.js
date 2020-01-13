@@ -171,13 +171,13 @@ document.addEventListener('click', function (event) {
     if (e.classList.contains(add)) {
         requestPostData(route_booklist_add, data)
             .then(e => console.log(e.message));
-        e.innerText = 'Удалить книгу из моего списка';
+        e.innerText = 'Удалить из списка';
         reverseClassList(e, remove, add);
 
     } else if (e.classList.contains(remove)) {
         requestPostData(route_booklist_remove, data)
             .then(e => console.log(e.message));
-        e.innerText = 'Добавить книгу в мой список';
+        e.innerText = 'Добавить в список';
         reverseClassList(e, add, remove);
     }
 })

@@ -78,17 +78,15 @@
 .Button__primaryButton, .Button__secondaryButton, .Button__advertButton {
   display: inline-block;
   position: relative;
-  width: 100%;
+  max-width: 100%;
   height: 48px;
   border-radius: 12px;
   padding: 0 4px;
-  font-family: firasans, sans-serif;
   font-size: 16px;
   font-weight: 600;
   outline: 0;
   text-align: center;
   transition: all 0.3s;
-  white-space: nowrap;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -3041,13 +3039,11 @@ li.page-item a,
     border-radius: 12px 0 0; }
   .BookStatusChangePopup__buttonActive {
     background-color: #fec41f; }
-  .BookStatusChangePopup__buttonFunctional {
+  .smallSize.BookStatusChangePopup__buttonFunctional {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    height: 51px;
-    padding: 0 16px;
-    font-size: 16px;
+    margin-top: 10px;
     border: none; }
 
 .BookStatusChangePopup__corner {
@@ -13444,6 +13440,7 @@ small {
 
 .backgroundContainer {
   flex-grow: inherit;
+  width: 100%;
   margin-bottom: -40px;
   padding-bottom: inherit; }
 

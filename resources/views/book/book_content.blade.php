@@ -65,6 +65,14 @@
                         </div>
                     </div>
                 </div>
+                @guest
+                @else
+                @if(!$book->booklist)
+                <button class="Button__secondaryButton smallSize add_book_my_list BookStatusChangePopup__buttonFunctional" >Добавить в список</button>
+                @else
+                <button class="Button__secondaryButton smallSize remove_book_my_list BookStatusChangePopup__buttonFunctional">Удалить из списка</button>
+                @endif
+                @endif
             </div>
         </div>
     </div>
@@ -214,24 +222,6 @@
     
 </script>
 
-@guest
-@else
-@if(!$book->booklist)
-<button class="BookStatusChangePopup__buttonFunctional add_book_my_list">Добавить книгу в мой список</button>
-@else
-<button class="BookStatusChangePopup__buttonFunctional remove_book_my_list">Удалить книгу из моего списка</button>
-@endif
-@endif
-<div class="themeWhite">
-    <div class="BookDetailView__bookPageContent">
-        <div class="BookDetailAnnotation__annotationBlock">
-            <div class="BookDetailAnnotation__content">
-                
-            </div>
-            
-        </div>
-    </div>
-</div>
 
 @else
 <h1>Книги не найдено</h1>

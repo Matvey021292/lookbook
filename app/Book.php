@@ -40,6 +40,10 @@ class Book extends Model
     public function translator(){
         return $this->belongsToMany('App\Author', 'book_translit_relship', 'book_ID', 'author_ID');
     }
+
+    public function filename(){
+        return $this->hasOne('App\Filename', 'book_ID');
+    }
     // public function author()
     // {
     //     return $this->belongsTo('App\Author', 'author_id', 'id');

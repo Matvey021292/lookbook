@@ -65,26 +65,26 @@
                         </div>
                     </div>
                 </div>
-                @guest
+                {{-- @guest
                 @else
                 @if(!$book->booklist)
                 <button class="Button__secondaryButton smallSize add_book_my_list BookStatusChangePopup__buttonFunctional" >Добавить в список</button>
                 @else
                 <button class="Button__secondaryButton smallSize remove_book_my_list BookStatusChangePopup__buttonFunctional">Удалить из списка</button>
                 @endif
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
     <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
+        @if($book->desc)
         <div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
             <div class="BookDetailAnnotation__descriptionWrapper">
-                @if($book->desc)
                 <p> {!!  $book->desc->Body !!}</p>
-                @endif
             </div>
             <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
         </div>
+        @endif
         <div class="BookGenresThemes__genresThemes BookDetailAnnotation__meta">
             <div class="BookGenresThemes__genresThemesSection">
                 <h3 class="section-title">Подробная информация</h3>
@@ -150,47 +150,9 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-12">
-                
-            </div>
-            
         </div>
     </div>
-    
-    
-    {{-- <div class="themeWhite">
-        <div class="BookPageHeaderContent__bookContent">
-            <div class="BookPageHeaderContent__booksButtons isForAnonymous">
-                <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
-                    <div class="ButtonsBlock__testBlocks ButtonsBlock__testBlocksTestA">
-                        <div class="ButtonsBlock__registrationForm ButtonsBlock__readBtnUnknownLogin">
-                            <div class="jest-bookpage-auth-form">
-                                <div class="Form__form">
-                                    <ul class="Form__form-btn">
-                                        <li>
-                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="{{ route('book.show', ['alias' => $book->id]) }}/read">Читать</a>
-                                        </li>
-                                        @foreach($book->format as $format)
-                                        <li>
-                                            <a class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ $format->slug}}">fb2</a>
-                                        </li>
-                                        <li>
-                                            <a data-format='epub' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.epub', $format->slug)}}"">EBUB</a>
-                                        </li>
-                                        <li>
-                                            <a data-format='mobi' class="download_file Button__primaryButton Button__primaryButton_min" href="/uploads/file/{{ $format->link }}/{{ str_replace('.fb2.zip' , '.mobi', $format->slug)}}">MOBI</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div> --}}
+</div>    
 
 <script type="text/javascript">
     

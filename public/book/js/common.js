@@ -162,6 +162,7 @@ if (inputElement) {
 
 document.addEventListener('click', function (event) {
     if (!document.querySelector('.BookStatusChangePopup__buttonFunctional')) return;
+    
     let e = event.target;
     let add = 'add_book_my_list';
     let remove = 'remove_book_my_list';
@@ -169,15 +170,24 @@ document.addEventListener('click', function (event) {
         'book': book_id,
     };
     if (e.classList.contains(add)) {
+        event.preventDefault();
         requestPostData(route_booklist_add, data)
             .then(e => console.log(e.message));
-        e.innerText = 'Удалить из списка';
+        let els = document.getElementsByClassName(add);
+        [].forEach.call(els, function (el) {
+            el.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить из списка</span>'
+        });
         reverseClassList(e, remove, add);
 
     } else if (e.classList.contains(remove)) {
+        event.preventDefault();
         requestPostData(route_booklist_remove, data)
             .then(e => console.log(e.message));
-        e.innerText = 'Добавить в список';
+        let els = document.getElementsByClassName(remove);
+        [].forEach.call(els, function (el) {
+            el.innerHTML = '<i class="fas fa-plus"></i> <span class="menu-title">Добавить в список</span> ';
+        });
+       
         reverseClassList(e, add, remove);
     }
 })

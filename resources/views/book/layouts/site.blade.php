@@ -80,6 +80,7 @@
                         @yield('nav')
                     </div>
                     <div>
+                        @yield('book_aside')
                         @yield('category_book')
                         @yield('category')
                     </div>

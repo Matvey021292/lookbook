@@ -81,7 +81,7 @@
   max-width: 100%;
   height: 48px;
   border-radius: 12px;
-  padding: 0 4px;
+  padding: 0 8px;
   font-size: 16px;
   font-weight: 600;
   outline: 0;
@@ -138,13 +138,15 @@
   z-index: 1;
   padding-right: 32px;
   padding-left: 32px;
-  line-height: 50px;
-  color: #252628;
-  background: linear-gradient(to bottom, #fed96f, #fec41f); }
+  height: auto;
+  /* background: linear-gradient(to bottom, #fed96f, #fec41f);  */
+}
   .Button__primaryButton:before {
-    background: linear-gradient(to bottom, #f7bf68, #f39c13); }
+    /* background: linear-gradient(to bottom, #f7bf68, #f39c13);  */
+  }
   .Button__primaryButton:active {
-    background: linear-gradient(to bottom, #eeac70, #e67e21); }
+    /* background: linear-gradient(to bottom, #eeac70, #e67e21);  */
+  }
 
 .Button__secondaryButton {
   line-height: 2.6em;
@@ -465,6 +467,7 @@
   overflow: hidden;
   list-style: none;
   padding: 0;
+  width: 100%;
   /* Fix of Webkit flickering */
   z-index: 1;
 }
@@ -1370,8 +1373,8 @@ button.swiper-pagination-bullet {
 .TagLabel__brown, .TagLabel__grey, .TagLabel__withoutBorder {
   display: inline-block;
   margin: 0 8px 8px 0;
-  padding: 0 8px;
-  font-size: 14px;
+  padding: 2px 14px;
+  font-size: 16px;
   line-height: 1.6em;
   white-space: nowrap;
   overflow: hidden;
@@ -12636,7 +12639,6 @@ li.page-item a,
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
   border-radius: 8px;
   padding: 10px 16px;
   background-color: #ffffff; }
@@ -13350,11 +13352,11 @@ h1,
   @media (min-width: 767px) {
     h1,
     .title-1 {
-      font-size: 32px; } }
+      font-size: 28px; } }
   @media (min-width: 1023px) {
     h1,
     .title-1 {
-      font-size: 40px;
+      font-size: 32px;
       padding-bottom: 10px; } }
 
 input {

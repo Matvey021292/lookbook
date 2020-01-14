@@ -24,14 +24,24 @@ class BookController extends SiteController
     public function show($alias = false)
     {
         $book = $this->b_rep->getBook($alias);
+        
         if(empty($book)) return redirect()->back()->withErrors(Config::get('message.book_not_found'));
+        
         if($booklist = $this->getBookList($book->id)){
             $book->booklist = $booklist;
         }
-        $authors = $book->authors;
+        $formats = [
+            'fb2', 'epub', 'mobi'
+        ];
+        
         $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
+        $aside = view(env('THEME'). '.book_aside')->with('formats',$formats)->with('book', $book)->render();
+        
         $this->vars = array_add($this->vars, 'content', $content);
+        $this->vars = array_add($this->vars, 'aside', $aside);
+        
         $this->review_reposytory->addView($book->id);
+        
         return $this->renderOutput();
     }
     

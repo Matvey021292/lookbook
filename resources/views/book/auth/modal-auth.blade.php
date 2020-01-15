@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" id="auth">
     <div class="modal-content">
         <span class="close-button">&times;</span>
         <div class="card AuthFormDialog__inner">
@@ -26,7 +26,6 @@
                             <label for="password" class="FormTextInput__label col-form-label text-md-right">{{ __('Password') }}</label>
                             <div class="FormTextInput__control">
                                 <input id="password" type="password" class="FormTextInput__input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

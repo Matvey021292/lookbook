@@ -52,12 +52,11 @@
                             <div class="Header__enter col-sm-3 center-xs col-xs-offset-2">
                                 <div class="Header__mobileSearchButton jest-mobile-search-toggle"></div>
                                 @guest
-                                <a href="/login" class="trigger Header__link jest-auth-link-hamburger">
+                                <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
                                     <i class="fas fa-sign-in-alt"></i> {{ __('Войти')}} &nbsp; | &nbsp;
                                 </a>
-                                
-                                <a href="/login" class="Header__link"> 
-                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}} 
+                                <a href="/register" data-modal="#register" class="trigger Header__link"> 
+                                    <i class="far fa-address-card"></i> {{__('Регистрация')}} 
                                 </a>
                                 @else
                                 <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
@@ -107,7 +106,8 @@
         </div>
     </div>
 </div>
-@include(env('THEME') . '.auth.modal', [])
+@include(env('THEME') . '.auth.modal-auth', [])
+@include(env('THEME') . '.auth.modal-register', [])
 <script>
     
     let ajax_login_object = {

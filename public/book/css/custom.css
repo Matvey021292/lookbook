@@ -344,6 +344,7 @@ a:hover{
 .Header__link i{
     font-size: 22px;
     margin-right: 10px;
+    pointer-events: none;
 }
 
 .BookDetailAnnotation__content{

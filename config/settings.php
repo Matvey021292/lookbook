@@ -7,6 +7,6 @@ return [
     'path_image' => env('THEME') . '/author_image/',
     'image_url' => 'http://parser/',
     'replace_url' => 'https://flibusta.is',
-    'file_path_author' => '/uploads/a/',
-    'file_path_book' => '/uploads/b/'
+    'file_path_author' => 'http://parser/uploads/a/',
+    'file_path_book' => 'http://parser/uploads/b/'
 ];

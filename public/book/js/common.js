@@ -243,3 +243,27 @@ collapse_btn.forEach(function (e, i) {
         e.closest('*[data-toggle="collapse"]').classList.toggle('open');
     })
 })
+
+var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", function(e){
+        e.preventDefault();
+        toggleModal();
+    });
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+
+
+    

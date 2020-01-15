@@ -139,7 +139,12 @@
   padding-right: 32px;
   padding-left: 32px;
   height: auto;
-  /* background: linear-gradient(to bottom, #fed96f, #fec41f);  */
+  width: 100%;
+  padding: 10px;
+  margin: 9px 0;
+  color: #fff;
+    border: 2px solid #9eb0c1;
+    background: #9eb0c1;
 }
   .Button__primaryButton:before {
     /* background: linear-gradient(to bottom, #f7bf68, #f39c13);  */
@@ -2101,7 +2106,7 @@ button.swiper-pagination-bullet {
   display: block;
   color: #858585;
   font-weight: 400;
-  font-size: 18px; }
+  font-size: 14px; }
 
 .FormTextInput__note {
   font-size: 12px;
@@ -13017,7 +13022,6 @@ li.page-item a,
 
 .AuthFormDialog__content {
   position: relative;
-  top: 70px;
   text-align: center;
   z-index: 101; }
 
@@ -13463,9 +13467,8 @@ small {
 
 .billetContainerTransparent, .billetContainer, .billetContainerNoOverflow, .billetContainerWarning, .billetContainerHighlight {
   position: relative;
-  margin-bottom: 30px;
-  padding: 16px 14px;
   border-radius: 12px;
+  width: 100%;
   overflow: hidden; }
 
 .billetContainer {

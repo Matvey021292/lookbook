@@ -34,13 +34,13 @@ abstract class Repository
     public function getBookByTitle($select = '*', $query)
     {
         $builder = $this->model->select($select)->orderBy('id', 'DESC');
-        return $builder->where('book', 'LIKE', '%' . $query . "%")->get();
+        return $builder->where('Title', 'LIKE', '%' . $query . "%")->get();
     }
     
         public function getAuthorByTitle($select = '*', $query)
         {
             $builder = $this->model->select($select)->orderBy('id', 'DESC');
-            return $builder->where('title', 'LIKE', '%' . $query . "%")->get();
+            return $builder->where('FirstName', 'LIKE', '%' . $query . "%")->get();
         }
     
     // public function find_from_id($id)

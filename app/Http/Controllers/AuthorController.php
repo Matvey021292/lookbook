@@ -28,6 +28,7 @@ class AuthorController extends SiteController
 
         $books = $author->books;
         $category = $author->categories;
+       
         $categories = view(env('THEME').'.categories')->with('books',$books)->render();
         $category = view(env('THEME').'.category_book')->with('category', $category);
         $content = view(env('THEME').'.author_content')->with('author', $author)->render();

@@ -466,7 +466,7 @@ a:hover{
 
 .HeaderLinks__linksContainer{
     flex-direction: column;
-    font-size: 18px;
+    font-size: 16px;
     align-items: flex-start;
 }
 
@@ -794,7 +794,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
     margin-top: 35px;
 }
 .size-md{
-    font-size: 20px;
+    font-size: 16px;
     color: var(--color-link);
 }
 

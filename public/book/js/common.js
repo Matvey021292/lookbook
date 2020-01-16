@@ -276,5 +276,33 @@ closeButton.forEach(function (e) {
 })
 
 
+// document.querySelectorAll('form.ajax').forEach(function (element) {
+//     element.addEventListener('submit', function (e) {
+//         e.preventDefault();
+//         let formData = new FormData(this);
+//         requestPostData(this.action, formData)
+//     })
+// })
 
 
+
+
+// var loginForm = $("#loginForm");
+// loginForm.submit(function(e){
+//     e.preventDefault();
+//     var formData = loginForm.serialize();
+
+//     $.ajax({
+//         url:'auth/login',
+//         type:'POST',
+//         data:formData,
+//         success:function(data){
+//             console.log(data);
+//         },
+//         error: function (data) {
+//             console.log(data);
+//         }
+//     });
+// });
+
+// alert('Successfully Loaded');

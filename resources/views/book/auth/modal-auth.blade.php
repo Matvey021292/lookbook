@@ -3,11 +3,9 @@
         <span class="close-button">&times;</span>
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Login') }}</div>
-            
             <div class="card-body jest-auth-form">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" class="ajax" action="{{ route('login') }}">
                     @csrf
-                    
                     <div class="form-group  Form__formRow jest-auth-email">
                         <span class="FormTextInput__formTextInput">
                             <label for="email" class="FormTextInput__label  col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

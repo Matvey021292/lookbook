@@ -36,10 +36,15 @@
         <div class="ContentCarousel__wrapper glide">
             <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
                 <div class="swiper-wrapper glide__slides">
-                    @foreach($category->book as $book)
+                    @foreach ($author->books as $book)
+                    @if($book->category->first())
+                    @if($book->category->first()->id == $category->id)
                     @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
+                    @endif
+                    @else
+                        {{dump($book->Title)}}
+                    @endif
                     @endforeach
-                    
                 </div>
             </div>
             <div class="glide__arrows" data-glide-el="controls">

@@ -6,12 +6,9 @@
 @section('authors_content')
     {!! $content !!}
 @endsection
-@section('category_book')
+{{-- @section('category_book')
 {!! $category !!}
-@endsection
-{{-- @section('categories')
-    {!! $categories !!}
 @endsection --}}
 {{-- @section('categories')
-    {!! $books !!}
+    {!! $categories !!}
 @endsection --}}

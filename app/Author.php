@@ -28,4 +28,5 @@ class Author extends Model
     public function genre(){
         return $this->belongsToMany('App\Genre', 'author_genre_relship', 'author_ID', 'genre_ID');
     }
+   
 }

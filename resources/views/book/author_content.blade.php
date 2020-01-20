@@ -25,6 +25,35 @@
     <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
 </div>
 @endif 
+<div>
+    
+    
+    @foreach($categories as $category)
+    <div class="AuthorDetailView__container billetContainerNoOverflow">
+        <div class="AuthorDetailListTitle__container">
+            <h2 class="section-title">{{ $category->Title }}</h2>
+        </div>
+        <div class="ContentCarousel__wrapper glide">
+            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
+                <div class="swiper-wrapper glide__slides">
+                    @foreach($category->book as $book)
+                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
+                    @endforeach
+                    
+                </div>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <div class="ContentCarousel__buttonPrev  glide__arrow glide__arrow--left" data-glide-dir="<">
+                    <span class="arrowLeft"></span>
+                </div>
+                <div class="ContentCarousel__buttonNext glide__arrow glide__arrow--right" data-glide-dir=">">
+                    <span class="arrowRight"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
 @else
 <div class="page-title-author w-100">
     <div class="wrap-content">

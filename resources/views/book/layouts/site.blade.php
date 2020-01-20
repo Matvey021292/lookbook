@@ -26,6 +26,8 @@
             <li>{{ $error }}</li>
             @endforeach
         </ul>
+        <button class="close"><i class="fas fa-times"></i></button>
+        <div class="progress"></div>
     </div>
     @endif
     <div id="app" class="appContainer">

@@ -384,8 +384,11 @@ a:hover{
     text-align: center;
     z-index: 9999;
     background: #fff;
-    padding: 10px;
     font-size: 18px;
+    padding: 20px 0;
+    box-shadow: 0px 10px 10px -4px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    transition: all 0.2s ease;
 }
 
 .visible svg path{
@@ -853,3 +856,39 @@ div[data-toggle="collapse"].open .toggle-icon i{
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
+
+
+.alert.alert-danger {
+    background: #fd6358;
+    color: #fff;
+}
+
+.alert .close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px 10px 0 0;
+    border: 2px solid #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.alert.alert-danger .close{
+    color: #fff;
+}
+
+.alert.hide{
+    transform: translateY(-100%);
+}
+
+.alert .progress{
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #ff493c;
+}

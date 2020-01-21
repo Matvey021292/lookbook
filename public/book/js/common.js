@@ -231,13 +231,15 @@ download_files.forEach(function (el, i) {
 function showLoader(el) {
     let content = window.document;
     if (el) content = el;
-    content.querySelector('.loader').classList.add('show');
+    let loader = content.querySelector('.loader');
+    if (loader) loader.classList.add('show')
 }
 
 function hideLoader(el) {
     let content = window.document;
     if (el) content = el;
-    content.querySelector('.loader').classList.remove('show');
+    let loader = content.querySelector('.loader');
+    if (loader) loader.classList.remove('show')
 }
 
 let collapse_btn = document.querySelectorAll('*[data-toggle="collapse"] .toggle-icon');
@@ -321,15 +323,18 @@ document.querySelectorAll('form.ajax').forEach(function (element) {
                 }
                 setTimeout(function () {
                     hideLoader(element);
-                    let field = element.querySelector(`input[name='${data.message.field}']`);
-                    appendMessage(field, data.status, data.message.content);
+                    removeMessage(element);
+                    for (let fields in data.message.field) {
+                        let field = element.querySelector(`input[name='${fields}']`);
+                        appendMessage(field, data.status, data.message.field[fields]);
+                    }
                 }, 500)
             })
     })
 })
 
 function appendMessage(element, status, message) {
-    removeMessage(element);
+
     let row = element.closest('.Form__formRow');
     row.classList.add(status);
     row.appendChild(createMessage(status, message));
@@ -337,15 +342,32 @@ function appendMessage(element, status, message) {
 
 function removeMessage(element) {
     let row = element.closest('.ajax');
-    let msg = row.querySelector('.ValidationMessage');
-    if (msg) msg.remove();
+
+    let errors = document.querySelectorAll('.error');
+    if (errors.length) {
+        errors.forEach(function (error, i) {
+            error.classList.remove('error')
+        });
+    }
+
+
+    let msg = row.querySelectorAll('.ValidationMessage');
+    if (msg.length) {
+        msg.forEach(function (message, i) {
+            message.remove();
+        })
+    };
 }
 
-function createMessage(status, message) {
-    let msg = document.createElement('span');
+function createMessage(status, messages) {
+    let msg = document.createElement('div');
     msg.classList.add(`${status}`, `ValidationMessage`);
-    msg.innerText = message;
-    return msg
+    let message = '';
+    messages.forEach(function (e) {
+        message += `<span>${e}</span>`;
+    });
+    msg.innerHTML = message;
+    return msg;
 }
 
 async function requestPost(route, data) {

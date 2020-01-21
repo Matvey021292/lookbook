@@ -2099,7 +2099,7 @@ button.swiper-pagination-bullet {
   padding:  8px 15px;
   font-size: 16px;
   transition: all 0.25s; }
-  .FormTextInput__input.FormTextInput__isInvalid {
+  .ajax .error input{
     background-color: #fae5e8; }
 
 .FormTextInput__label {

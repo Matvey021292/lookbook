@@ -43,15 +43,6 @@ class LoginController extends Controller
     
     public function authenticate(Request $request){
 
-
-        
-        
-        // $validCredentials = Hash::check($request['password'], $user->getAuthPassword());
-        
-        // if ($validCredentials) {
-        //     return $user;
-        // }
-
         $referer = $request->headers->get('referer');
         $credentials = $request->only('email', 'password');
         $remember = false;
@@ -66,7 +57,6 @@ class LoginController extends Controller
                 'status' => 'success',
                 'message' => [
                     'redirect' => $referer,
-                    'code' => 1,
                 ]
                 
              ]);
@@ -75,9 +65,9 @@ class LoginController extends Controller
             $response = response()->json([ 
                 'status' => 'error',
                 'message' => [
-                    'content' => sprintf('Пользователь с логином %s не зарегистрирован', $credentials['email']),
-                    'code' => 4,
-                    'field' => 'email',
+                    'field' => [ 
+                        'email' => [sprintf('Пользователь с логином %s не зарегистрирован', $credentials['email'])] 
+                    ]
                 ]
                 
              ]);
@@ -86,9 +76,9 @@ class LoginController extends Controller
             $response = response()->json([ 
                 'status' => 'error',
                 'message' => [
-                    'content' => sprintf('Введен неверный пароль! ', $credentials['email']),
-                    'code' => 4,
-                    'field' => 'password',
+                    'field' => [
+                        'password' => [sprintf('Введен неверный пароль! ', $credentials['email'])]
+                    ],
                 ]
              ]);
         }

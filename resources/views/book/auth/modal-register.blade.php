@@ -4,7 +4,7 @@
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Register') }}</div>
             <div class="card-body jest-auth-form">
-                <form class="ajax" method="POST" action="{{ route('register') }}">
+                <form class="ajax" method="POST" action="{{ route('registration') }}">
                     @csrf
                     <div class="form-group  Form__formRow">
                         <span class="FormTextInput__formTextInput">
@@ -67,6 +67,7 @@
                             {{ __('Register') }}
                         </button>
                     </div>
+                    @include(env('THEME') . '.custom.loader')
                 </form>
             </div>
         </div>

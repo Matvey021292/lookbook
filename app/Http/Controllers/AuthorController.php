@@ -26,12 +26,13 @@ class AuthorController extends SiteController
         $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         
-        $books = $author->books;
+        // $books = $author->books;
         $categories = $author->categories;
         $categories = $categories->unique('id');
         $genre = $author->genre;
         $genre = $genre->unique('id');
-        
+
+        ////
         // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
         // $category = view(env('THEME').'.category_book')->with('category', $category);
         $content = view(env('THEME').'.author_content')->with('author', $author)->with('categories', $categories)->with('genre', $genre)->render();

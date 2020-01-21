@@ -26,25 +26,23 @@
 </div>
 @endif 
 <div>
-    
-    
     @foreach($categories as $category)
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">
             <h2 class="section-title">{{ $category->Title }}</h2>
         </div>
         <div class="ContentCarousel__wrapper glide">
-            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
+            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swizper-container-free-mode">
                 <div class="swiper-wrapper glide__slides">
+                    
                     @foreach ($author->books as $book)
                     @if($book->category->first())
                     @if($book->category->first()->id == $category->id)
                     @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
                     @endif
-                    @else
-                        {{dump($book->Title)}}
                     @endif
                     @endforeach
+                    
                 </div>
             </div>
             <div class="glide__arrows" data-glide-el="controls">

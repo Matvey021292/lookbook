@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -20,7 +20,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -71,27 +71,25 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function registration(Request $request){
-       $credentials = $request->only('name', 'email', 'password', 'password_confirmation');
-       $referer = $request->headers->get('referer');
-       
-       $validator = $this->validator($credentials);   
-       if ($validator->fails()){
+    public function registration(Request $request)
+    {
+        $credentials = $request->only('name', 'email', 'password', 'password_confirmation');
+        $referer = $request->headers->get('referer');
+
+        $validator = $this->validator($credentials);
+        if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
                 'message' => [
-                    'field' => $validator->errors()
-                ]
+                    'field' => $validator->errors(),
+                ],
             ]);
-       }else{
-           $this->create($credentials);
-           return response()->json([ 
-            'status' => 'success',
-            'message' => [
-                'redirect' => $referer,
-            ]
-            
-         ]);
-       }
+        } else {
+            $user = $this->create($credentials);
+            if ($user) {
+                auth()->login($user);
+                return response()->json(['status' => 'success', 'message' => ['redirect' => $referer]]);
+            }
+        }
     }
 }

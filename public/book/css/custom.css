@@ -892,3 +892,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
     height: 3px;
     background: #ff493c;
 }
+
+.ajax{
+    position: relative;
+}

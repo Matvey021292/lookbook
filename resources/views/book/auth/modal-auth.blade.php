@@ -1,5 +1,6 @@
 <div class="modal" id="auth">
     <div class="modal-content">
+       
         <span class="close-button">&times;</span>
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Login') }}</div>
@@ -44,7 +45,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="form-group row mb-0">
                         <div class="col-md-12">
                             <button type="submit" class="Button__primaryButton btn btn-primary">
@@ -58,6 +58,7 @@
                             @endif
                         </div>
                     </div>
+                    @include(env('THEME') . '.custom.loader')
                 </form>
             </div>
         </div>

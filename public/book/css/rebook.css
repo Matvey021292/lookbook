@@ -2112,7 +2112,7 @@ button.swiper-pagination-bullet {
   font-size: 12px;
   line-height: 1em; }
 
-.FormTextInput__errorValidationMessage {
+.error {
   display: block;
   padding: 4px 0;
   color: #ff0000; }
@@ -13027,7 +13027,6 @@ li.page-item a,
 
 .AuthFormDialog__inner {
   margin: 0 auto;
-  font-family: firasans, sans-serif;
   font-size: 12px;
   line-height: 1.33em;
   text-align: left;

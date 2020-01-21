@@ -228,12 +228,16 @@ download_files.forEach(function (el, i) {
 })
 
 
-function showLoader() {
-    document.querySelector('.loader').classList.add('show');
+function showLoader(el) {
+    let content = window.document;
+    if (el) content = el;
+    content.querySelector('.loader').classList.add('show');
 }
 
-function hideLoader() {
-    document.querySelector('.loader').classList.remove('show');
+function hideLoader(el) {
+    let content = window.document;
+    if (el) content = el;
+    content.querySelector('.loader').classList.remove('show');
 }
 
 let collapse_btn = document.querySelectorAll('*[data-toggle="collapse"] .toggle-icon');
@@ -305,33 +309,55 @@ document.querySelectorAll('.close').forEach(function (e) {
     })
 })
 
-    // document.querySelectorAll('form.ajax').forEach(function (element) {
-    //     element.addEventListener('submit', function (e) {
-    //         e.preventDefault();
-    //         let formData = new FormData(this);
-    //         requestPostData(this.action, formData)
-    //     })
-    // })
+document.querySelectorAll('form.ajax').forEach(function (element) {
+    element.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let formData = new FormData(this);
+        showLoader(element);
+        requestPost(this.action, formData)
+            .then((data) => {
+                if (data.status == 'success') {
+                    window.location = data.message.redirect;
+                }
+                setTimeout(function () {
+                    hideLoader(element);
+                    let field = element.querySelector(`input[name='${data.message.field}']`);
+                    appendMessage(field, data.status, data.message.content);
+                }, 500)
+            })
+    })
+})
 
+function appendMessage(element, status, message) {
+    removeMessage(element);
+    let row = element.closest('.Form__formRow');
+    row.classList.add(status);
+    row.appendChild(createMessage(status, message));
+}
 
+function removeMessage(element) {
+    let row = element.closest('.ajax');
+    let msg = row.querySelector('.ValidationMessage');
+    if (msg) msg.remove();
+}
 
+function createMessage(status, message) {
+    let msg = document.createElement('span');
+    msg.classList.add(`${status}`, `ValidationMessage`);
+    msg.innerText = message;
+    return msg
+}
 
-    // var loginForm = $("#loginForm");
-    // loginForm.submit(function(e){
-    //     e.preventDefault();
-    //     var formData = loginForm.serialize();
+async function requestPost(route, data) {
 
-    //     $.ajax({
-    //         url:'auth/login',
-    //         type:'POST',
-    //         data:formData,
-    //         success:function(data){
-    //             console.log(data);
-    //         },
-    //         error: function (data) {
-    //             console.log(data);
-    //         }
-    //     });
-    // });
+    let meta = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    let response = await fetch(route, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': meta
+        },
+        body: data
+    });
 
-    // alert('Successfully Loaded');
+    return await response.json();
+}

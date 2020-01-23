@@ -31,11 +31,25 @@ class AuthorController extends SiteController
         $categories = $categories->unique('id');
         $genre = $author->genre;
         $genre = $genre->unique('id');
-
-        ////
+        
+        $items = [];
+        foreach($author->books as $k => $book){
+            if($book->category->first()){
+                foreach($categories as $key => $category){
+                    if($book->category->first()->id == $category->id){
+                        $items[$category->id]['category'] = $category;
+                        $items[$category->id]['books'][] = $book;
+                    }
+                }
+            }
+            else{
+                $items[0]['books'][] = $book;
+            }
+        }
+        ksort($items);
         // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
         // $category = view(env('THEME').'.category_book')->with('category', $category);
-        $content = view(env('THEME').'.author_content')->with('author', $author)->with('categories', $categories)->with('genre', $genre)->render();
+        $content = view(env('THEME').'.author_content')->with('author', $author)->with('categories', $categories)->with('items', $items)->render();
         
         $this->vars = array_add($this->vars,'content', $content);
         // $this->vars = array_add($this->vars,'categories', $categories);

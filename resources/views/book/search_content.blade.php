@@ -12,7 +12,7 @@
                     <div class="BookList__bookList">
                         <ul class="BookList__items">
                             @foreach($search->books as $book)
-                            @include(env('THEME') . '.card.card-book-min', ['items'=>$book, 'book' => $book, 'carousel' => true])
+                            @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => true, 'author'=>true])
                             @endforeach
                         </ul>
                     </div>

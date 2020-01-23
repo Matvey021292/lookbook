@@ -629,6 +629,10 @@ label[for='autoComplete']{
     margin-bottom:  0 !important;
 }
 
+.mb-2{
+    margin-bottom: 20px !important;
+}
+
 .d-inline-flex{
     max-width:100%;
     display: inline-flex;

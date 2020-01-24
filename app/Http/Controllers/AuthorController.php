@@ -25,15 +25,15 @@ class AuthorController extends SiteController
         $author = $this->a_rep->getAuthor($alias);
         $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
-        
-        // $books = $author->books;
+    
         $categories = $author->categories;
         $categories = $categories->unique('id');
         $genre = $author->genre;
         $genre = $genre->unique('id');
-        
+        $languages = $author->lang->unique('Lang');
+
         $items = [];
-        foreach($author->books as $k => $book){
+        foreach($author->books->where('Lang','ru') as $k => $book){
             if($book->category->first()){
                 foreach($categories as $key => $category){
                     if($book->category->first()->id == $category->id){
@@ -49,8 +49,10 @@ class AuthorController extends SiteController
         ksort($items);
         // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
         // $category = view(env('THEME').'.category_book')->with('category', $category);
-        $content = view(env('THEME').'.author_content')->with('author', $author)->with('categories', $categories)->with('items', $items)->render();
+        $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
+        $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->render();
         
+        $this->vars = array_add($this->vars,'books', $books);
         $this->vars = array_add($this->vars,'content', $content);
         // $this->vars = array_add($this->vars,'categories', $categories);
         // $this->vars = array_add($this->vars,'category', $category);

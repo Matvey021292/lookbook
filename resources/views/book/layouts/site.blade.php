@@ -97,7 +97,7 @@
                         @yield('home') 
                         @yield('search_content')
                         @yield('categories')
-                        
+                        @yield('customCategoryItems')
                         @yield('book_content')
                         @yield('content_book')
                         @yield('books_content')

@@ -383,3 +383,7 @@ async function requestPost(route, data) {
 
     return await response.json();
 }
+
+document.querySelector('.select').addEventListener('change', function(e){
+    console.log(this.value);
+})

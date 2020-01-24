@@ -6,9 +6,9 @@
 @section('authors_content')
     {!! $content !!}
 @endsection
-{{-- @section('category_book')
-{!! $category !!}
-@endsection --}}
+@section('customCategoryItems')
+{!! $books !!}
+@endsection
 {{-- @section('categories')
     {!! $categories !!}
 @endsection --}}

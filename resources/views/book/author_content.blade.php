@@ -11,7 +11,7 @@
         <div class="billetContainerWrapper p-0 ">
             <div class="AuthorDetailHeader__authorInfoBlock">
                 <h2 class=" section-title">{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}</h2>
-                {{-- <span class="section-counter section-counter-small ml-0 mt-1">[ Количество книг {{ count($author->books) }} ]</span> --}}
+                <span class="section-counter section-counter-small ml-0 mt-1">[ Количество книг {{ count($author->books) }} ]</span>
             </div>
         </div>
     </div>
@@ -24,57 +24,13 @@
     </div>
     <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
 </div>
-@endif 
-<div>
-    @foreach($items as $item)
-    @if(isset($item['category']))
-    <div class="AuthorDetailView__container billetContainerNoOverflow">
-        <div class="AuthorDetailListTitle__container">
-            <h2 class="section-title">{{ $item['category']->Title }}</h2>
-        </div>
-        <div class="ContentCarousel__wrapper glide">
-            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swizper-container-free-mode">
-                <div class="swiper-wrapper glide__slides">
-                    @foreach ($item['books'] as $book)
-                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
-                    @endforeach
-                </div>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <div class="ContentCarousel__buttonPrev  glide__arrow glide__arrow--left" data-glide-dir="<">
-                    <span class="arrowLeft"></span>
-                </div>
-                <div class="ContentCarousel__buttonNext glide__arrow glide__arrow--right" data-glide-dir=">">
-                    <span class="arrowRight"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    @else
-    <div class="AuthorDetailView__container billetContainerNoOverflow">
-        <div class="AuthorDetailListTitle__container">
-        <h2 class="section-title">{{ __('Вне авторских серий') }}</h2>
-        </div>
-        <div class="ContentCarousel__wrapper glide">
-            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swizper-container-free-mode">
-                <div class="swiper-wrapper glide__slides">
-                    @foreach ($item['books'] as $book)
-                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
-                    @endforeach
-                </div>
-            </div>
-            <div class="glide__arrows" data-glide-el="controls">
-                <div class="ContentCarousel__buttonPrev  glide__arrow glide__arrow--left" data-glide-dir="<">
-                    <span class="arrowLeft"></span>
-                </div>
-                <div class="ContentCarousel__buttonNext glide__arrow glide__arrow--right" data-glide-dir=">">
-                    <span class="arrowRight"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
-    @endforeach
+@endif
+<div class="option_row">
+    <select name="lang_book" class="select">
+        @foreach ($languages as $language)
+            <option value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+        @endforeach
+    </select>
 </div>
 @else
 <div class="page-title-author w-100">

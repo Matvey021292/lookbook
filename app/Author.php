@@ -21,6 +21,10 @@ class Author extends Model
         return $this->belongsToMany('App\Book', 'book_author_relship', 'author_ID', 'book_ID')->where('Deleted', '=', 0);
     }
 
+    public function lang(){
+        return $this->belongsToMany('App\Book', 'book_author_relship', 'author_ID', 'book_ID')->where('Deleted', '=', 0)->select('Lang');
+    }
+
     public function categories(){
         return $this->belongsToMany('App\Category', 'author_category_relship', 'author_ID', 'category_ID');
     }

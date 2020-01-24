@@ -1,4 +1,4 @@
-@if($books)
+{{-- @if($books)
 <div class="single-slider">
     <div class=" billetContainerNoOverflow vc_column-inner">
         <div class="wpb_wrapper">
@@ -44,4 +44,4 @@
         </div>
     </div>
 </div>
-@endif
+@endif --}}

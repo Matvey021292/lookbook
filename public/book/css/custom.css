@@ -900,3 +900,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
 .ajax{
     position: relative;
 }
+
+.option_row{
+    margin: 20px 0;
+}

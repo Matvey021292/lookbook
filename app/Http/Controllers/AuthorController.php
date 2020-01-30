@@ -25,27 +25,15 @@ class AuthorController extends SiteController
         $author = $this->a_rep->getAuthor($alias);
         $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
-    
+        
         $categories = $author->categories;
         $categories = $categories->unique('id');
         $genre = $author->genre;
         $genre = $genre->unique('id');
         $languages = $author->lang->unique('Lang');
-
-        $items = [];
-        foreach($author->books->where('Lang','ru') as $k => $book){
-            if($book->category->first()){
-                foreach($categories as $key => $category){
-                    if($book->category->first()->id == $category->id){
-                        $items[$category->id]['category'] = $category;
-                        $items[$category->id]['books'][] = $book;
-                    }
-                }
-            }
-            else{
-                $items[0]['books'][] = $book;
-            }
-        }
+        
+        $items = $this->getBooks($author, $categories, 'ru');
+        
         ksort($items);
         // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
         // $category = view(env('THEME').'.category_book')->with('category', $category);
@@ -60,7 +48,37 @@ class AuthorController extends SiteController
         return $this->renderOutput();
     }
     
+    public function filter(Request $request){
+        $lang = $request->input('lang_book');
+        $alias = $request->input('alias');
+        $author = $this->a_rep->getAuthor($alias);
+        $categories = $author->categories;
+        $categories = $categories->unique('id');
+        $items = $this->getBooks($author, $categories, $lang);
+        ksort($items);
+        $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
+        return response()->json([ 
+            'status' => 'success',
+            'message' => $books
+         ]);
+    }
     
-    
+    public function getBooks($author, $categories, $lang){
+        $items = [];
+        foreach($author->books->where('Lang', $lang) as $k => $book){
+            if($book->category->first()){
+                foreach($categories as $key => $category){
+                    if($book->category->first()->id == $category->id){
+                        $items[$category->id]['category'] = $category;
+                        $items[$category->id]['books'][] = $book;
+                    }
+                }
+            }
+            else{
+                $items[0]['books'][] = $book;
+            }
+        }
+        return $items;
+    }
     
 }

@@ -26,17 +26,24 @@ class SearchController extends SiteController
     public function search(Request $request)
     {
         $output = (object) array();
+
         $output->count = 0;
+        
         $output->recipes = [];
-        $authors = DB::table('author')->join('author_inform', 'author.id', '=', 'author_inform.author_ID')->where('Title', 'LIKE', '%' . $request->search . "%")->limit(7)->get();
+        
+        $authors =  $this->a_rep->getAuthorByTitle($request->search, Config::get('settings.simple_search'));
+
         if (!empty($authors)) {
             foreach ($authors as $key => $author) {
                 $author->key = 'author';
                 $author->slug = '/author/' . $author->author_ID;
+                $author->Title = $author->FirstName . ' ' . $author->LastName;
                 $output->recipes[] = $author;
             }
         }
-        $books = DB::table('book')->join('book_inform', 'book.id', '=', 'book_inform.book_ID')->where('book_inform.Title', 'LIKE', '%' . $request->search . "%")->limit(10)->get();
+
+        $books = $this->b_rep->getBookByTitle($request->search, Config::get('settings.simple_search'));
+        
         if (!empty($books)) {
             foreach ($books as $key => $book) {
                 $book->key = 'book';
@@ -54,18 +61,25 @@ class SearchController extends SiteController
         if (empty($query)) {
             return;
         }
+        
         $search = (object) array();
-        $books = $this->b_rep->getBookByTitle('*', $query);
+
+        $books = $this->b_rep->getBookByTitle($query, Config::get('settings.simple_search'));
+
         if ($books->isNotEmpty()) {
             $search->books = $books;
+            $search->books->transform(function ($item, $key) {
+                $item->id = $item->book_ID;
+                return $item;
+            });
         }
-        $authors = $this->a_rep->getAuthorByTitle('*', $query);
+        
+        $authors =  $this->a_rep->getAuthorByTitle($query, Config::get('settings.simple_search'));
+
         if ($authors->isNotEmpty()) {
             $search->authors = $authors;
             $search->authors->transform(function ($item, $key) {
-                if (isset($item->desc->image)) {
-                    $item->desc->image = Config::get('settings.image_url') . $item->desc->image;
-                }
+                $item->id = $item->author_ID;
                 return $item;
             });
         }

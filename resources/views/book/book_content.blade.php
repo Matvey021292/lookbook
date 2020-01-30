@@ -27,6 +27,44 @@
                         </span>
                     </div>
                 </div>
+                <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous ml-0">
+                    @if($book->desc)
+                    <div data-toggle="collapse" class="pl-0 AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout p-0">
+                        <div class="BookDetailAnnotation__descriptionWrapper">
+                            <p> {!!  $book->desc->Body !!}</p>
+                        </div>
+                        <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
+                    </div>
+                    @endif
+                    <div class="BookGenresThemes__genresThemes BookDetailAnnotation__meta">
+                        <div class="BookGenresThemes__genresThemesSection">
+                            <h3 class="section-title">Подробная информация</h3>
+                            <div class="ContentCarousel__wrapper BookDetailAnnotation__metaBlock">
+                                @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
+                                @if($book->Year)
+                                <p><strong>Год издания: </strong><span>{{$book->Year}}</span></p>
+                                @endif
+                                @if($book->Lang)
+                                @if($book->Lang == 'ru')
+                                <p><strong>Язык: </strong><span>Русский</span></p>
+                                @endif
+                                @endif
+                                @if($book->FileAuthor)
+                                <p><strong>Издательство: </strong><a href="{{ route('publisher.show', ['alias' => $book->FileAuthor]) }}"><span>{{$book->FileAuthor}}</span></a></p>
+                                @endif
+                                @if($book->Pages)
+                                <p><strong>Количество страниц: </strong><span>{{$book->Pages}}</span></p>
+                                @endif
+                                @if($book->Chars)
+                                <p><strong>Объем: </strong><span>{{$book->Chars}} тыс. знаков</span></p>
+                                @endif
+                                @if($book->Time)
+                                <p><strong>Дата поступления:  </strong><span>{{ date('d.m.Y', strtotime($book->Time)) }}</span></p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="BookPageHeaderContent__coverBlockImage">
                 <div class="BookCoverImage__coverImageWrapper">
@@ -76,44 +114,7 @@
             </div>
         </div>
     </div>
-    <div class="BookPageHeaderContent__booksButtonBlock isForAnonymous">
-        @if($book->desc)
-        <div data-toggle="collapse" class="AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
-            <div class="BookDetailAnnotation__descriptionWrapper">
-                <p> {!!  $book->desc->Body !!}</p>
-            </div>
-            <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
-        </div>
-        @endif
-        <div class="BookGenresThemes__genresThemes BookDetailAnnotation__meta">
-            <div class="BookGenresThemes__genresThemesSection">
-                <h3 class="section-title">Подробная информация</h3>
-                <div class="ContentCarousel__wrapper BookDetailAnnotation__metaBlock">
-                    @include(env('THEME') . '.card.card-book-translate', ['items'=>$book,'book' => $book])
-                    @if($book->Year)
-                    <p><strong>Год издания: </strong><span>{{$book->Year}}</span></p>
-                    @endif
-                    @if($book->Lang)
-                    @if($book->Lang == 'ru')
-                    <p><strong>Язык: </strong><span>Русский</span></p>
-                    @endif
-                    @endif
-                    @if($book->FileAuthor)
-                    <p><strong>Издательство: </strong><a href="{{ route('publisher.show', ['alias' => $book->FileAuthor]) }}"><span>{{$book->FileAuthor}}</span></a></p>
-                    @endif
-                    @if($book->Pages)
-                    <p><strong>Количество страниц: </strong><span>{{$book->Pages}}</span></p>
-                    @endif
-                    @if($book->Chars)
-                    <p><strong>Объем: </strong><span>{{$book->Chars}} тыс. знаков</span></p>
-                    @endif
-                    @if($book->Time)
-                    <p><strong>Дата поступления:  </strong><span>{{ date('d.m.Y', strtotime($book->Time)) }}</span></p>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <div class="billetContainerNoOverflow bg-white">
         <div class="row  row-container">
             <div class="col-md-12">

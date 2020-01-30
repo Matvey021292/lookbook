@@ -26,11 +26,14 @@
 </div>
 @endif
 <div class="option_row">
-    <select name="lang_book" class="select">
-        @foreach ($languages as $language)
-            <option value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
-        @endforeach
-    </select>
+    <form action="/author_filter">
+        <input type="hidden" name="alias" value="{{$author->id}}">
+        <select name="lang_book" class="select">
+            @foreach ($languages as $language)
+                <option value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @endforeach
+        </select>
+    </form>
 </div>
 @else
 <div class="page-title-author w-100">

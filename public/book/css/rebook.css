@@ -3366,22 +3366,23 @@ li.page-item a,
 
 .BookPageHeaderContent__coverBlockImage {
   width: 112px;
-  height: 180px;
-  max-height: 32px;
-  margin-top: -32px;
+  /* height: 180px; */
+  /* max-height: 32px; */
+  /* margin-top: -32px; */
   font-size: 0;
   border-radius: 12px;
-  overflow: visible;
+  /* overflow: visible; */
   z-index: 3; }
   @media (min-width: 767px) {
     .BookPageHeaderContent__coverBlockImage {
       width: 184px;
-      height: 296px;
-      bottom: -80px; } }
+      /* height: 296px; */
+      /* bottom: -80px; */
+     } }
   @media (min-width: 1136px) {
     .BookPageHeaderContent__coverBlockImage {
       width: 256px;
-      height: 426px;
+      /* height: 426px; */
       margin-top: 0; } }
   @media (min-width: 767px) {
     .BookPageHeaderContent__coverBlockImageAudio {

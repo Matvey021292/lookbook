@@ -1,53 +1,42 @@
-{{-- {{dd($search)}} --}}
+<p class="mb-2">Поиск запросу «{{request()->get('query')}}»</p>
 @if(isset($search->books))
 <div class="container">
     <div class="wpb_column vc_column_container vc_col-sm-12">
         <div class="vc_column-inner vc_custom_1504607702805">
             <div class="wpb_wrapper">
-                <div class="heading-3 clearfix"><h2
-                    class="heading">Книги</h2>
+                <div class="heading-3 clearfix">
+                    <h2 class="section-title">Книги</h2>
                     
                 </div>
-                <div class="SearchBookList__content">
-                    <div class="BookList__bookList">
-                        <ul class="BookList__items">
+                <div class="ContentCarousel__wrapper">
+                    <div data-glide-el="track" class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
+                        <div class="swiper-wrapper row-3">
                             @foreach($search->books as $book)
-                            @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => true, 'author'=>true])
+                            @include(
+                            env('THEME') . '.card.card-book-horizontally', 
+                            ['items'=>$book,
+                            'book' => $book, 
+                            'carousel' => false, 
+                            'desc' => false]
+                            )
                             @endforeach
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @endif
+    <br>
     @if(isset($search->authors))
     <div class="heading-3 ">
-        <h2 class="heading">Авторы</h2>
+        <h2 class="section-title">Авторы</h2>
     </div>
-    <ul class="AuthorList__authorList">
-        @foreach($search->authors as $author)
-        <li class="AuthorList__author">
-            <a href="{{ route('author.show', ['alias'=> $author->id]) }}">
-                <div class="billetContainer">
-                    <div class="ContextAuthorCard__author">
-                        <div class="ContextAuthorCard__authorBlock">
-                            @if($author->desc)
-                            <img width="40" height="40" 
-                            src="{!! $author->desc->image !!}" 
-                            alt="{!! $author->title !!}" class="ContextAuthorCard__authorImage" 
-                            srcset="{!! $author->desc->image !!}">
-                            @endif
-                            <div class="ContextAuthorCard__authorInfo">
-                                <div class="ContextAuthorCard__authorName"><big><span class="link">{!! $author->title !!}</span></big></div>
-                            </div>
-                        </div>
-                        <div class="shortArrow"></div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        @endforeach
-    </ul>   
-  
+    <div class="ContentCarousel__wrapper">
+        <div class="AuthorList__authorList w-100 row">
+            @foreach($search->authors as $author)
+                @include(env('THEME') . '.card.card-author', ['author' => $author])
+            @endforeach
+        </div>  
+    </div>
     @endif

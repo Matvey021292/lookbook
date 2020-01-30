@@ -564,6 +564,7 @@ label[for='autoComplete']{
 
 .ContextAuthorCard__authorImage{
     object-fit: cover;
+    width: 100%;
 }
 
 .ContentCarousel__wrapper{
@@ -601,7 +602,7 @@ label[for='autoComplete']{
 }
 
 .pl-0{
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .pr-0{
@@ -903,4 +904,22 @@ div[data-toggle="collapse"].open .toggle-icon i{
 
 .option_row{
     margin: 20px 0;
+}
+
+body>.loader{
+    position: fixed;
+}
+
+.row-3{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-3>*{
+    flex: 1 1 33%;
+    margin: 0 !important;
+    padding-right: 10px;
+    min-width: 330px;
+    margin-bottom: 10px !important;
+    padding: 0;
 }

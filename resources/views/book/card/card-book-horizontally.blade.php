@@ -1,4 +1,4 @@
-<div class="@if($carousel) glide__slide swiper-slide @endif VerticalBookCard__tinyBook jest-horizontallybookcard "  style="width:124px;">
+<div class="@if($carousel) glide__slide swiper-slide @endif VerticalBookCard__tinyBook jest-horizontallybookcard "  >
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book  jest-book-cover" style="width:120px;height:196px">
             <a href="{{ route('book.show', ['alias'=> $book->id]) }}">
@@ -22,7 +22,6 @@
         </div>
         @endforeach
         @endif
-        
         @if($desc)
         @if($book->desc)
         <div class="ContextBookCardLong__bookDescription jest-context-book-card-long">

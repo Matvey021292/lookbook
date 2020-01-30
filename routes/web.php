@@ -103,5 +103,7 @@ Route::post('/auto-bookmarks', 'StatisticsController@AutoBookmarks');
 Route::post('/bookmarks', 'StatisticsController@Bookmarks');
 Route::post('/statistics', 'StatisticsController@Statistics');
 
+Route::post('/author_filter', 'AuthorController@filter');
+
 Route::post('/auth', 'Auth\LoginController@authenticate')->name('auth');
 Route::post('/registration', 'Auth\RegisterController@registration')->name('registration');

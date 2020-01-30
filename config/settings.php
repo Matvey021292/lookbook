@@ -1,6 +1,8 @@
 <?php
 return [
     // 'slider_path' => asset(env('THEME')) .'/author_image/',
+    'simple_count' => 9,
+    'simple_search' => 9,
     'home_post_count' => 14,
     'authors_show_count' => 8,
     'pagination' => 24,

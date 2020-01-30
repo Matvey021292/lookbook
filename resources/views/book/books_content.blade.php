@@ -18,7 +18,6 @@
                 </div>
                 @include(env('THEME') . '.custom.card-custom')
             </div>
-          
         </div>
     </div>
     <div class="row center-xs mt-5">

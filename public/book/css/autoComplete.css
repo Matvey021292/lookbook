@@ -53,13 +53,13 @@ label[for='autoComplete']{
   -webkit-transition: all -webkit-transform 0.3s ease;
 }
 
-#autoComplete::selection {
+/* #autoComplete::selection {
   color: transparent;
-}
+} */
 
-#autoComplete:focus::selection {
+/* #autoComplete:focus::selection {
   color: #fff;
-}
+} */
 
 #autoComplete:focus ~ label[for='autoComplete']{
   transform: scale(0.7) translate(10px,-50%);

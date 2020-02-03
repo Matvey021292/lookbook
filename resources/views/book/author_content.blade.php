@@ -11,8 +11,21 @@
         <div class="billetContainerWrapper p-0 ">
             <div class="AuthorDetailHeader__authorInfoBlock">
                 <h2 class=" section-title">{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}</h2>
-                <span class="section-counter section-counter-small ml-0 mt-1">[ Количество книг {{ count($author->books) }} ]</span>
+                <span class="section-counter section-counter-small ml-0 "> <i class="fas fa-book"></i> Книги : {{ count($author->books) }} </span>
             </div>
+            <ul class="mt-1 d-flex icon-row">
+                <li>
+                    <a href="https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}">
+                        <img class="icon" src="{{ asset(env("THEME")) }}/images/wikipedia.svg" alt="wikipedia">
+                    </a>
+                </li>
+                <li class="flibusta-icon">
+                    <a href="https://flibusta.is/a/{{ $author->id }}">
+                       <span> Флибуста</span>
+                        <small>Книжное братство</small>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -28,11 +41,25 @@
 <div class="option_row">
     <form action="/author_filter">
         <input type="hidden" name="alias" value="{{$author->id}}">
-        <select name="lang_book" class="select">
+        @if($languages && count($languages) > 1)
+        <select name="lang" class="select">
             @foreach ($languages as $language)
-                <option value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @if(request()->get('lang'))
+            @if(request()->get('lang') == $language->Lang)
+            <option selected value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @else
+            <option value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @endif
+            @else
+            @if($language->Lang == 'ru')
+            <option selected value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @else
+            <option  value="{{$language->Lang}}">{{ config('language.' . $language->Lang) }}</option>
+            @endif
+            @endif
             @endforeach
         </select>
+        @endif
     </form>
 </div>
 @else

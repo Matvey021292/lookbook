@@ -389,6 +389,7 @@ new autoComplete({
     let filter_input =  document.querySelector('.select');
     if(filter_input){
         filter_input.addEventListener('change', function(e){
+            add_params_url();
             let form = this.closest('form');
             let body = document.body;
             let formData = new FormData(form);
@@ -404,3 +405,26 @@ new autoComplete({
             })
         })
     }
+    
+    function add_params_url() {
+        let params = {};
+        let select;
+        document.querySelectorAll('.select').forEach(function (e) {
+            select = e.options[e.selectedIndex].value;
+            if ( select !== '0') {
+                params[e.name] = select;
+            }
+        });
+        let regexp = /page\/\d\//;
+        let location = window.location.href;
+        console.log(select)
+        if (location.search(regexp) !== -1) {
+            location = location.replace(regexp, '');
+            // location += '?' + $.param(params);
+            location += '?' + new URLSearchParams(Object.entries(params));
+            window.location = location;
+        }
+        if (params) history.pushState('', '', '?' + new URLSearchParams(Object.entries(params)));
+        // $(".subscribe_organization option[data-value='" + select + "']").attr('selected', 'selected');
+    }
+    

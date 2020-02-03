@@ -20,19 +20,23 @@ class AuthorController extends SiteController
         $this->template = env('THEME').'.author';
     }
     
-    public function show($alias = false){
+    public function show($alias = false, Request $request){
+        $lang = $request->input('lang') ? $request->input('lang') : 'ru';
         $count = Config::get('settings.home_post_count');
         $author = $this->a_rep->getAuthor($alias);
         $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         
+        if($author->desc && $author->desc->Body){
+            $author->desc->Body  = str_replace(']', '>',str_replace('[','<', $author->desc->Body));
+        }
         $categories = $author->categories;
         $categories = $categories->unique('id');
         $genre = $author->genre;
         $genre = $genre->unique('id');
         $languages = $author->lang->unique('Lang');
         
-        $items = $this->getBooks($author, $categories, 'ru');
+        $items = $this->getBooks($author, $categories, $lang);
         
         ksort($items);
         // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
@@ -49,7 +53,7 @@ class AuthorController extends SiteController
     }
     
     public function filter(Request $request){
-        $lang = $request->input('lang_book');
+        $lang = $request->input('lang');
         $alias = $request->input('alias');
         $author = $this->a_rep->getAuthor($alias);
         $categories = $author->categories;

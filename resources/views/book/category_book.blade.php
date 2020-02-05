@@ -1,4 +1,4 @@
-@if($category)
+@if($categories)
 <div data-toggle='collapse' class="billetContainerNoOverflow">
     <div>
         <div class="billetContainerWrapper">
@@ -6,7 +6,7 @@
                 <div class="section-title-sm">Категории</div>
             </div>
             <br>
-            @foreach($category as $cat)
+            @foreach($categories as $cat)
             <a class="d-inline-block p-1 pl-0" href="{{ route('category.show', ['alias' => $cat->id]) }}">
                 <div style="max-width:unset" class="TagLabel__grey">
                     {{$cat->Title}}

@@ -82,7 +82,6 @@
                     </div>
                     <div>
                         @yield('book_aside')
-                        @yield('category_book')
                         @yield('category')
                     </div>
                 </aside>
@@ -101,7 +100,6 @@
                         @yield('book_content')
                         @yield('content_book')
                         @yield('books_content')
-
                     </div>
                 </div>
             </div>

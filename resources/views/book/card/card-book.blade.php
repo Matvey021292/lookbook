@@ -1,6 +1,7 @@
 <div class="@if($carousel) glide__slide swiper-slide @endif VerticalBookCard__tinyBook jest-verticalbookcard"  style="width:124px;">
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book  jest-book-cover" style="width:120px;height:196px">
+            <i class="fas fa-info-circle book-info"></i>
             <a href="{{ route('book.show', ['alias'=> $book->id]) }}">
                 @if($book->picture)
                 <img width="120" height="196" src="{{ config('settings.file_path_book') }}{{ $book->picture->File }}" alt="{{ $book->Title }}" class="BookCover__bookImage" srcset="{{ config('settings.file_path_book') }}{{ $book->picture->File }}">

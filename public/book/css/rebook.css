@@ -185,7 +185,7 @@
     height: auto;
     width: auto;
     padding: 5px 35px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     border-width: 1px;
@@ -1095,11 +1095,11 @@ button.swiper-pagination-bullet {
   right: -20px;
   top: calc(50% - 20px); }
 
-.ContentCarousel__wrapper {
+/* .ContentCarousel__wrapper {
   position: relative;
   display: flex;
   flex-wrap: wrap;
- }
+ } */
  .ContentCarousel__wrapper p{
    flex: 1 1 50%;
  }
@@ -6911,10 +6911,10 @@ li.page-item a,
   color: rgba(255, 255, 255, 0.5); }
 
 .AuthorDetailListTitle__container {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 8px 16px 16px; }
+  align-items: baseline; */
+  padding: 0px 16px 0px; }
 
 .AuthorDetailListTitle__count {
   font-size: 14px;
@@ -7003,8 +7003,6 @@ li.page-item a,
 
 .AuthorDetailHeader__wrapper {
   position: relative;
-  width: 100%;
-  margin-bottom: 16px;
 }
 
 .AuthorDetailHeader__blurredImageWrapper {
@@ -7018,6 +7016,7 @@ li.page-item a,
   margin-right: 32px;
   background-color: #abacac;
   border-radius: 8px;
+  margin-bottom: -30px;
 }
   @media (max-width: 767px) {
     .AuthorDetailHeader__image {
@@ -13394,7 +13393,7 @@ p,
     content: "u+00a0"; }
 
 small {
-  color: #7c7f84;
+  /* color: #7c7f84; */
   font-size: 12px;
   line-height: 1.4em; }
 
@@ -13480,7 +13479,7 @@ small {
   background: #ffffff; }
 
   .billetContainerNoOverflow.AuthorDetailHeader__container{
-    padding: 16px 16px 0;
+    padding: 16px 16px 16px;
   }
 
 .billetContainerWarning {

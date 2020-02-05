@@ -9,6 +9,3 @@
 @section('customCategoryItems')
 {!! $books !!}
 @endsection
-{{-- @section('categories')
-    {!! $categories !!}
-@endsection --}}

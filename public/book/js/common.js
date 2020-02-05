@@ -6,7 +6,7 @@ let glides = document.querySelectorAll(".glide");
 glides.forEach(function (e, i) {
     
     let glides_slide = e.getAttribute('data-slide-count') || 7;
-    if (e.querySelectorAll(".VerticalBookCard__tinyBook").length <= glides_slide) {
+    if (e.querySelectorAll(".VerticalBookCard__tinyBook").length < glides_slide) {
         e.querySelector(".glide__arrows").innerHTML = "";
         return;
     }
@@ -427,4 +427,5 @@ new autoComplete({
         if (params) history.pushState('', '', '?' + new URLSearchParams(Object.entries(params)));
         // $(".subscribe_organization option[data-value='" + select + "']").attr('selected', 'selected');
     }
+
     

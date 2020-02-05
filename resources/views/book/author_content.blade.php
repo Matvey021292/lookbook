@@ -1,6 +1,6 @@
 @if($author)
-<section class="AuthorDetailHeader__wrapper row xs-start wp-100 mb-2">
-    <div class="AuthorDetailHeader__container billetContainerNoOverflow col-md-12">
+<section class="AuthorDetailHeader__wrapper row xs-start mb-4 row-container">
+    <div class="AuthorDetailHeader__container billetContainerNoOverflow ">
         <div class="AuthorDetailHeader__image">
             @if($author->picture)
             <img width="128" height="150" src="{{config('settings.file_path_author')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{config('settings.file_path_author')}}{{ $author->picture->File }}">
@@ -11,21 +11,17 @@
         <div class="billetContainerWrapper p-0 ">
             <div class="AuthorDetailHeader__authorInfoBlock">
                 <h2 class=" section-title">{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}</h2>
-                <span class="section-counter section-counter-small ml-0 "> <i class="fas fa-book"></i> Книги : {{ count($author->books) }} </span>
             </div>
-            <ul class="mt-1 d-flex icon-row">
+            <ul class="mt-1 d-flex icon-row text-right">
                 <li>
                     <a href="https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}">
                         <img class="icon" src="{{ asset(env("THEME")) }}/images/wikipedia.svg" alt="wikipedia">
                     </a>
                 </li>
-                <li class="flibusta-icon">
-                    <a href="https://flibusta.is/a/{{ $author->id }}">
-                       <span> Флибуста</span>
-                        <small>Книжное братство</small>
-                    </a>
-                </li>
             </ul>
+            <span class="Button__secondaryButton smallSize mt-1">
+                <small><i class="fas fa-plus"></i></small> Добавить в избранное
+            </span>
         </div>
     </div>
 </section>

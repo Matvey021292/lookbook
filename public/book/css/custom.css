@@ -746,6 +746,14 @@ label[for='autoComplete']{
     margin-bottom: 20px !important;
 }
 
+.mb-3{
+    margin-bottom: 30px !important;
+}
+
+.mb-4{
+    margin-bottom: 40px !important;
+}
+
 .d-inline-flex{
     max-width:100%;
     display: inline-flex;
@@ -762,7 +770,7 @@ label[for='autoComplete']{
     margin-left: 50px;
     font-size: 24px;
     transform: translateY(21%);
-    color: var(--color-link);
+    color: #393f45;
     display: inline-block;
     padding: 5px 10px;
     background: #fff;
@@ -842,6 +850,7 @@ div[data-toggle="collapse"]>div{
     max-height: 170px;
     overflow: hidden;
     position: relative;
+    margin-top: 10px;
 }
 
 div[data-toggle="collapse"].open>div{
@@ -1063,9 +1072,8 @@ body>.loader{
 
 .icon{
     max-width: 130px;
-    height: 40px;
+    height: 30px;
     object-fit: contain;
-    background: #fff;
 }
 
 .icon-row{
@@ -1097,4 +1105,28 @@ body>.loader{
 .flibusta-icon a small{
     font-size: 10.5px;
     margin-top: -3px;
+}
+
+.Button__secondaryButton.smallSize{
+    padding: 2px 20px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.Button__secondaryButton.smallSize:hover{
+    opacity: 1;
+}
+
+i.book-info{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 9;
+    display: inline-block;
+    font-size: 20px;
+    background: #222;
+    border: 1px solid #222;
+    border-radius: 50px;
+    opacity: 0.5;
+    color: #fff;
 }

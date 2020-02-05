@@ -17,7 +17,7 @@
                             ['items'=>$book,
                             'book' => $book, 
                             'carousel' => false, 
-                            'desc' => false]
+                            'desc' => true]
                             )
                             @endforeach
                         </div>

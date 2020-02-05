@@ -39,15 +39,12 @@ class AuthorController extends SiteController
         $items = $this->getBooks($author, $categories, $lang);
         
         ksort($items);
-        // $categories = view(env('THEME').'.categories')->with('books',$books)->render();
-        // $category = view(env('THEME').'.category_book')->with('category', $category);
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
         $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->render();
         
         $this->vars = array_add($this->vars,'books', $books);
         $this->vars = array_add($this->vars,'content', $content);
-        // $this->vars = array_add($this->vars,'categories', $categories);
-        // $this->vars = array_add($this->vars,'category', $category);
+        
         
         return $this->renderOutput();
     }

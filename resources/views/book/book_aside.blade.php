@@ -6,7 +6,7 @@
     </p>
     <div class="HeaderLinks__link">
         @foreach ($formats as $format)
-        <a href="{{ $format }}" class="download_file Button__primaryButton  TagLabel__brown">{{ $format }}</a>
+        <a href="download" class="download_file Button__primaryButton  TagLabel__brown">{{ $format }}</a>
         @endforeach
     </div>
     <a href="{{ route('book.show', ['alias' => $book->id]) }}/read" class="HeaderLinks__link size-md HeaderLinks__linkContainer">

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
     <title>{{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
@@ -36,8 +36,8 @@
                 <div class="billetContainerWrapper">
                     <div class="section-container">
                         <div class="Header__menuWrapper row middle-xs">
-                            <a class="Header__logo col-sm-3 center-xs" href="/">Leviafan.com</a>
-                            <div class="Header__search col-sm-4 pl-0">
+                            <a class="Header__logo col-xs-12 col-sm-3 center-xs" href="/">Leviafan.com</a>
+                            <div class="Header__search col-xs-12 col-sm-4 pl-0">
                                 <div class="billetContainerWrapper SearchLine__search">
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
@@ -51,8 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="Header__enter col-sm-3 center-xs col-xs-offset-2">
-                                <div class="Header__mobileSearchButton jest-mobile-search-toggle"></div>
+                            <div class="Header__enter col-xs-12 col-sm-3 center-xs col-sm-offset-2">
                                 @guest
                                 <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
                                     <i class="fas fa-sign-in-alt"></i> {{ __('Войти')}} &nbsp; | &nbsp;
@@ -85,7 +84,7 @@
                         @yield('category')
                     </div>
                 </aside>
-                <div class="article col-sm-9">
+                <div class="article col-xs-12 col-sm-9">
                     <div class="backgroundContainer themeGrey">
                         @yield('slider')
                         @yield('book')

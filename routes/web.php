@@ -63,6 +63,8 @@ Route::resource('category', 'CategoriesController', [
     ],
 ]);
 
+Route::resource('categories', 'GenreController');
+
 Route::resource('publisher', 'PublisherController', [
     'parameters' => [
         'publisher' => 'alias',

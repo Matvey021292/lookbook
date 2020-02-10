@@ -13,9 +13,14 @@ glides.forEach(function (e, i) {
     new Glide(e, {
         perView: glides_slide,
         type: "carousel",
-        startAt: 0
+        startAt: 0,
+        breakpoints: {
+            800: {
+                perView: 2
+            }
+        }
     }).mount();
-    
+   
     if (document.querySelectorAll('.loader')) {
         document.querySelectorAll('.loader').forEach(function (e, i) {
             e.classList.remove('show')

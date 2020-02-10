@@ -37,12 +37,16 @@ class AuthorController extends SiteController
         $languages = $author->lang->unique('Lang');
         
         $items = $this->getBooks($author, $categories, $lang);
+        $tranlate_items = $this->getBooksTranslate($author, $categories, $lang);
+
         
         ksort($items);
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
-        $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->render();
+        $translate_books = view(env('THEME').'.customCategoryTranslateItems')->with('tranlate_items', $tranlate_items)->render();
+        $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->with('tranlate_items', $tranlate_items)->render();
         
         $this->vars = array_add($this->vars,'books', $books);
+        $this->vars = array_add($this->vars,'translate_books', $translate_books);
         $this->vars = array_add($this->vars,'content', $content);
         
         
@@ -67,6 +71,24 @@ class AuthorController extends SiteController
     public function getBooks($author, $categories, $lang){
         $items = [];
         foreach($author->books->where('Lang', $lang) as $k => $book){
+            if($book->category->first()){
+                foreach($categories as $key => $category){
+                    if($book->category->first()->id == $category->id){
+                        $items[$category->id]['category'] = $category;
+                        $items[$category->id]['books'][] = $book;
+                    }
+                }
+            }
+            else{
+                $items[0]['books'][] = $book;
+            }
+        }
+        return $items;
+    }
+    
+    public function getBooksTranslate($author, $categories, $lang){
+        $items = [];
+        foreach($author->translate->where('Lang', $lang) as $k => $book){
             if($book->category->first()){
                 foreach($categories as $key => $category){
                     if($book->category->first()->id == $category->id){

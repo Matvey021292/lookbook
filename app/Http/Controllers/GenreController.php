@@ -23,8 +23,17 @@ class GenreController extends SiteController
 
     public function index(){
         $count = Config::get('settings.home_post_count');
-        $categories = $this->c_rep->getGenre('*', false , false, $pagination = false, $desc = false);
-        $content = view(env('THEME').'.genre_book')->with('categories', $categories)->render();
+        $categories = $this->c_rep->getGenres('*', false , false, $pagination = true, $desc = false);
+        $content = view(env('THEME').'.genres_book')->with('categories', $categories)->render();
+        $this->vars = array_add($this->vars,'content', $content);
+        return $this->renderOutput();
+    }
+
+    public function show($alias){
+        $count = Config::get('settings.pagination');
+        $category = $this->c_rep->getGenre($alias);
+        $books = $category->book()->paginate();
+        $content = view(env('THEME').'.genre_book')->with('category', $category)->with('books', $books)->render();
         $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();
     }

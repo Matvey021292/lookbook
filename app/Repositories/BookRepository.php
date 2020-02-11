@@ -11,12 +11,27 @@ class BookRepository extends Repository{
 	}
 
 	public function getBooks($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
-		$books = $this->get($select, $count, $rand,  $pagination, $desc);
-        if ($books->isEmpty()) {
-            return false;
+	if (!$desc) {
+            $builder = $this->model->select($select);
+        } else {
+            $builder = $this->model->select($select)->orderBy('id', 'DESC');
 		}
-        return $books;
-	}
+
+		$builder = $this->model->select($select)->where('Deleted', '=', 0);
+		
+		if ($count) {
+            if ($rand) {
+                $builder->inRandomOrder()->take($count);
+            } else {
+                $builder->take($count);
+            }
+        }
+        
+        if ($pagination) {
+            return $builder->paginate(Config::get('settings.pagination'));
+        }
+        return $builder->get();
+    }
 
 	public function getBook($alias){
 		return $this->model->where('id', $alias)->first();

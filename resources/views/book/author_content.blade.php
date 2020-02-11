@@ -12,12 +12,21 @@
             <div class="AuthorDetailHeader__authorInfoBlock">
                 <h2 class=" section-title">{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}</h2>
             </div>
-            <ul class="mt-1 d-flex icon-row text-right">
+            <ul class="mt-1  icon-row text-right">
                 <li>
+                    <span>Ссылка Википедия: </span>
                     <a href="https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}">
-                        <img class="icon" src="{{ asset(env("THEME")) }}/images/wikipedia.svg" alt="wikipedia">
+                         https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}
                     </a>
                 </li>
+                @if($author->HomePage)
+                <li>
+                    <span>Сайт Автора: </span>
+                    <a href="{{$author->HomePage}}">
+                         {{$author->HomePage}}
+                    </a>
+                </li>
+                @endif
             </ul>
             <span class="Button__secondaryButton smallSize mt-1">
                 <small><i class="fas fa-plus"></i></small> Добавить в избранное

@@ -469,7 +469,6 @@
  .swiper-container {
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   list-style: none;
   padding: 0;
   width: 100%;
@@ -1116,10 +1115,9 @@ button.swiper-pagination-bullet {
 .BookCover__book {
   position: relative;
   box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
-  border-radius: 8px;
   font-size: 0;
   background: #f7f7f7;
-  overflow: hidden; }
+ }
   .BookCover__book::after {
     content: "";
     position: absolute;

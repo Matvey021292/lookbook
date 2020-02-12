@@ -609,6 +609,7 @@ a:hover{
 
 .BookCover__bookImage{
     object-fit: cover;
+    border-radius: 8px;
 }
 
 .glide__arrows{
@@ -1135,7 +1136,7 @@ body>.loader{
     opacity: 0.8;
     padding: 4px 10px 10px 4px;
     color: #fff !important;
-    transform: translate(-100%,-100%);
+    opacity: 0;
     transition: all 0.2s ease;
 }
 
@@ -1145,7 +1146,7 @@ body>.loader{
 }
 
 .VerticalBookCard__tinyBook:hover .book_info{
-    transform: translate(-0%,-0%);
+    opacity: 1;
 }
 
 .VerticalBookCard__tinyBook:hover .card_link{
@@ -1185,3 +1186,49 @@ body>.loader{
         font-size: 15px;
     }
 }
+.VerticalBookCard__tinyBook{
+    position: relative;
+}
+
+.container_more{
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: rgba(0,0,0,.2);
+    color: #000;
+    display: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    border-radius: 8px;
+    z-index: 9;
+    padding: 15px 20px;
+    animation: gb__a .2s;
+}
+.link_more{
+    cursor: pointer;
+}
+
+.link_more:hover .container_more{
+    display: block;
+}
+
+.container_more li,
+.container_more>div{
+    white-space: nowrap;
+}
+.container_more>div:first-child{
+    margin-top: 0;
+}
+
+.book_info .container_more{
+    margin-left: 18px;
+    top: 0;
+    bottom: auto;
+    margin-top: 18px;
+    line-height: 1.4;
+    color: #7c7f84;
+    font-size: 14px;
+}
+
+@keyframes gb__a{0%{opacity:0}50%{opacity:1}}

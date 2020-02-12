@@ -69,7 +69,7 @@ Route::resource('genre', 'GenreController', [
     ],
 ]);
 
-Route::resource('categories', 'GenreController');
+Route::resource('genres', 'GenreController');
 
 Route::resource('publisher', 'PublisherController', [
     'parameters' => [

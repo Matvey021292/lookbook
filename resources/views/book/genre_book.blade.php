@@ -18,4 +18,7 @@
         </div>
     </div>
 </div>
+<div class="row center-xs mt-5">
+    {{ $books->links() }}
+</div>
 @endif

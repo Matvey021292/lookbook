@@ -46,6 +46,7 @@ class AuthorController extends SiteController
         $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->with('tranlate_items', $tranlate_items)->render();
         
         $this->vars = array_add($this->vars,'books', $books);
+        $this->vars = array_add($this->vars,'author', $author);
         $this->vars = array_add($this->vars,'translate_books', $translate_books);
         $this->vars = array_add($this->vars,'content', $content);
         

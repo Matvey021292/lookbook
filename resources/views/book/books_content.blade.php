@@ -1,6 +1,6 @@
 @if($books)
 <div class="single-slider">
-    <div class=" billetContainerNoOverflow vc_column-inner">
+    <div class="billetContainerNoOverflow vc_column-inner">
         <div class="wpb_wrapper">
             <div class="billetContainerWrapper">
                 <div class="d-inline-flex">

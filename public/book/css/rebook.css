@@ -1112,40 +1112,7 @@ button.swiper-pagination-bullet {
   -webkit-filter: blur(3px);
           filter: blur(3px); }
 
-.BookCover__book {
-  position: relative;
-  box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
-  font-size: 0;
-  background: #f7f7f7;
- }
-  .BookCover__book::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-    background-size: contain; }
-  .BookCover__book.BookCover__-free::after {
-    background-image: url(../images/book-cover-free_3559505a.svg); }
-  .BookCover__book.BookCover__-standard::after {
-    background-image: url(../images/book-cover-standard_c4a53dea.svg); }
-  .BookCover__book.BookCover__-premium::after {
-    background-image: url(../images/book-cover-premium_4b43cfdd.svg); }
-  .BookCover__book.BookCover__isActive {
-    width: 110px;
-    height: 160px;
-    box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid #fec41f; }
-/*  .BookCover__book.BookCover__isAudioBook:after {
-    margin-right: 4px;
-    margin-bottom: 4px;
-    background-image: url(../images/book-cover-audio-book_dc65033e.svg); }*/
-  .BookCover__bookImage {
-    max-width: 100%; }
+
 
 .BookCover__bookAvailableAttention {
   position: absolute;
@@ -7297,15 +7264,6 @@ li.page-item a,
     background-image: url(../images/arrow_57df35f6.svg); }
   .AuthorDetailView__linkToSettingsButton:hover .AuthorDetailView__settingsLinkText {
     background-image: url(../images/arrow-hover_f13ec3e5.svg); }
-
-
-
-
-
-.ContextAuthorCard__authorImage {
-  border-radius: 8px; }
-
-
 
 .ContextAuthorCardEmpty__author {
   display: flex;

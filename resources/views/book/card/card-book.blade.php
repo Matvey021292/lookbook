@@ -16,7 +16,7 @@
             <span>{{ $book->Title }}</span>
         </a>
         @if($author)
-            @include(env('THEME') . '.card.card-authors', ['authors' => $book->authors])
+        @include(env('THEME') . '.card.card-authors', ['authors' => $book->authors])
         @endif
     </div>
 </div>

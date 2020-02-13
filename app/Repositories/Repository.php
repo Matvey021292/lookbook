@@ -12,7 +12,6 @@ abstract class Repository
     
     public function get($select = '*', $take = false, $rand = false, $pagination = false, $desc = false)
     {
-        
         if (!$desc) {
             $builder = $this->model->select($select);
         } else {

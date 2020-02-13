@@ -11,12 +11,25 @@ class AuthorsRepository extends Repository{
         $this->model = $authors;
     }
     
-    public function getAuthors($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
-        $authors = $this->get($select, $count, $rand,  $pagination, $desc);
-        if ($authors->isEmpty()) {
-            return false;
+    public function getAuthors($select = '*', $take = false,  $rand = false, $pagination = false , $desc = false){
+        if (!$desc) {
+            $builder = $this->model->select($select);
+        } else {
+            $builder = $this->model->select($select)->orderBy('id', 'DESC');
         }
-        return $authors;
+        if ($take) {
+            if ($rand) {
+                $builder->inRandomOrder()->take($take);
+            } else {
+                $builder->take($take);
+            }
+        }
+
+        if ($pagination) {
+            return $builder->paginate($pagination);
+        }
+
+        return $builder->get();
     }
     
     public function getCatMenu($menu, $books){
@@ -33,7 +46,7 @@ class AuthorsRepository extends Repository{
         });
         return $mBuilder;
     }
-
+    
     public function getAuthor($id)
     {
         return $this->model->where('id', $id)->first();

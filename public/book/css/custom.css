@@ -363,6 +363,9 @@ a:hover{
     margin-right: 0;
 }
 
+.VerticalBookCard__tinyBook{
+    margin-bottom: 10px;
+}
 
 .swiper-wrapper{
     flex-wrap: wrap;
@@ -607,13 +610,19 @@ a:hover{
     line-height: 1;
 }
 
-.BookCover__bookImage{
-    object-fit: cover;
+.BookCover__book {
+    position: relative;
+    font-size: 0;
+}
+
+.BookCover__bookImage,
+.BookCover__book img{
     border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
 }
 
 .glide__arrows{
-    /* opacity: 0; */
     transition: all 0.3s ease;
 }
 
@@ -675,9 +684,10 @@ label[for='autoComplete']{
     padding-left: 30px;
 }
 
-.ContextAuthorCard__authorImage{
+.card_image{
     object-fit: cover;
     width: 100%;
+    border-radius: 8px;
 }
 
 .ContentCarousel__wrapper{
@@ -1116,9 +1126,8 @@ body>.loader{
     z-index: 9;
     display: inline-block;
     font-size: 16px;
-    background: #222;
-    border: 1px solid #222;
-    border-radius: 0px 0px 50px;
+    background: rgba(37, 38, 40,0.8);
+    border-radius: 15px 0px 50px;
     opacity: 0.8;
     padding: 4px 10px 10px 4px;
     color: #fff !important;
@@ -1249,4 +1258,20 @@ body>.loader{
 
 .breadcrumb li:last-child::after{
     content: '';
+}
+
+.card_wrapper__x{
+    display: flex;
+}
+
+.card_wrapper__x .card_wrapper_image{
+    flex: 1 1 20%;
+    min-width: 60px;
+    position: relative;
+}
+
+.card_wrapper__x .card_wrapper_context{
+    flex: 1 1 80%;
+    margin-left: 10px;
+    margin-top: 5px;
 }

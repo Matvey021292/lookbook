@@ -3,18 +3,19 @@
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">
             <h2 class="section-title">
-                <a href="{{ route('genre.show', ['alias'=> $category->id]) }}">{{ $category->Title }}</a>
+                {{ $category->Title }}
             </h2>
         </div>
-        <div class="ContentCarousel__wrapper glide">
-            <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swizper-container-free-mode">
-                <div class="swiper-wrapper glide__slides">
+        <div class="ContentCarousel__wrapper ">
+            <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">
+                <div class="swiper-wrapper row">
                     @foreach ($books as $book)
-                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => true])
+                    <div class="col-md-6">
+                        @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book,'book' => $book, 'carousel' => false, 'desc' => true])
+                    </div>
                     @endforeach
                 </div>
             </div>
-            @include(env('THEME') . '.custom.card-custom')
         </div>
     </div>
 </div>

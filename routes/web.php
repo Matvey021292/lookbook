@@ -55,21 +55,26 @@ Route::get('/authors', 'AuthorsController@index')->name('authors');
 //     ],
 // ]);
 
-
-
 Route::resource('category', 'CategoriesController', [
     'parameters' => [
         'category' => 'alias',
     ],
 ]);
 
+
 Route::resource('genre', 'GenreController', [
     'parameters' => [
-        'category' => 'alias',
+        'genre' => 'alias',
     ],
 ]);
 
-Route::resource('genres', 'GenreController');
+Route::resource('genres', 'GenreController', [
+    'parameters' => [
+        'genres' => 'alias',
+    ],
+]);
+
+
 
 Route::resource('publisher', 'PublisherController', [
     'parameters' => [

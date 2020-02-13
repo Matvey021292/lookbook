@@ -32,7 +32,7 @@ class GenreController extends SiteController
     public function show($alias){
         $count = Config::get('settings.pagination');
         $category = $this->c_rep->getGenre($alias);
-        $books = $category->book()->paginate();
+        $books = $category->book()->paginate($count);
         $content = view(env('THEME').'.genre_book')->with('category', $category)->with('books', $books)->render();
         $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();

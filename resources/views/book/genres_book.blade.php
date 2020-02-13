@@ -1,3 +1,4 @@
+@if($categories)
 <div class="wrapper-row">
     @foreach($categories as $category)
     <div class="AuthorDetailView__container billetContainerNoOverflow">
@@ -6,6 +7,7 @@
                 <a href="{{ route('genre.show', ['alias'=> $category->id]) }}">{{ $category->Title }}</a>
             </h2>
         </div>
+        @if(!$category->book->isEmpty())
         <div class="ContentCarousel__wrapper glide">
             <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swizper-container-free-mode">
                 <div class="swiper-wrapper glide__slides">
@@ -16,9 +18,11 @@
             </div>
             @include(env('THEME') . '.custom.card-custom')
         </div>
+        @endif
     </div>
     @endforeach
     <div class="row center-xs mt-5">
         {{ $categories->links() }}
     </div>
 </div>
+@endif

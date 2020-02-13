@@ -1047,20 +1047,6 @@ body>.loader{
     position: fixed;
 }
 
-.row-3{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.row-3>*{
-    flex: 1 1 33%;
-    margin: 0 !important;
-    padding-right: 10px;
-    min-width: 330px;
-    margin-bottom: 10px !important;
-    padding: 0;
-}
-
 .select{
     background: #f9f9f9;
     border: 1px solid #acbbc9;
@@ -1204,6 +1190,8 @@ body>.loader{
     z-index: 9;
     padding: 15px 20px;
     animation: gb__a .2s;
+    max-height: 230px;
+    overflow: auto;
 }
 .link_more{
     cursor: pointer;
@@ -1232,3 +1220,15 @@ body>.loader{
 }
 
 @keyframes gb__a{0%{opacity:0}50%{opacity:1}}
+
+.c_scroll::-webkit-scrollbar{width:16px}
+
+.c_scroll::-webkit-scrollbar-thumb {
+	background: #dadce0;
+	background-clip: padding-box;
+	border: 4px solid transparent;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: none;
+	box-shadow: none
+}

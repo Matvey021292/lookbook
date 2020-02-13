@@ -4,7 +4,7 @@
         <div  class="swiper-container swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper" >
                 @foreach($books as $book)
-                {{-- @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => false]) --}}
+                @include(env('THEME') . '.card.card-book', ['items'=>$book, 'book' => $book, 'carousel' => false])
                 @endforeach
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="swiper-wrapper glide__slides">
                 @foreach($books as $book)
                 @if($book->category_id == $item->id)
-                {{-- @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false]) --}}
+                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
                 @endif
                 @endforeach
             </div>

@@ -7,7 +7,7 @@
             </div>
             <br>
             @foreach($categories as $cat)
-            <a class="d-inline-block p-1 pl-0" href="{{ route('category.show', ['alias' => $cat->id]) }}">
+            <a class="d-inline-block p-1 pl-0" href="{{ route('categories.show', ['alias' => $cat->id]) }}">
                 <div style="max-width:unset" class="TagLabel__grey">
                     {{$cat->Title}}
                 </div> 

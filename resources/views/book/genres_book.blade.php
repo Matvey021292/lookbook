@@ -16,7 +16,6 @@
                     @endforeach
                 </div>
             </div>
-            @include(env('THEME') . '.custom.card-custom')
         </div>
         @endif
     </div>

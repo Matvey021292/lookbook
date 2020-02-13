@@ -17,11 +17,7 @@
         </a>
         @include(env('THEME') . '.rating', ['items'=>$book,'book' => $book])
         @if($book->authors)
-        @foreach($book->authors as $author)
-        <div class="VerticalBookCard__bookAuthorWrapper">
-            <a class="VerticalBookCard__bookAuthor" href="{{ route('author.show', ['alias'=> $author->id]) }}"><span>{{ $author->FirstName }} {{ $author->LastName }}</span></a>
-        </div>
-        @endforeach
+            @include(env('THEME') . '.card.card-authors', ['authors' => $book->authors])
         @endif
         @if($desc)
         @if($book->desc)

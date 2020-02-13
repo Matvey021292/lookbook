@@ -1,42 +1,34 @@
-<p class="mb-2">Поиск запросу «{{request()->get('query')}}»</p>
-@if(isset($search->books))
-<div class="container">
-    <div class="wpb_column vc_column_container vc_col-sm-12">
-        <div class="vc_column-inner vc_custom_1504607702805">
-            <div class="wpb_wrapper">
-                <div class="heading-3 clearfix">
-                    <h2 class="section-title">Книги</h2>
-                    
-                </div>
-                <div class="ContentCarousel__wrapper">
-                    <div data-glide-el="track" class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
-                        <div class="swiper-wrapper row-3">
-                            @foreach($search->books as $book)
-                            @include(
-                            env('THEME') . '.card.card-book-horizontally', 
-                            ['items'=>$book,
-                            'book' => $book, 
-                            'carousel' => false, 
-                            'desc' => true]
-                            )
-                            @endforeach
+<div class="wrapper-row">
+    <div class="AuthorDetailView__container billetContainerNoOverflow">
+        <div class="AuthorDetailListTitle__container">
+            <p class="mb-2">Поиск запросу «{{request()->get('query')}}»</p>
+        </div>
+        @if(isset($search->books))
+            <div class="AuthorDetailListTitle__container">
+                <h2 class="section-title">Книги</h2>
+            </div>
+            <div class="ContentCarousel__wrapper ">
+                <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">
+                    <div class="swiper-wrapper row">
+                        @foreach($search->books as $book)
+                        <div class="col-md-6">
+                            @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book, 'book' => $book,  'carousel' => false,  'desc' => true] )
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+        @endif
+        @if(isset($search->authors))
+        <div class="heading-3 ">
+            <h2 class="section-title">Авторы</h2>
         </div>
-    </div>
-    @endif
-    <br>
-    @if(isset($search->authors))
-    <div class="heading-3 ">
-        <h2 class="section-title">Авторы</h2>
-    </div>
-    <div class="ContentCarousel__wrapper">
-        <div class="AuthorList__authorList w-100 row">
-            @foreach($search->authors as $author)
+        <div class="ContentCarousel__wrapper">
+            <div class="AuthorList__authorList w-100 row">
+                @foreach($search->authors as $author)
                 @include(env('THEME') . '.card.card-author', ['author' => $author])
-            @endforeach
-        </div>  
+                @endforeach
+            </div>  
+        </div>
+        @endif
     </div>
-    @endif

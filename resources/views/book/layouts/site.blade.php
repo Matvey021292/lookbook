@@ -42,7 +42,7 @@
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
                                             <form action="/qsearch" method='GET'>
-                                                <input autocomplete="off" name="query" value="{{ old('query') }}"id="autoComplete" 
+                                                <input autocomplete="off" name="query" value="{{request()->get('query')}}"id="autoComplete" 
                                                 tabindex="1" type="text"
                                                 class="SearchLine__darkInput jest-search-input">
                                                 <label for="autoComplete"><i class="fas fa-search"></i></label>

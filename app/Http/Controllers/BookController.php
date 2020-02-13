@@ -38,6 +38,7 @@ class BookController extends SiteController
         $aside = view(env('THEME'). '.book_aside')->with('formats',$formats)->with('book', $book)->render();
         
         $this->vars = array_add($this->vars, 'content', $content);
+        $this->vars = array_add($this->vars, 'book', $book);
         $this->vars = array_add($this->vars, 'aside', $aside);
         
         $this->review_reposytory->addView($book->id);

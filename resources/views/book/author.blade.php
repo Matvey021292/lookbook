@@ -1,10 +1,10 @@
 @extends(env('THEME').'.layouts.site')
-
 @section('nav')
-    {!! $nav !!}
+{!! $nav !!}
 @endsection
 @section('authors_content')
-    {!! $content !!}
+{!! Breadcrumbs::render('author', $author) !!}
+{!! $content !!}
 @endsection
 @section('customCategoryItems')
 {!! $books !!}

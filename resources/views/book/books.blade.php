@@ -3,10 +3,8 @@
 @section('nav')
 {!! $nav !!}
 @endsection
-{{-- @section('category_book')
-{!! $category !!}
-@endsection --}}
 @section('books_content')
+{!! Breadcrumbs::render('books') !!}
 {!! $content !!}
 @endsection
 

@@ -1232,3 +1232,21 @@ body>.loader{
 	-webkit-box-shadow: none;
 	box-shadow: none
 }
+
+.breadcrumb{
+    display: flex;
+    margin-bottom: 5px;
+}
+    
+.breadcrumb li{
+    margin-right: 5px;
+}
+
+.breadcrumb li:after{
+    content: ' » ';
+    margin-left: 5px;
+}
+
+.breadcrumb li:last-child::after{
+    content: '';
+}

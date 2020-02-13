@@ -1,5 +1,4 @@
 @extends(env('THEME').'.layouts.site')
-
 @section('nav')
 {!! $nav !!}
 @endsection
@@ -7,6 +6,7 @@
 {!! $aside !!}
 @endsection
 @section('book_content')
+{!! Breadcrumbs::render('book', $book) !!}
 {!! $content !!}
 @endsection
 

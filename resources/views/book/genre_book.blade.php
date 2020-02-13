@@ -1,9 +1,9 @@
-@if($books)
+@if($genre)
 <div class="wrapper-row">
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">
             <h2 class="section-title">
-                {{ $category->Title }}
+                {{ $genre->Title }}
             </h2>
         </div>
         <div class="ContentCarousel__wrapper ">

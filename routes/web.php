@@ -49,11 +49,12 @@ Route::resource('books', 'BooksController', [
 ]);
 
 Route::get('/authors', 'AuthorsController@index')->name('authors');
-// Route::resource('authors', 'AuthorsController', [
-//     'parameters' => [
-//         'authors' => 'alias',
-//     ],
-// ]);
+
+Route::resource('author', 'AuthorController', [
+    'parameters' => [
+        'author' => 'alias',
+    ],
+]);
 
 Route::resource('category', 'CategoriesController', [
     'parameters' => [
@@ -87,13 +88,6 @@ Route::resource('content', 'ContentBook', [
         'content' => 'alias',
     ],
 ]);
-
-Route::resource('author', 'AuthorController', [
-    'parameters' => [
-        'author' => 'alias',
-    ],
-]);
-
 
 Route::resource('profile', 'ProfileController', [
 

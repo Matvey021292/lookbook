@@ -1,29 +1,51 @@
 <?php
 
-// Home
-Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Главная страница', route('home'));
+Breadcrumbs::register('home', function ($breadcrumbs) {
+    
+    $breadcrumbs->push('Главная', url('/'));
+    
 });
 
-// Home > About
-Breadcrumbs::register('authors', function ($trail) {
-    $trail->parent('home');
-    $trail->push('Авторы', route('authors'));
+Breadcrumbs::register('books', function ($breadcrumbs) {
+    
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Книги', url('/books'));
+    
 });
 
-Breadcrumbs::register('author', function ($trail) {
-    $trail->parent('home');
-    $trail->push('author', route('author'));
+Breadcrumbs::register('book', function ($breadcrumbs, $book) {
+    
+    $breadcrumbs->parent('books');
+    $breadcrumbs->push($book->Title, route('book.show', ['name' => $book ->Title]));
+    
 });
 
-// Home > Blog > [Category]
-Breadcrumbs::for('category', function ($trail, $category) {
-    $trail->parent('blog');
-    $trail->push($category->title, route('category', $category->id));
+Breadcrumbs::register('authors', function ($breadcrumbs) {
+    
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Авторы', url('/authors'));
+
 });
 
-// Home > Blog > [Category] > [Post]
-Breadcrumbs::for('post', function ($trail, $post) {
-    $trail->parent('category', $post->category);
-    $trail->push($post->title, route('post', $post->id));
+Breadcrumbs::register('author', function ($breadcrumbs, $author) {
+    
+    $breadcrumbs->parent('authors');
+    $breadcrumbs->push($author->Name, route('author.show', ['name' => $author ->Name]));
+
+});
+
+
+Breadcrumbs::register('genres', function ($breadcrumbs) {
+    
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Категории', url('/genres'));
+
+});
+
+
+Breadcrumbs::register('genre', function ($breadcrumbs, $genre) {
+    
+    $breadcrumbs->parent('genres');
+    $breadcrumbs->push($genre->Title, route('book.show', ['name' => $genre ->Title]));
+
 });

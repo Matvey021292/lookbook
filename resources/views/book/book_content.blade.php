@@ -1,3 +1,4 @@
+
 @if($book)
 <div>
     <div class="BookPageHeaderContent__cover billetContainerNoOverflow">

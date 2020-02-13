@@ -1,8 +1,9 @@
 @extends(env('THEME').'.layouts.site')
 
 @section('nav')
-    {!! $nav !!}
+{!! $nav !!}
 @endsection
 @section('authors_content')
-    {!! $content !!}
+{!! Breadcrumbs::render('authors') !!}
+{!! $content !!}
 @endsection

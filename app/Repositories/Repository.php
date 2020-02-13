@@ -27,7 +27,7 @@ abstract class Repository
         }
         
         if ($pagination) {
-            return $builder->paginate(Config::get('settings.pagination'));
+            return $builder->paginate($pagination);
         }
         return $builder->get();
     }

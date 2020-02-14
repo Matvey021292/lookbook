@@ -2,7 +2,7 @@
 <div class="billetContainerNoOverflow">
     <div class="billetContainerWrapper">
         <div class="LandingContentContainer__title d-flex-center">
-            <div class="section-title">Личный кабинет</div>
+        <div class="section-title">{{ __('Личный кабинет') }}</div>
         </div>
     </div>
     <form class="ContentCarousel__wrapper" action="{{ route('profile.update') }}" method="POST" name="form-profile-edit" role="form" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
                     <div class="col-md-4">
                         <div class="Form__form">
                             <div class="Form__formRow"><span class="FormTextInput__formTextInput">
-                                <label class="FormTextInput__label" >Логотип профиля</label>
+                                <label class="FormTextInput__label" >{{ __('Логотип профиля')}}</label>
                             </span>
                         </div>
                         
@@ -34,11 +34,11 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="UserSettingsAvatar__description"><small>Картинка в форматах png и jpg.</small></div>
+                                <div class="UserSettingsAvatar__description"><small>{{ __('Картинка в форматах png и jpg.') }}</small></div>
                                 <div class="UserSettingsAvatar__control">
                                     <span class="Button__secondaryButton smallSize FileInput__fileInput jest-avatar-input">
                                         <span>
-                                            <span>Сменить изображение</span>
+                                            <span>{{ __('Сменить изображение')}}</span>
                                             <label class="FileInput__container">
                                                 <span class="FileInput__holder">
                                                     <input name="profile_image" accept="image/jpeg,image/png" type="file">
@@ -118,12 +118,14 @@
             </div>
         </form>
     </div>
-    @if($user->books)
     <br>
+    @if(!$user->books->isEmpty())
     <div class="billetContainerNoOverflow" id="mybook">
         <div class="billetContainerWrapper">
             <div class="LandingContentContainer__title">
-                <div class="section-title">Мои книги</div>
+                <div class="section-title">
+                    {{__('Мои книги')}}
+                </div>
             </div>
         </div>
         @if(count($user->books) > 7)

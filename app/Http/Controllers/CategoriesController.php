@@ -19,13 +19,13 @@ class CategoriesController extends SiteController
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->c_rep = $c_rep;
         $this->b_rep = $b_rep;
-        $this->template = env('THEME') . '.books';
+        $this->template = env('THEME') . '.category';
     }
 
     public function index(){
         $count = Config::get('settings.home_post_count');
-        $categories = $this->c_rep->getCategories('*', false , false, $pagination = true, $desc = false);
-        $content = view(env('THEME').'.category_book')->with('categories', $categories)->render();
+        $categories = $this->c_rep->getCategories('*', false , false, $count, $desc = false);
+        $content = view(env('THEME').'.categories_content')->with('categories', $categories)->render();
         $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();
     }
@@ -35,9 +35,9 @@ class CategoriesController extends SiteController
         $count = Config::get('settings.home_post_count');
         
         $category = $this->c_rep->getCategory($alias);
-        $books = $category->book()->paginate(20);
+        $books = $category->books()->paginate(20);
 
-        $content = view(env('THEME') . '.category')->with('books', $books)->with('category', $category)->render();
+        $content = view(env('THEME') . '.category_book')->with('books', $books)->with('category', $category)->render();
         $this->vars = array_add($this->vars, 'content', $content);
 
         return $this->renderOutput();

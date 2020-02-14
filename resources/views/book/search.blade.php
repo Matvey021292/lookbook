@@ -2,8 +2,9 @@
 @section('Title', __('Search by word ') . '«' . request()->get('query') . '»')
 
 @section('nav')
-    {!! $nav !!}
+{!! $nav !!}
 @endsection
 @section('search_content')
-    {!! $content !!}
+{!! Breadcrumbs::render('search') !!}
+{!! $content !!}
 @endsection

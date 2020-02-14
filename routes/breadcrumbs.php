@@ -49,3 +49,11 @@ Breadcrumbs::register('genre', function ($breadcrumbs, $genre) {
     $breadcrumbs->push($genre->Title, route('book.show', ['name' => $genre->Title]));
     
 });
+
+Breadcrumbs::register('search', function ($breadcrumbs) {
+    
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(__('Поиск'), url('/qsearch'));
+    
+});
+

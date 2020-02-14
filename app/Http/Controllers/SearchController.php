@@ -86,7 +86,7 @@ class SearchController extends SiteController
         
         $search = (object) array();
 
-        $books = $this->b_rep->getBookByTitle($query, Config::get('settings.simple_search'));
+        $books = $this->b_rep->getBookByTitle($query);
 
         if ($books->isNotEmpty()) {
             $search->books = $books;
@@ -96,7 +96,7 @@ class SearchController extends SiteController
             });
         }
         
-        $authors =  $this->a_rep->getAuthorByTitle($query, Config::get('settings.simple_search'));
+        $authors =  $this->a_rep->getAuthorByTitle($query);
 
         if ($authors->isNotEmpty()) {
             $search->authors = $authors;

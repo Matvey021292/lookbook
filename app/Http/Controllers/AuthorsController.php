@@ -17,7 +17,6 @@ class AuthorsController extends SiteController
     public function index(){
         $count = Config::get('settings.pagination');
         $authors = $this->a_rep->getAuthors('*', false, false, $count ,true);
-
         $content = view(env('THEME').'.authors_content')->with('authors', $authors)->render();
         
         $this->vars = array_add($this->vars,'content', $content);

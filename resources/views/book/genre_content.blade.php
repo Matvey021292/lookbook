@@ -6,8 +6,8 @@
                 {{ $genre->Title }}
             </h2>
         </div>
-        <div class="ContentCarousel__wrapper ">
-            <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">
+        <div class="ContentCarousel__wrapper">
+            <div class="swiper-container swiper-container-horizontal swizper-container-free-mode">
                 <div class="swiper-wrapper row">
                     @foreach ($books as $book)
                     <div class="col-md-6">

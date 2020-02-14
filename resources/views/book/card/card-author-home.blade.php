@@ -2,16 +2,12 @@
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book BookCover__isAudioBook jest-book-cover" style="width:124px;height:124px">
             <a href="{{ route('author.show', ['alias' => $author->id]) }}">
-                @if($author->picture)
-                <img
-                src="{{ config('settings.file_path_author') }}{{$author->picture->File}}"
-                class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                alt="{{ $author->title }}">
+                @if($author->picture && file_exists($author->picture))
+                <img src="{{ config('settings.file_path_author') }}{{$author->picture->File}}" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="{{ $author->title }}">
                 @else
-                <img
-                src="http://placehold.it/124x124"
-                class="attachment-shop_catalog size-shop_catalog wp-post-image"
-                alt="{{ $author->title }}">
+                <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+                    <span class="card_cover_author">{{ $author->FirstName }} {{ $author->LastName }}</span>
+                </div>
                 @endif
             </a>
         </div>

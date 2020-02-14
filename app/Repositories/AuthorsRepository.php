@@ -15,7 +15,7 @@ class AuthorsRepository extends Repository{
         if (!$desc) {
             $builder = $this->model->select($select);
         } else {
-            $builder = $this->model->select($select)->orderBy('id', 'DESC');
+            $builder = $this->model->select($select)->orderBy('LastName', 'DESC');
         }
         if ($take) {
             if ($rand) {
@@ -24,6 +24,12 @@ class AuthorsRepository extends Repository{
                 $builder->take($take);
             }
         }
+
+        $builder = $builder->join('author_book_count', function ($join) {
+            $join->on('author.id', '=', 'author_book_count.author_ID');
+        });
+       
+        $builder = $builder->where('count', '>', 1);
 
         if ($pagination) {
             return $builder->paginate($pagination);

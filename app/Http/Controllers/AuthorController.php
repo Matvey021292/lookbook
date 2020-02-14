@@ -38,7 +38,6 @@ class AuthorController extends SiteController
         
         $items = $this->getBooks($author, $categories, $lang);
         $tranlate_items = $this->getBooksTranslate($author, $categories, $lang);
-
         
         ksort($items);
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
@@ -89,17 +88,17 @@ class AuthorController extends SiteController
     
     public function getBooksTranslate($author, $categories, $lang){
         $items = [];
-        foreach($author->translate->where('Lang', $lang) as $k => $book){
-            if($book->category->first()){
+        foreach($author->translate->where('Lang', $lang) as $k => $books){
+            if($books->category->first()){
                 foreach($categories as $key => $category){
-                    if($book->category->first()->id == $category->id){
+                    if($books->category->first()->id == $category->id){
                         $items[$category->id]['category'] = $category;
-                        $items[$category->id]['books'][] = $book;
+                        $items[$category->id]['books'][] = $books;
                     }
                 }
             }
             else{
-                $items[0]['books'][] = $book;
+                $items[0]['books'][] = $books;
             }
         }
         return $items;

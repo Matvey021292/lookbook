@@ -1318,6 +1318,7 @@ body>.loader{
 
 .card_wrapper__x{
     display: flex;
+    margin-bottom: 20px;
 }
 
 .card_wrapper__x .card_wrapper_image{
@@ -1345,6 +1346,8 @@ body>.loader{
     opacity: 0.1;
     box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
 }
+
+
 
 .card_cover:after{
     content: '';
@@ -1382,6 +1385,14 @@ body>.loader{
     display: block;
     position: relative;
     z-index: 1;
+}
+
+.card_cover_small{
+    padding: 5px;
+}
+
+.card_cover_small .card_cover_author{
+    font-size: 10px;
 }
 
 .card_cover .card_cover_book{

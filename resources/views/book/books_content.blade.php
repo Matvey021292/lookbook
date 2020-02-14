@@ -1,22 +1,20 @@
 @if($books)
-<div class="single-slider">
-    <div class="billetContainerNoOverflow vc_column-inner">
-        <div class="wpb_wrapper">
-            <div class="billetContainerWrapper">
-                <div class="d-inline-flex">
-                    <div class="section-title">Все бесплатные книги</div>
-                    <span class="section-counter">[ {{ $books->total() }} ]</span>
-                </div>
-            </div>
-            <div class="ContentCarousel__wrapper glide" data-slide-count="3">
-                <div data-glide-el="track" class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
-                    <div class="swiper-wrapper glide__slides">
-                        @foreach($books as $book)
-                        @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book,'book' => $book, 'carousel' => true, 'desc' => true])
-                        @endforeach
+<div class="wrapper-row">
+    <div class="AuthorDetailView__container billetContainerNoOverflow">
+        <div class="AuthorDetailListTitle__container">
+            <h2 class="section-title">
+                Все бесплатные книги
+            </h2>
+        </div>
+        <div class="ContentCarousel__wrapper">
+            <div class="swiper-container swiper-container-horizontal swizper-container-free-mode">
+                <div class="swiper-wrapper row">
+                    @foreach ($books as $book)
+                    <div class="col-md-6">
+                        @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book,'book' => $book, 'carousel' => false, 'desc' => true])
                     </div>
+                    @endforeach
                 </div>
-                @include(env('THEME') . '.custom.card-custom')
             </div>
         </div>
     </div>
@@ -24,7 +22,6 @@
         {{ $books->links() }}
     </div>
 </div>
-
 @else
 <div class="container">
     <div class="row">

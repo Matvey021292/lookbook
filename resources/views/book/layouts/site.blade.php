@@ -63,7 +63,6 @@
                                 <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
                                     <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}  &nbsp; | &nbsp; 
                                 </a>
-                                
                                 <a href="/profile" class="Header__link"> 
                                     <i class="far fa-address-card"></i> {{__('Личный кабинет')}}
                                 </a>

@@ -5,7 +5,7 @@
         <div class="section-title">{{ __('Личный кабинет') }}</div>
         </div>
     </div>
-    <form class="ContentCarousel__wrapper" action="{{ route('profile.update') }}" method="POST" name="form-profile-edit" role="form" enctype="multipart/form-data">
+    <form autocomplete="off" class="ContentCarousel__wrapper" action="{{ route('profile.update') }}" method="POST" name="form-profile-edit" role="form" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="backgroundContainer">
             <div class="UserSettingsView__userSettings">
@@ -26,9 +26,11 @@
                             </div>
                             <div class="UserSettingsAvatar__userImage">
                                 <div class="UserSettingsAvatar__userImagePreview">
-                                    @if(!empty($user->profile->image))
-                                    <img class="UserSettingsAvatar__userImagePreviewContent" src="{{ $user->profile->image}}" width="80" height="80">
+                                   
+                                    @if(!Auth::user()->getMedia('profile_image')->isEmpty())
+                                    <img class="UserSettingsAvatar__userImagePreviewContent"  width="80" height="80" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
                                     @else
+                                    <img class="UserSettingsAvatar__userImagePreviewContent"  width="80" height="80" src="">
                                     <span class="UserSettingsAvatar__userImagePreviewContent d-block" width="80" height="80">
                                         {{ strtoupper(substr($user->name, 0, 1)) }}
                                     </span>
@@ -82,7 +84,7 @@
                                 <span class="FormTextInput__formTextInput FormTextInput__passwordInput">
                                     <label class="FormTextInput__label" for="id_new_password">Новый пароль</label>
                                     <span class="FormTextInput__control">
-                                        <input class="FormTextInput__input" id="new_password" name="password" type="password" value="">
+                                        <input autocomplete="off" class="FormTextInput__input" id="new_password" name="password" type="password" >
                                         <button type="button" class="FormTextInput__passwordVisibilitySwitcher">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="FormTextInput__passwordVisibilitySwitcherIcon">
                                                 <path d="M11.5,4A12.325,12.325,0,0,0,0,12a12.266,12.266,0,0,0,23,0A12.324,12.324,0,0,0,11.5,4Zm0,13.333A5.23, 5.23,0,0,1,6.273,12a5.229,5.229,0,1,1,10.455,0A5.23,5.23,0,0,1,11.5,17.333Zm0-8.533A3.112,3.112,0,0,0,8.364, 12a3.137,3.137,0,1,0,6.272,0A3.112,3.112,0,0,0,11.5,8.8Z"></path>
@@ -95,7 +97,7 @@
                                 <span class="FormTextInput__formTextInput FormTextInput__passwordInput">
                                     <label class="FormTextInput__label" >Повторить пароль</label>
                                     <span class="FormTextInput__control">
-                                        <input name="password_confirmation" id="confirm_password" class="FormTextInput__input"  type="password" value="">
+                                        <input name="password_confirmation" id="confirm_password" class="FormTextInput__input"  autocomplete="off">
                                         <button type="button" class="FormTextInput__passwordVisibilitySwitcher">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="FormTextInput__passwordVisibilitySwitcherIcon">
                                                 <path d="M11.5,4A12.325,12.325,0,0,0,0,12a12.266,12.266,0,0,0,23,0A12.324,12.324,0,0,0,11.5,4Zm0,13.333A5.23, 5.23,0,0,1,6.273,12a5.229,5.229,0,1,1,10.455,0A5.23,5.23,0,0,1,11.5,17.333Zm0-8.533A3.112,3.112,0,0,0,8.364, 12a3.137,3.137,0,1,0,6.272,0A3.112,3.112,0,0,0,11.5,8.8Z"></path>

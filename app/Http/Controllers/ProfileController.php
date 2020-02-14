@@ -39,6 +39,12 @@ class ProfileController extends SiteController
         return $this->renderOutput();
     }
     
+    public function addImage($data){
+        $user = $this->user::user();
+        if (isset($data['profile_image'])) {
+            $user->addMediaFromRequest('profile_image')->toMediaCollection('profile_image');
+        }
+    }
     
     public function updateProfile(Request $request)
     {
@@ -74,8 +80,11 @@ class ProfileController extends SiteController
             }
             
             if ($request->has('profile_image')) {
-                $this->deleteOne($profile->image);
-                $profile->image = $this->handleProfileImage($request, $profile);
+                $mediaItems = $user->getMedia('profile_image');
+                if(isset($mediaItems[0])){
+                    $mediaItems[0]->delete();
+                }
+                $profile->image = $this->addImage($request);
                
             }
             
@@ -85,16 +94,6 @@ class ProfileController extends SiteController
             $user->profile()->save($profile);
             
             return redirect()->back()->with(['status' => 'Profile updated successfully.']);
-        }
-        
-        
-        public function handleProfileImage($request, $profile){
-            $image = $request->file('profile_image');
-            $name = Str::slug($request->input('first_name')).'_'.time();
-            $folder = '/uploads/images/';
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            $this->uploadOne($image, $folder, 'public', $name);
-            return $filePath;
         }
         
         public function addBookList(Request $request, Book $book){

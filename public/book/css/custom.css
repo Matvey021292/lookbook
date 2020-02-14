@@ -1403,3 +1403,7 @@ body>.loader{
     position: relative;
     z-index: 1;
 }
+
+.UserSettingsAvatar__userImagePreviewContent[src=""]{
+    display: none;
+}

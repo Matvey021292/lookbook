@@ -2,14 +2,14 @@
 
 Breadcrumbs::register('home', function ($breadcrumbs) {
     
-    $breadcrumbs->push('Главная', url('/'));
+    $breadcrumbs->push(__('Home'), url('/'));
     
 });
 
 Breadcrumbs::register('books', function ($breadcrumbs) {
     
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Книги', url('/books'));
+    $breadcrumbs->push(__('Books'), url('/books'));
     
 });
 
@@ -23,7 +23,7 @@ Breadcrumbs::register('book', function ($breadcrumbs, $book) {
 Breadcrumbs::register('authors', function ($breadcrumbs) {
     
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Авторы', url('/authors'));
+    $breadcrumbs->push(__('Authors'), url('/authors'));
     
 });
 
@@ -38,7 +38,7 @@ Breadcrumbs::register('author', function ($breadcrumbs, $author) {
 Breadcrumbs::register('genres', function ($breadcrumbs) {
     
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Категории', url('/genres'));
+    $breadcrumbs->push(__('Categories'), url('/genres'));
     
 });
 

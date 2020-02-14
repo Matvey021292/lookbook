@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Repositories\AuthorsRepository;
 use App\Repositories\BookRepository;
 use Config;
-use DB;
 use Illuminate\Http\Request;
 
 class SearchController extends SiteController
@@ -55,6 +54,29 @@ class SearchController extends SiteController
         echo json_encode($output);
     }
     
+    public function books(Request $request){
+        $count =  Config::get('settings.pagination');
+        $query = $request->input('query');
+        $books = $this->b_rep->getBookByTitle($query, '', $count);
+        $content = view(env('THEME') . '.books_content')->with('books', $books)->render();
+        $this->vars = array_add($this->vars, 'content', $content);
+        return $this->renderOutput();
+    }
+
+    public function authors(Request $request){
+        $count =  Config::get('settings.pagination');
+        $query = $request->input('query');
+        $authors = $this->a_rep->getAuthorByTitle($query, '', $count);
+        $authors->transform(function ($item, $key) {
+            $item->id = $item->author_ID;
+            return $item;
+        });
+        $content = view(env('THEME') . '.authors_content')->with('authors', $authors)->render();
+        $this->vars = array_add($this->vars, 'content', $content);
+        return $this->renderOutput();
+    }
+    
+
     public function searchIndex(Request $request)
     {
         $query = $request->input('query');
@@ -69,7 +91,7 @@ class SearchController extends SiteController
         if ($books->isNotEmpty()) {
             $search->books = $books;
             $search->books->transform(function ($item, $key) {
-                $item->id = $item->book_ID;
+                $item->id = $item->id;
                 return $item;
             });
         }

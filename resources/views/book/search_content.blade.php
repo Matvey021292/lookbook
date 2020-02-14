@@ -5,7 +5,9 @@
         </div>
         @if(isset($search->books))
         <div class="AuthorDetailListTitle__container">
-            <h2 class="section-title">Книги</h2>
+            <h2 class="section-title">
+                <a href="{{ route('qsearch_book', ['query'=> request()->get('query')]) }}">Книги</a>
+            </h2>
         </div>
         <div class="ContentCarousel__wrapper ">
             <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">
@@ -22,7 +24,9 @@
         <br>
         @if(isset($search->authors))
         <div class="AuthorDetailListTitle__container">
-            <h2 class="section-title">Авторы</h2>
+            <h2 class="section-title">
+                <a href="{{ route('qsearch_author', ['query'=> request()->get('query')]) }}">Авторы</a>
+            </h2>
         </div>
         <div class="ContentCarousel__wrapper ">
             <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">

@@ -14,6 +14,7 @@
                 @endforeach
             </div>
         </div>
+        @include(env('THEME') . '.custom.card-custom')
     </div>
     @else
     <div class="ContentCarousel__wrapper ">
@@ -26,6 +27,6 @@
         </div>
     </div>
     @endif
-    @include(env('THEME') . '.custom.card-custom')
+    
 </div>
 @endif

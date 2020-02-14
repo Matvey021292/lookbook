@@ -1,4 +1,6 @@
 @extends(env('THEME').'.layouts.site')
+@section('Title', $book->Title )
+
 @section('nav')
 {!! $nav !!}
 @endsection

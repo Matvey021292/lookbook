@@ -108,7 +108,10 @@ Route::post('/profile/bookListRemove', 'ProfileController@removeBookList')->name
 
 Route::post('/book/download', 'BookController@download')->name('downloadFile');
 
-Route::get('qsearch', 'SearchController@searchIndex')->name('search');
+Route::get('/qsearch', 'SearchController@searchIndex')->name('search');
+
+Route::get('/qsearch/books', 'SearchController@books')->name('qsearch_book');
+Route::get('/qsearch/authors', 'SearchController@authors')->name('qsearch_author');
 
 Route::get('/search', 'SearchController@search');
 

@@ -1,4 +1,6 @@
 @extends(env('THEME').'.layouts.site')
+@section('Title', $author->LastName . ' ' . $author->FirstName)
+
 @section('nav')
 {!! $nav !!}
 @endsection

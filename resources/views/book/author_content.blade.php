@@ -2,10 +2,12 @@
 <section class="AuthorDetailHeader__wrapper row xs-start mb-4 row-container">
     <div class="AuthorDetailHeader__container billetContainerNoOverflow ">
         <div class="AuthorDetailHeader__image">
-            @if($author->picture)
+            @if($author->picture && file_exists($author->picture->File))
             <img width="128" height="150" src="{{config('settings.file_path_author')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{config('settings.file_path_author')}}{{ $author->picture->File }}">
             @else
-            <img width="128" height="150" src="{{ asset(env("THEME")) }}/images/190x288.jpg" alt="{{ $author->title }}" class="AuthorDetailHeader__photo" >
+            <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+                <span class="card_cover_author">{{ $author->FirstName }} {{ $author->LastName }}</span>
+            </div>
             @endif
         </div>
         <div class="billetContainerWrapper p-0 ">
@@ -16,14 +18,14 @@
                 <li>
                     <span>Ссылка Википедия: </span>
                     <a href="https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}">
-                         https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}
+                        https://ru.wikipedia.org/wiki/{{ $author->LastName }},_{{ $author->FirstName }}
                     </a>
                 </li>
                 @if($author->HomePage)
                 <li>
                     <span>Сайт Автора: </span>
                     <a href="{{$author->HomePage}}">
-                         {{$author->HomePage}}
+                        {{$author->HomePage}}
                     </a>
                 </li>
                 @endif

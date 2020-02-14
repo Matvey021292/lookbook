@@ -3,7 +3,7 @@
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">
             <h2 class="section-title">
-                Все бесплатные книги
+                {{__('Все книги')}} @if(request()->get('query')) {{__('по запросу')}} «{{request()->get('query')}}» @endif
             </h2>
         </div>
         <div class="ContentCarousel__wrapper">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="row center-xs mt-5">
-        {{ $books->links() }}
+        {{$books->appends(request()->input())->links()}}
     </div>
 </div>
 @else
@@ -30,7 +30,7 @@
                 <div class="wpb_wrapper">
                     <div class="heading-2">
                         <div class="wrap-heading">
-                            <h2 style=";color: #888a92;" class="heading">Записей не сушествует</h2>
+                            <h2 style=";color: #888a92;" class="heading">{{__('Записей не сушествует')}}</h2>
                         </div>
                     </div>
                     <div class="vc_empty_space" style="height: 10px">

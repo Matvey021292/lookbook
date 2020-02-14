@@ -1,4 +1,6 @@
 @extends(env('THEME').'.layouts.site')
+@section('Title', __( 'Home' ))
+
 @section('nav')
 {!! $nav !!}
 @endsection

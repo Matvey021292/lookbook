@@ -32,25 +32,42 @@ abstract class Repository
     }
     
     
-    public function getBookByTitle($query, $count){
-        return $this->model
-        ->join('book_inform', 'book.id', '=', 'book_inform.book_ID')
-        ->where('book_inform.Title', 'LIKE', '%' . $query . "%")
-        ->where('Deleted', '=', 0)
-        ->limit($count)
-        ->get();
+    public function getBookByTitle($query, $count = '', $paginate = ''){
+
+        $builder = $this->model
+        ->where('Title', 'LIKE', '%' . $query . "%")
+        ->orWhere('Title1', 'LIKE', '%' . $query . "%")
+        ->where('Deleted', '=', 0);
+
+        if($count){
+            $builder =  $builder->limit($count);
+        }
+
+        if($paginate){
+            return $builder->paginate($paginate);
+        }
+       
+        return $builder->get();
     }
     
     
-    function getAuthorByTitle($query, $count){
-        return $this->model
+    function getAuthorByTitle($query, $count = '', $paginate = ''){
+        $builder = $this->model
         ->where('FirstName', 'LIKE', '%' . $query . "%")
         ->orWhere('LastName', 'LIKE', '%' . $query . "%")
         ->orWhere(DB::raw("CONCAT(`FirstName`, ' ', `LastName`)"), 'LIKE', "%".$query."%")
         ->join('author_book_count', 'author.id', 'author_book_count.author_ID')
-        ->orderBy('count','desc')
-        ->limit($count)
-        ->get();
+        ->orderBy('count','desc');
+
+        if($count){
+            $builder = $builder->limit($count);
+        }
+
+        if($paginate){
+            return $builder->paginate($paginate);
+        }
+
+        return $builder->get();
     }
     
     

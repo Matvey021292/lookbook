@@ -26,12 +26,19 @@ class BooksController extends SiteController
 
         $count = Config::get('settings.home_post_count');
         
-        // $category = $this->c_rep->getCategories('*', $count, true);
         $books = $this->b_rep->getBooks('*', false , false, $pagination = true, $desc = true);
         $content = view(env('THEME').'.books_content')->with('books', $books)->render();
-        // $category_temp = view(env('THEME') . '.category_book')->with('categories', $category)->render();
 
-        // $this->vars = array_add($this->vars, 'category', $category_temp);
+        $this->vars = array_add($this->vars,'content', $content);
+        return $this->renderOutput();
+    }
+
+    public function show($requset){
+        $count = Config::get('settings.pagination');
+
+        $books = $this->b_rep->getBooks('*', false , false, $pagination = true, $desc = true);
+        $content = view(env('THEME').'.books_content')->with('books', $books)->render();
+
         $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();
     }

@@ -23,6 +23,7 @@ class SiteController extends Controller
     protected $s_search;
     protected $contentRightBar = false;
     
+    
     public function __construct(MenusRepository $m_rep, RecentlyViewedRepository $review_reposytory = NULL)
     {
         $this->m_rep = $m_rep;

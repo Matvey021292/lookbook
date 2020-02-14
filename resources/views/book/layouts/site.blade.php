@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
-    <title>{{ env('APP_NAME') }}</title>
+    <title>Leviafan - @yield('Title')</title>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
     <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.core.min.css'>
@@ -41,7 +41,7 @@
                                 <div class="billetContainerWrapper SearchLine__search">
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
-                                            <form action="/qsearch" method='GET'>
+                                            <form action="/qsearch/" method='GET'>
                                                 <input autocomplete="off" name="query" value="{{request()->get('query')}}"id="autoComplete" 
                                                 tabindex="1" type="text"
                                                 class="SearchLine__darkInput jest-search-input">

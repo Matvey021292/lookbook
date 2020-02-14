@@ -120,10 +120,10 @@
     </div>
     @if($user->books)
     <br>
-    <div class="billetContainerNoOverflow">
+    <div class="billetContainerNoOverflow" id="mybook">
         <div class="billetContainerWrapper">
             <div class="LandingContentContainer__title">
-                <div class="title-2">Мои книги</div>
+                <div class="section-title">Мои книги</div>
             </div>
         </div>
         @if(count($user->books) > 7)

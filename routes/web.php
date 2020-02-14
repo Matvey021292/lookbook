@@ -64,7 +64,7 @@ Route::resource('categories', 'CategoriesController', [
 
 Route::resource('category', 'CategoriesController', [
     'parameters' => [
-        'categories' => 'alias',
+        'category' => 'alias',
     ],
 ]);
 

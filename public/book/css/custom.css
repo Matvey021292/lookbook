@@ -1336,17 +1336,43 @@ body>.loader{
     color: #fff;
     text-transform: uppercase;
     font-family: 'Bebas Neue', sans-serif;
-    background: linear-gradient(145deg, #729167,#53674b);
     display: block;
     height: 100%;
     width: 100%;
-    max-width: 120px;
-    max-height: 196px;
     box-sizing: border-box;
     padding: 20px 10px;
     border-radius: 8px;
+    opacity: 0.1;
     box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
-    
+}
+
+.card_cover:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: 0;
+    background: linear-gradient(145deg, transparent,rgba(0,0,0,0.3));
+}
+
+.card_cover:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-size: 3px 3px;
+    opacity: 0.1;
 }
 
 .card_cover .card_cover_author{
@@ -1354,6 +1380,8 @@ body>.loader{
     font-size: 20px;
     height: 50px;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .card_cover .card_cover_book{
@@ -1361,4 +1389,6 @@ body>.loader{
     font-weight: 500;
     font-size: 20px;
     color: rgba(255,255,255,0.7);
+    position: relative;
+    z-index: 1;
 }

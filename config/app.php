@@ -231,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Menu'      => Lavary\Menu\Facade::class,
         'Zip' => ZanySoft\Zip\ZipFacade::class,
+        'RandomColor' => Colors\RandomColor::class,
         
     ],
     

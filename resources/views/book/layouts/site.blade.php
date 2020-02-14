@@ -94,6 +94,7 @@
                         @yield('home') 
                         @yield('search_content')
                         @yield('categories')
+                        @yield('categories_content')
                         @yield('customCategoryItems')
                         @yield('book_content')
                         @yield('content_book')

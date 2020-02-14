@@ -1,20 +1,25 @@
-@if($categories)
-<div data-toggle='collapse' class="billetContainerNoOverflow">
-    <div>
-        <div class="billetContainerWrapper">
-            <div class="LandingContentContainer__title">
-                <div class="section-title-sm">Категории</div>
+@if($category)
+<div class="wrapper-row">
+    <div class="AuthorDetailView__container billetContainerNoOverflow">
+        <div class="AuthorDetailListTitle__container">
+            <h2 class="section-title">
+                {{ $category->Title }}
+            </h2>
+        </div>
+        <div class="ContentCarousel__wrapper ">
+            <div class="swiper-container  swiper-container-horizontal swizper-container-free-mode">
+                <div class="swiper-wrapper row">
+                    @foreach ($books as $book)
+                    <div class="col-md-6">
+                        @include(env('THEME') . '.card.card-book-horizontally', ['items'=>$book,'book' => $book, 'carousel' => false, 'desc' => true])
+                    </div>
+                    @endforeach
+                </div>
             </div>
-            <br>
-            @foreach($categories as $cat)
-            <a class="d-inline-block p-1 pl-0" href="{{ route('categories.show', ['alias' => $cat->id]) }}">
-                <div style="max-width:unset" class="TagLabel__grey">
-                    {{$cat->Title}}
-                </div> 
-            </a>
-            @endforeach
         </div>
     </div>
-    <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
+</div>
+<div class="row center-xs mt-5">
+    {{ $books->links() }}
 </div>
 @endif

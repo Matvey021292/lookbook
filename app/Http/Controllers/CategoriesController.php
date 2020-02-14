@@ -19,7 +19,7 @@ class CategoriesController extends SiteController
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->c_rep = $c_rep;
         $this->b_rep = $b_rep;
-        $this->template = env('THEME') . '.category';
+        $this->template = env('THEME') . '.categories';
     }
 
     public function index(){
@@ -33,10 +33,10 @@ class CategoriesController extends SiteController
     public function show($alias) {
 
         $count = Config::get('settings.home_post_count');
-        
         $category = $this->c_rep->getCategory($alias);
-        $books = $category->books()->paginate(20);
+        $books = $category->book()->paginate(20);
 
+        
         $content = view(env('THEME') . '.category_book')->with('books', $books)->with('category', $category)->render();
         $this->vars = array_add($this->vars, 'content', $content);
 

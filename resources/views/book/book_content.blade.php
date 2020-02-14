@@ -69,18 +69,17 @@
             </div>
             <div class="BookPageHeaderContent__coverBlockImage">
                 <div class="BookCoverImage__coverImageWrapper">
-                    @if($book->picture)
+                    @if($book->picture  && file_exists($book->picture->File))
                     <img width="256" height="426" 
                     src="{{config('settings.file_path_book')}}{{ $book->picture->File }}" 
                     alt="{{ $book->Title }}" 
                     class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
                     srcset="{{config('settings.file_path_book')}}{{ $book->picture->File }}">
                     @else
-                    <img width="256" height="426" 
-                    src="{{config('settings.file_path_book')}}190x288.jpg" 
-                    alt="{{ $book->Title }}" 
-                    class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
-                    srcset="{{config('settings.file_path_book')}}190x288.jpg">
+                    <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+                        <span class="card_cover_author">{{ $book->authors->first()->FirstName }} {{ $book->authors->first()->LastName }}</span>
+                        <span class="card_cover_book">{{ $book->Title }}</span>
+                    </div>
                     @endif
                 </div>
                 <div class="Rating__ratingStar-wrapper  billetContainerNoOverflow center-xs mb-0 ">
@@ -125,6 +124,7 @@
                         <h3 class="section-title">Темы</h3>
                         <ul class="BookGenresThemes__itemList">
                             @foreach ($book->category as $category)
+                            
                             <li class="BookGenresThemes__listItem">
                                 <a href="{{ route('category.show', ['alias' => $category->id]) }}">
                                     <div class="TagLabel__brown" style="max-width: unset;">{{$category->Title}}</div>
@@ -142,7 +142,7 @@
                         <ul class="BookGenresThemes__itemList">
                             @foreach ($book->genre as $genre)
                             <li class="BookGenresThemes__listItem">
-                                <a href="{{ route('category.show', ['alias' => $genre->id]) }}">
+                                <a href="{{ route('genre.show', ['alias' => $genre->id]) }}">
                                     <div class="TagLabel__brown" style="max-width: unset;">{{$genre->Title}}</div>
                                 </a>
                             </li>

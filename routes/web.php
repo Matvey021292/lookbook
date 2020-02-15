@@ -41,7 +41,6 @@ Route::resource('book/{slug}/read', 'ContentBook', [
     
 ]);
 
-
 Route::resource('books', 'BooksController', [
     'parameters' => [
         'books' => 'alias',
@@ -97,6 +96,12 @@ Route::resource('content', 'ContentBook', [
 
 Route::resource('profile', 'ProfileController', [
 
+]);
+
+Route::resource('profile', 'ProfileController', [
+    'parameters' => [
+        'profile' => 'alias',
+    ],
 ]);
 
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');

@@ -714,7 +714,6 @@ a:hover{
 }
 
 #autoComplete{
-    border-radius: 50px;
     height: 44px;
     background: #f6f8f8;
     color: var(--color-link);
@@ -1035,6 +1034,14 @@ div[data-toggle="collapse"].open .toggle-icon i{
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     z-index: 999;
 }
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
 .modal-content {
     position: absolute;
     top: 50%;
@@ -1057,14 +1064,6 @@ div[data-toggle="collapse"].open .toggle-icon i{
 .close-button:hover {
     background-color: darkgray;
 }
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-}
-
-
 
 .alert.alert-danger {
     background: #fd6358;
@@ -1333,6 +1332,15 @@ body>.loader{
     margin-top: 5px;
 }
 
+
+.card_wrapper_image{
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .card_cover{
     color: #fff;
     text-transform: uppercase;
@@ -1343,10 +1351,15 @@ body>.loader{
     box-sizing: border-box;
     padding: 20px 10px;
     border-radius: 8px;
-    opacity: 0.1;
     box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
+    pointer-events: none;
 }
 
+
+.card_cover_xs{
+    width: 256px; 
+    height: 382px
+}
 
 
 .card_cover:after{
@@ -1378,13 +1391,18 @@ body>.loader{
     opacity: 0.1;
 }
 
+
 .card_cover .card_cover_author{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
     height: 50px;
     display: block;
     position: relative;
     z-index: 1;
+}
+
+.card_cover_xs .card_cover_author{
+    font-size: 20px;
 }
 
 .card_cover_small{
@@ -1398,12 +1416,36 @@ body>.loader{
 .card_cover .card_cover_book{
     margin-top: 10px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 14px;
     color: rgba(255,255,255,0.7);
     position: relative;
     z-index: 1;
 }
 
+.card_cover_xs .card_cover_book{
+    font-size: 20px;
+}
+
 .UserSettingsAvatar__userImagePreviewContent[src=""]{
     display: none;
+}
+
+.Header__link__more{
+    padding: 10px 20px;
+    background: var(--color-link-light);
+}
+
+.Header__link{
+    position: relative;
+}
+
+.Header__link .container_more{
+    top: 100%;
+    right: 0;
+    left: auto;
+    bottom: auto;
+}
+
+.Header__link ul{
+    line-height: 1.7;
 }

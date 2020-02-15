@@ -2,7 +2,7 @@
 <section class="AuthorDetailHeader__wrapper row xs-start mb-4 row-container">
     <div class="AuthorDetailHeader__container billetContainerNoOverflow ">
         <div class="AuthorDetailHeader__image">
-            @if($author->picture && file_exists($author->picture->File))
+            @if($author->picture)
             <img width="128" height="150" src="{{config('settings.file_path_author')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{config('settings.file_path_author')}}{{ $author->picture->File }}">
             @else
             <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">

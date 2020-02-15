@@ -57,3 +57,9 @@ Breadcrumbs::register('search', function ($breadcrumbs) {
     
 });
 
+Breadcrumbs::register('profile', function ($breadcrumbs) {
+    
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(__('Личный кабинет'), url('/profile'));
+    
+});

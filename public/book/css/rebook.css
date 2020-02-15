@@ -12515,16 +12515,21 @@ li.page-item a,
       display: flex;
       cursor: pointer; } }
 
-.HeaderUser__avatar {
+.Header__enter{
+  display: flex;
+}
+
+.user__avatar {
   display: block;
-  order: 1;
-  flex-shrink: 0;
+  object-fit: cover;
   width: 28px;
   height: 28px;
   border-radius: 4px;
   background-color: #ffffff;
   overflow: hidden;
-  border: solid 2px #d93025; }
+  border: solid 1px #ccc;
+  margin-right: 5px;
+ }
 
 .HeaderUser__userIcon {
   display: flex;

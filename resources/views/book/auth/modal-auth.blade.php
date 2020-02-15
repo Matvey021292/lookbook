@@ -1,6 +1,5 @@
 <div class="modal" id="auth">
     <div class="modal-content">
-       
         <span class="close-button">&times;</span>
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Login') }}</div>

@@ -2,7 +2,7 @@
     <div class="VerticalBookCard__bookCover">
         <div class="BookCover__book  jest-book-cover" style="width:120px;height:196px">
             @include(env('THEME') . '.card.card-info', ['book' => $book])
-            @if($book->picture && file_exists($book->picture->File))
+            @if($book->picture)
             <img width="120" height="196" src="{{ config('settings.file_path_book') }}{{ $book->picture->File }}" alt="{{ $book->Title }}" class="BookCover__bookImage" srcset="{{ config('settings.file_path_book') }}{{ $book->picture->File }}">
             @else
             <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">

@@ -1,11 +1,12 @@
 @extends(env('THEME').'.layouts.site')
-
+@section('Title', __('Личный кабинет') )
 @section('nav')
-    {!! $nav !!}
+{!! $nav !!}
 @endsection
 @section('profile')
-    {!! $user !!}
+{!! Breadcrumbs::render('profile') !!}
+{!! $content !!}
 @endsection
 @section('recently_view')
-    {!! $books_view !!}
+{!! $books_view !!}
 @endsection

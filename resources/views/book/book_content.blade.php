@@ -69,14 +69,14 @@
             </div>
             <div class="BookPageHeaderContent__coverBlockImage">
                 <div class="BookCoverImage__coverImageWrapper">
-                    @if($book->picture  && file_exists($book->picture->File))
+                    @if($book->picture )
                     <img width="256" height="426" 
                     src="{{config('settings.file_path_book')}}{{ $book->picture->File }}" 
                     alt="{{ $book->Title }}" 
                     class="BookCoverImage__coverImage BookCoverImage__coverImageText" 
                     srcset="{{config('settings.file_path_book')}}{{ $book->picture->File }}">
                     @else
-                    <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+                    <div class="card_cover card_cover_xs" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
                         <span class="card_cover_author">{{ $book->authors->first()->FirstName }} {{ $book->authors->first()->LastName }}</span>
                         <span class="card_cover_book">{{ $book->Title }}</span>
                     </div>

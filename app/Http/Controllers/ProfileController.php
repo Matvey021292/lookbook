@@ -13,6 +13,7 @@ use App\Book;
 use App\Profile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Redirector;
+use App\User;
 
 class ProfileController extends SiteController
 {
@@ -33,9 +34,9 @@ class ProfileController extends SiteController
         
         if(!$this->user::check()) return redirect()->route('login');
         $user = $this->user::user();
-        
-        $user = view(env('THEME').'.profile_content')->with('user', $user)->render();
-        $this->vars = array_add($this->vars,'user', $user);
+        $books = $user->books;
+        $content = view(env('THEME').'.profile_content')->with('user', $user)->with('books', $books)->render();
+        $this->vars = array_add($this->vars,'content', $content);
         return $this->renderOutput();
     }
     
@@ -44,6 +45,14 @@ class ProfileController extends SiteController
         if (isset($data['profile_image'])) {
             $user->addMediaFromRequest('profile_image')->toMediaCollection('profile_image');
         }
+    }
+
+    public function show($alias){
+        $user = User::find($alias);
+        $books = $user->books;
+        $content = view(env('THEME').'.profile_books_content')->with('books', $books)->render();
+        $this->vars = array_add($this->vars,'content', $content);
+        return $this->renderOutput();
     }
     
     public function updateProfile(Request $request)

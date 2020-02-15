@@ -20,7 +20,7 @@ glides.forEach(function (e, i) {
             }
         }
     }).mount();
-   
+    
     if (document.querySelectorAll('.loader')) {
         document.querySelectorAll('.loader').forEach(function (e, i) {
             e.classList.remove('show')
@@ -177,7 +177,7 @@ new autoComplete({
         if (e.classList.contains(add)) {
             event.preventDefault();
             requestPostData(route_booklist_add, data)
-            .then(e => console.log(e.message));
+            .then(e => showModal(e.message));
             let els = document.getElementsByClassName(add);
             [].forEach.call(els, function (el) {
                 el.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить из списка</span>'
@@ -192,7 +192,7 @@ new autoComplete({
             [].forEach.call(els, function (el) {
                 el.innerHTML = '<i class="fas fa-plus"></i> <span class="menu-title">Добавить в список</span> ';
             });
-            
+           
             reverseClassList(e, add, remove);
         }
     })
@@ -261,17 +261,23 @@ new autoComplete({
     
     
     window.addEventListener("click", function (e) {
-        var enable = document.querySelector('.show-modal');
+        let enable = document.querySelector('.show-modal');
         if (enable && e.target.classList.contains('show-modal')) {
-            toggleModal(elem);
-            ;
+            toggleModal(enable);
         }
-        
+    });
+
+    window.addEventListener('click', function(e){
+        if(e.target.classList.contains('close-button')){
+            if(e.target.closest('.show-modal')){
+                e.target.closest('.show-modal').classList.remove('show-modal');
+            }
+        }
     });
     
-    function toggleModal(elem) {
-        hideLoader(elem);
-        elem.classList.toggle("show-modal");
+    function toggleModal(enable) {
+        hideLoader(enable);
+        enable.classList.toggle("show-modal");
     }
     
     trigger.forEach(function (e) {
@@ -432,5 +438,18 @@ new autoComplete({
         if (params) history.pushState('', '', '?' + new URLSearchParams(Object.entries(params)));
         // $(".subscribe_organization option[data-value='" + select + "']").attr('selected', 'selected');
     }
+    
+    
+    function showModal(message){
+        
+        let modal = document.createElement('div');
+        modal.innerHTML += `<div class="modal show-modal">
+        <div class="modal-content">
+        <span class="close-button">×</span>
+        <div class="card AuthFormDialog__inner">${message}</div>
+        </div>
+        </div>`;
+        document.body.append(modal);
 
+    }
     

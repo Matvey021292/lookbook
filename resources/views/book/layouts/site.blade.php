@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="Header__enter col-xs-12 col-sm-3 center-xs col-sm-offset-2">
+                            <div class="Header__enter col-xs-12 col-sm-3 end-xs col-sm-offset-2">
                                 @guest
                                 <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
                                     <i class="fas fa-sign-in-alt"></i> {{ __('Войти')}} &nbsp; | &nbsp;
@@ -60,12 +60,33 @@
                                     <i class="far fa-address-card"></i> {{__('Регистрация')}} 
                                 </a>
                                 @else
-                                <a class="Header__link go_to_login_link" href="{{ route('logout') }}">
-                                    <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}  &nbsp; | &nbsp; 
-                                </a>
-                                <a href="/profile" class="Header__link"> 
-                                    <i class="far fa-address-card"></i> {{__('Личный кабинет')}}
-                                </a>
+                                <div class="link_more Header__link Header__link__more"> 
+                                    @if(!Auth::user()->getMedia('profile_image')->isEmpty())
+                                    <img class="user__avatar" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
+                                    @else
+                                    <i class="far fa-address-card"></i> 
+                                    @endif
+                                    {{__('Личный кабинет')}}
+                                    <div class="container_more">
+                                        <ul>
+                                            <li>
+                                                <a  href="/profile">
+                                                    {{__('Личный кабинет')}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a  href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
+                                                    {{__('Книжная полка')}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="Header__link " href="{{ route('logout') }}">
+                                                    <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }} 
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 @endif
                             </div>
                         </div>

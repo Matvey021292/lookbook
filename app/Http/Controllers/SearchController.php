@@ -84,23 +84,22 @@ class SearchController extends SiteController
             return;
         }
         
-        $search = (object) array();
-
+        $search = [];
         $books = $this->b_rep->getBookByTitle($query);
+       
 
         if ($books->isNotEmpty()) {
-            $search->books = $books;
-            $search->books->transform(function ($item, $key) {
+            $search['books'] = $books;
+            $search['books']->transform(function ($item, $key) {
                 $item->id = $item->id;
                 return $item;
             });
         }
         
         $authors =  $this->a_rep->getAuthorByTitle($query);
-
         if ($authors->isNotEmpty()) {
-            $search->authors = $authors;
-            $search->authors->transform(function ($item, $key) {
+            $search['authors'] = $authors;
+            $search['authors']->transform(function ($item, $key) {
                 $item->id = $item->author_ID;
                 return $item;
             });

@@ -1,8 +1,8 @@
-@if($user)
 <div class="billetContainerNoOverflow">
+    @if($user)
     <div class="billetContainerWrapper">
         <div class="LandingContentContainer__title d-flex-center">
-        <div class="section-title">{{ __('Личный кабинет') }}</div>
+            <div class="section-title">{{ __('Личный кабинет') }}</div>
         </div>
     </div>
     <form autocomplete="off" class="ContentCarousel__wrapper" action="{{ route('profile.update') }}" method="POST" name="form-profile-edit" role="form" enctype="multipart/form-data">
@@ -26,11 +26,10 @@
                             </div>
                             <div class="UserSettingsAvatar__userImage">
                                 <div class="UserSettingsAvatar__userImagePreview">
-                                   
                                     @if(!Auth::user()->getMedia('profile_image')->isEmpty())
-                                    <img class="UserSettingsAvatar__userImagePreviewContent"  width="80" height="80" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
+                                    <img class="UserSettingsAvatar__userImagePreviewContent" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
                                     @else
-                                    <img class="UserSettingsAvatar__userImagePreviewContent"  width="80" height="80" src="">
+                                    <img class="UserSettingsAvatar__userImagePreviewContent" src="">
                                     <span class="UserSettingsAvatar__userImagePreviewContent d-block" width="80" height="80">
                                         {{ strtoupper(substr($user->name, 0, 1)) }}
                                     </span>
@@ -49,7 +48,7 @@
                                         </span>
                                     </span>
                                 </div>
-                               
+                                
                             </div>
                         </div>
                     </div>
@@ -119,39 +118,39 @@
                 </div>
             </div>
         </form>
-    </div>
-    <br>
-    @if(!$user->books->isEmpty())
-    <div class="billetContainerNoOverflow" id="mybook">
-        <div class="billetContainerWrapper">
-            <div class="LandingContentContainer__title">
-                <div class="section-title">
-                    {{__('Мои книги')}}
+        <br>
+        @endif
+        @if(!$books->isEmpty())
+        <div class="billetContainerNoOverflow" id="mybook">
+            <div class="billetContainerWrapper">
+                <div class="LandingContentContainer__title">
+                    <div class="section-title">
+                        <a href="{{ route('profile.show', ['alias'=> $user->id]) }}"> {{__('Мои книги')}} </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        @if(count($user->books) > 7)
-        <div class="ContentCarousel__wrapper glide">
-            <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
-                <div class="swiper-wrapper glide__slides">
-                    @foreach($user->books as $book)
-                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
-                    @endforeach
+            @if(count($books) > 7)
+            <div class="ContentCarousel__wrapper glide">
+                <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
+                    <div class="swiper-wrapper glide__slides">
+                        @foreach($books as $book)
+                        @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => false])
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-        @else
-        <div class="ContentCarousel__wrapper ">
-            <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
-                <div class="swiper-wrapper">
-                    @foreach($user->books as $book)
-                    @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => false, 'author' => false])
-                    @endforeach
+            @else
+            <div class="ContentCarousel__wrapper ">
+                <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
+                    <div class="swiper-wrapper">
+                        @foreach($books as $book)
+                        @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => false, 'author' => false])
+                        @endforeach
+                    </div>
                 </div>
             </div>
+            @endif
         </div>
         @endif
     </div>
-    @endif
-    @endif
     

@@ -46,7 +46,7 @@ class SearchController extends SiteController
         if (!empty($books)) {
             foreach ($books as $key => $book) {
                 $book->key = 'book';
-                $book->slug = '/book/' . $book->book_ID;
+                $book->slug = '/book/' . $book->id;
                 $output->recipes[] = $book;
             }
         }

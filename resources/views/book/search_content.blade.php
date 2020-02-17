@@ -1,4 +1,4 @@
-@if($search['books']->isNotEmpty() && $search['authors']->isNotEmpty())
+@if(isset($search['books']) ||  isset($search['authors']))
 <div class="wrapper-row">
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">

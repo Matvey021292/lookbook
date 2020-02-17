@@ -15,7 +15,7 @@ class StatisticsController extends SiteController
     }
     
     public function AutoBookmarks(Request $request){
-        $user = $request->user()->id;
+        $user =  Auth::user()->id;
         $book = (int) $request->input('book');
         $requests = $request->all();
         $requests['user_id'] = $user;
@@ -33,7 +33,7 @@ class StatisticsController extends SiteController
     }
 
     public function find_bookmarks($book, $user){
-        return Bookmarks::where('book_id', $book)->where('user_id', $user)->first();
+        return Bookmarks::where('book_ID', $book)->where('user_id', $user)->first();
     }
 
     public function Bookmarks(Request $request){

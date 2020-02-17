@@ -24,8 +24,10 @@ class SelectedRepository extends Repository{
         $book->stage = 1;
         $book->last_page = 0;
         $book->book_id = $book_id;
+        if(!$this->user::id()) return __('User not found <a href="/register"> Register </a> || <a href="/login"> Login </a>');
         $book->user_id =  $this->user::id();
         $book->save();
+        return sprintf("Book add to dashboard <a href=\"%s\"> Profile </a>", route('profile.show', ['alias'=> $book->user_id]));
     }
     
     public function removeBook($book_id){

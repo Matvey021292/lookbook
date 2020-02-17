@@ -109,17 +109,16 @@ class ProfileController extends SiteController
             $book_id = $request->input('book');
             if(!$book->find($book_id)) return;
             if (is_null($this->selected->findSelectedBook($book_id))) {
-                $this->selected->addBook($book_id);
-                $message = 'Книга успешно добалена на полку';
+                $message = $this->selected->addBook($book_id);
             } else {
-                $message = 'Книга уже добалена на полку';
+                $message = __('book exsists');
             }
             return response()->json(['message'=> $message ]);
         }
         
         public function removeBookList(Request $request){
             $this->selected->removeBook($request->input('book'));
-            return response()->json(['message'=>'Книга удалена']);
+            return response()->json(['message'=> __('Remove book')]);
         }
     }
     

@@ -9,7 +9,8 @@ use App\Repositories\BookRepository;
 use App\Repositories\RecentlyViewedRepository;
 use Illuminate\Http\Request;
 use App\Convert;
-
+use File;
+use App\Filepath;
 
 class BookController extends SiteController
 {
@@ -63,12 +64,61 @@ class BookController extends SiteController
     
     public function download(Request $request){
         $format = $request->input('format');
-        $path_file = $request->input('file');
-        $request_name = str_replace($format, 'fb2.zip', $path_file);
-        if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
-        $convert = new Convert();
-        $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH));
-        return response()->json(['message'=> $path_file ]);
+        $book_id = $request->input('file');
+        $book = $this->b_rep->getBook($book_id);
+        
+        if(!$request->input('init')){
+            if($book->path){
+                $path = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), $format);
+                if(file_exists($path)){
+                    return response()->json(['message'=> $path]);
+                }
+            }
+           
+            // $path_file  = $book->path->Path;
+            // $request_name = str_replace($format, 'fb2.zip', $path_file);
+            // if(!file_exists(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH))) return;
+            // $convert = new Convert(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH), $format);
+            // return response()->json(['message'=> $convert]);
+
+        }else{
+            
+            if(!$book->path){
+                $request_path = Config::get('settings.replace_url') . "/b/{$book_id}/{$format}";
+                $path = public_path("uploads/files/{$book_id}/{$format}/");
+                
+                if(!is_dir($path)){
+                    File::makeDirectory($path, 0775, true);
+                }
+                
+                $attachment = get_headers($request_path, 1);
+                if( $attachment && isset($attachment['Content-Disposition'])){
+                    preg_match('/\s*=\s*([\S\s]+)/i  ', $attachment['Content-Disposition'], $match);
+                    if(isset($match[1])){
+                        $name = str_replace('"', '', $match[1]);
+                        file_put_contents($path . $name, fopen($request_path, 'r'));
+                        $filepath = new Filepath;
+                        $filepath->Path = "{$book_id}/{$format}/" . $name;
+                        $filepath->book_ID = $book_id;
+                        $filepath->Format = $book->FileType;
+                        $filepath->save();
+                    }
+                }
+            }
+        }
+        
+        
     }
     
-}
+    // public function download(Request $request){
+        //     $format = $request->input('format');
+        //     $path_file = $request->input('file');
+        //     $request_name = str_replace($format, 'fb2.zip', $path_file);
+        //     if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
+        //     $convert = new Convert();
+        //     $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH));
+        //     return response()->json(['message'=> $path_file ]);
+        // }
+        
+    }
+    

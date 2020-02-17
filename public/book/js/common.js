@@ -224,13 +224,15 @@ download_files.forEach(function (el, i) {
         if (!e.target.dataset.format) return;
         e.preventDefault();
         let data = {
-            'file': e.target.href,
+            'file': document.querySelector('input[name="book_id"]').value,
             'format': e.target.dataset.format
         }
-        // requestPostData(download_route, data)
-        //     .then(e => window.open(e.message))
+        requestPostData(download_route, data)
+            .then(e => console.log(e.message))
     })
 })
+
+
 
 
 function showLoader(el) {

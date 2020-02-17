@@ -44,6 +44,10 @@ class Book extends Model
     public function filename(){
         return $this->hasOne('App\Filename', 'book_ID');
     }
+
+    public function path(){
+        return $this->hasOne('App\Filepath', 'book_ID');
+    }
     // public function author()
     // {
     //     return $this->belongsTo('App\Author', 'author_id', 'id');

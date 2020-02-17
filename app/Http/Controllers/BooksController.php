@@ -43,8 +43,4 @@ class BooksController extends SiteController
         return $this->renderOutput();
     }
 
-    public function download(){
-        echo 1;
-    }
-
 }

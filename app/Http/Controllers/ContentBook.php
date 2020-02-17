@@ -26,7 +26,8 @@ class ContentBook extends SiteController
             return redirect('/login')->with(['status' => 'Profile updated successfully.']);
         }
         $book = $this->b_rep->getBook($alias);
-        $file = $this->generate_book_slug($book);
+        // $file = $this->generate_book_slug($book);
+        $file = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), 'epub');
         $contents = $this->book_content($file);
         $contents = str_replace(public_path(), '', $contents);
         $bookmarks = Bookmarks::where('book_id', $book->id)->where('user_id', $user->id)->first();
@@ -35,18 +36,13 @@ class ContentBook extends SiteController
         return $this->renderOutput();
     }
 
-    public function book_content($path){
-        $format = 'epub';
-        $request_name = str_replace($format, 'fb2.zip', $path);
-        if(!file_exists(public_path() . parse_url($request_name, PHP_URL_PATH))) return;
-        $convert = new Convert();
-        $file = $convert->convert_format(public_path() . parse_url($request_name, PHP_URL_PATH), $format);
+    public function book_content($file){
         $content = new BookContent();
         return $content->unzip_file($file);
     }
 
     public function generate_book_slug($book){
-        return '/uploads/file/' . $book->format->link . '/' . $book->format->slug;
+        return public_path('uploads/files/' . $book->path->Path);
     }
 
 }

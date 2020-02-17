@@ -100,93 +100,105 @@
                             </div>
                             <div class="error_message"></div>
                             <input type="hidden" name="book_id" value="{{$book->id}}">
+                            <input type="hidden" name="book_format" value="{{$book->FileType}}">
                         </div>
                     </div>
                 </div>
                 {{-- @guest
-                @else
-                @if(!$book->booklist)
-                <button class="Button__secondaryButton smallSize add_book_my_list BookStatusChangePopup__buttonFunctional" >Добавить в список</button>
-                @else
-                <button class="Button__secondaryButton smallSize remove_book_my_list BookStatusChangePopup__buttonFunctional">Удалить из списка</button>
-                @endif
-                @endif --}}
+                    @else
+                    @if(!$book->booklist)
+                    <button class="Button__secondaryButton smallSize add_book_my_list BookStatusChangePopup__buttonFunctional" >Добавить в список</button>
+                    @else
+                    <button class="Button__secondaryButton smallSize remove_book_my_list BookStatusChangePopup__buttonFunctional">Удалить из списка</button>
+                    @endif
+                    @endif --}}
+                </div>
             </div>
         </div>
-    </div>
-   
-    <div class="billetContainerNoOverflow bg-white">
-        <div class="row  row-container">
-            <div class="col-md-12">
-                @if(!$book->category->isEmpty())
-                <div class="BookGenresThemes__genresThemes">
-                    <div class="BookGenresThemes__genresThemesSection">
-                        <h3 class="section-title">Темы</h3>
-                        <ul class="BookGenresThemes__itemList">
-                            @foreach ($book->category as $category)
-                            
-                            <li class="BookGenresThemes__listItem">
-                                <a href="{{ route('category.show', ['alias' => $category->id]) }}">
-                                    <div class="TagLabel__brown" style="max-width: unset;">{{$category->Title}}</div>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
+        
+        <div class="billetContainerNoOverflow bg-white">
+            <div class="row  row-container">
+                <div class="col-md-12">
+                    @if(!$book->category->isEmpty())
+                    <div class="BookGenresThemes__genresThemes">
+                        <div class="BookGenresThemes__genresThemesSection">
+                            <h3 class="section-title">Темы</h3>
+                            <ul class="BookGenresThemes__itemList">
+                                @foreach ($book->category as $category)
+                                
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="{{ route('category.show', ['alias' => $category->id]) }}">
+                                        <div class="TagLabel__brown" style="max-width: unset;">{{$category->Title}}</div>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                @endif
-                @if(!$book->genre->isEmpty())
-                <div class="BookGenresThemes__genresThemes">
-                    <div class="BookGenresThemes__genresThemesSection">
-                        <h3 class="section-title">Жанр</h3>
-                        <ul class="BookGenresThemes__itemList">
-                            @foreach ($book->genre as $genre)
-                            <li class="BookGenresThemes__listItem">
-                                <a href="{{ route('genre.show', ['alias' => $genre->id]) }}">
-                                    <div class="TagLabel__brown" style="max-width: unset;">{{$genre->Title}}</div>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
+                    @endif
+                    @if(!$book->genre->isEmpty())
+                    <div class="BookGenresThemes__genresThemes">
+                        <div class="BookGenresThemes__genresThemesSection">
+                            <h3 class="section-title">Жанр</h3>
+                            <ul class="BookGenresThemes__itemList">
+                                @foreach ($book->genre as $genre)
+                                <li class="BookGenresThemes__listItem">
+                                    <a href="{{ route('genre.show', ['alias' => $genre->id]) }}">
+                                        <div class="TagLabel__brown" style="max-width: unset;">{{$genre->Title}}</div>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
-    </div>
-</div>    
-
-<script type="text/javascript">
+    </div>    
     
-    var book_id = {{ $book->id }};
-    var route_booklist_add = "{{route('bookListAdd')}}";
-    var route_booklist_remove = "{{route('bookListRemove')}}";
-    var download_route = "{{route('downloadFile')}}";
-    
-    
-    async function submit(e) {
-        let user = {
-            'star': e.value, 
-            'id': document.querySelector('input[name="book_id"]').value
-        };
+    <script type="text/javascript">
         
-        let response = await fetch("{{route('postStar', $book->id)}}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify(user)
-        });
+        let book_id = {{ $book->id }};
+        let route_booklist_add = "{{route('bookListAdd')}}";
+        let route_booklist_remove = "{{route('bookListRemove')}}";
+        let download_route = "{{ route('downloadFile') }}";
         
         
-        let result = await response.json();
-        alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
-    }
+        async function submit(e) {
+            let user = {
+                'star': e.value, 
+                'id': document.querySelector('input[name="book_id"]').value
+            };
+            
+            let response = await fetch("{{route('postStar', $book->id)}}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify(user)
+            });
+            
+            
+            let result = await response.json();
+            alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
+        }
+        
+        window.addEventListener('load',function(){
+
+            let data = {
+                'file': book_id,
+                'format': document.querySelector('input[name="book_format"]').value,
+                'init': true
+            }
+            requestPostData(download_route, data)
+            .then(e => window.open(e.message));
+        })
+        
+    </script>
     
-</script>
-
-
-@else
-<h1>Книги не найдено</h1>
-@endif
+    
+    @else
+    <h1>Книги не найдено</h1>
+    @endif

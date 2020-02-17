@@ -6,25 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Convert extends Model
 {
-    public function explode_file($name, $format_convert){
-        $formats = [
-            '.fb2.zip','.epub', '.mobi', '.html'
-        ];
-        
-        foreach($formats as $key => $format):
-            if(strpos($name, $format)):
-                $name = str_replace($format, '.' . $format_convert, $name);
-            endif;
-        endforeach;
-        return $name;
+
+    public $path = '';
+    public $format = '';
+
+    public function __construct($path, $format = ''){
+        $this->path = $path;
+        $this->format = $format;
+        $this->convert_format();
     }
-    
-    public function convert_format($path, $format = ''){
-        $file = $this->explode_file($path, $format);
+
+    public function convert_format(){
+        $file = $this->explode_file($this->path, $this->format);
         if(file_exists("{$file}")):
             return $file;
         endif;
-        $cmd = "ebook-convert {$path} {$file}";
+        $cmd = "ebook-convert {$this->path} {$file}";
         exec(escapeshellcmd($cmd), $output, $return_var);
         return $file;
     }

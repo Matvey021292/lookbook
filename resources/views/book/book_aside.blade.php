@@ -6,7 +6,11 @@
     </p>
     <div class="HeaderLinks__link">
         @foreach ($formats as $format)
-    <a href="download" data-format="{{$format}}"  class="download_file Button__primaryButton  TagLabel__brown">{{ $format }}</a>
+            @if($format == $book->FileType && $book->path)
+            <a href="{{url('uploads/files/' . $book->path->Path)}}" download class="Button__primaryButton  TagLabel__brown" >{{ $format }}</a>
+            @else
+            <a href="download" data-format="{{$format}}"  class="download_file Button__primaryButton  TagLabel__brown">{{ $format }}</a>
+            @endif
         @endforeach
     </div>
     <a href="{{ route('book.show', ['alias' => $book->id]) }}/read" class="HeaderLinks__link size-md HeaderLinks__linkContainer">

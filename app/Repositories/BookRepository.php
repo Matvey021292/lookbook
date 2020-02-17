@@ -35,8 +35,19 @@ class BookRepository extends Repository{
 
 	public function getBook($alias){
 		return $this->model->where('id', $alias)->first();
-	}
-	
+    }
+    
+    public function convert($file_path, $format){
+
+        $file = str_replace('fb2.zip', $format, $file_path);
+        if(!file_exists($file_path) || file_exists($file)) return $file_path;
+        
+        $cmd = "ebook-convert {$file_path} {$file}";
+        exec(escapeshellcmd($cmd), $output, $return_var);
+        
+        return $file;
+    }
+
 }
 
 ?>

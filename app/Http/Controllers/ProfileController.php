@@ -106,6 +106,7 @@ class ProfileController extends SiteController
         }
         
         public function addBookList(Request $request, Book $book){
+            
             $book_id = $request->input('book');
             if(!$book->find($book_id)) return;
             if (is_null($this->selected->findSelectedBook($book_id))) {

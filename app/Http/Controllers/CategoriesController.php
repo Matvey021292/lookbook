@@ -35,6 +35,7 @@ class CategoriesController extends SiteController
         $count = Config::get('settings.home_post_count');
         $category = $this->c_rep->getCategory($alias);
         $books = $category->book()->paginate(20);
+        
 
         
         $content = view(env('THEME') . '.category_book')->with('books', $books)->with('category', $category)->render();

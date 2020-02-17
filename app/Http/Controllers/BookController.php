@@ -7,6 +7,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\BookRepository;
 use App\Repositories\RecentlyViewedRepository;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 use App\Convert;
 use File;
@@ -14,10 +15,11 @@ use App\Filepath;
 
 class BookController extends SiteController
 {
-    public function __construct( RecentlyViewedRepository $review_reposytory, BookRepository $b_rep)
+    public function __construct( RecentlyViewedRepository $review_reposytory, BookRepository $b_rep, CategoryRepository $c_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu), new RecentlyViewedRepository(new \App\Book));
         $this->b_rep = $b_rep;
+        $this->c_rep = $c_rep;
         $this->review_reposytory = $review_reposytory;
         $this->template = env('THEME') . '.book';
     }
@@ -31,11 +33,18 @@ class BookController extends SiteController
         if($booklist = $this->getBookList($book->id)){
             $book->booklist = $booklist;
         }
-        $formats = [
-            'fb2', 'epub', 'mobi'
-        ];
+
+        $series_books = [];
+        $series = '';
+        if($book->category->isNotEmpty()){
+            $series_id = $book->category->first()->id;
+            $series = $this->c_rep->getCategory($series_id);
+            $series_books = $series->book;
+        }
+
+        $formats = ['fb2', 'epub', 'mobi'];
         
-        $content = view(env('THEME') . '.book_content')->with('book', $book)->render();
+        $content = view(env('THEME') . '.book_content')->with('book', $book)->with('series', $series)->with('series_books', $series_books)->render();
         $aside = view(env('THEME'). '.book_aside')->with('formats',$formats)->with('book', $book)->render();
         
         $this->vars = array_add($this->vars, 'content', $content);

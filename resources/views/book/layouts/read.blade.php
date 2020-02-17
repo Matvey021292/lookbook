@@ -7,8 +7,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
     <title>{{ env('APP_NAME') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-                   
-    
     <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/book_reader.css">
 </head>
 <body>

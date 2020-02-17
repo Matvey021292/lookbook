@@ -5,7 +5,7 @@
     window.stage = 'real';
     window.readerArgs = {
         "id": {{$book->id}}, 
-        "name": "{{$book->book}}", 
+        "name": "{{$book->Title}}", 
         "book": "{{$book->id}}", 
         "bookmarks": [],
         @if($bookmarks)

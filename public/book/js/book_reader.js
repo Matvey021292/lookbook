@@ -10469,6 +10469,7 @@
                                 e(i).on("click", function (e) {
                                     o.trigger("click")
                                 })
+
                         }
                         var i, o;
                         return o = {
@@ -10477,6 +10478,7 @@
                             t.extend(o, r.a.util.events),
                             o
                     }()
+                    
             }
                 .call(t, n(0), n(3))
     },

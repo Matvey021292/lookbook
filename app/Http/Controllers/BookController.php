@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Convert;
 use File;
 use App\Filepath;
+use App\Events\BookHasViewed;
 
 class BookController extends SiteController
 {
@@ -26,7 +27,10 @@ class BookController extends SiteController
     
     public function show($alias = false)
     {
+
         $book = $this->b_rep->getBook($alias);
+
+        event(new BookHasViewed($book));
         
         if(empty($book)) return redirect()->back()->withErrors(Config::get('message.book_not_found'));
         

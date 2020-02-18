@@ -9,6 +9,7 @@ class Book extends Model
     use Rateable;
     
     public $table = "book";
+    public $timestamps = false;
     
     public function desc()
     {
@@ -48,6 +49,8 @@ class Book extends Model
     public function path(){
         return $this->hasOne('App\Filepath', 'book_ID');
     }
+
+
     // public function author()
     // {
     //     return $this->belongsTo('App\Author', 'author_id', 'id');

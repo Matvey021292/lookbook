@@ -23,7 +23,7 @@ class AuthorController extends SiteController
     public function show($alias = false, Request $request){
         $lang = $request->input('lang') ? $request->input('lang') : 'ru';
         $count = Config::get('settings.home_post_count');
-        $author = $this->a_rep->getAuthor($alias);
+        $author = $this->a_rep->getModel($alias);
         $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         

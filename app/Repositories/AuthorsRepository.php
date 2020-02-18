@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Repositories;
-use Config;
 use App\Author;
-use Menu;
+use DB;
 
 class AuthorsRepository extends Repository{
     
@@ -38,24 +37,24 @@ class AuthorsRepository extends Repository{
         return $builder->get();
     }
     
-    public function getCatMenu($menu, $books){
-        $mBuilder = Menu::make('author_menu', function($m) use ($menu, $books){
-            foreach($menu as $k => $item){
-                if($item->parent_id == 0){
-                    $m->add($item->category,$item->slug)->id($item->id);
-                }else{
-                    if ($m->find($item->parent_id)) {
-                        $m->find($item->parent_id)->add($item->category,$item->slug)->id($item->id);
-                    }
-                }
-            }
-        });
-        return $mBuilder;
-    }
     
-    public function getAuthor($id)
-    {
-        return $this->model->where('id', $id)->first();
+    public function getAuthorByTitle($query, $count = '', $paginate = ''){
+        $builder = $this->model
+        ->where('FirstName', 'LIKE', '%' . $query . "%")
+        ->orWhere('LastName', 'LIKE', '%' . $query . "%")
+        ->orWhere(DB::raw("CONCAT(`FirstName`, ' ', `LastName`)"), 'LIKE', "%".$query."%")
+        ->join('author_book_count', 'author.id', 'author_book_count.author_ID')
+        ->orderBy('count','desc');
+        
+        if($count){
+            $builder = $builder->limit($count);
+        }
+        
+        if($paginate){
+            return $builder->paginate($paginate);
+        }
+        
+        return $builder->get();
     }
 }
 

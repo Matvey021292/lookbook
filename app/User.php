@@ -50,7 +50,7 @@ class User extends Authenticatable implements HasMedia
         return $this->belongsToMany('App\Book', 'selected_books', 'user_id', 'book_id');
     }
 
-    public function book(){
+    public function selected(){
         return $this->hasMany('App\SelectedBook', 'user_id', 'id');
     }
 

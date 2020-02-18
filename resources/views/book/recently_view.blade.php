@@ -9,8 +9,8 @@
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper glide__slides">
-                @foreach($books_view as $book)
-                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => true])
+                @foreach($books_view as $books)
+                @include(env('THEME') . '.card.card-book', ['items'=>$books,'book' => $books, 'carousel' => true, 'author' => true])
                 @endforeach
             </div>
         </div>
@@ -20,8 +20,8 @@
     <div class="ContentCarousel__wrapper ">
         <div class="swiper-container  swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper">
-                @foreach($books_view as $book)
-                @include(env('THEME') . '.card.card-book', ['items'=>$book,'book' => $book, 'carousel' => false, 'author' => true])
+                @foreach($books_view as $books)
+                @include(env('THEME') . '.card.card-book', ['items'=>$books,'book' => $books, 'carousel' => false, 'author' => true])
                 @endforeach
             </div>
         </div>

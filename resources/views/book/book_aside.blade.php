@@ -17,7 +17,7 @@
         <i class="fas fa-book-reader"></i>
         <span class="menu-title">Читать книгу онлайн</span> 
     </a>
-    @if(Auth::user() && Auth::user()->selected && Auth::user()->selected->whereIn('book_id', $book->id))
+    @if(Auth::user() && Auth::user()->selected && Auth::user()->selected->contains('book_id', $book->id))
     <a href="#" class="BookStatusChangePopup__buttonFunctional remove_book_my_list HeaderLinks__link size-md HeaderLinks__linkContainer">
         <i class="fas fa-minus"></i>
         <span class="menu-title">Удалить из списка</span> 

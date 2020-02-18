@@ -9,10 +9,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
+use Laravelista\Comments\Commenter;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, Notifiable, HasMediaTrait;
+    use HasApiTokens, Notifiable, HasMediaTrait, Commenter;
 
     /**
      * The attributes that are mass assignable.

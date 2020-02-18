@@ -16,6 +16,7 @@
         "laravel/framework": "5.8.*",
         "laravel/passport": "^7.5.1",
         "laravel/tinker": "^1.0",
+        "laravelista/comments": "^3.3",
         "lavary/laravel-menu": "^1.7",
         "mistic100/randomcolor": "^1.0",
         "nicolaslopezj/searchable": "^1.10",

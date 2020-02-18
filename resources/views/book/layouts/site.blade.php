@@ -68,81 +68,87 @@
                                     @endif
                                     {{__('Личный кабинет')}}
                                     <div class="container_more">
-                                        <ul>
-                                            <li>
-                                                <a  href="/profile">
-                                                    {{__('Личный кабинет')}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a  href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
-                                                    {{__('Книжная полка')}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="Header__link " href="{{ route('logout') }}">
-                                                    <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }} 
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <div class="HeaderUserMenu__submenuContainer">
+                                            <div class="HeaderUserMenu__user">
+                                                <div class="HeaderUserMenu__userConatiner">
+                                                    <a class="HeaderUserMenu__userLink" href="/profile/17203964/">Andrey Matvienko</a>
+                                                </div>
+                                            </div>
+                                            <div class="HeaderUserMenu__menu">
+                                                <ul>
+                                                    <li class="MenuItemsList__item">
+                                                        <a class="MenuItemsList__link"  href="/profile">{{__('Личный кабинет')}}</a>
+                                                    </li>
+                                                    <li class="MenuItemsList__item">
+                                                        <a class="MenuItemsList__link"  href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
+                                                            {{__('Книжная полка')}}
+                                                        </a>
+                                                    </li>
+                                                    <li class="MenuItemsList__link MenuItemsList__item">
+                                                        <a class="Header__link " href="{{ route('logout') }}">
+                                                            <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }} 
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endif
                                 </div>
-                                @endif
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            <div class="row row-container">
-                <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
-                    <div class="HeaderLinks__list">
-                        @yield('nav')
-                    </div>
-                    <div>
-                        @yield('book_aside')
-                        @yield('category')
-                    </div>
-                </aside>
-                <div class="article col-xs-12 col-sm-9">
-                    <div class="backgroundContainer themeGrey">
-                        @yield('slider')
-                        @yield('book')
-                        @yield('authors_content')
-                        @yield('bar')
-                        @yield('profile')
-                        @yield('recently_view')
-                        @yield('home') 
-                        @yield('search_content')
-                        @yield('categories')
-                        @yield('categories_content')
-                        @yield('customCategoryItems')
-                        @yield('book_content')
-                        @yield('content_book')
-                        @yield('books_content')
+                </header>
+                <div class="row row-container">
+                    <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
+                        <div class="HeaderLinks__list">
+                            @yield('nav')
+                        </div>
+                        <div>
+                            @yield('book_aside')
+                            @yield('category')
+                        </div>
+                    </aside>
+                    <div class="article col-xs-12 col-sm-9">
+                        <div class="backgroundContainer themeGrey">
+                            @yield('slider')
+                            @yield('book')
+                            @yield('authors_content')
+                            @yield('bar')
+                            @yield('profile')
+                            @yield('recently_view')
+                            @yield('home') 
+                            @yield('search_content')
+                            @yield('categories')
+                            @yield('categories_content')
+                            @yield('customCategoryItems')
+                            @yield('book_content')
+                            @yield('content_book')
+                            @yield('books_content')
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="loader">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="40" height="40" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-        <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(304.274 50 50)">
-            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
-        </circle>
-    </svg>
-</div>
-@include(env('THEME') . '.auth.modal-auth', [])
-@include(env('THEME') . '.auth.modal-register', [])
-<script>
+    <div class="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="40" height="40" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke="#e15b64" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(304.274 50 50)">
+                <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+            </circle>
+        </svg>
+    </div>
+    @include(env('THEME') . '.auth.modal-auth', [])
+    @include(env('THEME') . '.auth.modal-register', [])
+    <script>
+        
+        let ajax_login_object = {
+            "search_url": '{{URL::to('search')}}',
+        };
+    </script>
     
-    let ajax_login_object = {
-        "search_url": '{{URL::to('search')}}',
-    };
-</script>
-
-<script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
-<script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
+    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
+    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
 </body>
 </html>

@@ -32,13 +32,15 @@ class AuthorController extends SiteController
         }
         $categories = $author->categories;
         $categories = $categories->unique('id');
-        $genre = $author->genre;
-        $genre = $genre->unique('id');
+        // $genre = $author->genre;
+        // $genre = $genre->unique('id');
         $languages = $author->lang->unique('Lang');
         
         $items = $this->getBooks($author, $categories, $lang);
         $tranlate_items = $this->getBooksTranslate($author, $categories, $lang);
-        
+        dd($tranlate_items);
+        // dd(count($author->translate));
+
         ksort($items);
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
         $translate_books = view(env('THEME').'.customCategoryTranslateItems')->with('tranlate_items', $tranlate_items)->render();

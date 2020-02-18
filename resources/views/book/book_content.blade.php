@@ -228,7 +228,7 @@
         @endif
     </div>
     @endif
-    
+    @comments(['model' => $book])
     @else
     <h1>Книги не найдено</h1>
     @endif

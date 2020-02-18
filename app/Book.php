@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
+use Laravelista\Comments\Commentable;
+
 class Book extends Model
 {
-    use Rateable;
+    use Rateable, Commentable;
     
     public $table = "book";
     public $timestamps = false;

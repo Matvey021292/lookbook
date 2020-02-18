@@ -33,16 +33,12 @@ class IndexController extends SiteController
     public function index()
     {
         $count = Config::get('settings.home_post_count');
-        $book = $this->b_rep->getBooks('*', $count, false, false, false, true);
-        // $category = $this->c_rep->getCategories();
-        // $slider =  $this->b_rep->getBooks('*', $count, true);
+        $book = $this->b_rep->getBooks('*', $count, false, false, true);
         $author =  $this->a_rep->getAuthors('*', $count, true);
-        $slider = '';
-        // $category_temp = view(env('THEME') . '.category_book')->with('categories', $category)->render();
+        $slider = $this->b_rep->getBooks('*', $count, false, false, false);
         $slider_temp = view(env('THEME') . '.section')->with('books', $book)->render();
         $book_temp = view(env('THEME') . '.slider')->with('sliders', $slider)->render();
 
-        // $this->vars = array_add($this->vars, 'category', $category_temp);
         $this->vars = array_add($this->vars, 'sliders', $slider_temp);
         $this->vars = array_add($this->vars, 'books', $book_temp);
         $this->contentRightBar = view(env('THEME') . '.indexBar')->with('authors', $author)->with('books', $book)->render();

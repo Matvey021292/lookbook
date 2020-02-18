@@ -5,21 +5,23 @@ use Config;
 use App\Book;
 
 class BookRepository extends Repository{
+    
+    public function __construct(Book $books){
+        $this->model = $books;
+    }
+    
+    public function getBooks($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
 
-	public function __construct(Book $books){
-		$this->model = $books;
-	}
-
-	public function getBooks($select = '*', $count = false,  $rand = false, $pagination = false , $desc = false){
-	if (!$desc) {
-            $builder = $this->model->select($select);
+        if (!$desc) {
+            $builder = $this->model->select($select)->orderBy('visit_count', 'DESC');
         } else {
             $builder = $this->model->select($select)->orderBy('id', 'DESC');
-		}
+        }
 
-		$builder = $this->model->select($select)->where('Deleted', '=', 0);
-		
-		if ($count) {
+        $builder = $builder->where('Deleted', '=', 0);  
+        $builder = $builder->where('Lang', 'ru')->orWhere('Lang', 'uk')->orWhere('Lang', 'ua');
+        
+        if ($count) {
             if ($rand) {
                 $builder->inRandomOrder()->take($count);
             } else {
@@ -32,13 +34,13 @@ class BookRepository extends Repository{
         }
         return $builder->get();
     }
-
-	public function getBook($alias){
-		return $this->model->where('id', $alias)->first();
+    
+    public function getBook($alias){
+        return $this->model->where('id', $alias)->first();
     }
     
     public function convert($file_path, $format){
-
+        
         $file = str_replace('fb2.zip', $format, $file_path);
         if(!file_exists($file_path) || file_exists($file)) return $file_path;
         
@@ -47,7 +49,7 @@ class BookRepository extends Repository{
         
         return $file;
     }
-
+    
 }
 
 ?>

@@ -37,7 +37,9 @@ abstract class Repository
         $builder = $this->model
         ->where('Title', 'LIKE', '%' . $query . "%")
         ->orWhere('Title1', 'LIKE', '%' . $query . "%")
-        ->where('Deleted', '=', 0);
+        ->where('Deleted', '=', 0)
+        ->where('Lang', 'ru')->where('Lang', 'uk')->where('Lang', 'ua')
+        ->orderBy('visit_count', 'DESC');
 
         if($count){
             $builder =  $builder->limit($count);

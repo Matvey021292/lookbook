@@ -50,6 +50,7 @@ class BookController extends SiteController
         
         $this->review_reposytory->addView($book->id);
         return $this->renderOutput();
+        $leoo;
     }
     
             

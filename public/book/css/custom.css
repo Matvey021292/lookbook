@@ -1361,6 +1361,10 @@ body>.loader{
     pointer-events: none;
 }
 
+.card_cover__author{
+    width: 128px;
+    height: 150px;
+}
 
 .card_cover_xs{
     width: 256px; 

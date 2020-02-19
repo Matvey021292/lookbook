@@ -4,47 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\AuthorsRepository;
-use App\Repositories\GenreRepository;
 use App\Repositories\CategoryRepository;
 use Menu;
-use Config;
 
 class AuthorController extends SiteController
 {
-    public function __construct(AuthorsRepository $a_rep, GenreRepository $g_rep, CategoryRepository $c_rep){
+    public function __construct(AuthorsRepository $a_rep, CategoryRepository $c_rep){
         
         parent::__construct( new \App\Repositories\MenusRepository(new \App\Menu));
-        $this->g_rep = $g_rep;
         $this->a_rep = $a_rep;
         $this->c_rep = $c_rep;
         $this->template = env('THEME').'.author';
     }
     
     public function show($alias = false, Request $request){
+        
         $lang = $request->input('lang') ? $request->input('lang') : 'ru';
-        $count = Config::get('settings.home_post_count');
+        
         $author = $this->a_rep->getModel($alias);
-        $author['link'] = str_replace('flibustahezeous3.onion', 'flibusta.is',$author['link']);
+
         if(empty($author)) return redirect()->back()->withErrors(Config::get('message.author_not_found'));
         
         if($author->desc && $author->desc->Body){
             $author->desc->Body  = str_replace(']', '>',str_replace('[','<', $author->desc->Body));
         }
-        $categories = $author->categories;
-        $categories = $categories->unique('id');
-        // $genre = $author->genre;
-        // $genre = $genre->unique('id');
+
+        $categories = $author->categories->unique('id');
+        
         $languages = $author->lang->unique('Lang');
         
         $items = $this->getBooks($author, $categories, $lang);
         $tranlate_items = $this->getBooksTranslate($author, $categories, $lang);
-        dd($tranlate_items);
-        // dd(count($author->translate));
 
         ksort($items);
+        
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
         $translate_books = view(env('THEME').'.customCategoryTranslateItems')->with('tranlate_items', $tranlate_items)->render();
-        $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->with('tranlate_items', $tranlate_items)->render();
+        $content = view(env('THEME').'.author_content')->with('author', $author)->with('languages', $languages)->with('items', $items)->render();
         
         $this->vars = array_add($this->vars,'books', $books);
         $this->vars = array_add($this->vars,'author', $author);
@@ -56,14 +52,14 @@ class AuthorController extends SiteController
     }
     
     public function filter(Request $request){
-        $lang = $request->input('lang');
-        $alias = $request->input('alias');
-        $author = $this->a_rep->getAuthor($alias);
-        $categories = $author->categories;
-        $categories = $categories->unique('id');
-        $items = $this->getBooks($author, $categories, $lang);
+
+        $author = $this->a_rep->getModel($request->input('alias'));
+        $categories = $author->categories->unique('id');
+        $items = $this->getBooks($author, $categories, $request->input('lang'));
         ksort($items);
+        
         $books = view(env('THEME').'.customCategoryItems')->with('items', $items)->render();
+
         return response()->json([ 
             'status' => 'success',
             'message' => $books

@@ -11,3 +11,6 @@
 @section('customCategoryItems')
 {!! $books !!}
 @endsection
+@section('customCategoryTranslateItems')
+{!! $translate_books !!}
+@endsection

@@ -6982,6 +6982,7 @@ li.page-item a,
   background-color: #abacac;
   border-radius: 8px;
   margin-bottom: -30px;
+  position: relative;
 }
   @media (max-width: 767px) {
     .AuthorDetailHeader__image {

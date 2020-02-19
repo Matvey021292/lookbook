@@ -51,6 +51,7 @@
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="Header__enter col-xs-12 col-sm-3 end-xs col-sm-offset-2">
                                 @guest
                                 <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
@@ -66,12 +67,19 @@
                                     @else
                                     <i class="far fa-address-card"></i> 
                                     @endif
-                                    {{__('Личный кабинет')}}
+                                    <span>{{__('Личный кабинет')}}</span>
+                                    <i class="fas fa-sort-down"></i>
                                     <div class="container_more">
                                         <div class="HeaderUserMenu__submenuContainer">
                                             <div class="HeaderUserMenu__user">
                                                 <div class="HeaderUserMenu__userConatiner">
-                                                    <a class="HeaderUserMenu__userLink" href="/profile/17203964/">Andrey Matvienko</a>
+                                                    <a class="HeaderUserMenu__userLink" href="/profile">
+                                                        @if(Auth::user()->name)
+                                                            {{ Auth::user()->name }}
+                                                        @else
+                                                            {{ Auth::user()->email }}
+                                                        @endif
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="HeaderUserMenu__menu">

@@ -12212,7 +12212,6 @@ li.page-item a,
   min-width: 55px;
   margin-left: 16px;
   color: #d93025;
-  font-family: firasans, sans-serif;
   font-size: 16px;
   line-height: 1.5em;
   text-align: left;
@@ -12222,8 +12221,8 @@ li.page-item a,
       display: none; } }
 
 .MenuItemsList__item {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   border-bottom: solid 1px #ececec; }
 
 .MenuItemsList__item:last-child {
@@ -12234,7 +12233,6 @@ li.page-item a,
   width: 100%;
   text-decoration: none;
   color: #d93025;
-  font: 600 14px/1.2 firasans, sans-serif;
   cursor: pointer; }
   .MenuItemsList__link:hover {
     color: #e67e21; }
@@ -12327,7 +12325,9 @@ li.page-item a,
   z-index: 999;
   overflow: hidden; }
   .HeaderUserMenu__submenuContainer {
-    padding: 16px; }
+    padding: 5px;
+    
+  }
 
 .HeaderUserMenu__isOpen {
   position: fixed;
@@ -12359,10 +12359,9 @@ li.page-item a,
   background-color: #fffbf1; }
 
 .HeaderUserMenu__menu {
-  padding: 16px 0px; }
+  margin-top: 5px;
+}
   .HeaderUserMenu__menu .HeaderUserMenu__item {
-    padding-top: 12px;
-    padding-bottom: 12px;
     border-bottom: solid 1px #ececec; }
   .HeaderUserMenu__menu .HeaderUserMenu__item:last-child {
     border-bottom: none; }
@@ -12403,7 +12402,6 @@ li.page-item a,
     max-width: 240px;
     display: inline-block;
     overflow: hidden;
-    font-family: firasans, sans-serif;
     font-size: 16px;
     color: #393f45;
     font-weight: 600;

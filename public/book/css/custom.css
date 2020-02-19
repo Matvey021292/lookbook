@@ -507,15 +507,21 @@ a:hover{
 
 
 .Header__link{
-    font-size: 17px;
+    font-size: 15px;
     display: inline-flex;
     align-items: center;
+    color: #2e2e2e;
 }
 
-.Header__link i{
+.Header__link i:first-child{
     font-size: 22px;
     margin-right: 10px;
     pointer-events: none;
+}
+
+.Header__link i:last-of-type{
+    margin-left: 10px;
+    margin-top: -4px;
 }
 
 .BookDetailAnnotation__content{
@@ -1431,8 +1437,10 @@ body>.loader{
 }
 
 .Header__link__more{
+    border-radius: 0.5rem;
     padding: 10px 20px;
     background: var(--color-link-light);
+    border: 1px solid #eee;
 }
 
 .Header__link{
@@ -1443,7 +1451,9 @@ body>.loader{
     top: 100%;
     right: 0;
     left: auto;
+    max-height:none;
     bottom: auto;
+    min-width: 250px;
 }
 
 .Header__link ul{

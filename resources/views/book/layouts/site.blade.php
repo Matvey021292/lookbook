@@ -130,6 +130,7 @@
                             @yield('categories')
                             @yield('categories_content')
                             @yield('customCategoryItems')
+                            @yield('customCategoryTranslateItems')
                             @yield('book_content')
                             @yield('content_book')
                             @yield('books_content')

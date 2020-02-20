@@ -5,7 +5,7 @@
             @if($author->picture)
             <img width="128" height="150" src="{{config('settings.file_path_author')}}{{ $author->picture->File }}" alt="{{ $author->FirstName }} {{ $author->MiddleName }} {{ $author->LastName }}" class="AuthorDetailHeader__photo" srcset="{{config('settings.file_path_author')}}{{ $author->picture->File }}">
             @else
-            <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+            <div  class="card_cover card_cover__author" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
                 <span class="card_cover_author">{{ $author->FirstName }} {{ $author->LastName }}</span>
             </div>
             @endif

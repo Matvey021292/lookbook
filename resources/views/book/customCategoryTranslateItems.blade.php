@@ -1,4 +1,9 @@
+@if(!empty($tranlate_items))
+
 <div class="wrapper-row">
+    <div class="AuthorDetailListTitle__container mb-1">
+        <h2 class="section-title">ПЕРЕВОДЫ</h2>
+    </div>
     @foreach($tranlate_items as $item)
     @if(isset($item['category']))
     <div class="AuthorDetailView__container billetContainerNoOverflow">
@@ -49,3 +54,4 @@
     @endif
     @endforeach
 </div>
+@endif

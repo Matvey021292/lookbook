@@ -12326,7 +12326,7 @@ li.page-item a,
   overflow: hidden; }
   .HeaderUserMenu__submenuContainer {
     padding: 5px;
-    
+    z-index: 1;
   }
 
 .HeaderUserMenu__isOpen {

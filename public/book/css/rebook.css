@@ -2591,7 +2591,7 @@ li.page-item a,
   transition: transform 0.3s ease-in-out;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../images/arrow_5d09ae49.svg); }
+ }
 
 .Accordion__accordionItemInner {
   padding: 0 20px;
@@ -7264,7 +7264,8 @@ li.page-item a,
     background-repeat: no-repeat;
     background-image: url(../images/arrow_57df35f6.svg); }
   .AuthorDetailView__linkToSettingsButton:hover .AuthorDetailView__settingsLinkText {
-    background-image: url(../images/arrow-hover_f13ec3e5.svg); }
+
+   }
 
 .ContextAuthorCardEmpty__author {
   display: flex;
@@ -11297,7 +11298,7 @@ li.page-item a,
   min-width: 12px;
   height: 12px;
   margin-right: 8px;
-  background-image: url(../images/apply_84a00eb2.svg); }
+ }
 
 .WeekTrialView__noteSymbol {
   color: #e44b03; }
@@ -11995,7 +11996,7 @@ li.page-item a,
   min-width: 12px;
   height: 12px;
   margin-right: 8px;
-  background-image: url(../images/apply_84a00eb2.svg); }
+ }
 
 .BookTrialPlayerAlert__linkToLogin {
   text-decoration: underline; }
@@ -13372,7 +13373,6 @@ small {
 .shortArrowWhite {
   width: 16px;
   height: 16px;
-  background-image: url(../images/arrow-white_998b3af3.svg);
   transform: rotate(180deg); }
 
 .app {

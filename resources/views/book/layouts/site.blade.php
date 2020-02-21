@@ -4,19 +4,10 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/fav-1.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/images/favicon.png"/>
     <title>Leviafan - @yield('Title')</title>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
-    <link rel="stylesheet" href="{{ asset(env("THEME")) }}/css/autoComplete.css">
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.core.min.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/glide.theme.min.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/vendor.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/rebook.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/custom.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-    
 </head>
 <body>
     @if ($errors->any())
@@ -158,8 +149,5 @@
     
 
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/app.js'></script>
-    {{-- <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
-    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script> --}}
 </body>
 </html>

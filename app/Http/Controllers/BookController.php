@@ -52,6 +52,10 @@ class BookController extends SiteController
         return $this->renderOutput();
     }
     
+
+    public function download(Request $request){
+        return response()->json(['status' => 'error', 'message'=> 'Метод не описан' ]);
+    }
             
             // public function download(Request $request){
                 //     $format = $request->input('format');

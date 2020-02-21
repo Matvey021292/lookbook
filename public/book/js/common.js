@@ -296,7 +296,10 @@ closeButton.forEach(function (e) {
     });
 })
 
-document.querySelectorAll('.alert').forEach(function (e) {
+let modals = document.querySelectorAll('.alert');
+
+modals.forEach(function (e) {
+
 
     let i = 0,
         time = 3000;
@@ -307,6 +310,7 @@ document.querySelectorAll('.alert').forEach(function (e) {
         } else {
             clearInterval(timerId);
         }
+        if (!e.querySelector('.progress')) return;
         e.querySelector('.progress').style.right = i + '%';
 
     }, (time / 120));
@@ -454,3 +458,5 @@ function showModal(message) {
     document.body.append(modal);
 
 }
+
+

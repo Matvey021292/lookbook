@@ -186,7 +186,13 @@
             'init': true
         }
         requestPostData(download_route, data)
-        .then(e => window.open(e.message));
+        .then(e => {
+            if(e.status == 'success'){
+                window.open(e.message)
+            }else{
+                console.log(download_route + ':' + e.message)
+            }
+        });
     })
     
 </script>

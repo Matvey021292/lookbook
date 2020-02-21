@@ -25,7 +25,11 @@ class ContentBook extends SiteController
         if(!$this->user::check()){
             return redirect('/login')->with(['status' => 'Profile updated successfully.']);
         }
-        $book = $this->b_rep->getBook($alias);
+        $book = $this->b_rep->getModel($alias);
+        if(!$book->path) return response()->json([
+            'status' => 'error',
+            'message' => __('Book not found')
+        ]);
         // $file = $this->generate_book_slug($book);
         $file = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), 'epub');
         $contents = $this->book_content($file);

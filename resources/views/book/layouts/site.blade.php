@@ -156,8 +156,10 @@
         };
     </script>
     
-    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
+
+    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/app.js'></script>
+    {{-- <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/glide.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.1.1/dist/js/autoComplete.min.js"></script>
-    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script>
+    <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/common.js'></script> --}}
 </body>
 </html>

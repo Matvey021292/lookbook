@@ -5,7 +5,7 @@
                 <div class="section-title">Просмотренные книги</div>
             </div>
     </div>
-    @if(count($books_view) > 7)
+    @if(count($books_view) >= 7)
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper glide__slides">

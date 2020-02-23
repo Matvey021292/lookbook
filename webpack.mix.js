@@ -24,6 +24,7 @@ mix.browserSync({
       'node_modules/@glidejs/glide/dist/css/glide.core.min.css',
       'node_modules/@glidejs/glide/dist/css/glide.theme.min.css',
       'node_modules/flexboxgrid/css/flexboxgrid.min.css',
+      'node_modules/simple-keyboard/build/css/index.css',
       'public/book/css/vendor.css',
       'public/book/css/rebook.css',
       'public/book/css/custom.css',
@@ -32,6 +33,7 @@ mix.browserSync({
    // .purgeCss()
    .scripts([
       'node_modules/@glidejs/glide/dist/glide.min.js',
+      'node_modules/simple-keyboard/build/index.js',
       'node_modules/@tarekraafat/autocomplete.js/dist/js/autoComplete.min.js',
       'public/book/js/common.js',
    ], 'public/book/js/app.js');

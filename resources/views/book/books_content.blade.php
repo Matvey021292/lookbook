@@ -1,5 +1,5 @@
 @if($books)
-<div class="wrapper-row">
+<div class="wrapper-row wrapper-section">
     <div class="AuthorDetailView__container billetContainerNoOverflow">
         <div class="AuthorDetailListTitle__container">
             <h2 class="section-title">

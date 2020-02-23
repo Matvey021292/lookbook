@@ -52,11 +52,6 @@ class BookController extends SiteController
         return $this->renderOutput();
     }
     
-    
-    // public function download(Request $request){
-    //     return response()->json(['status' => 'error', 'message'=> 'Метод не описан' ]);
-    // }
-    
     public function download(Request $request){
         $format = $request->input('format');
         $book_id = $request->input('file');
@@ -66,7 +61,8 @@ class BookController extends SiteController
             if($book->path){
                 $path = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), $format);
                 if(file_exists($path)){
-                    return response()->json(['message'=> $path]);
+                    
+                    return response()->json(['status' => 'success', 'message'=> $path]);
                 }
             }
             
@@ -74,10 +70,9 @@ class BookController extends SiteController
             $request_name = str_replace($format, 'fb2.zip', $path_file);
             if(!file_exists(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH))) return;
             $convert = new Convert(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH), $format);
-            return response()->json(['message'=> $convert]);
+            return response()->json(['status' => 'success', 'message'=> $convert]);
             
         }else{
-            
             if(!$book->path){
                 $request_path = Config::get('settings.replace_url') . "/b/{$book_id}/{$format}";
                 $path = public_path("uploads/files/{$book_id}/{$format}/");
@@ -99,9 +94,11 @@ class BookController extends SiteController
                         $filepath->save();
                     }
                 }
+                return response()->json(['status' => 'error', 'message'=> __('save book')]);
+            }else{
+                return response()->json(['status' => 'error', 'message'=> __('Book exist')]);
             }
         }
-        
         
     }
     

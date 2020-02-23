@@ -203,7 +203,7 @@
             <div class="section-title">{{  __('Книги серии')}} «{{$series->Title}}»</div>
         </div>
     </div>
-    @if(count($series->book) > 7)
+    @if(count($series->book) > 6)
     <div class="ContentCarousel__wrapper glide">
         <div data-glide-el="track"  class="swiper-container glide__track swiper-container-horizontal swiper-container-free-mode">
             <div class="swiper-wrapper glide__slides">

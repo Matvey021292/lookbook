@@ -607,16 +607,16 @@ a:hover{
     background-color: transparent;
 }
 
-.section-container{
+/* .section-container{
     padding: 50px 0;
-}
+} */ 
 
 .d-flex{
     display: flex;
     flex-direction: row;
     align-items: start;
 }
-
+ 
 .section{
     border-radius: 30px;
     max-width: 1440px;
@@ -626,16 +626,22 @@ a:hover{
     min-width: 320px;
     margin: 0 auto;
     min-height: 85vh;
+    padding-top: 40px; 
 }
 
-.HeaderLinks__headerLinks{
+
+.card_wrapper{
+    padding-top: 40px;
+} 
+
+/* .HeaderLinks__headerLinks{
     position: sticky;
     top: 0;
     left: 0;
     display: block;
     padding-left: 0;
     background: #fff;
-}
+} */
 
 .row-container{
     max-width: 100%;
@@ -646,7 +652,6 @@ a:hover{
 .HeaderLinks__linksContainer{
     flex-direction: column;
     font-size: 16px;
-    align-items: flex-start;
 }
 
 .HeaderLinks__linkContainer{
@@ -654,14 +659,17 @@ a:hover{
     max-width: 100%;
     height: auto;
     margin: 0;
-    padding-right: 80px;
+   
 }
 
+.HeaderLinks__linkContainer a{
+    color: #2d2d2d;
+}
+ 
 .HeaderLinks__linkContainer.active{
-    background: #f1f3f4;
-    border-radius: 0px 50px 50px 0;
-    cursor: none;
-    /* box-shadow: 0px 10px 20px -4px rgba(0,0,0,0.1); */
+    background: var(--color-link-light);
+    border-radius: 0.5rem;
+    border:1px solid #fff;
 }
 
 .HeaderLinks__link{
@@ -740,11 +748,12 @@ label[for='autoComplete']{
 }
 
 .HeaderLinks__link{
+    padding: 12px;
     justify-content: flex-start;
 }
 
 .HeaderLinks__link{
-    padding-left: 30px;
+    padding-left: 25px;
 }
 
 .card_image{
@@ -1361,6 +1370,7 @@ body>.loader{
     border-radius: 8px;
     box-shadow: 0 4px 6px 0 rgba(37, 38, 40, 0.2);
     pointer-events: none;
+    overflow: hidden;
 }
 
 .card_cover__author{
@@ -1436,6 +1446,11 @@ body>.loader{
 
 .card_cover_xs .card_cover_book{
     font-size: 20px;
+}
+
+.UserSettingsAvatar__userImagePreviewContent{
+    background: transparent;
+    object-fit: contain;
 }
 
 .UserSettingsAvatar__userImagePreviewContent[src=""]{
@@ -1614,3 +1629,61 @@ label[for='autoComplete']{
 .autoComplete_result:focus {
     outline: none;
 }
+
+.user__avatar{
+    background: transparent;
+    border: 0px;
+}
+
+.simple-keyboard{
+    position: absolute;
+    margin-top: 15px;
+    z-index: 999;
+    background: #eee;
+    width: auto;
+    min-width: 100%;
+    display: none;
+}
+
+.simple-keyboard.show{
+    display: block;
+}
+
+.simple-keyboard .hg-button{
+    min-width: 40px;
+}
+
+.main-navigation{
+    padding: 0px 40px;
+}
+
+.virtual_kd{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    z-index: 999;
+    font-size: 17px;
+    transform: translate(-0%,-50%);
+}
+
+.Header__header{
+    z-index: 999;
+    background: #fff;
+}
+
+#nav-container-top {
+	height: 1px;
+}
+
+#nav-container {
+    padding: 15px 0;
+	position: sticky;
+    top: 0;
+    background: #fff;
+}
+
+.nav-container-sticky {
+    background-color: #fff !important;
+    box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.2);
+}
+

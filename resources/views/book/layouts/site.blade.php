@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/images/favicon.png"/>
     <title>Leviafan - @yield('Title')</title>
     <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
+    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app_mobile.css'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -23,11 +24,12 @@
     @endif
     <div id="app" class="appContainer">
         <div class="app section">
-            <header class="Header__header themeGrey">
+            <div id="nav-container-top"></div>
+            <header id="nav-container" class="Header__header themeGrey">
                 <div class="billetContainerWrapper">
                     <div class="section-container">
                         <div class="Header__menuWrapper row middle-xs">
-                            <a class="Header__logo col-xs-12 col-sm-3 center-xs" href="/">Leviafan.com</a>
+                            <a class="Header__logo col-xs-4 col-sm-3 center-xs" href="/">Leviafan.com</a>
                             <div class="Header__search col-xs-12 col-sm-4 pl-0">
                                 <div class="billetContainerWrapper SearchLine__search">
                                     <div class="SearchLine__searchContent">
@@ -35,21 +37,25 @@
                                             <form action="/qsearch/" method='GET'>
                                                 <input autocomplete="off" name="query" value="{{request()->get('query')}}"id="autoComplete" 
                                                 tabindex="1" type="text"
-                                                class="SearchLine__darkInput jest-search-input">
+                                                class="input SearchLine__darkInput jest-search-input">
+                                                <div class="simple-keyboard"></div>
                                                 <label for="autoComplete"><i class="fas fa-search"></i></label>
+                                                <a href="#" class="virtual_kd">
+                                                    <i class="fas fa-keyboard"></i>
+                                                </a>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                           
-                            <div class="Header__enter col-xs-12 col-sm-3 end-xs col-sm-offset-2">
+                            <div class="Header__enter col-xs-8 col-sm-3 end-xs col-sm-offset-2">
                                 @guest
                                 <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
-                                    <i class="fas fa-sign-in-alt"></i> {{ __('Войти')}} &nbsp; | &nbsp;
+                                     {{ __('Войти')}} &nbsp; | &nbsp;
                                 </a>
                                 <a href="/register" data-modal="#register" class="trigger Header__link"> 
-                                    <i class="far fa-address-card"></i> {{__('Регистрация')}} 
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>{{__('Регистрация')}}</span>
                                 </a>
                                 @else
                                 <div class="link_more Header__link Header__link__more"> 
@@ -97,8 +103,8 @@
                             </div>
                         </div>
                     </div>
-                </header>
-                <div class="row row-container">
+                </header> 
+                <div class="row row-container card_wrapper">
                     <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                         <div class="HeaderLinks__list">
                             @yield('nav')

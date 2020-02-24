@@ -1,0 +1,146 @@
+@media(max-width:768px){
+    .appContainer{
+        padding: 0px 0;
+    }
+    .section{
+        max-width: 100%;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .Header__logo{
+        font-size: 16px;
+    }
+
+    .Header__search{
+        order: 1;
+        margin-top: 10px;
+    }
+
+    .SearchLine__search{
+        padding: 0;
+    }
+
+    .simple-keyboard .hg-button{
+        min-width: auto;
+    }
+    
+    .card_wrapper{
+        padding-top: 10px;
+    }
+    .jest-horizontallybookcard{
+        flex-direction: column;
+    }
+    .jest-horizontallybookcard .VerticalBookCard__bookInfo{
+        margin-left: 0;
+    }
+
+    .BookCover__bookImage, .BookCover__book img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .cart-light-md{
+        font-size: 13px;
+    }
+
+    .swiper-wrapper{
+        margin: auto;
+    }
+
+    .wrapper-section .VerticalBookCard__tinyBook:last-child{
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .wrapper-section .jest-horizontallybookcard .VerticalBookCard__bookInfo{
+        margin-left: 15px;
+    }
+ 
+    .HeaderLinks__headerLinks{
+        max-width: 100%;
+    }
+    .book_aside_wrapper{
+        margin-top: 0;
+    }
+    .HeaderLinks__linkContainer{
+        box-shadow: none;
+    }
+
+    .HeaderLinks__link{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    div[data-toggle="collapse"]>div{
+        min-width: 100%;
+    }
+    .billetContainerNoOverflow.AuthorDetailHeader__container{
+        padding: 0 !important;
+    }
+
+    .billetContainerNoOverflow.AuthorDetailHeader__container p{
+        font-size: 14px;
+
+    }
+
+    .BookPageHeaderContent__coverBlockImage{
+        width: 100%;
+    }
+    .card_cover_xs{
+        max-width: 100%;
+    }
+
+    .Rating__ratingStar-wrapper{
+        margin-top: 10px;
+        padding: 5px 0;
+    }
+    .BookPageHeaderContent__coverContent{
+        padding: 10px;
+    }
+    .billetContainerNoOverflow{
+        margin-bottom: 10px;
+    }
+
+    .HeaderLinks__headerLinks{
+        width: 100%;
+    }
+
+    .book_aside_wrapper{
+        background: #f9f9f9;
+        max-width: 90%;
+        margin: auto;
+        border-radius: 12px;
+        padding: 10px 18px;
+        margin-bottom: 10px;
+    }
+
+    .HeaderLinks__link{
+        padding-left: 0;
+        padding-right: 0%;
+    }
+
+    .size-md{
+        font-size: 14px;
+    }
+
+    .breadcrumb{
+        margin-bottom: 10px;
+    }
+
+    .TagLabel__brown, .TagLabel__grey, .TagLabel__withoutBorder{
+        margin-bottom: 0px ;
+    }
+}
+
+@media(max-width:340px){
+    .Header__link{
+        font-size: 12px;
+    }
+
+    .BookCover__book{
+        width: 100px !important;
+        height: 150px !important;
+    }
+}

@@ -14498,7 +14498,8 @@ small {
 }
 
 :root{
-    --color-link:#9eb0c1;
+    /* --color-link:#9eb0c1; */
+    --color-link: #555a5f;
     --color-link-light: #f9f9f9;
     --color-link-dark:#e1e1e1;
 }
@@ -15825,3 +15826,46 @@ label[for='autoComplete']{
     box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.2);
 }
 
+.custom_btn{
+    background: #4883f8;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 2px;
+    display: inline-block;
+   
+ }
+
+ .custom_btn.active,
+ .custom_btn:hover{
+     background: #3e5c98;
+     color: #fff;
+     box-shadow: 0px 1px 10px -3px rgba(0,0,0,0.6);
+ }
+ 
+ .group_btn{
+     margin-bottom: 10px;
+ }
+
+ .group_btn .custom_btn{
+    margin: 0 8px 8px 0;
+    white-space: nowrap;
+ }
+
+ .group_btn .custom_btn i{
+    margin-right: 7px;
+}
+
+.container_title{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid rgba(238, 238, 238, 0.7);
+}
+
+.container_title i{
+    margin-right: 5px;
+}
+
+.group_btn_size .custom_btn{
+   text-align: center;
+   background: #f65b78;
+}

@@ -555,7 +555,14 @@ a:hover{
     line-height: 1;
 }
 
-.alert{
+
+.TagLabel__brown.active {
+    background-color: #e67e21;
+    border-color: #e67e21;
+    color: #ffffff;
+}
+
+.alert{ 
     position: fixed;
     width: 100%;
     text-align: center;

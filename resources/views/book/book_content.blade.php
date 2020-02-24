@@ -178,22 +178,7 @@
         alert('Спасибо! Вы успешно поставили оценку для выбраной книги.')
     }
     
-    window.addEventListener('load',function(){
-        
-        let data = {
-            'file': book_id,
-            'format': document.querySelector('input[name="book_format"]').value,
-            'init': true
-        }
-        requestPostData(download_route, data)
-        .then(e => {
-            if(e.status == 'success'){
-                window.open(e.message)
-            }else{
-                console.log(download_route + ':' + e.message)
-            }
-        });
-    })
+   
     
 </script>
 @if($series)

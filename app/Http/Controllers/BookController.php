@@ -53,17 +53,15 @@ class BookController extends SiteController
     }
     
     public function download(Request $request){
+        $files_upload = Config::get('settings.files_upload');
         $format = $request->input('format');
         $book_id = $request->input('file');
         $book = $this->b_rep->getModel($book_id);
         
         if(!$request->input('init')){
             if($book->path){
-                $path = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), $format);
-                if(file_exists($path)){
-                    
-                    return response()->json(['status' => 'success', 'message'=> $path]);
-                }
+                $path = $this->b_rep->convert($book->path->Path, $format);
+                return response()->json(['status' => 'success', 'message'=> url("{$files_upload}{$path}")]);
             }
             
             $path_file  = $book->path->Path;

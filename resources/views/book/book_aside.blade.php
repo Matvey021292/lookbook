@@ -7,7 +7,7 @@
     <div class="HeaderLinks__link">
         @foreach ($formats as $format)
         @if($format == $book->FileType && $book->path)
-        <a href="{{url('uploads/files/' . $book->path->Path)}}" download class="Button__primaryButton  TagLabel__brown" >{{ $format }}</a>
+        <a href="{{url('uploads/files/' . $book->path->Path)}}" download class="active Button__primaryButton  TagLabel__brown" >{{ $format }}</a>
         @else
         <a href="download" data-format="{{$format}}"  class="download_file Button__primaryButton  TagLabel__brown">{{ $format }}</a>
         @endif

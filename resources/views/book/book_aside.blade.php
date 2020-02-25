@@ -22,7 +22,7 @@
         @endforeach
     </div>
     <div class="group_btn group_btn_size">
-        <p class="container_title"> <i class="fas fa-book-reader"></i>Читать книгу онлайн</p>
+        <p class="container_title size-md"> <i class="fas fa-book-reader"></i>Читать книгу онлайн</p>
         <a href="{{ route('book.show', ['alias' => $book->id]) }}/read" class="custom_btn size-md ">
             <i class="fas fa-book-reader"></i>
             <span class="menu-title">Читать  онлайн</span> 
@@ -30,12 +30,12 @@
         @if(Auth::user() && Auth::user()->selected && Auth::user()->selected->contains('book_id', $book->id))
         <a href="#" class="custom_btn BookStatusChangePopup__buttonFunctional remove_book_my_list  size-md ">
             <i class="fas fa-minus"></i>
-            <span class="menu-title">Удалить из списка</span> 
+            <span class="menu-title">Удалить</span> 
         </a>
         @else
         <a href="#" class="custom_btn BookStatusChangePopup__buttonFunctional add_book_my_list  size-md ">
             <i class="fas fa-plus"></i>
-            <span class="menu-title">На полку</span> 
+            <span class="menu-title">Добавить</span> 
         </a>
         <p class="container_title"></p>
     </div>

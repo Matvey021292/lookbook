@@ -23,28 +23,35 @@ class AuthorsRepository extends Repository{
                 $builder->take($take);
             }
         }
-
+        
         $builder = $builder->join('author_book_count', function ($join) {
             $join->on('author.id', '=', 'author_book_count.author_ID');
         });
-       
+        
         $builder = $builder->where('count', '>', 1);
-
+        
         if ($pagination) {
             return $builder->paginate($pagination);
         }
-
+        
         return $builder->get();
     }
     
     
-    public function getAuthorByTitle($query, $count = '', $paginate = ''){
+    public function getAuthorByTitle($query, $count = '', $paginate = '',  $image = false){
         $builder = $this->model
         ->where('FirstName', 'LIKE', '%' . $query . "%")
         ->orWhere('LastName', 'LIKE', '%' . $query . "%")
-        ->orWhere(DB::raw("CONCAT(`FirstName`, ' ', `LastName`)"), 'LIKE', "%".$query."%")
-        ->join('author_book_count', 'author.id', 'author_book_count.author_ID')
-        ->orderBy('count','desc');
+        ->orWhere(DB::raw("CONCAT(`FirstName`, ' ', `LastName`)"), 'LIKE', "%".$query."%") ;
+        
+        
+        if($image){
+            $builder = $builder->join('author_picture', 'author.id', 'author_picture.author_ID');
+            
+        }
+        $builder = $builder ->join('author_book_count', 'author.id', 'author_book_count.author_ID');
+        
+        $builder = $builder->orderBy('count','desc');
         
         if($count){
             $builder = $builder->limit($count);

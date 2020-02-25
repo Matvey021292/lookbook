@@ -21,6 +21,7 @@ class ContentBook extends SiteController
     }   
     
     public function index($alias){
+        $files_upload = Config::get('settings.files_upload');
         $user = $this->user::user();
         if(!$this->user::check()){
             return redirect('/login')->with(['status' => 'Profile updated successfully.']);
@@ -31,7 +32,10 @@ class ContentBook extends SiteController
             'message' => __('Book not found')
         ]);
         // $file = $this->generate_book_slug($book);
-        $file = $this->b_rep->convert(public_path("/uploads/files/{$book->path->Path}"), 'epub');
+        $file = $this->b_rep->convert($book->path->Path, 'epub');
+        if(!file_exists(public_path("{$files_upload}{$file}"))){
+            return response()->json(['status' => 'success', 'message'=> 'Файл не найден']);
+        }
         $contents = $this->book_content($file);
         $contents = str_replace(public_path(), '', $contents);
         $bookmarks = Bookmarks::where('book_id', $book->id)->where('user_id', $user->id)->first();

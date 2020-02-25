@@ -7,6 +7,7 @@ use App\Repositories\BookRepository;
 use Config;
 use Illuminate\Http\Request;
 
+
 class SearchController extends SiteController
 {
     public function __construct(BookRepository $b_rep, AuthorsRepository $a_rep)
@@ -30,7 +31,7 @@ class SearchController extends SiteController
         
         $output->recipes = [];
         
-        $authors =  $this->a_rep->getAuthorByTitle($request->search, Config::get('settings.simple_search'));
+        $authors =  $this->a_rep->getAuthorByTitle($request->search, Config::get('settings.simple_search'), false, true);
 
         if (!empty($authors)) {
             foreach ($authors as $key => $author) {
@@ -41,7 +42,7 @@ class SearchController extends SiteController
             }
         }
 
-        $books = $this->b_rep->getBookByTitle($request->search, Config::get('settings.simple_search'));
+        $books = $this->b_rep->getBookByTitle($request->search, Config::get('settings.simple_search'), false, true);
         
         if (!empty($books)) {
             foreach ($books as $key => $book) {

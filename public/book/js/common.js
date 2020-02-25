@@ -75,13 +75,17 @@ new autoComplete({
         },
         destination: document.querySelector("#autoComplete"),
         position: "afterend",
-        element: "ul"
+        element: "ul",
     },
     maxResults: 12,
     highlight: true,
     resultItem: {
         content: (data, source) => {
-            source.innerHTML = data.match;
+            let picture = '';
+            if (data.value.File) {
+                picture = "<img class='autoComplete_picture' src='" + data.value.File + "'></img>";
+            }
+            source.innerHTML = picture + data.match;
         },
         element: "li"
     },

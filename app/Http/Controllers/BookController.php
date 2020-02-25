@@ -57,6 +57,7 @@ class BookController extends SiteController
         $format = $request->input('format');
         $book_id = $request->input('file');
         $book = $this->b_rep->getModel($book_id);
+
         
         if(!$request->input('init')){
             if($book->path){

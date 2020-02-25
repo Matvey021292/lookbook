@@ -6,6 +6,7 @@ use App\Book;
 use App\SelectedBook;
 use Illuminate\Support\Facades\Auth;
 
+
 class BookRepository extends Repository{
     
     private $selected;
@@ -55,7 +56,7 @@ class BookRepository extends Repository{
     }
     
     
-    public function getBookByTitle($query, $count = '', $paginate = ''){
+    public function getBookByTitle($query, $count = '', $paginate = '', $image = false){
         
         $builder = $this->model
         ->where('Title', 'LIKE', '%' . $query . "%")

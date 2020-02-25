@@ -681,8 +681,10 @@ a:hover{
 }
 
 .HeaderLinks__link{
-    background: transparent;
-}
+    background: transparent; 
+    padding-left: 0;
+    justify-content: flex-start;
+} 
 
 .VerticalBookCard__bookName{
     line-height: 1;
@@ -753,16 +755,7 @@ label[for='autoComplete']{
 #autoComplete:focus{
     border-radius: 0.5rem;
 
-}
-
-.HeaderLinks__link{
-    padding: 12px;
-    justify-content: flex-start;
-}
-
-.HeaderLinks__link{
-    padding-left: 25px;
-}
+} 
 
 .card_image{
     object-fit: cover;
@@ -976,7 +969,8 @@ div[data-toggle="collapse"].open .toggle-icon i{
 }
 .HeaderLinks__linkContainer .menu-title{
     margin-left: 16px;
-}
+    color: var(--color-link)
+} 
 
 .billetContainerNoOverflow.AuthorDetailHeader__container{
     font-weight: 400;
@@ -1565,7 +1559,8 @@ body>.loader{
     transition: all 0.1s ease-in-out;
     -webkit-transition: all -webkit-transform 0.1s ease;
     margin-top: -5px;
-    box-shadow: 0px 1px 1px 0 rgba(65, 69, 73, 0.3), 0px 1px 0px 1px rgba(65, 69, 73, 0.15);
+    /* box-shadow: 0px 1px 1px 0 rgba(65, 69, 73, 0.3), 0px 1px 0px 1px rgba(65, 69, 73, 0.15); */
+    border: 1px solid #eee;
     border-radius:0 0 0.5rem 0.5rem;
     overflow: hidden;
     border-top: 1px solid #eee;
@@ -1661,9 +1656,7 @@ label[for='autoComplete']{
     min-width: 40px;
 }
 
-.main-navigation{
-    padding: 0px 40px;
-}
+
 
 .virtual_kd{
     position: absolute;

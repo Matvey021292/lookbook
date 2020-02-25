@@ -30,23 +30,23 @@ class SearchController extends SiteController
         $output->count = 0;
         
         $output->recipes = [];
-        
-        $authors =  $this->a_rep->getAuthorByTitle($request->search, Config::get('settings.simple_search'), false, true);
+        $authors =  $this->a_rep->getAuthorByTitle(trim($request->search), Config::get('settings.simple_search'), false, true);
 
         if (!empty($authors)) {
             foreach ($authors as $key => $author) {
-                $author->key = 'author';
+                $author->key = 'Автор';
                 $author->slug = '/author/' . $author->author_ID;
                 $author->Title = $author->FirstName . ' ' . $author->LastName;
+                $author->File = url(Config::get('settings.file_path_author') . $author->File);
                 $output->recipes[] = $author;
             }
         }
 
-        $books = $this->b_rep->getBookByTitle($request->search, Config::get('settings.simple_search'), false, true);
+        $books = $this->b_rep->getBookByTitle(trim($request->search), Config::get('settings.simple_search'), false, true);
         
         if (!empty($books)) {
             foreach ($books as $key => $book) {
-                $book->key = 'book';
+                $book->key = 'Книга';
                 $book->slug = '/book/' . $book->id;
                 $output->recipes[] = $book;
             }

@@ -81,11 +81,12 @@ new autoComplete({
     highlight: true,
     resultItem: {
         content: (data, source) => {
-            let picture = '';
+            let picture = '', item;
             if (data.value.File) {
-                picture = "<img class='autoComplete_picture' src='" + data.value.File + "'></img>";
+                // picture = "<img class='autoComplete_picture' src='" + data.value.File + "'></img>";
             }
-            source.innerHTML = picture + data.match;
+            item = "<small class='test_sm'>" + data.value.key + "</small>";
+            source.innerHTML = picture + "<div>" + item + data.match + "</div>";
         },
         element: "li"
     },
@@ -187,7 +188,7 @@ document.addEventListener('click', function (event) {
             .then(e => showModal(e.message));
         let els = document.getElementsByClassName(add);
         [].forEach.call(els, function (el) {
-            el.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить из списка</span>'
+            el.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить</span>'
         });
         reverseClassList(e, remove, add);
 
@@ -197,7 +198,7 @@ document.addEventListener('click', function (event) {
             .then(e => showModal(e.message));
         let els = document.getElementsByClassName(remove);
         [].forEach.call(els, function (el) {
-            el.innerHTML = '<i class="fas fa-plus"></i> <span class="menu-title">Добавить в список</span> ';
+            el.innerHTML = '<i class="fas fa-plus"></i> <span class="menu-title">Добавить</span> ';
         });
 
         reverseClassList(e, add, remove);

@@ -25,7 +25,7 @@
         <p class="container_title size-md"> <i class="fas fa-book-reader"></i>Читать книгу онлайн</p>
         <a href="{{ route('book.show', ['alias' => $book->id]) }}/read" class="custom_btn size-md ">
             <i class="fas fa-book-reader"></i>
-            <span class="menu-title">Читать  онлайн</span> 
+            <span class="menu-title">Читать</span> 
         </a>
         @if(Auth::user() && Auth::user()->selected && Auth::user()->selected->contains('book_id', $book->id))
         <a href="#" class="custom_btn BookStatusChangePopup__buttonFunctional remove_book_my_list  size-md ">

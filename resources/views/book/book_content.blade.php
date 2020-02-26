@@ -153,8 +153,6 @@
 <script type="text/javascript">
     
     let book_id = {{ $book->id }};
-    let route_booklist_add = "{{route('bookListAdd')}}";
-    let route_booklist_remove = "{{route('bookListRemove')}}";
     let download_route = "{{ route('downloadFile') }}";
     
     

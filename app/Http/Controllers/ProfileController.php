@@ -18,7 +18,7 @@ use App\User;
 class ProfileController extends SiteController
 {
     use UploadTrait;
-
+    
     
     public function __construct(Auth $user, Rule $rule, SelectedRepository $selected)
     {
@@ -46,7 +46,7 @@ class ProfileController extends SiteController
             $user->addMediaFromRequest('profile_image')->toMediaCollection('profile_image');
         }
     }
-
+    
     public function show($alias){
         $user = User::find($alias);
         $books = $user->books;
@@ -94,7 +94,7 @@ class ProfileController extends SiteController
                     $mediaItems[0]->delete();
                 }
                 $profile->image = $this->addImage($request);
-               
+                
             }
             
             $profile->last_name = $request->input('last_name'); 
@@ -105,21 +105,37 @@ class ProfileController extends SiteController
             return redirect()->back()->with(['status' => 'Profile updated successfully.']);
         }
         
-        public function addBookList(Request $request, Book $book){
+        public function BookList(Request $request, Book $books){
             
-            $book_id = $request->input('book');
-            if(!$book->find($book_id)) return;
-            if (is_null($this->selected->findSelectedBook($book_id))) {
-                $message = $this->selected->addBook($book_id);
-            } else {
-                $message = __('book exsists');
+            $book_ID = (int) $request->input('book_ID');
+            $status = (int) $request->input('status_book');
+            
+            if(!$books->find($book_ID)){
+                return response()->json([ 'status' => 'error', 'message' => "Book not found {$book_ID}" ]); };
+                
+                if($status === 1){
+                    $message = $this->addBookBooklist($book_ID);
+                }else{
+                    $message = $this->removeBooklist($book_ID);
+                }
+                
+                return response()->json(['status' => 'success', 'message'=> $message ]);
             }
-            return response()->json(['message'=> $message ]);
+            
+            
+            public function addBookBooklist($id){
+                $message = '';
+                if (is_null($this->selected->findSelectedBook($id))) {
+                    $message = $this->selected->addBook($id);
+                } else {
+                    $message = __('book exsists');
+                }
+                return $message;
+            }
+            
+            public function removeBooklist($id){
+                $this->selected->removeBook($id);
+                return __('Remove book');
+            }
         }
         
-        public function removeBookList(Request $request){
-            $this->selected->removeBook($request->input('book'));
-            return response()->json(['message'=> __('Remove book')]);
-        }
-    }
-    

@@ -28,12 +28,12 @@
             <span class="menu-title">Читать</span> 
         </a>
         @if(Auth::user() && Auth::user()->selected && Auth::user()->selected->contains('book_id', $book->id))
-        <a href="#" class="custom_btn BookStatusChangePopup__buttonFunctional remove_book_my_list  size-md ">
+        <a href="#" data-status='0' class="booklist custom_btn size-md">
             <i class="fas fa-minus"></i>
             <span class="menu-title">Удалить</span> 
         </a>
         @else
-        <a href="#" class="custom_btn BookStatusChangePopup__buttonFunctional add_book_my_list  size-md ">
+        <a href="#" data-status='1' class="booklist custom_btn size-md">
             <i class="fas fa-plus"></i>
             <span class="menu-title">Добавить</span> 
         </a>
@@ -42,3 +42,32 @@
     @endif
     @endif
 </div>
+
+
+<script>
+    document.addEventListener('click', function (event) {
+        
+        if(event.target.classList.contains('booklist')){
+            event.preventDefault();
+            let data = {
+                'book_ID' :  document.querySelector('input[name="book_id"]').value,
+                'status_book' : event.target.getAttribute('data-status')
+            }
+            
+            requestPostData("{{ route('booklist')}}", data)
+            .then(e => {
+                if(e.status != 'error'){
+                    showModal(e.message);
+                    if(data.status_book == 1){
+                        event.target.setAttribute('data-status', 0);
+                        event.target.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить</span>';
+                    }else{
+                        event.target.setAttribute('data-status', 1);
+                        event.target.innerHTML = '<i class="fas fa-plus"></i><span class="menu-title">Добавить</span>';
+                    }
+                    
+                }
+            });
+        }
+    })
+</script>

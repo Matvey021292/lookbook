@@ -108,8 +108,8 @@ Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile
 
 Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
 
-Route::post('/profile/bookListAdd', 'ProfileController@addBookList')->name('bookListAdd');
-Route::post('/profile/bookListRemove', 'ProfileController@removeBookList')->name('bookListRemove');
+Route::post('/profile/booklist', 'ProfileController@BookList')->name('booklist');
+// Route::post('/profile/booklist', 'ProfileController@removeBookList')->name('bookListRemove');
 
 Route::post('/book/download', 'BookController@download')->name('downloadFile');
 

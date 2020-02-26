@@ -1610,10 +1610,15 @@ label[for='autoComplete']{
     display: flex;
 }
 
-.autoComplete_result em{
-    display: flex;
-    flex-direction: column;
+.autoComplete_result > div{
+    width: 100%;
 }
+
+.autoComplete_result em{
+    float: right;
+    margin-left: 5px; 
+    font-size: 13px;
+} 
 
 .autoComplete_result::selection {
     color: rgba(#ffffff, 0);

@@ -58,6 +58,9 @@ new autoComplete({
                 `${ajax_login_object.search_url}?search=${query}`
             );
             const data = await source.json();
+            if (data.query) {
+                document.querySelector("#autoComplete").value = data.query;
+            }
             return data.recipes;
         },
         key: ["Title"],
@@ -67,7 +70,7 @@ new autoComplete({
     selector: "#autoComplete",
     threshold: 3,
     debounce: 300,
-    searchEngine: "strict",
+    searchEngine: "loose",
     resultsList: {
         render: true,
         container: source => {
@@ -85,7 +88,7 @@ new autoComplete({
             if (data.value.File) {
                 // picture = "<img class='autoComplete_picture' src='" + data.value.File + "'></img>";
             }
-            item = "<small class='test_sm'>" + data.value.key + "</small>";
+            item = "<em class='test_sm'>" + data.value.key + "</em>";
             source.innerHTML = picture + "<div>" + item + data.match + "</div>";
         },
         element: "li"
@@ -559,4 +562,4 @@ window.addEventListener('load', function () {
                 console.log(download_route + ':' + e.message)
             }
         });
-})
+}) 

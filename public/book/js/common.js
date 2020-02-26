@@ -455,7 +455,7 @@ function showModal(message) {
     let modal = document.createElement('div');
     modal.innerHTML += `<div class="modal show-modal">
         <div class="modal-content">
-        <span class="close-button">×</span>
+        <span class="close-button"><i class="fas fa-times"></i></span>
         <div class="card AuthFormDialog__inner">${message}</div>
         </div>
         </div>`;

@@ -14694,7 +14694,7 @@ a:hover{
     color: #ffffff;
 }
 
-.alert{ 
+.alert{
     position: fixed;
     width: 100%;
     text-align: center;
@@ -14748,14 +14748,14 @@ a:hover{
 
 /* .section-container{
     padding: 50px 0;
-} */ 
+} */
 
 .d-flex{
     display: flex;
     flex-direction: row;
     align-items: start;
 }
- 
+
 .section{
     border-radius: 30px;
     max-width: 1440px;
@@ -14765,13 +14765,13 @@ a:hover{
     min-width: 320px;
     margin: 0 auto;
     min-height: 85vh;
-    padding-top: 40px; 
+    padding-top: 40px;
 }
 
 
 .card_wrapper{
     padding-top: 40px;
-} 
+}
 
 /* .HeaderLinks__headerLinks{
     position: sticky;
@@ -14798,13 +14798,13 @@ a:hover{
     max-width: 100%;
     height: auto;
     margin: 0;
-   
+
 }
 
 .HeaderLinks__linkContainer a{
     color: #2d2d2d;
 }
- 
+
 .HeaderLinks__linkContainer.active{
     background: var(--color-link-light);
     border-radius: 0.5rem;
@@ -14812,10 +14812,10 @@ a:hover{
 }
 
 .HeaderLinks__link{
-    background: transparent; 
+    background: transparent;
     padding-left: 0;
     justify-content: flex-start;
-} 
+}
 
 .VerticalBookCard__bookName{
     line-height: 1;
@@ -14886,7 +14886,7 @@ label[for='autoComplete']{
 #autoComplete:focus{
     border-radius: 0.5rem;
 
-} 
+}
 
 .card_image{
     object-fit: cover;
@@ -14924,7 +14924,7 @@ label[for='autoComplete']{
     z-index: -1;
 } */
 
-.p-0{ 
+.p-0{
     padding: 0;
 }
 
@@ -15044,20 +15044,20 @@ aside .billetContainerNoOverflow{
 
 .TagLabel__grey {
     color: var(--color-link);
-    border-color: #e1e1e1; 
+    border-color: #e1e1e1;
 }
 
 .TagLabel__grey:hover{
     background: var(--color-link);
     color: #fff;
-} 
+}
 
 .single-slider .billetContainerNoOverflow{
     padding: 40px 8px;;
 }
 div[data-toggle="collapse"]{
-    padding-bottom: 20px !important; 
-    margin-bottom: 0 !important;   
+    padding-bottom: 20px !important;
+    margin-bottom: 0 !important;
 }
 
 div[data-toggle="collapse"]>div{
@@ -15088,7 +15088,7 @@ div[data-toggle="collapse"] .toggle-icon{
     left: 50%;
     color: #fff;
     transform: translate(-50%, 50%);
-    
+
 }
 
 div[data-toggle="collapse"].open .toggle-icon i{
@@ -15101,7 +15101,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
 .HeaderLinks__linkContainer .menu-title{
     margin-left: 16px;
     color: var(--color-link)
-} 
+}
 
 .billetContainerNoOverflow.AuthorDetailHeader__container{
     font-weight: 400;
@@ -15119,7 +15119,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
 
 .bg-white{
     background: #fff;
-    
+
 }
 
 .br-1{
@@ -15209,10 +15209,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
     text-align: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    background-color: lightgray;
-}
-.close-button:hover {
-    background-color: darkgray;
+    background: transparent;
 }
 
 .alert.alert-danger {
@@ -15377,11 +15374,11 @@ body>.loader{
     .pl-0{
         padding-left: 1rem !important;
     }
-    
+
     .article{
         min-width: 300px;
     }
-    
+
     .section-title{
         font-size: 15px;
     }
@@ -15512,7 +15509,7 @@ body>.loader{
 }
 
 .card_cover_xs{
-    width: 256px; 
+    width: 256px;
     height: 382px
 }
 
@@ -15622,7 +15619,7 @@ body>.loader{
     border-radius: 0.5rem;
     transition: all 0.4s ease;
     text-overflow: ellipsis;
-    position: relative; 
+    position: relative;
     background: #fff;
     border: 1px solid #dfe1e5;
 }
@@ -15695,7 +15692,7 @@ body>.loader{
     border-radius:0 0 0.5rem 0.5rem;
     overflow: hidden;
     border-top: 1px solid #eee;
-    width: 100%; 
+    width: 100%;
     max-height: 75vh;
     overflow: auto;
 }
@@ -15718,7 +15715,7 @@ label[for='autoComplete']{
     transform: scale(0.95) translate(0px,-50%);
     transition: all 0.3s ease;
     transform-origin: top;
-    
+
 }
 
 .no_result,
@@ -15747,9 +15744,9 @@ label[for='autoComplete']{
 
 .autoComplete_result em{
     float: right;
-    margin-left: 5px; 
+    margin-left: 5px;
     font-size: 13px;
-} 
+}
 
 .autoComplete_result::selection {
     color: rgba(#ffffff, 0);
@@ -15770,7 +15767,7 @@ label[for='autoComplete']{
     border-left: 2px solid rgba(255, 122, 122, 1);
     border-right: 2px solid rgba(255, 122, 122, 1);
     border: 0px;
-    
+
 }
 
 .autoComplete_result:focus {
@@ -15838,7 +15835,7 @@ label[for='autoComplete']{
     padding: 8px 20px;
     border-radius: 2px;
     display: inline-block;
-   
+
  }
 
  .custom_btn.active,
@@ -15847,7 +15844,7 @@ label[for='autoComplete']{
      color: #fff;
      box-shadow: 0px 1px 10px -3px rgba(0,0,0,0.6);
  }
- 
+
  .group_btn{
      margin-bottom: 10px;
  }
@@ -15894,10 +15891,54 @@ label[for='autoComplete']{
     line-height: 1.33em;
     text-align: left;
     color: #7c7f84;
-    
+
 }
 
 .MenuItemsList__link{
     font-size: 16px;
     color: var(--color-link);
+}
+
+.modal-content{
+    padding: 1.5rem;
+    box-shadow: 0px 10px 20px -6px rgba(0,0,0,0.4);
+    border-radius: 0.5rem;
+    /*border-left: 10px outset #f65b78;*/
+}
+
+.modal_icon {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fff;
+    border-radius: 50px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    color: #f65b78;
+    line-height: 1.8;
+}
+
+.modal-content .container_title{
+    text-align: center;
+    border: 0px;
+}
+
+.modal-content .group_btn{
+    text-align: center;
+}
+
+.modal-content .group_btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.modal-content .group_btn_size .custom_btn{
+    width: 48%;
+    margin: 0;
+    min-width: 120px;
 }

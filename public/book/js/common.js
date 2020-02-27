@@ -1,6 +1,7 @@
 import Glide from '@glidejs/glide';
 import autoComplete from "@tarekraafat/autocomplete.js";
 import Keyboard from 'simple-keyboard';
+import Swal from 'sweetalert2'
 
 let glides = document.querySelectorAll(".glide");
 
@@ -291,10 +292,11 @@ function toggleModal(enable) {
 trigger.forEach(function (e) {
     e.addEventListener("click", function (e) {
         e.preventDefault();
-        elem = document.querySelector(e.target.getAttribute('data-modal'));
+       let elem = document.querySelector(e.target.getAttribute('data-modal'));
         toggleModal(elem);
+        document.body.classList.add('body_overflow')
     });
-})
+});
 
 closeButton.forEach(function (e) {
     e.addEventListener("click", function () {
@@ -557,9 +559,16 @@ document.addEventListener('click', function (event) {
                         event.target.innerHTML = '<i class="fas fa-plus"></i><span class="menu-title">Добавить</span>';
                     }
                 }
-                showModal(e.message);
+                Swal.fire({
+                    html: e.message,
+                    icon: 'info',
+                    showCancelButton: false,
+                    showCloseButton: true,
+                    focusConfirm: false,
+                    showConfirmButton: false,
+                })
             });
     }
-})
+});
 
 

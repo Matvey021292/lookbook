@@ -34,7 +34,7 @@
                 </a>
             @else
                 <a href="#" data-status='1' class="booklist custom_btn size-md">
-                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-plus-circle"></i>
                     <span class="menu-title">Добавить</span>
                 </a>
                 <p class="container_title"></p>

@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="728daf6b-d549-4cc6-9591-c7f12a950f49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentBook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/auth/error_auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/auth/error_auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/book/auth/modal-auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/auth/modal-auth.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/book/book_aside.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/book_aside.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +212,7 @@
       <workItem from="1582744332442" duration="1786000" />
       <workItem from="1582746325370" duration="271000" />
       <workItem from="1582746626301" duration="4429000" />
-      <workItem from="1582834879074" duration="249000" />
+      <workItem from="1582834879074" duration="3292000" />
     </task>
     <servers />
   </component>
@@ -248,10 +251,11 @@
     </state>
     <state x="640" y="120" width="709" height="867" key="find.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1582750565224" />
     <state x="640" y="120" width="710" height="867" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1582834991554" />
-    <state x="658" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582835034594">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup" timestamp="1582836955532">
+      <screen x="70" y="27" width="3770" height="1053" />
     </state>
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1582750673137" />
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1582835034594" />
+    <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1582836955532" />
   </component>
 </project>

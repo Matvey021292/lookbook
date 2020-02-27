@@ -5148,6 +5148,30 @@ window.addEventListener('load', function () {
     }
   });
 });
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('booklist')) {
+    event.preventDefault();
+    var data = {
+      'book_ID': document.querySelector('input[name="book_id"]').value,
+      'status_book': event.target.getAttribute('data-status')
+    };
+    requestPostData("/profile/booklist", data).then(function (e) {
+      console.log(e.status);
+
+      if (e.status != 'error') {
+        if (data.status_book == 1) {
+          event.target.setAttribute('data-status', 0);
+          event.target.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить</span>';
+        } else {
+          event.target.setAttribute('data-status', 1);
+          event.target.innerHTML = '<i class="fas fa-plus"></i><span class="menu-title">Добавить</span>';
+        }
+      }
+
+      showModal(e.message);
+    });
+  }
+});
 
 /***/ }),
 
@@ -5158,7 +5182,7 @@ window.addEventListener('load', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/lookbook/public/book/js/common.js */"./public/book/js/common.js");
+module.exports = __webpack_require__(/*! /var/www/lookbook/public/book/js/common.js */"./public/book/js/common.js");
 
 
 /***/ })

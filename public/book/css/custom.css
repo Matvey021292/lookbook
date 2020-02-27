@@ -1079,6 +1079,7 @@ div[data-toggle="collapse"].open .toggle-icon i{
     cursor: pointer;
     border-radius: 0.25rem;
     background: transparent;
+    color: #adadad;
 }
 
 .alert.alert-danger {

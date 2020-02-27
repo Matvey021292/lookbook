@@ -18,8 +18,8 @@ class ContentBook extends SiteController
         $this->b_rep = $b_rep;
         $this->user = $user;
         $this->template = env('THEME') . '.read';
-    }   
-    
+    }
+
     public function index($alias){
         $files_upload = Config::get('settings.files_upload');
         $user = $this->user::user();

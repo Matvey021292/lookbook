@@ -532,6 +532,34 @@ window.addEventListener('load', function () {
                 console.log(download_route + ':' + e.message)
             }
         });
+});
+
+document.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains('booklist')) {
+        event.preventDefault();
+        let data = {
+            'book_ID': document.querySelector('input[name="book_id"]').value,
+            'status_book': event.target.getAttribute('data-status')
+        };
+
+        requestPostData("/profile/booklist", data)
+            .then(e => {
+
+                console.log(e.status);
+                if (e.status != 'error') {
+
+                    if (data.status_book == 1) {
+                        event.target.setAttribute('data-status', 0);
+                        event.target.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить</span>';
+                    } else {
+                        event.target.setAttribute('data-status', 1);
+                        event.target.innerHTML = '<i class="fas fa-plus"></i><span class="menu-title">Добавить</span>';
+                    }
+                }
+                showModal(e.message);
+            });
+    }
 })
 
 

@@ -31,9 +31,6 @@ mix.browserSync({
    ], 'public/book/css/app.css')
    // .sass('public/book/css/app.css', 'public/css')
    // .purgeCss()
-   .scripts([
-      'node_modules/@glidejs/glide/dist/glide.min.js',
-      'node_modules/simple-keyboard/build/index.js',
-      'node_modules/@tarekraafat/autocomplete.js/dist/js/autoComplete.min.js',
+   .js([
       'public/book/js/common.js',
    ], 'public/book/js/app.js');

@@ -1,4 +1,6 @@
-
+import Glide from '@glidejs/glide';
+import autoComplete from "@tarekraafat/autocomplete.js";
+import Keyboard from 'simple-keyboard';
 
 let glides = document.querySelectorAll(".glide");
 
@@ -464,7 +466,6 @@ function showModal(message) {
 }
 
 
-let Keyboard = window.SimpleKeyboard.default;
 
 const russian = {
     default: [

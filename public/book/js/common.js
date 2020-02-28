@@ -565,6 +565,8 @@ document.addEventListener('click', function (event) {
 
     if (event.target.classList.contains('booklist')) {
         event.preventDefault();
+
+        let icon = 'info';
         let data = {
             'book_ID': document.querySelector('input[name="book_id"]').value,
             'status_book': event.target.getAttribute('data-status')
@@ -575,7 +577,7 @@ document.addEventListener('click', function (event) {
 
                 console.log(e.status);
                 if (e.status != 'error') {
-
+                    icon = 'success';
                     if (data.status_book == 1) {
                         event.target.setAttribute('data-status', 0);
                         event.target.innerHTML = '<i class="fas fa-minus"></i><span class="menu-title">Удалить</span>';
@@ -587,7 +589,7 @@ document.addEventListener('click', function (event) {
 
                 Swal.fire({
                     html: e.message,
-                    icon: 'info',
+                    icon: icon,
                     showCancelButton: false,
                     showCloseButton: true,
                     focusConfirm: false,

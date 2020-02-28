@@ -35,7 +35,6 @@ glides.forEach(function (e, i) {
 });
 
 
-
 if (document.querySelector('.single-slider')) {
     wheelSlider();
 }
@@ -44,13 +43,11 @@ function wheelSlider() {
     window.addEventListener('wheel', function (event) {
         if (event.deltaY < 0) {
             document.querySelector('.single-slider .arrowRight').click()
-        }
-        else if (event.deltaY > 0) {
+        } else if (event.deltaY > 0) {
             document.querySelector('.single-slider .arrowLeft').click()
         }
     });
 }
-
 
 
 new autoComplete({
@@ -130,6 +127,7 @@ function validatePassword() {
         confirm_password.setCustomValidity('');
     }
 }
+
 if (password) {
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
@@ -159,12 +157,19 @@ function handleChangeFiles(files, img) {
     for (let i = 0; i < files.length; i++) {
         let file = files[i];
 
-        if (!file.type.startsWith('image/')) { alert('Загрузите изображение'); continue }
+        if (!file.type.startsWith('image/')) {
+            alert('Загрузите изображение');
+            continue
+        }
 
         let image = document.querySelector(img);
 
         let reader = new FileReader();
-        reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(image);
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result;
+            };
+        })(image);
         reader.readAsDataURL(file);
     }
 }
@@ -175,9 +180,6 @@ if (inputElement) {
         handleChangeFiles(this.files, '.UserSettingsAvatar__userImagePreviewContent');
     });
 }
-
-
-
 
 
 function reverseClassList(e, classadd, classremove) {
@@ -224,7 +226,7 @@ download_files.forEach(function (el, i) {
 
 
 function download(data, filename, type) {
-    var file = new Blob([data], { type: type });
+    var file = new Blob([data], {type: type});
     if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else { // Others
@@ -262,47 +264,72 @@ collapse_btn.forEach(function (e, i) {
     e.addEventListener('click', function () {
         e.closest('*[data-toggle="collapse"]').classList.toggle('open');
     })
-})
-
-var trigger = document.querySelectorAll(".trigger");
-var modal = document.querySelector(".modal");
-var closeButton = document.querySelectorAll(".close-button");
-
-
-window.addEventListener("click", function (e) {
-    let enable = document.querySelector('.show-modal');
-    if (enable && e.target.classList.contains('show-modal')) {
-        toggleModal(enable);
-    }
 });
 
-window.addEventListener('click', function (e) {
-    if (e.target.classList.contains('close-button')) {
-        if (e.target.closest('.show-modal')) {
-            e.target.closest('.show-modal').classList.remove('show-modal');
-        }
-    }
-});
+var buttons = document.querySelectorAll(".trigger");
 
-function toggleModal(enable) {
-    hideLoader(enable);
-    enable.classList.toggle("show-modal");
+function openModal(modal) {
+    if (!modal) return;
+    addOverflow();
+    hideLoader(modal);
+    modal.classList.add("show-modal");
+    modal.firstElementChild.classList.add('swal2-show');
 }
 
-trigger.forEach(function (e) {
+function closeModal(modal = '') {
+    if (!modal) {
+        modal = document.querySelector('.show-modal');
+    }
+    if (!modal) return;
+    removeOverflow();
+    hideLoader(modal);
+    modal.classList.remove("show-modal");
+    modal.firstElementChild.classList.remove('swal2-show');
+}
+
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+function addOverflow() {
+    document.body.classList.add('body_overflow');
+}
+
+function removeOverflow() {
+    document.body.classList.remove('body_overflow');
+}
+
+buttons.forEach(function (e) {
     e.addEventListener("click", function (e) {
         e.preventDefault();
-       let elem = document.querySelector(e.target.getAttribute('data-modal'));
-        toggleModal(elem);
-        document.body.classList.add('body_overflow')
+        let modal = document.querySelector(this.getAttribute('data-modal'));
+        if (this.closest('.show-modal')) closeModal(this.closest('.show-modal'));
+        openModal(modal);
     });
 });
 
-closeButton.forEach(function (e) {
-    e.addEventListener("click", function () {
-        toggleModal(elem);
-    });
-})
+window.addEventListener("click", function (e) {
+
+    let modal;
+
+    if (e.target.classList.contains('close-button')) {
+
+        modal = e.target.closest('.show-modal');
+
+    } else if (e.target.classList.contains('show-modal')) {
+
+        modal = e.target;
+
+    } else {
+
+        return;
+    }
+
+    closeModal(modal);
+});
 
 let modals = document.querySelectorAll('.alert');
 
@@ -383,7 +410,8 @@ function removeMessage(element) {
         msg.forEach(function (message, i) {
             message.remove();
         })
-    };
+    }
+    ;
 }
 
 function createMessage(status, messages) {
@@ -453,11 +481,10 @@ function add_params_url() {
     // $(".subscribe_organization option[data-value='" + select + "']").attr('selected', 'selected');
 }
 
-
-function showModal(message) {
+function createModal(message, id) {
 
     let modal = document.createElement('div');
-    modal.innerHTML += `<div class="modal show-modal">
+    modal.innerHTML += `<div id="${id}" class="modal">
         <div class="modal-content">
         <span class="close-button"><i class="fas fa-times"></i></span>
         <div class="card AuthFormDialog__inner">${message}</div>
@@ -466,8 +493,6 @@ function showModal(message) {
     document.body.append(modal);
 
 }
-
-
 
 const russian = {
     default: [
@@ -514,7 +539,7 @@ var observer = new IntersectionObserver(function (entries) {
     // fully intersects with screen
     else if (entries[0].intersectionRatio === 1)
         document.querySelector("#nav-container").classList.remove("nav-container-sticky");
-}, { threshold: [0, 1] });
+}, {threshold: [0, 1]});
 
 observer.observe(document.querySelector("#nav-container-top"));
 
@@ -559,6 +584,7 @@ document.addEventListener('click', function (event) {
                         event.target.innerHTML = '<i class="fas fa-plus"></i><span class="menu-title">Добавить</span>';
                     }
                 }
+
                 Swal.fire({
                     html: e.message,
                     icon: 'info',

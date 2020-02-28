@@ -4537,7 +4537,7 @@ try {
 
 /*!
  * 
- *   simple-keyboard v2.28.19
+ *   simple-keyboard v2.28.14
  *   https://github.com/hodgef/simple-keyboard
  * 
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
@@ -7955,41 +7955,64 @@ collapse_btn.forEach(function (e, i) {
     e.closest('*[data-toggle="collapse"]').classList.toggle('open');
   });
 });
-var trigger = document.querySelectorAll(".trigger");
-var modal = document.querySelector(".modal");
-var closeButton = document.querySelectorAll(".close-button");
-window.addEventListener("click", function (e) {
-  var enable = document.querySelector('.show-modal');
+var buttons = document.querySelectorAll(".trigger");
 
-  if (enable && e.target.classList.contains('show-modal')) {
-    toggleModal(enable);
-  }
-});
-window.addEventListener('click', function (e) {
-  if (e.target.classList.contains('close-button')) {
-    if (e.target.closest('.show-modal')) {
-      e.target.closest('.show-modal').classList.remove('show-modal');
-    }
-  }
-});
-
-function toggleModal(enable) {
-  hideLoader(enable);
-  enable.classList.toggle("show-modal");
+function openModal(modal) {
+  if (!modal) return;
+  addOverflow();
+  hideLoader(modal);
+  modal.classList.add("show-modal");
+  modal.firstElementChild.classList.add('swal2-show');
 }
 
-trigger.forEach(function (e) {
+function closeModal() {
+  var modal = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  if (!modal) {
+    modal = document.querySelector('.show-modal');
+  }
+
+  if (!modal) return;
+  removeOverflow();
+  hideLoader(modal);
+  modal.classList.remove("show-modal");
+  modal.firstElementChild.classList.remove('swal2-show');
+}
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+function addOverflow() {
+  document.body.classList.add('body_overflow');
+}
+
+function removeOverflow() {
+  document.body.classList.remove('body_overflow');
+}
+
+buttons.forEach(function (e) {
   e.addEventListener("click", function (e) {
     e.preventDefault();
-    var elem = document.querySelector(e.target.getAttribute('data-modal'));
-    toggleModal(elem);
-    document.body.classList.add('body_overflow');
+    var modal = document.querySelector(this.getAttribute('data-modal'));
+    if (this.closest('.show-modal')) closeModal(this.closest('.show-modal'));
+    openModal(modal);
   });
 });
-closeButton.forEach(function (e) {
-  e.addEventListener("click", function () {
-    toggleModal(elem);
-  });
+window.addEventListener("click", function (e) {
+  var modal;
+
+  if (e.target.classList.contains('close-button')) {
+    modal = e.target.closest('.show-modal');
+  } else if (e.target.classList.contains('show-modal')) {
+    modal = e.target;
+  } else {
+    return;
+  }
+
+  closeModal(modal);
 });
 var modals = document.querySelectorAll('.alert');
 modals.forEach(function (e) {
@@ -8162,9 +8185,9 @@ function add_params_url() {
   if (params) history.pushState('', '', '?' + new URLSearchParams(Object.entries(params))); // $(".subscribe_organization option[data-value='" + select + "']").attr('selected', 'selected');
 }
 
-function showModal(message) {
+function createModal(message, id) {
   var modal = document.createElement('div');
-  modal.innerHTML += "<div class=\"modal show-modal\">\n        <div class=\"modal-content\">\n        <span class=\"close-button\"><i class=\"fas fa-times\"></i></span>\n        <div class=\"card AuthFormDialog__inner\">".concat(message, "</div>\n        </div>\n        </div>");
+  modal.innerHTML += "<div id=\"".concat(id, "\" class=\"modal\">\n        <div class=\"modal-content\">\n        <span class=\"close-button\"><i class=\"fas fa-times\"></i></span>\n        <div class=\"card AuthFormDialog__inner\">").concat(message, "</div>\n        </div>\n        </div>");
   document.body.append(modal);
 }
 
@@ -8258,7 +8281,7 @@ document.addEventListener('click', function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/lookbook/public/book/js/common.js */"./public/book/js/common.js");
+module.exports = __webpack_require__(/*! /var/www/html/lookbook/public/book/js/common.js */"./public/book/js/common.js");
 
 
 /***/ })

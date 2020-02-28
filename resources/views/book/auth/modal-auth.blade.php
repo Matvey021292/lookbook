@@ -56,7 +56,9 @@
                             <button type="submit" class="custom_btn Button__primaryButton btn btn-primary">
                                 {{ __('Login') }}
                             </button>
-
+                            <a href="/register" data-modal="#register" class="trigger Header__link">
+                                <span>{{__('Регистрация')}}</span>
+                            </a>
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
@@ -66,6 +68,7 @@
                     </div>
                     @include(env('THEME') . '.custom.loader')
                 </form>
+
             </div>
         </div>
     </div>

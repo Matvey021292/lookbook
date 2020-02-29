@@ -128,3 +128,8 @@ Route::post('/author_filter', 'AuthorController@filter');
 
 Route::post('/auth', 'Auth\LoginController@authenticate')->name('auth');
 Route::post('/registration', 'Auth\RegisterController@registration')->name('registration');
+
+
+Route::get('ajax', function(){ return view('ajax'); });
+
+Route::post('/ajaxbook','AjaxController@books');

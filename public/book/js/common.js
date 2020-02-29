@@ -599,4 +599,20 @@ document.addEventListener('click', function (event) {
     }
 });
 
-
+let more = document.querySelector('#more');
+if(more){
+    more.addEventListener('click', function(e){
+        e.preventDefault();
+        let page = window.location.search || '?page=1';
+        let param = new URLSearchParams(page);
+        let newParam = '?page=' + (1 + ( + param.get('page')));
+        window.history.pushState('','', newParam);
+        requestPost('/ajaxbook' +  newParam)
+        .then(e => {
+            if(e.status == 'success'){
+                let content = document.querySelector('.swiper-wrapper');
+                content.innerHTML = content.innerHTML + e.message;
+            }
+        })
+    })
+}

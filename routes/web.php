@@ -133,3 +133,4 @@ Route::post('/registration', 'Auth\RegisterController@registration')->name('regi
 Route::get('ajax', function(){ return view('ajax'); });
 
 Route::post('/ajaxbook','AjaxController@books');
+Route::post('/ajaxgenre','AjaxController@genre');

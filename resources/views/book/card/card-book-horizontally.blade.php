@@ -7,7 +7,9 @@
                 <img width="120" height="196" src="{{ config('settings.file_path_book') }}{{ $book->picture->File }}" alt="{{ $book->Title }}" class="BookCover__bookImage" srcset="{{ config('settings.file_path_book') }}{{ $book->picture->File }}">
                 @else
                 <div class="card_cover" style="background: {{ RandomColor::one(array('luminosity'=>'random', 'hue'=>'random')) }}">
+                    @if($book->authors->first() && $book->authors->first()->LastName)
                     <span class="card_cover_author">{{ $book->authors->first()->FirstName }} {{ $book->authors->first()->LastName }}</span>
+                    @endif
                     <span class="card_cover_book">{{ $book->Title }}</span>
                 </div>
                 @endif

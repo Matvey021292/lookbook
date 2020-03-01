@@ -16009,3 +16009,7 @@ label[for='autoComplete'] {
     overflow: hidden;
     padding-right: 15px !important;
 }
+
+body{
+    height:auto
+}

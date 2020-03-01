@@ -8274,23 +8274,37 @@ document.addEventListener('click', function (event) {
     });
   }
 });
-var more = document.querySelector('#more');
 
-if (more) {
-  more.addEventListener('click', function (e) {
-    e.preventDefault();
+function loading_data() {
+  var more = document.querySelector('#more');
+
+  if (more) {
+    var action = more.getAttribute('data-action'); // more.addEventListener('click', function(e){
+    // e.preventDefault();
+
+    if (!action) return;
     var page = window.location.search || '?page=1';
     var param = new URLSearchParams(page);
     var newParam = '?page=' + (1 + +param.get('page'));
     window.history.pushState('', '', newParam);
-    requestPost('/ajaxbook' + newParam).then(function (e) {
+    requestPost('/ajax' + action + newParam).then(function (e) {
       if (e.status == 'success') {
         var content = document.querySelector('.swiper-wrapper');
         content.innerHTML = content.innerHTML + e.message;
       }
     });
-  });
+    setTimeout(function () {
+      hideLoader();
+    }, 400); // })
+  }
 }
+
+window.onscroll = function (ev) {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    showLoader();
+    loading_data();
+  }
+};
 
 /***/ }),
 

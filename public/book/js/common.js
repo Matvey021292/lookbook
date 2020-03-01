@@ -610,7 +610,8 @@ new autoComplete({
                 let param = new URLSearchParams(page);
                 let newParam = '?page=' + (1 + ( + param.get('page')));
                 window.history.pushState('','', newParam);
-                requestPost('/ajax' + action +  newParam)
+                let data = document.querySelector('#more').getAttribute('data-alias') || '';
+                requestPost('/ajax' + action +  newParam + '&alias=' + data)
                 .then(e => {
                     if(e.status == 'success'){
                         let content = document.querySelector('.swiper-wrapper');

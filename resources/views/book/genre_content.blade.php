@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row center-xs">
         <div class="col-md-3">
-            <button data-action='genre' id="more" type="submit" class="custom_btn  btn btn-primary">
+        <button data-action='genre' data-alias="{{$genre->id}}" id="more" type="submit" class="custom_btn  btn btn-primary">
                 Больше
             </button>
         </div>

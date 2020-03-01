@@ -8287,7 +8287,8 @@ function loading_data() {
     var param = new URLSearchParams(page);
     var newParam = '?page=' + (1 + +param.get('page'));
     window.history.pushState('', '', newParam);
-    requestPost('/ajax' + action + newParam).then(function (e) {
+    var data = document.querySelector('#more').getAttribute('data-alias') || '';
+    requestPost('/ajax' + action + newParam + '&alias=' + data).then(function (e) {
       if (e.status == 'success') {
         var content = document.querySelector('.swiper-wrapper');
         content.innerHTML = content.innerHTML + e.message;

@@ -29,16 +29,14 @@ class AjaxController extends SiteController
     }
 
     public function genre(Request $request){
+        $alias = $request->input('alias');
         $count = Config::get('settings.pagination');
-        $genre = $this->g_rep;
-        // dd($genre->book()->paginate($count));
-        // $count = Config::get('settings.home_post_count');
-        // $books = $this->b_rep->getBooks('*', false , false, $count, $desc = true);
-        // $content = view(env('THEME').'.ajax_book')->with('books', $books)->render();
-        // return response()->json([ 
-        //     'status' => 'success',
-        //     'message' => $content
-        //  ]);
+        $books = $this->g_rep->getGenre($alias)->book()->paginate($count);
+        $content = view(env('THEME').'.ajax_book')->with('books', $books)->render();
+        return response()->json([ 
+            'status' => 'success',
+            'message' => $content
+         ]);
         
     }
 }

@@ -672,22 +672,49 @@ a:hover {
     max-width: 100%;
     height: auto;
     margin: 0;
+    position: relative;
 
+}
+
+.HeaderLinks__list{
+    background: var(--color-link-light);
+    border-radius: 10px;
+    position: sticky;
+    top: 90px;
+}
+
+.HeaderLinks__list nav{
 }
 
 .HeaderLinks__linkContainer a {
-    color: #2d2d2d;
+    color: #7c7f84;
+    position: relative;
+    z-index: 1;
 }
 
-.HeaderLinks__linkContainer.active {
+
+.HeaderLinks__linkContainer{
+    border-left: 5px solid  transparent;
+}
+
+.HeaderLinks__linkContainer.active:before {
     background: var(--color-link-light);
-    border-radius: 0.5rem;
-    border: 1px solid #fff;
+}
+
+.HeaderLinks__linkContainer.active i,
+.HeaderLinks__linkContainer.active span{
+    font-weight: bold;
+    color: #fff;
+}
+
+.HeaderLinks__linkContainer.active{
+    background: #297dce;
+    border-left: 5px solid #297dce;
 }
 
 .HeaderLinks__link {
+    padding: 13px 23px;
     background: transparent;
-    padding-left: 0;
     justify-content: flex-start;
 }
 
@@ -976,7 +1003,8 @@ div[data-toggle="collapse"].open .toggle-icon i {
 
 .HeaderLinks__linkContainer .menu-title {
     margin-left: 16px;
-    color: var(--color-link)
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .billetContainerNoOverflow.AuthorDetailHeader__container {
@@ -1751,7 +1779,7 @@ label[for='autoComplete'] {
 .custom_btn {
     background: #297dce;
     color: #fff;
-    padding: .62em 2em;
+    padding: .62em 1.6em;
     border-radius: 5px;
     display: inline-block;
 

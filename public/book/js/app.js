@@ -4537,7 +4537,7 @@ try {
 
 /*!
  * 
- *   simple-keyboard v2.28.14
+ *   simple-keyboard v2.28.19
  *   https://github.com/hodgef/simple-keyboard
  * 
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
@@ -8227,6 +8227,7 @@ var observer = new IntersectionObserver(function (entries) {
 });
 observer.observe(document.querySelector("#nav-container-top"));
 window.addEventListener('load', function () {
+  if (!book_id) return;
   var data = {
     'file': book_id,
     'format': document.querySelector('input[name="book_format"]').value,
@@ -8279,10 +8280,8 @@ function loading_data() {
   var more = document.querySelector('#more');
 
   if (more) {
-    showLoader();
-    var action = more.getAttribute('data-action'); // more.addEventListener('click', function(e){
-    // e.preventDefault();
-
+    showLoader(document.querySelector('.article'));
+    var action = more.getAttribute('data-action');
     if (!action) return;
     var page = window.location.search || '?page=1';
     var param = new URLSearchParams(page);
@@ -8290,14 +8289,14 @@ function loading_data() {
     window.history.pushState('', '', newParam);
     var data = document.querySelector('#more').getAttribute('data-alias') || '';
     requestPost('/ajax' + action + newParam + '&alias=' + data).then(function (e) {
-      if (e.status == 'success') {
+      if (e.status === 'success') {
         var content = document.querySelector('.swiper-wrapper');
         content.innerHTML = content.innerHTML + e.message;
       }
     });
     setTimeout(function () {
-      hideLoader();
-    }, 400); // })
+      hideLoader(document.querySelector('.article'));
+    }, 500);
   }
 }
 
@@ -8316,7 +8315,7 @@ window.onscroll = function (ev) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/lookbook/public/book/js/common.js */"./public/book/js/common.js");
+module.exports = __webpack_require__(/*! /var/www/lookbook/public/book/js/common.js */"./public/book/js/common.js");
 
 
 /***/ })

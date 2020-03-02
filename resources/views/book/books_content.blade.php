@@ -18,18 +18,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row center-xs">
-            <div class="col-md-3">
-                <button data-action='book' id="more" type="submit" class="custom_btn  btn btn-primary">
-                    Больше
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="row center-xs mt-5">
+    <div data-action='book' id="more" class="row center-xs mt-5">
         {{$books->appends(request()->input())->links()}}
     </div>
+    <div class="loader"></div>
 </div>
 @else
 <div class="container">

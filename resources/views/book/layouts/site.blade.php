@@ -35,7 +35,7 @@
                                     <div class="SearchLine__searchContent">
                                         <div class="SearchLine__darkInputWrapper">
                                             <form action="/qsearch/" method='GET'>
-                                                <input autocomplete="off" name="query" value="{{request()->get('query')}}"id="autoComplete" 
+                                                <input autocomplete="off" name="query" value="{{request()->get('query')}}"id="autoComplete"
                                                 tabindex="1" type="text"
                                                 class="input SearchLine__darkInput jest-search-input">
                                                 <div class="simple-keyboard"></div>
@@ -53,16 +53,16 @@
                                 <a href="/login" data-modal="#auth" class="trigger Header__link jest-auth-link-hamburger">
                                      {{ __('Войти')}} &nbsp; | &nbsp;
                                 </a>
-                                <a href="/register" data-modal="#register" class="trigger Header__link"> 
+                                <a href="/register" data-modal="#register" class="trigger Header__link">
                                     <i class="fas fa-user-circle"></i>
                                     <span>{{__('Регистрация')}}</span>
                                 </a>
                                 @else
-                                <div class="link_more Header__link Header__link__more"> 
+                                <div class="link_more Header__link Header__link__more">
                                     @if(!Auth::user()->getMedia('profile_image')->isEmpty())
                                     <img class="user__avatar" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
                                     @else
-                                    <i class="far fa-address-card"></i> 
+                                    <i class="far fa-address-card"></i>
                                     @endif
                                     <span>{{__('Личный кабинет')}}</span>
                                     <i class="fas fa-sort-down"></i>
@@ -91,7 +91,7 @@
                                                     </li>
                                                     <li class="MenuItemsList__link MenuItemsList__item">
                                                         <a class="Header__link " href="{{ route('logout') }}">
-                                                            <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }} 
+                                                            <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                </header> 
+                </header>
                 <div class="row row-container card_wrapper">
                     <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                         <div class="HeaderLinks__list">
@@ -122,7 +122,7 @@
                             @yield('bar')
                             @yield('profile')
                             @yield('recently_view')
-                            @yield('home') 
+                            @yield('home')
                             @yield('search_content')
                             @yield('categories')
                             @yield('categories_content')
@@ -147,12 +147,12 @@
     @include(env('THEME') . '.auth.modal-auth', [])
     @include(env('THEME') . '.auth.modal-register', [])
     <script>
-        
+
         let ajax_login_object = {
             "search_url": '{{URL::to('search')}}',
         };
     </script>
-    
+
 
     <script type='text/javascript' src='{{ asset(env("THEME")) }}/js/app.js'></script>
 </body>

@@ -546,11 +546,12 @@ observer.observe(document.querySelector("#nav-container-top"));
 
 window.addEventListener('load', function () {
 
+    if(!book_id) return;
     let data = {
         'file': book_id,
         'format': document.querySelector('input[name="book_format"]').value,
         'init': true
-    }
+    };
     requestPostData(download_route, data)
         .then(e => {
             if (e.status == 'success') {
@@ -602,10 +603,8 @@ document.addEventListener('click', function (event) {
 function loading_data() {
     let more = document.querySelector('#more');
     if (more) {
-        showLoader();
+        showLoader(document.querySelector('.article'));
         let action = more.getAttribute('data-action');
-        // more.addEventListener('click', function(e){
-        // e.preventDefault();
         if (!action) return;
         let page = window.location.search || '?page=1';
         let param = new URLSearchParams(page);
@@ -614,15 +613,14 @@ function loading_data() {
         let data = document.querySelector('#more').getAttribute('data-alias') || '';
         requestPost('/ajax' + action + newParam + '&alias=' + data)
             .then(e => {
-                if (e.status == 'success') {
+                if (e.status === 'success') {
                     let content = document.querySelector('.swiper-wrapper');
                     content.innerHTML = content.innerHTML + e.message;
                 }
-            })
+            });
         setTimeout(function () {
-            hideLoader();
-        }, 400)
-        // })
+            hideLoader(document.querySelector('.article'));
+        }, 500)
     }
 }
 

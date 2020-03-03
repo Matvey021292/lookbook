@@ -14792,6 +14792,8 @@ a:hover {
     width: 100%;
 }
 
+
+
 .HeaderLinks__link{
     justify-content: flex-start;
 }
@@ -14799,6 +14801,7 @@ a:hover {
 .HeaderLinks__link i{
     margin-right: 10px;
     min-width: 30px;
+    display: none;
 }
 
 .HeaderLinks__linksContainer {
@@ -14813,9 +14816,16 @@ a:hover {
 }
 
 .HeaderLinks__linkContainer{
-    margin-left: 8px;
-    text-align: left;
+    margin-left: 10px;
+    padding: 7px 0;
+    height: auto;
+    font-size: 15px;
 }
+
+.HeaderLinks__link{
+    padding: 0;
+}
+
 
 .VerticalBookCard__bookName {
     line-height: 1;

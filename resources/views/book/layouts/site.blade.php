@@ -107,6 +107,10 @@
                 <div class="row row-container card_wrapper">
                     <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                         <div class="aside">
+                            <p class="container_title size-md ">
+                                <i class="fas fa-bars"></i>
+                                <span class="menu-title">Навигация</span>
+                            </p>
                             <div class="HeaderLinks__list">
                                 @yield('nav')
                             </div>

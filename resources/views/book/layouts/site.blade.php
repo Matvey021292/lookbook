@@ -106,19 +106,19 @@
                 </header>
                 <div class="row row-container card_wrapper">
                     <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
-                        <div class="aside">
-                            <p class="container_title size-md ">
-                                <i class="fas fa-bars"></i>
-                                <span class="menu-title">Навигация</span>
+                            <p class="container_title size-md">
+                                <i class="fab fa-buromobelexperte"></i>
+                                <span class="menu-title">Навигационное меню</span>
                             </p>
-                            <div class="HeaderLinks__list">
-                                @yield('nav')
-                            </div>
-                            <div>
-                                @yield('book_aside')
-                                @yield('category')
-                            </div>
-                        </div>
+                           <div class="aside">
+                               <div class="HeaderLinks__list">
+                                   @yield('nav')
+                               </div>
+                               <div>
+                                   @yield('book_aside')
+                                   @yield('category')
+                               </div>
+                           </div>
                     </aside>
                     <div class="article col-xs-12 col-sm-9">
                         <div class="backgroundContainer themeGrey">

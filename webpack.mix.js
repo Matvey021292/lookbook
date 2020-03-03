@@ -20,7 +20,7 @@ mix.browserSync({
 })
    .styles([
       'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.css',
-      'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+      'node_modules/@fortawesome/fontawesome-pro/web/css/all.min.css',
       'node_modules/@glidejs/glide/dist/css/glide.core.min.css',
       'node_modules/@glidejs/glide/dist/css/glide.theme.min.css',
       'node_modules/flexboxgrid/css/flexboxgrid.min.css',

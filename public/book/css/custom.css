@@ -666,12 +666,14 @@ a:hover {
 
 .HeaderLinks__link{
     justify-content: flex-start;
+    padding: 0;
+    color: #c9cbcf;
+    background: transparent;
 }
 
 .HeaderLinks__link i{
     margin-right: 10px;
     min-width: 30px;
-    display: none;
 }
 
 .HeaderLinks__linksContainer {
@@ -685,20 +687,56 @@ a:hover {
     justify-content: flex-start;
 }
 
-.HeaderLinks__linkContainer{
-    margin-left: 10px;
-    padding: 7px 0;
-    height: auto;
-    font-size: 15px;
+.aside{
+    position: sticky;
+    top: 100px;
+    background: #fff;
 }
 
-.HeaderLinks__link{
-    padding: 0;
+.HeaderLinks__link img{
+    width: 20px;
+    height: 20px;
 }
-
 
 .VerticalBookCard__bookName {
     line-height: 1;
+}
+
+.HeaderLinks__linkContainer{
+    height: auto;
+    padding: 12px 0 12px 20px;
+    font-weight: 500;
+    margin-left: 0;
+    border-left: 4px solid transparent;
+    max-width: 100%;
+
+
+}
+
+.HeaderLinks__linkContainer.active:after{
+    content: '\f142';
+    font-family: "Font Awesome 5 Pro";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3e5c98;
+    font-size: 20px;
+}
+
+.HeaderLinks__linkContainer.active{
+    border-left: 4px solid #3e5c98;
+    position: relative;
+}
+
+.HeaderLinks__link:hover i,
+.active .HeaderLinks__link i{
+    color:#3e5c98;
+}
+
+.HeaderLinks__link:hover,
+.active .HeaderLinks__link{
+    color:#101010;
 }
 
 .BookCover__book {
@@ -1780,10 +1818,23 @@ label[for='autoComplete'] {
     margin-bottom: 15px;
     padding-bottom: 5px;
     border-bottom: 0.5px solid rgba(238, 238, 238, 0.7);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container_title:after{
+    content: '\f0dd';
+    font-family: "Font Awesome 5 Pro";
+    position: absolute;
+    right: 5px;
+    top: 25%;
+    transform: translateY(-50%);
 }
 
 .container_title i {
-    margin-right: 5px;
+    margin-right: 10px;
+    font-size: 20px;
 }
 
 .group_btn_size .custom_btn {

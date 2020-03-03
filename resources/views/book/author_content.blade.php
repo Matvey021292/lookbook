@@ -40,15 +40,15 @@
 <div data-toggle="collapse" class=" AuthorDetailHeader__container billetContainerNoOverflow AuthorDetailView__containerAbout">
     <h3 class="section-title">Об авторе</h3>
     <div class="ContentCarousel__wrapper">
-        <p class="des-author">{!! $author->desc->Body  !!} </p>  
+        <p class="des-author">{!! $author->desc->Body  !!} </p>
     </div>
-    <span class="toggle-icon"><i class="fas fa-angle-down"></i></span> 
+    <span class="toggle-icon"><i class="fas fa-angle-down"></i></span>
 </div>
 @endif
 <div class="option_row">
     <form action="/author_filter">
         <input type="hidden" name="alias" value="{{$author->id}}">
-        @if($languages && count($languages) > 1)
+        @if($languages && count($languages) >= 1)
         <select name="lang" class="select">
             @foreach ($languages as $language)
             @if(request()->get('lang'))

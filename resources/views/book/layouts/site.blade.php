@@ -106,12 +106,14 @@
                 </header>
                 <div class="row row-container card_wrapper">
                     <aside class="col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
-                        <div class="HeaderLinks__list">
-                            @yield('nav')
-                        </div>
-                        <div>
-                            @yield('book_aside')
-                            @yield('category')
+                        <div class="aside">
+                            <div class="HeaderLinks__list">
+                                @yield('nav')
+                            </div>
+                            <div>
+                                @yield('book_aside')
+                                @yield('category')
+                            </div>
                         </div>
                     </aside>
                     <div class="article col-xs-12 col-sm-9">

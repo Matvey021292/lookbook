@@ -12594,8 +12594,7 @@ li.page-item a,
   height: 40px;
   margin-left: 8px;
   white-space: nowrap; }
-  .HeaderLinks__linkContainer:first-child {
-    margin-left: unset; }
+  
   @media (max-width: 767px) {
     .HeaderLinks__linkContainer {
       margin-bottom: 8px;

@@ -4537,7 +4537,7 @@ try {
 
 /*!
  * 
- *   simple-keyboard v2.28.19
+ *   simple-keyboard v2.28.14
  *   https://github.com/hodgef/simple-keyboard
  * 
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
@@ -8315,7 +8315,7 @@ window.onscroll = function (ev) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/lookbook/public/book/js/common.js */"./public/book/js/common.js");
+module.exports = __webpack_require__(/*! /var/www/html/lookbook/public/book/js/common.js */"./public/book/js/common.js");
 
 
 /***/ })

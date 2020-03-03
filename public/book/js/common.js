@@ -546,7 +546,7 @@ observer.observe(document.querySelector("#nav-container-top"));
 
 window.addEventListener('load', function () {
 
-    if(!book_id) return;
+    if (!book_id) return;
     let data = {
         'file': book_id,
         'format': document.querySelector('input[name="book_format"]').value,

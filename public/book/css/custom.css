@@ -662,60 +662,29 @@ a:hover {
     width: 100%;
 }
 
+.HeaderLinks__link{
+    justify-content: flex-start;
+}
+
+.HeaderLinks__link i{
+    margin-right: 10px;
+    min-width: 30px;
+}
+
 .HeaderLinks__linksContainer {
     flex-direction: column;
     font-size: 16px;
-}
-
-.HeaderLinks__linkContainer {
     width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0;
     position: relative;
-
+    justify-content: flex-start;
 }
-
-.HeaderLinks__list{
-    background: var(--color-link-light);
-    border-radius: 10px;
-    position: sticky;
-    top: 90px;
-}
-
-.HeaderLinks__list nav{
-}
-
-.HeaderLinks__linkContainer a {
-    color: #7c7f84;
-    position: relative;
-    z-index: 1;
-}
-
 
 .HeaderLinks__linkContainer{
-    border-left: 5px solid  transparent;
-}
-
-.HeaderLinks__linkContainer.active:before {
-    background: var(--color-link-light);
-}
-
-.HeaderLinks__linkContainer.active i,
-.HeaderLinks__linkContainer.active span{
-    font-weight: bold;
-    color: #fff;
-}
-
-.HeaderLinks__linkContainer.active{
-    background: #297dce;
-    border-left: 5px solid #297dce;
-}
-
-.HeaderLinks__link {
-    padding: 13px 23px;
-    background: transparent;
-    justify-content: flex-start;
+    margin-left: 8px;
+    text-align: left;
 }
 
 .VerticalBookCard__bookName {
@@ -997,15 +966,7 @@ div[data-toggle="collapse"].open .toggle-icon i {
     transform: rotate(180deg);
 }
 
-.HeaderLinks__linkContainer i {
-    width: 20px;
-}
 
-.HeaderLinks__linkContainer .menu-title {
-    margin-left: 16px;
-    font-size: 15px;
-    font-weight: 500;
-}
 
 .billetContainerNoOverflow.AuthorDetailHeader__container {
     font-weight: 400;
@@ -1910,3 +1871,5 @@ label[for='autoComplete'] {
 body{
     height:auto
 }
+
+

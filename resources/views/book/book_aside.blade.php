@@ -8,21 +8,21 @@
             @foreach ($formats as $format)
                 @if($format == $book->FileType && $book->path)
                     <a href="{{url('uploads/files/' . $book->path->Path)}}" download class="active custom_btn">
-                        <i class="fas fa-cloud-download-alt"></i>{{ $format }}
+                        {{ $format }}
                     </a>
                 @elseif($format == $book->FileType)
                     <a href="download" data-format="{{$format}}" class="active download_file custom_btn">
-                        <i class="fas fa-cloud-download-alt"></i>{{ $format }}
+                        {{ $format }}
                     </a>
                 @else
                     <a href="download" data-format="{{$format}}" class="download_file custom_btn">
-                        <i class="fas fa-cloud-download-alt"></i>{{ $format }}
+                        {{ $format }}
                     </a>
                 @endif
             @endforeach
         </div>
+        <p class="container_title size-md"><i class="fas fa-book-reader"></i>Читать книгу онлайн</p>
         <div class="group_btn group_btn_size">
-            <p class="container_title size-md"><i class="fas fa-book-reader"></i>Читать книгу онлайн</p>
             <a href="{{ route('book.show', ['alias' => $book->id]) }}/read" class="custom_btn size-md ">
                 <i class="fas fa-book-reader"></i>
                 <span class="menu-title">Читать</span>

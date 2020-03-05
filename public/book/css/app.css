@@ -15985,8 +15985,21 @@ label[for='autoComplete'] {
     white-space: nowrap;
 }
 
+.aside .group_btn .custom_btn {
+    margin: 0 8px 8px 0;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 6px 15px;
+    flex: 1 1;
+}
+
+
 .group_btn .custom_btn i {
     margin-right: 7px;
+}
+
+.group_btn{
+    display: flex;
 }
 
 .container_title {
@@ -16134,9 +16147,6 @@ body{
     margin: 0px auto 10px;
 }
 
-.container_more{
-    display: block;
-}
 
 .text_md{
     font-size: 14px;

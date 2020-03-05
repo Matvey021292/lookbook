@@ -57,7 +57,7 @@ class BookController extends SiteController
         $format = $request->input('format');
         $book_id = $request->input('file');
         $book = $this->b_rep->getModel($book_id);
-
+        
         
         if(!$request->input('init')){
             if($book->path){
@@ -72,7 +72,13 @@ class BookController extends SiteController
             return response()->json(['status' => 'success', 'message'=> $convert]);
             
         }else{
-            if(!$book->path){
+
+            if($book->path || !file_exists(public_path($book->path))){
+            
+                return response()->json(['status' => 'error', 'message'=> __('Book exist')]);
+            
+            }else{
+                
                 $request_path = Config::get('settings.replace_url') . "/b/{$book_id}/{$format}";
                 $path = public_path("uploads/files/{$book_id}/{$format}/");
                 
@@ -84,18 +90,19 @@ class BookController extends SiteController
                 if( $attachment && isset($attachment['Content-Disposition'])){
                     preg_match('/\s*=\s*([\S\s]+)/i  ', $attachment['Content-Disposition'], $match);
                     if(isset($match[1])){
+                        
                         $name = str_replace('"', '', $match[1]);
                         file_put_contents($path . $name, fopen($request_path, 'r'));
-                        $filepath = new Filepath;
-                        $filepath->Path = "{$book_id}/{$format}/" . $name;
-                        $filepath->book_ID = $book_id;
-                        $filepath->Format = $book->FileType;
-                        $filepath->save();
+                        if(!$book->path){
+                            $filepath = new Filepath;
+                            $filepath->Path = "{$book_id}/{$format}/" . $name;
+                            $filepath->book_ID = $book_id;
+                            $filepath->Format = $book->FileType;
+                            $filepath->save();
+                        }
                     }
                 }
                 return response()->json(['status' => 'error', 'message'=> __('save book')]);
-            }else{
-                return response()->json(['status' => 'error', 'message'=> __('Book exist')]);
             }
         }
         

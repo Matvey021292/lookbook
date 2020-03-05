@@ -33,10 +33,10 @@ class SearchController extends SiteController
 
         $authors = $this->a_rep->getAuthorByTitle($qsearch, Config::get('settings.simple_search'), false, true);
 
-        if($authors->isEmpty()){
-            $request_replace = $this->textswitch($qsearch);
-            $authors = $this->a_rep->getAuthorByTitle($request_replace, Config::get('settings.simple_search'), false, true);
-        };
+        // if($authors->isEmpty()){
+        //     $request_replace = $this->textswitch($qsearch);
+        //     $authors = $this->a_rep->getAuthorByTitle($request_replace, Config::get('settings.simple_search'), false, true);
+        // };
 
         if (!empty($authors)) {
             foreach ($authors as $key => $author) {
@@ -49,10 +49,10 @@ class SearchController extends SiteController
         }
 
         $books = $this->b_rep->getBookByTitle($qsearch, Config::get('settings.simple_search'), false, true);
-        if($books->isEmpty()){
-            $request_replace = $this->textswitch($qsearch);
-            $books = $this->b_rep->getBookByTitle($request_replace, Config::get('settings.simple_search'), false, true);
-        };
+        // if($books->isEmpty()){
+        //     $request_replace = $this->textswitch($qsearch);
+        //     $books = $this->b_rep->getBookByTitle($request_replace, Config::get('settings.simple_search'), false, true);
+        // };
 
         if (!empty($books)) {
             foreach ($books as $key => $book) {

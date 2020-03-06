@@ -8,7 +8,7 @@ use App\Repositories\RecentlyViewedRepository;
 use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 use App\Convert;
-use App\Filepath;
+use App\Download;
 use App\Events\BookHasViewed;
 use Illuminate\Support\Arr;
 
@@ -60,59 +60,60 @@ class BookController extends SiteController
     }
 
     public function download(Request $request){
-        $files_upload = $this->dir_files_path;
-        dd($files_upload);
-        $format = $request->input('format');
-        $book_id = $request->input('file');
-        $book = $this->book_rep->getModel($book_id);
+
+        $book = $this->book_rep->getModel($request->input('file'));
+        $status = new Download($book, $request->input('format'));
+        $message = $status->download();
+        return response()->json($message);
 
 
-        if(!$request->input('init')){
-            if($book->path){
-                $path = $this->book_rep->convert($book->path->Path, $format);
-                return response()->json(['status' => 'success', 'message'=> url("{$files_upload}{$path}")]);
-            }
 
-            $path_file  = $book->path->Path;
-            $request_name = str_replace($format, 'fb2.zip', $path_file);
-            if(!file_exists(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH))) return;
-            $convert = new Convert(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH), $format);
-            return response()->json(['status' => 'success', 'message'=> $convert]);
-
-        }else{
-
-            if($book->path || !file_exists(public_path($book->path))){
-
-                return response()->json(['status' => 'error', 'message'=> __('Book exist')]);
-
-            }else{
-
-                $request_path = Config::get('settings.replace_url') . "/b/{$book_id}/{$format}";
-                $path = public_path("uploads/files/{$book_id}/{$format}/");
-
-                if(!is_dir($path)){
-                    File::makeDirectory($path, 0775, true);
-                }
-
-                $attachment = get_headers($request_path, 1);
-                if( $attachment && isset($attachment['Content-Disposition'])){
-                    preg_match('/\s*=\s*([\S\s]+)/i  ', $attachment['Content-Disposition'], $match);
-                    if(isset($match[1])){
-
-                        $name = str_replace('"', '', $match[1]);
-                        file_put_contents($path . $name, fopen($request_path, 'r'));
-                        if(!$book->path){
-                            $filepath = new Filepath;
-                            $filepath->Path = "{$book_id}/{$format}/" . $name;
-                            $filepath->book_ID = $book_id;
-                            $filepath->Format = $book->FileType;
-                            $filepath->save();
-                        }
-                    }
-                }
-                return response()->json(['status' => 'error', 'message'=> __('save book')]);
-            }
-        }
+//        if(!$request->input('init')){
+//            if($book->path){
+//                $path = $this->book_rep->convert($book->path->Path, $format);
+//                return response()->json(['status' => 'success', 'message'=> url("{$files_upload}{$path}")]);
+//            }
+//
+//            $path_file  = $book->path->Path;
+//            $request_name = str_replace($format, 'fb2.zip', $path_file);
+//            if(!file_exists(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH))) return;
+//            $convert = new Convert(public_path() .'/uploads/files/'. parse_url($request_name, PHP_URL_PATH), $format);
+//            return response()->json(['status' => 'success', 'message'=> $convert]);
+//
+//        }else{
+//
+//            if($book->path || !file_exists(public_path($book->path))){
+//
+//                return response()->json(['status' => 'error', 'message'=> __('Book exist')]);
+//
+//            }else{
+//
+//                $request_path = Config::get('settings.replace_url') . "/b/{$book_id}/{$format}";
+//                $path = public_path("uploads/files/{$book_id}/{$format}/");
+//
+//                if(!is_dir($path)){
+//                    File::makeDirectory($path, 0775, true);
+//                }
+//
+//                $attachment = get_headers($request_path, 1);
+//                if( $attachment && isset($attachment['Content-Disposition'])){
+//                    preg_match('/\s*=\s*([\S\s]+)/i  ', $attachment['Content-Disposition'], $match);
+//                    if(isset($match[1])){
+//
+//                        $name = str_replace('"', '', $match[1]);
+//                        file_put_contents($path . $name, fopen($request_path, 'r'));
+//                        if(!$book->path){
+//                            $filepath = new Filepath;
+//                            $filepath->Path = "{$book_id}/{$format}/" . $name;
+//                            $filepath->book_ID = $book_id;
+//                            $filepath->Format = $book->FileType;
+//                            $filepath->save();
+//                        }
+//                    }
+//                }
+//                return response()->json(['status' => 'error', 'message'=> __('save book')]);
+//            }
+//        }
 
     }
 

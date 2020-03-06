@@ -39,7 +39,7 @@ class SiteController extends Controller
     protected function initConfig(){
         $this->pagination = Config::get('settings.pagination');
         $this->posts_count = Config::get('settings.home_post_count');
-        $this->dir_files_path = Config::get('settings.dir_file_upload');
+//        $this->dir_files_path = Config::get('settings.dir_file_upload');
 
     }
 

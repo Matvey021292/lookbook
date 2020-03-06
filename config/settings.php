@@ -11,5 +11,5 @@ return [
     'replace_url' => 'https://flibusta.is',
     'file_path_author' => 'http://parser/uploads/a/',
     'file_path_book' => 'http://parser/uploads/b/',
-    'files_upload'   => 'uploads/files/'
+    'dir_file_upload'   => 'uploads/files/'
 ];

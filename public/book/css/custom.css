@@ -691,6 +691,7 @@ a:hover {
     position: sticky;
     top: 100px;
     background: #fff;
+    margin-bottom: 30px;
 }
 
 .HeaderLinks__link img{
@@ -1278,8 +1279,8 @@ body > .loader {
     opacity: 1;
 }
 
-.VerticalBookCard__tinyBook:hover .card_link {
-    opacity: 0.2;
+.VerticalBookCard__tinyBook .card_link {
+    opacity: 1;
 }
 
 .card_link {

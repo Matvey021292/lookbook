@@ -1275,13 +1275,9 @@ body > .loader {
     text-align: center;
 }
 
-.VerticalBookCard__tinyBook:hover .book_info {
+/* .VerticalBookCard__tinyBook:hover .book_info {
     opacity: 1;
-}
-
-.VerticalBookCard__tinyBook .card_link {
-    opacity: 1;
-}
+} */
 
 .card_link {
     position: absolute;

@@ -210,7 +210,8 @@ download_files.forEach(function (el, i) {
         e.preventDefault();
         let data = {
             'file': document.querySelector('input[name="book_id"]').value,
-            'format': e.target.dataset.format
+            'format': e.target.dataset.format,
+            'init': true,                                                
         }
         requestPostData(download_route, data)
             .then(e => {

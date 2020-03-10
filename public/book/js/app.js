@@ -4537,7 +4537,7 @@ try {
 
 /*!
  * 
- *   simple-keyboard v2.28.19
+ *   simple-keyboard v2.28.14
  *   https://github.com/hodgef/simple-keyboard
  * 
  *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
@@ -7895,27 +7895,6 @@ function _requestPostData() {
   return _requestPostData.apply(this, arguments);
 }
 
-var download_files = document.querySelectorAll('.download_file');
-download_files.forEach(function (el, i) {
-  el.addEventListener('click', function (e) {
-    if (!e.target.dataset.format) return;
-    e.preventDefault();
-    var data = {
-      'file': document.querySelector('input[name="book_id"]').value,
-      'format': e.target.dataset.format,
-      'init': true
-    };
-    requestPostData(download_route, data).then(function (e) {
-      if (e.status == 'success') {
-        console.log(e.message);
-        window.location.href = e.message;
-      } else {
-        console.log(e.message);
-      }
-    });
-  });
-});
-
 function download(data, filename, type) {
   var file = new Blob([data], {
     type: type
@@ -8086,8 +8065,6 @@ function removeMessage(element) {
       message.remove();
     });
   }
-
-  ;
 }
 
 function createMessage(status, messages) {
@@ -8231,8 +8208,7 @@ window.addEventListener('load', function () {
   if (!book_id) return;
   var data = {
     'file': book_id,
-    'format': document.querySelector('input[name="book_format"]').value,
-    'init': true
+    'format': document.querySelector('input[name="book_format"]').value
   };
   requestPostData(download_route, data).then(function (e) {
     if (e.status == 'success') {
@@ -8240,6 +8216,24 @@ window.addEventListener('load', function () {
     } else {
       console.log(download_route + ':' + e.message);
     }
+  });
+});
+var download_files = document.querySelectorAll('*[download]');
+download_files.forEach(function (el, i) {
+  el.addEventListener('click', function (e) {
+    if (this.href) return;
+    e.preventDefault();
+    var data = {
+      'file': document.querySelector('input[name="book_id"]').value,
+      'format': e.target.dataset.format
+    };
+    requestPostData(download_route, data).then(function (e) {
+      if (e.status === 'success') {
+        console.log(e.message); // window.location.href = e.message;
+      } else {
+        console.log(e.message);
+      }
+    });
   });
 });
 document.addEventListener('click', function (event) {
@@ -8316,7 +8310,7 @@ window.onscroll = function (ev) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/lookbook/public/book/js/common.js */"./public/book/js/common.js");
+module.exports = __webpack_require__(/*! /var/www/html/lookbook/public/book/js/common.js */"./public/book/js/common.js");
 
 
 /***/ })

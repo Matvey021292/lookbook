@@ -16,7 +16,7 @@ use Illuminate\Support\Arr;
 class BookController extends SiteController
 {
 
-    public function __construct( RecentlyViewedRepository $review_repository, BookRepository $book_rep, CategoryRepository $genre_rep)
+    public function __construct(RecentlyViewedRepository $review_repository, BookRepository $book_rep, CategoryRepository $genre_rep)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu));
         $this->book_rep = $book_rep;
@@ -29,15 +29,22 @@ class BookController extends SiteController
     public function show($alias = false)
     {
         $book = $this->book_rep->getModel($alias);
-        if(empty($book)) return redirect()->back()->withErrors(__("Книги не найдено"));
+        if (empty($book)) return redirect()->back()->withErrors(__("Книги не найдено"));
 
         event(new BookHasViewed($book));
 
         $series = $this->getSeriesBooks($book);
-        $formats = ['fb2', 'epub', 'mobi'];
+        $formats = ['fb2' => '', 'epub' => '', 'mobi' => ''];
+
+        foreach ($book->path as $v)
+            $formats[$v->Format] = $v->Path;
+
+//        foreach ($formats as $format){
+//            dump();
+//        }
 
         $content = view(env('THEME') . '.book_content')->with('book', $book)->with('series', $series)->render();
-        $aside = view(env('THEME'). '.book_aside')->with('formats',$formats)->with('book', $book)->render();
+        $aside = view(env('THEME') . '.book_aside')->with('formats', $formats)->with('book', $book)->render();
 
 
         $this->vars = Arr::add($this->vars, 'content', $content);
@@ -50,22 +57,31 @@ class BookController extends SiteController
         return $this->renderOutput();
     }
 
-    public function getSeriesBooks($book){
+    public function getSeriesBooks($book)
+    {
         $series = '';
-        if($book->category->isNotEmpty()){
+        if ($book->category->isNotEmpty()) {
             $series_id = $book->category->first()->id;
             $series = $this->genre_rep->getCategory($series_id);
         }
         return $series;
     }
 
-    public function download(Request $request){
+    public function download(Request $request)
+    {
 
         $book = $this->book_rep->getModel($request->input('file'));
-        $status = new Download($book, $request->input('format'));
-        $message = $status->download();
-        return response()->json($message);
 
+        if ($book->path->isEmpty() || $book->path->contains('Format', $request->input('format'))) {
+            $status = new Download($book, $request->input('format'));
+            $message = $status->download();
+        }else{
+            $status = new Convert($book, $request->input('format'));
+            $message = $status->convert();
+
+        }
+
+        return response()->json($message);
 
 
 //        if(!$request->input('init')){

@@ -45,17 +45,6 @@ class BookRepository extends Repository{
         return $builder->get();
     }
 
-    public function convert($file_path, $format){
-        $files_upload = Config::get('settings.files_upload');
-        $file = str_replace('fb2.zip', $format, $file_path);
-        if(!file_exists(public_path("{$files_upload}{$file_path}")) || file_exists(public_path("{$files_upload}{$file}"))) return $file;
-
-        $cmd = "ebook-convert " . public_path("{$files_upload}{$file_path}") . " ". public_path("{$files_upload}{$file}");
-        exec(escapeshellcmd($cmd), $output, $return_var);
-        return $file;
-    }
-
-
     public function getBookByTitle($query, $count = '', $paginate = '', $image = false){
 
         $builder = $this->model

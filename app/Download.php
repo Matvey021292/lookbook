@@ -10,44 +10,56 @@ class Download
 {
     private $book;
     private $format;
-    private $dir_upload;
-    private $file;
+    protected $dir_upload;
+    protected $file;
     private $url;
     private $request;
-    
+    protected $generate_path;
+    protected $generate_name;
+    protected $name;
+
     public function __construct(Book $book, $format)
     {
         $this->dir_upload = Config::get('settings.dir_file_upload');
         $this->url = Config::get('settings.replace_url');
         $this->format = $format;
         $this->book = $book;
-        
+        $this->file = $this->get_path();
+        $this->generate_path = $this->generate_path();
+        $this->generate_name = $this->generate_name();
+        $this->name = $this->get_file_name();
+
     }
-    
-    private function get_path()
+
+    protected function generate_file_url(){
+        return  public_path($this->dir_upload . "{$this->book->id}/{$this->format}/{$this->name}");
+    }
+
+    protected function get_path()
     {
         if ($this->book->path) {
-            return $this->book->path->Path;
+            foreach ($this->book->path as $path)
+            return $path->Path;
         }
         return false;
     }
-    
-    private function get_file()
+
+    protected function get_file()
     {
         if (file_exists(public_path($this->dir_upload . $this->file))) {
-            return true;
+           return public_path($this->dir_upload . $this->file);
         }
         return false;
     }
-    
+
     private function generate_url(){
         return "{$this->url}/b/{$this->book->id}/{$this->format}";
     }
-    
-    private function generate_path(){
+
+    protected function generate_path(){
         return  public_path($this->dir_upload . "{$this->book->id}/{$this->format}/");
     }
-    
+
     private function create_dir(){
         $dir = $this->generate_path();
         if(!is_dir($dir)){
@@ -55,7 +67,7 @@ class Download
         }
         return $dir;
     }
-    
+
     private function check_url(){
         $this->request = $this->generate_url();
         $attachment = get_headers($this->request, 1);
@@ -67,32 +79,46 @@ class Download
         }
         return false;
     }
-    
-    private function generate_name(){
+
+    protected function generate_name(){
         if($name = $this->check_url()) return str_replace('"','',$name);
     }
-    
-    private function save_to_db(){
+
+    private function save_filepath(){
         $filepath = new Filepath;
-        $filepath->Path = "{$this->book->id}/{$this->format}/" . $this->generate_name();
+        $filepath->Path = "{$this->book->id}/{$this->format}/" . $this->generate_name;
         $filepath->book_ID = $this->book->id;
-        $filepath->Format = $this->book->FileType;
+        $filepath->Format = $this->format;
         $filepath->save();
     }
-    
+
+    protected function get_file_name(){
+        if($this->book->filename){
+            return  $this->book->filename->FileName;
+        }
+    }
+
+    private function save_filename(){
+        if(!$this->name ){
+            $filename = new Filename;
+            $filename->book_ID =  $this->book->id;
+            $filename->FileName = $this->generate_name;
+            $filename->save();
+        }
+    }
+
     public function download()
     {
         $message = '';
-        
-        $this->file = $this->get_path();
         if ($this->file && $this->get_file()) {
             $message = array('status' => 'error', 'message' => 'Файл уже существует');
         } else {
             $this->create_dir();
-            file_put_contents($this->generate_path() . $this->generate_name(), fopen($this->request, 'r'));
-            $this->save_to_db();
+            file_put_contents( $this->generate_path .$this->generate_name , fopen($this->request, 'r'));
+            $this->save_filepath();
+            $this->save_filename();
         }
         return $message;
     }
-    
+
 }

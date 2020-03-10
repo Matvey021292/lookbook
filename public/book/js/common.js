@@ -203,31 +203,8 @@ async function requestPostData(route, data) {
     return await response.json();
 }
 
-let download_files = document.querySelectorAll('.download_file');
-download_files.forEach(function (el, i) {
-    el.addEventListener('click', function (e) {
-        if (!e.target.dataset.format) return;
-        e.preventDefault();
-        let data = {
-            'file': document.querySelector('input[name="book_id"]').value,
-            'format': e.target.dataset.format,
-            'init': true,                                                
-        }
-        requestPostData(download_route, data)
-            .then(e => {
-                if (e.status == 'success') {
-                    console.log(e.message);
-                    window.location.href = e.message;
-                } else {
-                    console.log(e.message)
-                }
-            })
-    })
-})
-
-
 function download(data, filename, type) {
-    var file = new Blob([data], { type: type });
+    var file = new Blob([data], {type: type});
     if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else { // Others
@@ -355,7 +332,7 @@ modals.forEach(function (e) {
         e.classList.add('hide');
     }, time);
 
-})
+});
 
 
 document.querySelectorAll('.close').forEach(function (e) {
@@ -364,7 +341,7 @@ document.querySelectorAll('.close').forEach(function (e) {
             e.target.closest('.alert').classList.add('hide');
         }
     })
-})
+});
 
 document.querySelectorAll('form.ajax').forEach(function (element) {
     element.addEventListener('submit', function (e) {
@@ -386,7 +363,7 @@ document.querySelectorAll('form.ajax').forEach(function (element) {
                 }, 500)
             })
     })
-})
+});
 
 function appendMessage(element, status, message) {
 
@@ -401,7 +378,7 @@ function removeMessage(element) {
     let errors = document.querySelectorAll('.error');
     if (errors.length) {
         errors.forEach(function (error, i) {
-            error.classList.remove('error')
+            error.classList.remove('error');
         });
     }
 
@@ -412,7 +389,6 @@ function removeMessage(element) {
             message.remove();
         })
     }
-    ;
 }
 
 function createMessage(status, messages) {
@@ -540,7 +516,7 @@ var observer = new IntersectionObserver(function (entries) {
     // fully intersects with screen
     else if (entries[0].intersectionRatio === 1)
         document.querySelector("#nav-container").classList.remove("nav-container-sticky");
-}, { threshold: [0, 1] });
+}, {threshold: [0, 1]});
 
 observer.observe(document.querySelector("#nav-container-top"));
 
@@ -548,20 +524,46 @@ observer.observe(document.querySelector("#nav-container-top"));
 window.addEventListener('load', function () {
 
     if (!book_id) return;
+
     let data = {
         'file': book_id,
         'format': document.querySelector('input[name="book_format"]').value,
-        'init': true
     };
+
     requestPostData(download_route, data)
         .then(e => {
             if (e.status == 'success') {
                 window.open(e.message)
             } else {
-                console.log(download_route + ':' + e.message)
+                console.log(download_route + ':' + e.message);
             }
         });
 });
+
+
+let download_files = document.querySelectorAll('*[download]');
+
+download_files.forEach(function (el, i) {
+    el.addEventListener('click', function (e) {
+        if (this.href) return;
+        e.preventDefault();
+        let data = {
+            'file': document.querySelector('input[name="book_id"]').value,
+            'format': e.target.dataset.format,
+        };
+
+        requestPostData(download_route, data)
+            .then(e => {
+                if (e.status === 'success') {
+                    console.log(e.message);
+                    // window.location.href = e.message;
+                } else {
+                    console.log(e.message)
+                }
+            })
+    })
+});
+
 
 document.addEventListener('click', function (event) {
 
@@ -609,7 +611,7 @@ function loading_data() {
         if (!action) return;
         let page = window.location.search || '?page=1';
         let param = new URLSearchParams(page);
-        let newParam = '?page=' + (1 + (+ param.get('page')));
+        let newParam = '?page=' + (1 + (+param.get('page')));
         window.history.pushState('', '', newParam);
         let data = document.querySelector('#more').getAttribute('data-alias') || '';
         requestPost('/ajax' + action + newParam + '&alias=' + data)

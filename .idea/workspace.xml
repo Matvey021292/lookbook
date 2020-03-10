@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="728daf6b-d549-4cc6-9591-c7f12a950f49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Convert.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Convert.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Download.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Download.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filename.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filename.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BookRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/book_aside.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/book_aside.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +213,7 @@
       <workItem from="1583501110134" duration="396000" />
       <workItem from="1583502513209" duration="8077000" />
       <workItem from="1583825712195" duration="25000" />
-      <workItem from="1583845700716" duration="9617000" />
+      <workItem from="1583845700716" duration="10404000" />
     </task>
     <servers />
   </component>

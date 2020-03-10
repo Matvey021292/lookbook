@@ -17,6 +17,7 @@ class Download
     protected $generate_path;
     protected $generate_name;
     protected $name;
+    protected $edit_format;
 
     public function __construct(Book $book, $format)
     {
@@ -32,7 +33,7 @@ class Download
     }
 
     protected function generate_file_url(){
-        return  public_path($this->dir_upload . "{$this->book->id}/{$this->format}/{$this->name}");
+        return  url($this->dir_upload . "{$this->book->id}/{$this->format}/" . str_replace($this->edit_format, $this->format, $this->name));
     }
 
     protected function get_path()
@@ -60,7 +61,7 @@ class Download
         return  public_path($this->dir_upload . "{$this->book->id}/{$this->format}/");
     }
 
-    private function create_dir(){
+    protected function create_dir(){
         $dir = $this->generate_path();
         if(!is_dir($dir)){
             File::makeDirectory($dir, 0775, true);
@@ -94,7 +95,7 @@ class Download
 
     protected function get_file_name(){
         if($this->book->filename){
-            return  $this->book->filename->FileName;
+            return  str_replace($this->edit_format, $this->format, $this->book->filename->FileName);
         }
     }
 

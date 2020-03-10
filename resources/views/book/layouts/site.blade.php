@@ -51,13 +51,12 @@
                         </div>
                         <div class="Header__enter col-xs-8 col-sm-3 end-xs col-sm-offset-2">
                             @guest
-                                <a href="/login" data-modal="#auth"
-                                   class="trigger Header__link jest-auth-link-hamburger">
-                                    {{ __('Войти')}} &nbsp; | &nbsp;
-                                </a>
+
                                 <a href="/register" data-modal="#register" class="trigger Header__link">
-                                    <i class="fas fa-user-circle"></i>
                                     <span>{{__('Регистрация')}}</span>
+                                </a>
+                                <a href="/login" data-modal="#auth"
+                                   class="trigger Header__link jest-auth-link-hamburger">{{ __('Войти')}} <i class="fas fa-user-circle"></i>
                                 </a>
                             @else
                                 <div class="link_more Header__link Header__link__more">
@@ -78,12 +77,10 @@
                                             </div>
                                             <div class="HeaderUserMenu__user center-xs">
                                                 <div class="HeaderUserMenu__userConatiner">
-
                                                         @if(Auth::user()->name)
                                                         <div> {{ Auth::user()->name }}</div>
                                                         @endif
                                                         <div class="text_md">{{ Auth::user()->email }}</div>
-
                                                 </div>
                                             </div>
                                             <div class="HeaderUserMenu__menu">

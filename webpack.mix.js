@@ -27,7 +27,8 @@ mix.browserSync({
       'node_modules/simple-keyboard/build/css/index.css',
       'public/book/css/vendor.css',
       'public/book/css/rebook.css',
-      'public/book/css/custom.css',
+       'public/book/css/custom.css',
+       'public/book/css/form.scss',
    ], 'public/book/css/app.css')
    // .sass('public/book/css/app.css', 'public/css')
    // .purgeCss()

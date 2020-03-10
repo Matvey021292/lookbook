@@ -526,7 +526,12 @@ a:hover {
 
 .Header__link i:last-of-type {
     margin-left: 20px;
-    margin-top: -7px;
+}
+
+a[data-modal="#auth"]{
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 2px solid #c2c2c2;
 }
 
 .BookDetailAnnotation__content {
@@ -715,13 +720,13 @@ a:hover {
 }
 
 .HeaderLinks__linkContainer.active{
-    border-left: 4px solid #3e5c98;
+    border-left: 4px solid #297dce;
     position: relative;
 }
 
 .HeaderLinks__link:hover i,
 .active .HeaderLinks__link i{
-    color:#3e5c98;
+    color:#297dce;
 }
 
 .HeaderLinks__link:hover,
@@ -857,8 +862,12 @@ label[for='autoComplete'] {
     margin-bottom: 10px;
 }
 
+.ml-1{
+    margin-left: 10px;
+}
+
 .ml-0 {
-    margin-left: 0px !important;
+    margin-left: 0 !important;
 }
 
 .mb-0 {
@@ -1826,7 +1835,7 @@ label[for='autoComplete'] {
     background: #297dce;
     color: #fff;
     padding: .62em 1.6em;
-    border-radius: 5px;
+    border-radius: 4px;
     display: inline-block;
 
 }
@@ -1860,6 +1869,9 @@ label[for='autoComplete'] {
     flex: 1 1;
 }
 
+.group_btn .custom_btn:last-child{
+    margin-right: 0;
+}
 
 .group_btn .custom_btn i {
     margin-right: 7px;

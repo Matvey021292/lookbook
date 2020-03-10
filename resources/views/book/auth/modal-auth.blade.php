@@ -4,7 +4,7 @@
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Вход') }}</div>
             <div class="card-body jest-auth-form">
-                <form method="POST" class="ajax" action="{{ route('auth') }}">
+                <form method="POST" class="ajax form_group" action="{{ route('auth') }}">
                     @csrf
                     <div class="form-group  Form__formRow jest-auth-email">
                         <span class="FormTextInput__formTextInput">

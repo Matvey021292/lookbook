@@ -1,4 +1,4 @@
-form .form-control {
+.form_group .form-control {
     width: 100%;
     height: 46px;
     padding: 8px 15px;
@@ -7,32 +7,32 @@ form .form-control {
     border-radius: 4px;
 }
 
-.modal .custom_btn{
+.form_group .custom_btn{
     width: 100%;
     padding: .75em 1.6em;
 }
 
-form .small-formRow{
+.form_group .small-formRow{
     margin-top: 5px;
 }
 
-.modal .card-header {
+.form_group .card-header {
     text-align: center;
     margin: 10px 0;
     font-size: 28px;
     padding-bottom: 0;
 }
 
-.modal .group_btn{
+.form_group .group_btn{
     flex-wrap: nowrap;
 }
 
-.modal .group_btn .custom_btn{
+.form_group .group_btn .custom_btn{
     width: auto;
     flex: 1 1 ;
 }
 
-.modal .custom_btn__outline{
+.form_group .custom_btn__outline{
     background-color: #f2f8ff;
     border: 1px solid rgba(0,105,255,.2);
     color: #031b4e;
@@ -45,42 +45,42 @@ form .small-formRow{
     color: #031b4e;
 }
 
-.modal .group_btn .button-social{
+.form_group .group_btn .button-social{
     padding: .60rem 0;
     max-width: 60px;
     text-align: center;
 }
 
-.group_btn .button-social .icon {
+.form_group .group_btn .button-social .icon {
     width: 25px;
     height: 25px;
     display: inline-block;
     margin-right: 0;
 }
 
-.button-social .icon-google {
+.form_group .button-social .icon-google {
     background: url(../images/google.svg) no-repeat center;
 }
 
 
-.button-social .icon-facebook {
+.form_group .button-social .icon-facebook {
     background: url(../images/facebook.svg) no-repeat center;
 }
 
-.divide{
+.form_group .divide{
     text-align: center;
     margin: 10px 0 15px;
     position: relative;
 }
 
-.divide span{
+.form_group .divide span{
     background: #fff;
     position: relative;
     z-index: 1;
     padding: 0px 10px;
 }
 
-.divide:before {
+.form_group .divide:before {
     content: '';
     position: absolute;
     top: 50%;
@@ -91,4 +91,12 @@ form .small-formRow{
     background: #e5e8ed;
     width: 100%;
     z-index: 0;
+}
+
+.form_group .FormTextInput__label{
+    margin-bottom: 0;
+}
+
+.form_group .Form__formRow{
+    margin-bottom: 0;
 }

@@ -4,7 +4,7 @@
         <div class="card AuthFormDialog__inner">
             <div class="card-header title-1">{{ __('Создать аккаунт') }}</div>
             <div class="card-body jest-auth-form">
-                <form class="ajax" method="POST" action="{{ route('registration') }}">
+                <form class="ajax form_group" method="POST" action="{{ route('registration') }}">
                     @csrf
                     <div class="form-group  Form__formRow">
                         <span class="FormTextInput__formTextInput">

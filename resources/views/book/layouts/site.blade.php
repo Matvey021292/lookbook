@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME')) }}/images/favicon.png"/>
-    <title>Leviafan - @yield('Title')</title>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app.css'>
-    <link rel="stylesheet" href='{{ asset(env("THEME")) }}/css/app_mobile.css'>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
+@include(env('THEME') . '.layouts.header')
 <body>
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -110,6 +99,7 @@
                     </div>
                 </div>
         </header>
+        @yield('content')
         <div class="row row-container card_wrapper">
             <aside class=" col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                 <div class="aside_wrapper">

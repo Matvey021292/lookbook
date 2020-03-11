@@ -16166,6 +16166,11 @@ body{
     color: #5f6368;
 }
 
+.custom_btn.disabled{
+    pointer-events: none;
+    cursor: default;
+}
+
 .form_group .form-control {
     width: 100%;
     height: 46px;

@@ -551,15 +551,15 @@ download_files.forEach(function (el, i) {
             'file': document.querySelector('input[name="book_id"]').value,
             'format': e.target.dataset.format,
         };
-
+        let innerText = loader(this);
         requestPostData(download_route, data)
             .then(e => {
                 if (e.status === 'success') {
-                    console.log(e.message);
-                    // window.location.href = e.message;
+                    window.location.href = e.message;
                 } else {
                     console.log(e.message)
                 }
+                removeLoader(this, innerText);
             })
     })
 });
@@ -633,3 +633,21 @@ window.onscroll = function (ev) {
         loading_data();
     }
 };
+
+
+function loader(el) {
+    let icon = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto;" width="15" height="15" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+<circle cx="50" cy="50" fill="none" stroke="#ffffff" stroke-width="15" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(245.699 50 50)">
+  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+</circle></svg>`;
+    el.classList.add('disabled');
+    let text = el.innerHTML;
+    el.innerHTML = icon;
+    return text;
+}
+
+
+function removeLoader(el, text){
+    el.classList.remove('disabled');
+    el.innerHTML = text;
+}

@@ -23,10 +23,12 @@ class Convert extends Download
     }
 
     public function convert(){
-        $this->create_dir();
-        $cmd = "ebook-convert {$this->original_file_path} {$this->convert_file_path}";
-        exec(escapeshellcmd($cmd), $output, $return_var);
-        return $message = array('status' => 'error', 'message' => $this->generate_file_url());
+        if(!file_exists($this->convert_file_path)){
+            $this->create_dir();
+            $cmd = "ebook-convert {$this->original_file_path} {$this->convert_file_path}";
+            exec(escapeshellcmd($cmd), $output, $return_var);
+        }
+        return $message = array('status' => 'success', 'message' => $this->generate_file_url());
     }
 
 }

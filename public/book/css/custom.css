@@ -2035,3 +2035,8 @@ body{
     margin-top: 5px;
     color: #5f6368;
 }
+
+.custom_btn.disabled{
+    pointer-events: none;
+    cursor: default;
+}

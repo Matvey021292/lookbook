@@ -7,12 +7,12 @@
     border-radius: 4px;
 }
 
-.form_group .custom_btn{
+.form_group .custom_btn {
     width: 100%;
     padding: .75em 1.6em;
 }
 
-.form_group .small-formRow{
+.form_group .small-formRow {
     margin-top: 5px;
 }
 
@@ -23,29 +23,29 @@
     padding-bottom: 0;
 }
 
-.form_group .group_btn{
+.form_group .group_btn {
     flex-wrap: nowrap;
 }
 
-.form_group .group_btn .custom_btn{
+.form_group .group_btn .custom_btn {
     width: auto;
-    flex: 1 1 ;
+    flex: 1 1;
 }
 
-.form_group .custom_btn__outline{
+.form_group .custom_btn__outline {
     background-color: #f2f8ff;
-    border: 1px solid rgba(0,105,255,.2);
+    border: 1px solid rgba(0, 105, 255, .2);
     color: #031b4e;
 }
 
 .custom_btn__outline:focus,
-.custom_btn__outline:hover{
+.custom_btn__outline:hover {
     background: #d5e4f7;
-    border: 1px solid rgba(0,105,255,.2);
+    border: 1px solid rgba(0, 105, 255, .2);
     color: #031b4e;
 }
 
-.form_group .group_btn .button-social{
+.form_group .group_btn .button-social {
     padding: .60rem 0;
     max-width: 60px;
     text-align: center;
@@ -67,13 +67,13 @@
     background: url(../images/facebook.svg) no-repeat center;
 }
 
-.form_group .divide{
+.form_group .divide {
     text-align: center;
     margin: 10px 0 15px;
     position: relative;
 }
 
-.form_group .divide span{
+.form_group .divide span {
     background: #fff;
     position: relative;
     z-index: 1;
@@ -85,18 +85,40 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     height: 1px;
     background: #e5e8ed;
     width: 100%;
     z-index: 0;
 }
 
-.form_group .FormTextInput__label{
+.form_group .FormTextInput__label {
     margin-bottom: 0;
 }
 
-.form_group .Form__formRow{
+.form_group .Form__formRow {
     margin-bottom: 0;
+}
+
+.custom_container{
+    background: #fafafa
+}
+
+.custom_container .card{
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.05);
+    border-image: initial;
+    border-radius: 8px;
+}
+
+.custom_container .card-header{
+    background: transparent;
+    border: 0;
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 0;
 }

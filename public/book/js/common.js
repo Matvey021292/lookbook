@@ -651,3 +651,12 @@ function removeLoader(el, text){
     el.classList.remove('disabled');
     el.innerHTML = text;
 }
+
+
+document.querySelectorAll('.link_more').forEach(function(e){
+    e.addEventListener('click', function(){
+       if(this.querySelector('.container_detail')){
+           this.classList.toggle('show')
+       }
+    })
+})

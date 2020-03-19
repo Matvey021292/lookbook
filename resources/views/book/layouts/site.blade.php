@@ -57,7 +57,7 @@
                                     @endif
                                     <span>{{__('Личный кабинет')}}</span>
                                     <i class="fas fa-sort-down"></i>
-                                    <div class="container_more">
+                                    <div class="container_more container_detail">
                                         <div class="HeaderUserMenu__submenuContainer">
                                             <div class="container_more__header">
                                                 @if(!Auth::user()->getMedia('profile_image')->isEmpty())
@@ -103,10 +103,48 @@
         <div class="row row-container card_wrapper">
             <aside class=" col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                 <div class="aside_wrapper">
+                    
                     @guest
                     <button data-modal="#auth" type="submit" class="trigger custom_btn btn_login">
                         <i class="fas fa-user-circle"></i> Вход в личный кабинет
                     </button>
+                    @else
+                        <div class="container_more container_detail">
+                            <div class="HeaderUserMenu__submenuContainer">
+                                <div class="container_more__header">
+                                    @if(!Auth::user()->getMedia('profile_image')->isEmpty())
+                                        <img alt="user avatar" class="user__avatar user_avatar__large" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
+                                    @endif
+                                </div>
+                                <div class="HeaderUserMenu__user center-xs">
+                                    <div class="HeaderUserMenu__userConatiner">
+                                            @if(Auth::user()->name)
+                                            <div> {{ Auth::user()->name }}</div>
+                                            @endif
+                                            <div class="text_md">{{ Auth::user()->email }}</div>
+                                    </div>
+                                </div>
+                                <div class="HeaderLinks__linksContainer">
+                                    <ul>
+                                        <li class="HeaderLinks__linkContainer">
+                                            <a class="HeaderLinks__link link"
+                                               href="/profile">{{__('Личный кабинет')}}</a>
+                                        </li>
+                                        <li class="HeaderLinks__linkContainer">
+                                            <a class="HeaderLinks__link link"
+                                               href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
+                                                {{__('Книжная полка')}}
+                                            </a>
+                                        </li>
+                                        <li class="HeaderLinks__linkContainer">
+                                            <a class="HeaderLinks__link link " href="{{ route('logout') }}">
+                                                 {{ __('Выход') }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     <p class="container_title size-md">
                         <svg width="24px" class="gb_Ve" fill="#555a5f" style="margin-right: 10px;" focusable="false"

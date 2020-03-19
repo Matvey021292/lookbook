@@ -1355,6 +1355,15 @@ body > .loader {
     display: block;
 }
 
+.link_more:hover .container_detail {
+    display: none;
+}
+
+.link_more.show .container_detail {
+    display: block;
+}
+
+
 .container_more li,
 .container_more > div {
     white-space: nowrap;
@@ -1819,6 +1828,21 @@ label[for='autoComplete'] {
 
 .aside_wrapper{
     height: 100%;
+}
+
+.aside_wrapper .container_detail{
+    height: auto;
+    display: block;
+    position: static;
+    max-height: 100%;
+    margin-bottom: 20px;
+    box-shadow: none;
+    border-color: #eee;
+    padding-bottom: 0;
+}
+
+.aside_wrapper .container_detail .HeaderLinks__linkContainer{
+    padding-left: 0;
 }
 
 .aside_wrapper .btn_login{

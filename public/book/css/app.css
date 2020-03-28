@@ -3243,7 +3243,7 @@ li.page-item a,
       width: 256px; } }
 
 .BookCoverImage__coverImageText {
-  height: 180px; 
+  height: 180px;
 }
   @media (min-width: 767px) {
     .BookCoverImage__coverImageText {
@@ -3790,7 +3790,7 @@ li.page-item a,
   position: relative;
   white-space: nowrap;
   transition: all .2s ease-in-out;
-  cursor: pointer; 
+  cursor: pointer;
 
 }
 .Rating__ratingStar .stars{
@@ -3968,7 +3968,7 @@ li.page-item a,
   margin-right: 8px; }
 
 .BookPageHeaderContent__bookRatingCount {
-  margin-left: 8px; 
+  margin-left: 8px;
   padding: 4px 8px;
   border-radius: 5px;
   font-weight: 400;
@@ -6011,7 +6011,7 @@ li.page-item a,
   color: #393f45; }
   @media (max-width: 414px) {
     .ContextBookCardLong__bookDescription {
-      display: none; } } 
+      display: none; } }
   .ContextBookCardLong__bookDescriptionMobile {
     font: 14px/1.5 firasans, sans-serif;
     color: #393f45;
@@ -12703,7 +12703,7 @@ li.page-item a,
   background: #ffffff;
   border: none;
   border: 1px solid #cecece;
-  
+
   font-size: 16px;
   line-height: 1.33em;
   color: #7c7f84;
@@ -12817,10 +12817,6 @@ li.page-item a,
   text-decoration: none;
   color: #d93025;
   cursor: pointer; }
-  .MenuItemsList__link:hover {
-    color: #e67e21; }
-  .isMobile .MenuItemsList__link:hover {
-    color: #383434; }
 
 .SubscriptionLabel__link {
   display: flex;
@@ -12907,10 +12903,7 @@ li.page-item a,
   background-color: #ffffff;
   z-index: 999;
   overflow: hidden; }
-  .HeaderUserMenu__submenuContainer {
-    padding: 5px;
-    z-index: 1;
-  }
+
 
 .HeaderUserMenu__isOpen {
   position: fixed;
@@ -13175,7 +13168,7 @@ li.page-item a,
   height: 40px;
   margin-left: 8px;
   white-space: nowrap; }
-  
+
   @media (max-width: 767px) {
     .HeaderLinks__linkContainer {
       margin-bottom: 8px;
@@ -13194,14 +13187,14 @@ li.page-item a,
 
 .Header__header {
   width: 100%;
-  
+
   background: #f7f7f7; }
 
 
 
 .Header__container {
-  
- 
+
+
   position: relative;
   width: 100%;
   max-width: 1136px;
@@ -13234,7 +13227,7 @@ li.page-item a,
     .Header__menu.Header__isMobile {
       height: 100%;
       align-items: center; } }
-  
+
   .Header__menuItem {
     display: inline-block;
     font-weight: 700;
@@ -14682,7 +14675,7 @@ a[data-modal="#auth"]{
 }
 
 .BookPageHeaderContent__bookInformationRating {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .Button__primaryButton.Button__primaryButton_min::first-letter {
@@ -14971,6 +14964,10 @@ label[for='autoComplete'] {
     padding: 0;
 }
 
+.pb-1{
+    padding-bottom: 10px;
+}
+
 .pl-0 {
     padding-left: 0 !important;
 }
@@ -14979,10 +14976,31 @@ label[for='autoComplete'] {
     padding-left: 0;
 }
 
+.pl-2{
+    padding-left: 20px;
+}
+
+.pr-2{
+    padding-right: 20px;
+}
+
+.p-2{
+    padding: 20px;
+}
+
 .d-flex-center {
     display: flex;
     align-items: center;
 }
+
+.m-1{
+    margin: 10px;
+}
+
+.m-2{
+    margin: 20px;
+}
+
 
 .mt-1 {
     margin-top: 10px;
@@ -14994,6 +15012,18 @@ label[for='autoComplete'] {
 
 .ml-1{
     margin-left: 10px;
+}
+
+.mr-1{
+    margin-right: 10px !important;
+}
+
+.mt-2{
+    margin-top: 20px;
+}
+
+.mb-2{
+    margin-bottom: 20px;
 }
 
 .ml-0 {
@@ -15059,6 +15089,7 @@ span.section-counter {
     font-size: 13px;
     color: #858585;
     font-family: 'Raleway', sans-serif;
+    white-space: normal;
 }
 
 .cart-light-md {
@@ -15070,7 +15101,6 @@ span.section-counter {
 .jest-horizontallybookcard {
     display: flex;
 }
-
 
 .jest-horizontallybookcard .VerticalBookCard__bookInfo {
     margin-left: 15px;
@@ -15175,7 +15205,7 @@ div[data-toggle="collapse"].open .toggle-icon i {
 .hr {
     margin: 10px 0 20px;
     border: 1px solid #eee;
-    border-bottom: 0px;
+    border-bottom: 0;
 }
 
 .text-md {
@@ -15395,8 +15425,8 @@ body > .loader {
 .book_info {
     cursor: pointer;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     z-index: 9;
     display: inline-block;
     font-size: 16px;
@@ -15459,22 +15489,30 @@ body > .loader {
     position: relative;
 }
 
+
 .container_more {
     background: #fff;
-    border: 1px solid #ccc;
-    border-color: rgba(0, 0, 0, .2);
+    border: 1px solid rgba(0, 0, 0, .2);
     color: #000;
     display: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     border-radius: 8px;
     z-index: 9;
-    padding: 15px 20px;
+    padding: 15px 0;
     animation: gb__a .2s;
     max-height: 230px;
     overflow: auto;
+}
+
+.container_more .MenuItemsList__item{
+    padding: 8px 20px;
+}
+
+.container_more .MenuItemsList__item:last-child{
+    background: transparent !important;
 }
 
 .link_more {
@@ -15698,6 +15736,12 @@ body > .loader {
     min-width: 250px;
 }
 
+.container_more .custom_btn{
+    width: 100%;
+    margin: 0;
+    border: 1px solid transparent;
+}
+
 .Header__link ul {
     line-height: 1.7;
 }
@@ -15821,11 +15865,11 @@ label[for='autoComplete'] {
     background-color: #fff;
     border-left: 2px solid rgba(255, 122, 122, 0);
     border-right: 2px solid rgba(255, 122, 122, 0);
-    border-bottom: 0px;
+    border-bottom: 0;
     width: 100%;
     max-width: 100%;
     margin: 0;
-    border: 0px;
+    border: 0;
     display: flex;
 }
 
@@ -15852,12 +15896,12 @@ label[for='autoComplete'] {
     cursor: pointer;
     background: #f1f3f4;
     margin: 0;
-    border-top: 0px;
-    border-bottom: 0px;
+    border-top: 0;
+    border-bottom: 0;
     border-bottom: 0.05rem solid #e3e3e3;
     border-left: 2px solid rgba(255, 122, 122, 1);
     border-right: 2px solid rgba(255, 122, 122, 1);
-    border: 0px;
+    border: 0;
 
 }
 
@@ -15867,7 +15911,7 @@ label[for='autoComplete'] {
 
 .user__avatar {
     background: transparent;
-    border: 0px;
+    border: 0;
 }
 
 .simple-keyboard {
@@ -15961,7 +16005,6 @@ label[for='autoComplete'] {
 }
 
 .aside_wrapper .container_detail{
-    height: auto;
     display: block;
     position: static;
     max-height: 100%;
@@ -16101,13 +16144,17 @@ label[for='autoComplete'] {
 
 .HeaderUserMenu__userConatiner{
     padding-bottom: 15px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     border-bottom: 1px solid #eee;
 }
 
 .MenuItemsList__item{
     border: 0;
     padding: 7px 0;
+}
+
+.MenuItemsList__item:hover{
+    background: #f7f8f8;
 }
 
 .modal_icon {
@@ -16127,7 +16174,7 @@ label[for='autoComplete'] {
 
 .modal-content .container_title {
     text-align: center;
-    border: 0px;
+    border: 0;
 }
 
 .modal-content .group_btn {
@@ -16193,6 +16240,20 @@ body{
 .custom_btn.disabled{
     pointer-events: none;
     cursor: default;
+}
+
+
+.card-min .VerticalBookCard__bookAuthorWrapper{
+    margin-top: 0;
+}
+
+.card-min .BookCover__bookImage, .BookCover__book img{
+    border-radius: 4px;
+}
+
+.HeaderLinks__linksContainer .card-mh{
+    max-height: 230px;
+    overflow: auto;
 }
 
 .form_group .form-control {

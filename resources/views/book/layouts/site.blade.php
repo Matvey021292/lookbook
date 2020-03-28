@@ -40,12 +40,12 @@
                         </div>
                         <div class="Header__enter col-xs-8 col-sm-3 end-xs col-sm-offset-2">
                             @guest
-
                                 <a href="/register" data-modal="#register" class="trigger Header__link">
                                     <span>{{__('Регистрация')}}</span>
                                 </a>
                                 <a href="/login" data-modal="#auth"
-                                   class="trigger Header__link jest-auth-link-hamburger">{{ __('Войти')}} <i class="fas fa-user-circle"></i>
+                                   class="trigger Header__link jest-auth-link-hamburger">{{ __('Войти')}} <i
+                                        class="fas fa-user-circle"></i>
                                 </a>
                             @else
                                 <div class="link_more Header__link Header__link__more">
@@ -57,42 +57,7 @@
                                     @endif
                                     <span>{{__('Личный кабинет')}}</span>
                                     <i class="fas fa-sort-down"></i>
-                                    <div class="container_more container_detail">
-                                        <div class="HeaderUserMenu__submenuContainer">
-                                            <div class="container_more__header">
-                                                @if(!Auth::user()->getMedia('profile_image')->isEmpty())
-                                                    <img alt="user avatar" class="user__avatar user_avatar__large" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
-                                                @endif
-                                            </div>
-                                            <div class="HeaderUserMenu__user center-xs">
-                                                <div class="HeaderUserMenu__userConatiner">
-                                                        @if(Auth::user()->name)
-                                                        <div> {{ Auth::user()->name }}</div>
-                                                        @endif
-                                                        <div class="text_md">{{ Auth::user()->email }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="HeaderUserMenu__menu">
-                                                <ul>
-                                                    <li class="MenuItemsList__item">
-                                                        <a class="MenuItemsList__link"
-                                                           href="/profile">{{__('Личный кабинет')}}</a>
-                                                    </li>
-                                                    <li class="MenuItemsList__item">
-                                                        <a class="MenuItemsList__link"
-                                                           href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
-                                                            {{__('Книжная полка')}}
-                                                        </a>
-                                                    </li>
-                                                    <li class="MenuItemsList__link MenuItemsList__item">
-                                                        <a class="Header__link " href="{{ route('logout') }}">
-                                                            <i class="fas fa-sign-out-alt"></i> {{ __('Выход') }}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @include(env('THEME') . '.auth.account-modal')
                                     @endif
                                 </div>
                         </div>
@@ -103,45 +68,33 @@
         <div class="row row-container card_wrapper">
             <aside class=" col-sm-3 HeaderLinks__headerLinks jest-header-links-to-catalog">
                 <div class="aside_wrapper">
-                    
                     @guest
-                    <button data-modal="#auth" type="submit" class="trigger custom_btn btn_login">
-                        <i class="fas fa-user-circle"></i> Вход в личный кабинет
-                    </button>
+                        <button data-modal="#auth" type="submit" class="trigger custom_btn btn_login">
+                            <i class="fas fa-user-circle"></i> Вход в личный кабинет
+                        </button>
                     @else
                         <div class="container_more container_detail">
                             <div class="HeaderUserMenu__submenuContainer">
                                 <div class="container_more__header">
                                     @if(!Auth::user()->getMedia('profile_image')->isEmpty())
-                                        <img alt="user avatar" class="user__avatar user_avatar__large" src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
+                                        <img alt="user avatar" class="user__avatar user_avatar__large"
+                                             src="{{ str_replace('http://localhost/public' , '', Auth::user()->getMedia('profile_image')->first()->getFullUrl('thumb'))  }}">
                                     @endif
                                 </div>
                                 <div class="HeaderUserMenu__user center-xs">
                                     <div class="HeaderUserMenu__userConatiner">
-                                            @if(Auth::user()->name)
-                                            <div> {{ Auth::user()->name }}</div>
-                                            @endif
-                                            <div class="text_md">{{ Auth::user()->email }}</div>
+                                        @if(Auth::user()->name)
+                                            <div>{{__('Книжная полка')}}</div>
+                                        @endif
+                                        <div class="text_md">{{ Auth::user()->email }}</div>
                                     </div>
                                 </div>
                                 <div class="HeaderLinks__linksContainer">
-                                    <ul>
-                                        <li class="HeaderLinks__linkContainer">
-                                            <a class="HeaderLinks__link link"
-                                               href="/profile">{{__('Личный кабинет')}}</a>
-                                        </li>
-                                        <li class="HeaderLinks__linkContainer">
-                                            <a class="HeaderLinks__link link"
-                                               href="{{ route('profile.show', ['alias'=> Auth::user()->id]) }}">
-                                                {{__('Книжная полка')}}
-                                            </a>
-                                        </li>
-                                        <li class="HeaderLinks__linkContainer">
-                                            <a class="HeaderLinks__link link " href="{{ route('logout') }}">
-                                                 {{ __('Выход') }}
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div class="card-mh pl-2 pr-2 mt-2 mb-2">
+                                        @foreach(Auth::user()->books as $book)
+                                            @include(env('THEME') . '.card.card-book-min', ['items'=>$book,'book' => $book, 'carousel' => true, 'author' => true])
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>

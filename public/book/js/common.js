@@ -506,7 +506,7 @@ function onKeyPress(button) {
 document.querySelector('.virtual_kd').addEventListener('click', function (e) {
     e.preventDefault();
     document.querySelector('.simple-keyboard').classList.toggle('show');
-})
+});
 
 
 var observer = new IntersectionObserver(function (entries) {
@@ -659,4 +659,5 @@ document.querySelectorAll('.link_more').forEach(function(e){
            this.classList.toggle('show')
        }
     })
-})
+});
+

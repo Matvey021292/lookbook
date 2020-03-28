@@ -2662,7 +2662,7 @@ li.page-item a,
       width: 256px; } }
 
 .BookCoverImage__coverImageText {
-  height: 180px; 
+  height: 180px;
 }
   @media (min-width: 767px) {
     .BookCoverImage__coverImageText {
@@ -3209,7 +3209,7 @@ li.page-item a,
   position: relative;
   white-space: nowrap;
   transition: all .2s ease-in-out;
-  cursor: pointer; 
+  cursor: pointer;
 
 }
 .Rating__ratingStar .stars{
@@ -3387,7 +3387,7 @@ li.page-item a,
   margin-right: 8px; }
 
 .BookPageHeaderContent__bookRatingCount {
-  margin-left: 8px; 
+  margin-left: 8px;
   padding: 4px 8px;
   border-radius: 5px;
   font-weight: 400;
@@ -5430,7 +5430,7 @@ li.page-item a,
   color: #393f45; }
   @media (max-width: 414px) {
     .ContextBookCardLong__bookDescription {
-      display: none; } } 
+      display: none; } }
   .ContextBookCardLong__bookDescriptionMobile {
     font: 14px/1.5 firasans, sans-serif;
     color: #393f45;
@@ -12122,7 +12122,7 @@ li.page-item a,
   background: #ffffff;
   border: none;
   border: 1px solid #cecece;
-  
+
   font-size: 16px;
   line-height: 1.33em;
   color: #7c7f84;
@@ -12236,10 +12236,6 @@ li.page-item a,
   text-decoration: none;
   color: #d93025;
   cursor: pointer; }
-  .MenuItemsList__link:hover {
-    color: #e67e21; }
-  .isMobile .MenuItemsList__link:hover {
-    color: #383434; }
 
 .SubscriptionLabel__link {
   display: flex;
@@ -12326,10 +12322,7 @@ li.page-item a,
   background-color: #ffffff;
   z-index: 999;
   overflow: hidden; }
-  .HeaderUserMenu__submenuContainer {
-    padding: 5px;
-    z-index: 1;
-  }
+
 
 .HeaderUserMenu__isOpen {
   position: fixed;
@@ -12594,7 +12587,7 @@ li.page-item a,
   height: 40px;
   margin-left: 8px;
   white-space: nowrap; }
-  
+
   @media (max-width: 767px) {
     .HeaderLinks__linkContainer {
       margin-bottom: 8px;
@@ -12613,14 +12606,14 @@ li.page-item a,
 
 .Header__header {
   width: 100%;
-  
+
   background: #f7f7f7; }
 
 
 
 .Header__container {
-  
- 
+
+
   position: relative;
   width: 100%;
   max-width: 1136px;
@@ -12653,7 +12646,7 @@ li.page-item a,
     .Header__menu.Header__isMobile {
       height: 100%;
       align-items: center; } }
-  
+
   .Header__menuItem {
     display: inline-block;
     font-weight: 700;

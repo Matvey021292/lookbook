@@ -19,7 +19,7 @@
                                 <label class="FormTextInput__label" >{{ __('Логотип профиля')}}</label>
                             </span>
                         </div>
-                        
+
                         <div class="UserSettingsView__billetContainer bg-white br-1">
                             <div class="UserSettingsAvatar__userImagePanoram">
                                 <div class="UserSettingsAvatar__userImagePanoramImage" style="background-image: url(&quot;/c/256x256/avatars/35/60/3560bf76-03b5-4b02-b42c-b7c3d9a0c070.jpg&quot;);"></div>
@@ -48,7 +48,7 @@
                                         </span>
                                     </span>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <div class="Form__formRow"><span class="FormTextInput__formTextInput"><label class="FormTextInput__label" for="first_name">Имя</label><span class="FormTextInput__control">
                                 <input class="FormTextInput__input jest-userprofile-firstname" id="first_name" name="first_name" type="text" value="{{ $user->name}}"></span></span>
                             </div>
-                            
+
                             @if(!empty($user->profile->last_name))
                             <div class="Form__formRow"><span class="FormTextInput__formTextInput"><label class="FormTextInput__label" for="last_name">Фамилия </label><span class="FormTextInput__control">
                                 <input class="FormTextInput__input jest-userprofile-firstname" id="last_name" name="last_name" type="text" value="{{ $user->profile->last_name}}"></span></span>
@@ -72,7 +72,7 @@
                                 <input class="FormTextInput__input jest-userprofile-firstname" id="last_name" name="last_name" type="text" value=""></span></span>
                             </div>
                             @endif
-                            
+
                         </div>
                     </div>
                 </div>
@@ -81,9 +81,9 @@
                         <div class="Form__form">
                             <div class="Form__formRow">
                                 <span class="FormTextInput__formTextInput FormTextInput__passwordInput">
-                                    <label class="FormTextInput__label" for="id_new_password">Новый пароль</label>
+                                    <label class="FormTextInput__label" for="new_password">Новый пароль</label>
                                     <span class="FormTextInput__control">
-                                        <input autocomplete="off" class="FormTextInput__input" id="new_password" name="password" type="password" >
+                                        <input  onfocus="this.removeAttribute('readonly');" readonly autocomplete="off"  class="FormTextInput__input" id="new_password" name="password" type="password" >
                                         <button type="button" class="FormTextInput__passwordVisibilitySwitcher">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="FormTextInput__passwordVisibilitySwitcherIcon">
                                                 <path d="M11.5,4A12.325,12.325,0,0,0,0,12a12.266,12.266,0,0,0,23,0A12.324,12.324,0,0,0,11.5,4Zm0,13.333A5.23, 5.23,0,0,1,6.273,12a5.229,5.229,0,1,1,10.455,0A5.23,5.23,0,0,1,11.5,17.333Zm0-8.533A3.112,3.112,0,0,0,8.364, 12a3.137,3.137,0,1,0,6.272,0A3.112,3.112,0,0,0,11.5,8.8Z"></path>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="Form__formRow">
                                 <span class="FormTextInput__formTextInput FormTextInput__passwordInput">
-                                    <label class="FormTextInput__label" >Повторить пароль</label>
+                                    <label for="confirm_password" class="FormTextInput__label" >Повторить пароль</label>
                                     <span class="FormTextInput__control">
                                         <input name="password_confirmation" id="confirm_password" class="FormTextInput__input"  autocomplete="off">
                                         <button type="button" class="FormTextInput__passwordVisibilitySwitcher">
@@ -153,4 +153,3 @@
         </div>
         @endif
     </div>
-    

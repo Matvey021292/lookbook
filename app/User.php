@@ -62,5 +62,5 @@ class User extends Authenticatable implements HasMedia
             ->height(350)
             ->format('png');
     }
-    
+
 }

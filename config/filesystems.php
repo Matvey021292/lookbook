@@ -50,8 +50,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => public_path(),
-            'url' => env('APP_URL') .'/public',
+            'root' => public_path('avatar'),
+            'url' => env('APP_URL') .'/public/avatar',
             'visibility' => 'public',
         ],
         's3' => [

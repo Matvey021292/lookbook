@@ -3,9 +3,146 @@
   <component name="ChangeListManager">
     <list default="true" id="728daf6b-d549-4cc6-9591-c7f12a950f49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/18/conversions/Снимок-экрана-от-2020-02-24-15-14-22-thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/18/Снимок-экрана-от-2020-02-24-15-14-22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/9/conversions/man-300x300-thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/9/man-300x300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeue-Thin.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeue-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeue-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBook.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBook.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueBook.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueLight.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueLight.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueRegular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueRegular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/BebasNeueRegular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-100Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-300Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-500Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-700Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/MuseoSansCyrl-900Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Black.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BlackItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BlackItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BoldItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-BoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBoldItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLight.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLight.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLightItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ExtraLightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-LightItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-LightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Medium.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-MediumItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-MediumItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBoldItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-SemiBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Thin.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ThinItalic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Raleway-ThinItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-brands-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-brands-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-regular-400.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-regular-400.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-solid-900.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-solid-900.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/arrow_57df35f6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/audio-books_af030f9e.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/books_fc322dfc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/emptyStar_ed840a04.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/filledStar_acf7c4fa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/girl-airplane_78cc2c1c.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/girl-books_2e5e3a37.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/girl-horizontal_c58b9356.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/girl-recomendations_78e2daea.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/girl-statistics_c5d3880c.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/mastercard_f9daf37c.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/mir-card_36e60baf.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/offline_66e5edb5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/oval_925921dd.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/paypal_b0b9e944.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/puzzle_b16141c3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/search_3a4de671.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/search_6df360b2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/star_b42d303f.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/visa_b1684820.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,12 +400,12 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="774" y="168" width="432" height="777" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583509705921" />
-    <state x="640" y="120" width="709" height="867" key="find.popup" timestamp="1583509726075">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state x="231" y="155" width="1447" height="867" key="find.popup" timestamp="1585406445367">
+      <screen x="70" y="27" width="3770" height="1053" />
     </state>
     <state x="640" y="120" width="709" height="867" key="find.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583509726075" />
     <state x="640" y="120" width="710" height="867" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583349780539" />
-    <state x="231" y="155" width="1447" height="867" key="find.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1583176612945" />
+    <state x="231" y="155" width="1447" height="867" key="find.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1585406445367" />
     <state x="2541" y="333" width="668" height="420" key="git4idea.merge.GitPullDialog" timestamp="1583959885093">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -279,12 +416,12 @@
     <state x="659" y="252" width="673" height="677" key="run.anything.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583490654896" />
     <state x="659" y="252" width="672" height="677" key="run.anything.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583350398210" />
     <state x="1270" y="252" width="1370" height="677" key="run.anything.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1583355318522" />
-    <state x="2530" y="238" width="698" height="696" key="search.everywhere.popup" timestamp="1583960127525">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup" timestamp="1585406433500">
+      <screen x="70" y="27" width="3770" height="1053" />
     </state>
     <state x="2530" y="238" width="698" height="696" key="search.everywhere.popup/70.27.1850.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583960127525" />
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583956721811" />
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1583350269068" />
-    <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1583354706670" />
+    <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1585406433500" />
   </component>
 </project>

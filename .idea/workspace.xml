@@ -3,21 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="728daf6b-d549-4cc6-9591-c7f12a950f49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/css/rebook.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/css/rebook.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/book/fonts/ProximaNova/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/fonts/ProximaNova/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/book/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/book/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/book/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/admin_1573823896.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/andrey_1573828375.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/andrey_1576525293.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/andreys_1573828244.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/matvey_1574089379.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/test_1577353990.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/book/card/card-book-min.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/card/card-book-min.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/book/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/layouts/site.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/book/profile_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/book/profile_content.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,12 +284,12 @@
     <state x="659" y="252" width="673" height="677" key="run.anything.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583490654896" />
     <state x="659" y="252" width="672" height="677" key="run.anything.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1585426449438" />
     <state x="1270" y="252" width="1370" height="677" key="run.anything.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1583355318522" />
-    <state x="658" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1585428009654">
+    <state x="658" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1585430304108">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="2530" y="238" width="698" height="696" key="search.everywhere.popup/70.27.1850.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1583960127525" />
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053/1920.0.1920.1080@70.27.1850.1053" timestamp="1583956721811" />
-    <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1585428009654" />
+    <state x="658" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1585430304108" />
     <state x="293" y="165" width="1370" height="678" key="search.everywhere.popup/70.27.3770.1053@70.27.3770.1053" timestamp="1585406433500" />
   </component>
 </project>

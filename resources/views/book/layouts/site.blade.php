@@ -30,9 +30,9 @@
                                                    class="input SearchLine__darkInput jest-search-input">
                                             <div class="simple-keyboard"></div>
                                             <label for="autoComplete"><i class="fas fa-search"></i></label>
-                                            <a href="#" class="virtual_kd">
-                                                <i class="fas fa-keyboard"></i>
-                                            </a>
+{{--                                            <a href="#" class="virtual_kd">--}}
+{{--                                                <i class="fas fa-keyboard"></i>--}}
+{{--                                            </a>--}}
                                         </form>
                                     </div>
                                 </div>

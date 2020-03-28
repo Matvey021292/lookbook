@@ -23,5 +23,6 @@
         @if($book->authors)
             @include(env('THEME') . '.card.card-authors', ['authors' => $book->authors])
         @endif
+        <div> <a href="" class="custom_btn">  читать  </a> </div>
     </div>
 </div>

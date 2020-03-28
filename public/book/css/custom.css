@@ -1995,6 +1995,8 @@ label[for='autoComplete'] {
 
 .autoComplete_result .test_sm {
     display: block;
+    font-size: 12px;
+    margin-top: 2px;
 }
 
 .text_sm {
@@ -2131,4 +2133,12 @@ body{
 .HeaderLinks__linksContainer .card-mh{
     max-height: 230px;
     overflow: auto;
+}
+
+
+.card-min .custom_btn{
+    font-size: 12px;
+    padding: 6px 25px;
+    margin-top: 2px;
+    width: auto;
 }

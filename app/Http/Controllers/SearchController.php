@@ -17,12 +17,12 @@ class SearchController extends SiteController
         $this->a_rep = $a_rep;
         $this->template = env('THEME') . '.search';
     }
-    
+
     public function index()
     {
         return view('search.search');
     }
-    
+
     public function search(Request $request)
     {
         $output = (object) array();
@@ -58,22 +58,25 @@ class SearchController extends SiteController
             foreach ($books as $key => $book) {
                 $book->key = 'Книга';
                 $book->slug = '/book/' . $book->id;
+                if($book->authors()){
+                    $book->FileAuthor = $book->authors()->first()->FirstName . ' ' . $book->authors()->first()->LastName;
+                }
                 $output->recipes[] = $book;
             }
         }
-        
+
         $output->count = count($books) + count($authors);
         if($request_replace && $output->count){
             $output->query = mb_convert_case($request_replace, MB_CASE_TITLE, "UTF-8");
         }
         echo json_encode($output);
     }
-    
+
     public function books(Request $request){
         $count =  Config::get('settings.pagination');
         $query = $request->input('query');
         $books = $this->b_rep->getBookByTitle($query, '', $count);
-        
+
         $content = view(env('THEME') . '.books_content')->with('books', $books)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
@@ -83,7 +86,7 @@ class SearchController extends SiteController
         $count =  Config::get('settings.pagination');
         $query = $request->input('query');
         $authors = $this->a_rep->getAuthorByTitle($query, '', $count);
-        
+
         $authors->transform(function ($item, $key) {
             $item->id = $item->author_ID;
             return $item;
@@ -92,7 +95,7 @@ class SearchController extends SiteController
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
-    
+
 
     public function searchIndex(Request $request)
     {
@@ -100,10 +103,10 @@ class SearchController extends SiteController
         if (empty($query)) {
             return;
         }
-        
+
         $search = [];
         $books = $this->b_rep->getBookByTitle($query);
-       
+
 
         if ($books->isNotEmpty()) {
             $search['books'] = $books;
@@ -112,7 +115,7 @@ class SearchController extends SiteController
                 return $item;
             });
         }
-        
+
         $authors =  $this->a_rep->getAuthorByTitle($query);
         if ($authors->isNotEmpty()) {
             $search['authors'] = $authors;
@@ -121,13 +124,13 @@ class SearchController extends SiteController
                 return $item;
             });
         }
-        
+
         $content = view(env('THEME') . '.search_content')->with('search', $search)->render();
         $this->vars = array_add($this->vars, 'content', $content);
         return $this->renderOutput();
     }
-    
-    public function textswitch ($text) 
+
+    public function textswitch ($text)
     {
        $str_search = array(
        "й","ц","у","к","е","н","г","ш","щ","з","х","ъ",
